@@ -1,6 +1,10 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.net.URLDecoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+<c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
+<c:set var="loginOut" value="${sessionScope.id==null ? '로그인' : '로그아웃' }"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,116 +12,161 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <title>Login</title>
+    <link rel="stylesheet" href="${contextPath}/resources/css/registerForm.css">
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
+    
+    <%-- 카카오 로그인용 --%>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <style>
-        * { box-sizing:border-box; }
-
-        form {
-            width:400px;
-            height:600px;
-            display : flex;
-            flex-direction: column;
-            align-items:center;
-            position : absolute;
-            top:50%;
-            left:50%;
-            transform: translate(-50%, -50%) ;
-            border: 1px solid rgb(89,117,196);
-            border-radius: 10px;
-        }
-
-        .input-field {
-            width: 300px;
-            height: 40px;
-            border : 1px solid rgb(89,117,196);
-            border-radius:5px;
-            padding: 0 10px;
-            margin-bottom: 10px;
-        }
-        label {
-            width:300px;
-            height:30px;
-            margin-top :4px;
-        }
-
-        button {
-            background-color: rgb(89,117,196);
-            color : white;
-            width:300px;
-            height:50px;
-            font-size: 17px;
-            border : none;
-            border-radius: 5px;
-            margin : 20px 0 30px 0;
-        }
-
-        .title {
-            font-size : 50px;
-            margin: 40px 0 30px 0;
-        }
-
-        .msg {
-            height: 30px;
-            text-align:center;
-            font-size:16px;
-            color:red;
-            margin-bottom: 20px;
-        }
-        .sns-chk {
-            margin-top : 5px; 
-        }
-    </style>
-    <title>Register</title>
+    .login,
+    .login a,
+	.input-field,
+	.input-field input,
+	.button-field,
+	.button-field input,
+	.button-field a,
+	.add-info,
+	.add-info span,
+	.add-info a,
+	.add-info label{
+	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
+	}
+	
+	</style>
+   
 </head>
 <body>
-   <form action="<c:url value="/register/save"/>" method="post" onsubmit="return formCheck(this)">
-    <div class="title">Register</div>
-    <div id="msg" class="msg">
-   	    <c:if test="${not empty param.msg}">
-	        <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
-	    </c:if>
-    </div> 
-    <label for="">아이디</label>
-    <input class="input-field" type="text" name="id" placeholder="8~12자리의 영대소문자와 숫자 조합">
-    <label for="">비밀번호</label>
-    <input class="input-field" type="text" name="pwd" placeholder="8~12자리의 영대소문자와 숫자 조합">
-    <label for="">이름</label>
-    <input class="input-field" type="text" name="name" placeholder="홍길동">
-    <label for="">이메일</label>
-    <input class="input-field" type="text" name="email" placeholder="example@fastcampus.co.kr"> 
-    <label for="">생일</label>
-    <input class="input-field" type="text" name="birth" placeholder="2020/12/31">
-    <div class="sns-chk">
-        <label><input type="checkbox" name="sns" value="facebook"/>페이스북</label>
-        <label><input type="checkbox" name="sns" value="kakaotalk"/>카카오톡</label>
-        <label><input type="checkbox" name="sns" value="instagram"/>인스타그램</label>
+	
+	
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('e482edbfbe6fe2c270c178df868185c5'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+//카카오로그아웃  
+function kakaoLogout() {
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined)
+    }
+  }  
+</script>
+
+	<section class="login">
+		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
+      <h1>Register</h1>
+      <form action="">
+        <div class="input-field">
+          <input type="email" id="u_id" autocomplete="off" required />
+          <span>USER EMAIL</span>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            id="u_pw"
+            required
+            maxlength="12"
+            minlength="8"
+          /><span>PASSWORD</span>
+        </div>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            id="u_name"
+            autocomplete="off"
+            required
+            maxlength="12"
+            minlength="1"
+          /><span>NAME</span>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            id="u_birth"
+            autocomplete="off"
+            required
+            maxlength="8"
+            minlength="8"
+          /><span>BIRTH</span>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            id="u_gender"
+            autocomplete="off"
+            required
+            maxlength="12"
+            minlength="1"
+          /><span>GENDER</span>
+        </div>
+        
+        
+        <div class="button-field">
+          <input type="submit" value="Sing In" id="login-btn" />
+          <input type="submit" value="KAKAO" id="kakao-btn" />
+        </div>
+        <div class="add-info">
+          <label>
+            <input type="checkbox" name="" id="save-email" />
+            <em></em>
+            <span>Save your Email?</span>
+          </label>
+          <a href="#none">Forgot Password?</a>
+          <a href="#none">Sign Up</a>
+        </div>
+      </form>
+    
+    <script src="${contextPath}/resources/js/validCheck.js">
+    </script>
+     <%--  커서 전체화면 적용하기 --%>
+      
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
     </div>
-    <button>회원 가입</button>
-   </form> 
-   <script>
-       function formCheck(frm) {
-            let msg ='';
-
-            if(frm.id.value.length<3) {
-                setMessage('id의 길이는 3이상이어야 합니다.', frm.id);
-                return false;
-            }
-
-            if(frm.pwd.value.length<3) {
-                setMessage('pwd의 길이는 3이상이어야 합니다.', frm.pwd);
-                return false;
-            }           
-           
-           return true;
-       }
-
-       function setMessage(msg, element){
-            document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}</i>`;
-
-            if(element) {
-                element.select();
-            }
-       }
-   </script>
+    </section>
+    
+    <script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script> 
+    
+    
+    
 </body>
 </html>

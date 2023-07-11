@@ -14,39 +14,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/loginForm.css">
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
     
     <%-- 카카오 로그인용 --%>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    
-    <%-- 커스텀 커서 안먹는 곳을 이미지로 대체  --%>
     <style>
-	.id,
-	.pwd,
-	.rememberId,
-	.bottomInfo,
-	.loginBtn{
+    .login,
+    .login a,
+	.input-field,
+	.input-field input,
+	.button-field,
+	.button-field input,
+	.button-field a,
+	.add-info,
+	.add-info span,
+	.add-info a,
+	.add-info label{
 	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 	}
 	
 	</style>
+   
 </head>
 <body>
 	
-	<section>
-		<h1>테스트</h1>
-		<ul>
-	<li onclick="kakaoLogin();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그인</span>
-      </a>
-	</li>
-	<li onclick="kakaoLogout();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그아웃</span>
-      </a>
-	</li>
-</ul>
+	
 <!-- 카카오 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
@@ -87,58 +84,43 @@ function kakaoLogout() {
     }
   }  
 </script>
-	</section>
 
-	<section>
-    <form action="<c:url value='/login/login'/>" method="post" onsubmit="return formCheck(this);">
-        <h3 id="title">Login</h3>
-        <div id="msg">
-	    <c:if test="${not empty param.msg}">
-		<i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
-	    </c:if>        
-		</div>
-        <input type="text" class="id" name="id" placeholder="이메일 입력" autofocus>
-        <input type="password" class="pwd" name="pwd" placeholder="비밀번호">
-        <input type="button" class="kakaoLogin" name="kakaoLogin">
-	      <a href="javascript:void(0)" onclick="kakaoLogin();">
-	          <span>카카오 로그인</span>
-	      </a>
-        
-        
-        <button class="loginBtn">로그인</button>
-        <div class="bottomInfo">
-            <label><input type="checkbox" class="rememberId" name="rememberId"> 아이디 기억</label> |
-            <a href="">비밀번호 찾기</a> |
-            <a href="register/add">회원가입</a>
+	<section class="login">
+		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
+      <h1>Login</h1>
+      <form action="">
+        <div class="input-field">
+          <input type="email" id="userid" autocomplete="off" required />
+          <span>USER EMAIL</span>
         </div>
-        <script>
-            function formCheck(frm) {
-                 let msg ='';
-     
-                 if(frm.id.value.length==0) {
-                     setMessage('id를 입력해주세요.', frm.id);
-                     return false;
-                 }
-     
-                 if(frm.pwd.value.length==0) {
-                     setMessage('password를 입력해주세요.', frm.pwd);
-                     return false;
-                 }
-
-                 return true;
-            }
-     
-            function setMessage(msg, element){
-                 document.getElementById("msg").innerHTML = ` ${'${msg}'}`;
-     
-                 if(element) {
-                     element.select();
-                 }
-            }
-        </script>
-    </form>
+        <div class="input-field">
+          <input
+            type="password"
+            id="userpw"
+            required
+            maxlength="12"
+            minlength="8"
+          /><span>PASSWORD</span>
+        </div>
+        <div class="button-field">
+          <input type="submit" value="Sing In" id="login-btn" />
+          <input type="submit" value="KAKAO" id="kakao-btn" />
+        </div>
+        <div class="add-info">
+          <label>
+            <input type="checkbox" name="" id="save-email" />
+            <em></em>
+            <span>Save your Email?</span>
+          </label>
+          <a href="#none">Forgot Password?</a>
+          <a href="#none">Sign Up</a>
+        </div>
+      </form>
     
-      <%-- 커서 전체화면 적용하기 --%>
+    <script src="${contextPath}/resources/js/validCheck.js">
+    </script>
+     <%--  커서 전체화면 적용하기 --%>
+      
     <div class="cursor">
     	<div class="cursor__default">
     		<span class="cursor__default__inner"></span>
@@ -149,7 +131,8 @@ function kakaoLogout() {
     </div>
     </section>
     
-    <script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script> 
+    
     
     
 </body>
