@@ -90,13 +90,13 @@ function kakaoLogout() {
       <h1>Register</h1>
       <form action="">
         <div class="input-field">
-          <input type="email" id="userid" autocomplete="off" required />
+          <input type="email" id="u_id" autocomplete="off" required />
           <span>USER EMAIL</span>
         </div>
         <div class="input-field">
           <input
             type="password"
-            id="userpw"
+            id="u_pw"
             required
             maxlength="12"
             minlength="8"
@@ -106,7 +106,7 @@ function kakaoLogout() {
         <div class="input-field">
           <input
             type="text"
-            id="username"
+            id="u_name"
             autocomplete="off"
             required
             maxlength="12"
@@ -116,7 +116,7 @@ function kakaoLogout() {
         <div class="input-field">
           <input
             type="text"
-            id="userbirth"
+            id="u_birth"
             autocomplete="off"
             required
             maxlength="8"
@@ -126,7 +126,7 @@ function kakaoLogout() {
         <div class="input-field">
           <input
             type="text"
-            id="usergender"
+            id="u_gender"
             autocomplete="off"
             required
             maxlength="12"

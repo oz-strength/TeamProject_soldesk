@@ -1,8 +1,8 @@
-  var userId = $('#userid'),
-    userPw = $('#userpw'),
-    userName = $('#username'),
-    userBirth = $('#userbirth'),
-    userGender = $('#usergender'),
+  var userId = $('#u_id'),
+    userPw = $('#u_pw'),
+    userName = $('#u_name'),
+    userBirth = $('#u_birth'),
+    userGender = $('#u_gender'),
     loginBtn = $('#login-btn');
 
   loginBtn.click(function () {
