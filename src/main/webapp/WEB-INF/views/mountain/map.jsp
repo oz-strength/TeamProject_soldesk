@@ -11,27 +11,17 @@
 <head>
 	<meta charset="UTF-8">
     <title>TeamProject</title>
-    <link rel="stylesheet" href="resources/css/home.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-	<script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		
-		$(document).ready(function(){
-			
-			// 스크롤 내려갈 때 메뉴 고정
-			var header = $("header");
-			$(window).scroll(function(){
-				if($(this).scrollTop() > 0){
-					header.addClass('sticky');
-				}else{
-					header.removeClass('sticky');
-				}
-			});
-			
-		});
-		
-	</script>
-    <style>
+    <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
+    <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
+	<style>
+	
+.sns a,
+.policy a,
+.button-in-header,
+.button-in-header a,
+.btn-explore {
+cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
+	
 .map {
   margin-top: 250px;
   text-align: center;
@@ -42,54 +32,22 @@
   stroke: #eee;
   stroke-width: 2;
 }
-#CD11 {
-  fill: #eeeeee22;
-}
-#CD26 {
-  fill: #eeeeee22;
-}
-#CD27 {
-  fill: #eeeeee22;
-}
-#CD28 {
-  fill: #eeeeee22;
-}
-#CD29 {
-  fill: #eeeeee22;
-}
-#CD30 {
-  fill: #eeeeee22;
-}
-#CD31 {
-  fill: #eeeeee22;
-}
-#CD36 {
-  fill: #eeeeee22;
-}
-#CD41 {
-  fill: #eeeeee22;
-}
-#CD42 {
-  fill: #eeeeee22;
-}
-#CD43 {
-  fill: #eeeeee22;
-}
-#CD44 {
-  fill: #eeeeee22;
-}
-#CD45 {
-  fill: #eeeeee22;
-}
-#CD46 {
-  fill: #eeeeee22;
-}
-#CD47 {
-  fill: #eeeeee22;
-}
-#CD48 {
-  fill: #eeeeee22;
-}
+#CD11,
+#CD26,
+#CD27,
+#CD28,
+#CD29,
+#CD30,
+#CD31,
+#CD36,
+#CD41,
+#CD42,
+#CD43,
+#CD44,
+#CD45,
+#CD46,
+#CD47,
+#CD48,
 #CD50 {
   fill: #eeeeee22;
 }
@@ -101,85 +59,37 @@
   alignment-baseline: middle;
   pointer-events: none;
 }
-#CD11:hover {
-  fill: #f1c40f;
-}
-#CD26:hover {
-  fill: #f1c40f;
-}
-#CD27:hover {
-  fill: #f1c40f;
-}
-#CD28:hover {
-  fill: #f1c40f;
-}
-#CD29:hover {
-  fill: #f1c40f;
-}
-#CD30:hover {
-  fill: #f1c40f;
-}
-#CD31:hover {
-  fill: #f1c40f;
-}
-#CD36:hover {
-  fill: #f1c40f;
-}
-#CD41:hover {
-  fill: #f1c40f;
-}
-#CD42:hover {
-  fill: #f1c40f;
-}
-#CD43:hover {
-  fill: #f1c40f;
-}
-#CD44:hover {
-  fill: #f1c40f;
-}
-#CD45:hover {
-  fill: #f1c40f;
-}
-#CD46:hover {
-  fill: #f1c40f;
-}
-#CD47:hover {
-  fill: #f1c40f;
-}
-#CD48:hover {
-  fill: #f1c40f;
-}
+#CD11:hover,
+#CD26:hover, 
+#CD27:hover, 
+#CD28:hover, 
+#CD29:hover, 
+#CD30:hover, 
+#CD31:hover, 
+#CD36:hover, 
+#CD41:hover, 
+#CD42:hover, 
+#CD43:hover, 
+#CD44:hover, 
+#CD45:hover, 
+#CD46:hover, 
+#CD47:hover, 
+#CD48:hover, 
 #CD50:hover {
   fill: #f1c40f;
 }
-   	
     </style>
 </head>
 <body>
 
-	<header>
-			<div class="container">
-	            <div class="inner">
-	                <div class="head-container">
-	                    <div><a class="head-home" href="${contextPath}/"><img class="logo" src="${contextPath}/resources/images/mountain-solid.svg" alt="team logo" /></a></div>
-	                    <div><a class="head-board" href="board/list">동호회</a></div>
-	                    <div><a href="#">등산로 추천</a></div>
-	                    <div><a href="#">문의사항</a></div>
-	                    <div><a href=""><i class="fas fa-search small"></i></a></div>
-	                    <div>
-	                  		<a class="head-login" href="<c:url value='${loginOutLink }'/>">${loginOut }</a>
-	                        <a class="head-signup" href="<c:url value='register/add'/>">회원가입</a>
-	                    </div>
-	                </div>
-	            </div>
-			</div>
-	</header>
-
+	<%-- 헤더 컴포넌트 가져오기 --%>
+	<%@ include file="/WEB-INF/views/header.jsp" %>
+	
 	<section style="text-align:center">
 	
 	    <div class="map">
 	      <svg
-	        style="background: #fffefe; overflow: visible"
+	        style="background: beige; overflow: visible"
 	        height="1107"
 	        width="800"
 	        xmlns="http://www.w3.org/2000/svg"
@@ -303,12 +213,25 @@
 	      </svg>
 	    </div>
 	</section>
-
-	<footer>
-	</footer>
-
+	
+	
+	 <%-- 커서 전체화면 적용하기 --%>
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
+    </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+	
+	
+	
+	
+	
 	<a id="backtotop" ></a>
-	<script type="text/javascript" src="resources/js/home.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
 	<script>
 		$('.btn-mode').click(function(){
@@ -318,13 +241,9 @@
 		    $(this).toggleClass('active')
 		})
 	</script>
-
-
+	
+	<%-- footer 컴포넌트 가져오기 --%> 
+	<%@ include file="/WEB-INF/views/footer.jsp" %>
+	
 </body>
 </html>
-
-
-
-
-
-
