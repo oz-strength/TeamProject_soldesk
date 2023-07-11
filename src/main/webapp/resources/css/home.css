@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+ 
+ /* CSS RESET */ 
+ * { 
+  	box-sizing: border-box;
+  }
+  
+  body {
+  	margin: 0 auto;
+  	font-family: 'Noto Sans KR', sans-serif;
+  	color: #3f464d ;
+  	line-height: 1.5em;
+  	font-size: 15px;
+  	font-weight: 300;
+  }
+  
+  a {
+  	all: reset;
+  }
+  a:link {
+  	text-decoration: none;
+  	color: #3f464d ;
+  }
+  a:visited {
+  	text-decoration: none;
+  	color: #3f464d ;
+  }
+  a:active{
+  	text-decoration: none;
+  	color: #3f464d ;
+  }
+  a:hover{
+  	text-decoration: none;
+  	color: #3f464d ;
+  }
+/* CSS RESET */ 
+  
+  
+/*navigation menu*/
+.logo {
+  height: 64px;
+  cursor: pointer;
+}
+header {
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+header.sticky {
+	padding: 7px 0;
+	background-color: #fff;
+	box-shadow: 0 2px 2px rgba(0,0,0,.3);
+	 
+}
+
+header.sticky .head-container div > a{
+	color: #3BB7EA;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.head-container {
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head-container .head-home {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.head-container a {
+  color: #3f464d;
+}
+
+.head-container a:hover {
+  color: #2186c4;
+  cursor: pointer;
+}
+
+.head-container .head-login {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.head-container .head-signup {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.head-container .lnb .info,
+.head-container .lnb .logout,
+.head-container .lnb .welcome {
+  padding: 10px;
+}
+/*navigation menu*/
+
+/*back to top button*/
+#backtotop {
+  backgrond-color: rgb(47, 48, 89);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition-property: background-color, opacity, visibility;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+#backtotop::after {
+  content: '\f077';
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 40px;
+  color: #fff;
+}
+
+#backtotop.show:hover {
+  cursor: pointer;
+  background-color: #74c0f0;
+}
+
+#backtotop.show {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgb(47, 48, 49);
+}
+/*back to top button*/
+
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%) scale(0.7);
+  z-index: 10;
+  opacity: 0;
+  transition: .5s;
+  visibility: hidden;
+}
+.modal.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
+.modal-content {
+  border: 1px solid #000; 
+  width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+}
+.modal-content > div {
+  padding: 10px;
+}
+
+.desc {
+	background-color: #d0f9ff;
+  flex: 2;
+  text-align: center;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: .5s;
+  pointer-events: none;
+  /* visibility: hidden; */
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+  /* visibility: visible; */
+}
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  outline: none;
+}
+.btn-close:hover {
+  color: #000;
+}
+
+.desc-content {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  margin-top: 30px;
+  border: none;
+  outline: none;
+}
+
+.desc-content > div {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: crimson;
+  color: #fff;
+  /*cursor: pointer;*/
+  padding: 7px;
+  outline: none;
+}
+/* modal */
+
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .modal-content > div {
+    width: 350px;
+  }
+  .photo {
+    flex-basis: 250px;
+    /* height: 250px; */
+    /* width: 250px; */
+  }
+}
