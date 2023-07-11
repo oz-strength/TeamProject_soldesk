@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/loginForm2.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/registerForm.css">
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -87,7 +87,7 @@ function kakaoLogout() {
 
 	<section class="login">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <form action="">
         <div class="input-field">
           <input type="email" id="userid" autocomplete="off" required />
