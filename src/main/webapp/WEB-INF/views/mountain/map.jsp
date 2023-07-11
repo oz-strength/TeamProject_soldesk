@@ -12,7 +12,7 @@
 	<meta charset="UTF-8">
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
-    <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
+<%--     <link rel="stylesheet" href="${contextPath}/resources/css/weather.css">--%>    <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<style>
 	
 .sns a,
@@ -23,7 +23,7 @@
 cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	
 .map {
-  margin-top: 250px;
+  margin-top: -600px;
   text-align: center;
   align-items: center;
 }     	
@@ -84,6 +84,368 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	
+	<%-- 날씨현황 표  --%>
+	    <section class="portfolio">
+      <div class="headline-share">
+        <!-- <h1>오늘의 지역별 날씨현황</h1> -->
+      </div>
+      <div class="items">
+        <aside class="item">
+          <b>Today's weather</b>
+          <h2>지역별 날씨 현황을 알려드립니다</h2>
+          <p>지도를 클릭하시면 원하는 지역의 정보를 확인할수 있습니다</p>
+          <p>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+          </p>
+        </aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">인천</div>
+            </div>
+            <div class="Info">
+              <div class="2">맑음</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">경기</div>
+            </div>
+            <div class="Info">
+              <div class="2">폭우</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            경기
+            <a href="">폭우</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum"></div>
+        <div class="item thum"></div>
+      </div>
+      <div class="items">
+        <aside class="item"></aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            경기
+            <a href="">폭우</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+
+        <div class="item thum"></div>
+        <div class="item thum"></div>
+      </div>
+      
+      <div class="items">
+        <aside class="item"></aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            경기
+            <a href="">폭우</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+
+        <div class="item thum"></div>
+        <div class="item thum"></div>
+      </div>
+      <div class="items">
+        <aside class="item"></aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            경기
+            <a href="">폭우</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+
+        <div class="item thum"></div>
+        <div class="item thum"></div>
+      </div>
+      <div class="items">
+        <aside class="item"></aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            경기
+            <a href="">폭우</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+
+        <div class="item thum"></div>
+        <div class="item thum"></div>
+      </div>
+      <div class="items">
+        <aside class="item"></aside>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            서울
+            <a href="">흐림</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+        <div class="item thum">
+          <div class="photo">
+            <div class="Info">
+              <div class="1">서울</div>
+            </div>
+            <div class="Info">
+              <div class="2">흐림</div>
+            </div>
+            <div class="Info">
+              <div class="3">아이콘</div>
+            </div>
+          </div>
+          <span class="portfolio-title">
+            인천
+            <a href="">맑음</a>
+            <a href="">아이콘</a>
+          </span>
+        </div>
+     
+
+      </div>
+      
+      
+    </section>
+	
 	
 	<section style="text-align:center">
 	
@@ -215,6 +577,9 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	</section>
 	
 	
+	
+	
+	
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">
     	<div class="cursor__default">
@@ -228,8 +593,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	
 	
 	
-	
-	
+	<!-- 위로가기 버튼 -->
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
