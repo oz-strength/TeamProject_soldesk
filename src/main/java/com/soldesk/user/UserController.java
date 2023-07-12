@@ -29,13 +29,13 @@ public class UserController {
 	@RequestMapping(value = "/login/user.register", method = RequestMethod.POST)
 	public String regUser(User u, HttpServletRequest req) {
 		uDAO.regUser(u, req);
-		return "homeVer1"; // 회원가입 후 메인 이동
+		return "home"; // 회원가입 후 메인 이동
 	}
 	
 	// 로그인 기능
 	@RequestMapping(value = "/user.login", method = RequestMethod.GET)
 	public String loginUser(User u, HttpServletRequest req) {
-		return "homeVer1"; // 로그인 후 메인화면 이동
+		return "home"; // 로그인 후 메인화면 이동
 	}
-
+	
 }

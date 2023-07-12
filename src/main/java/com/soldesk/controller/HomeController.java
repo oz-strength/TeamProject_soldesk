@@ -16,7 +16,7 @@ public class HomeController {
 	// 초기화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome() {
-		return "mountain/map";
+		return "home";
 	}
 	
 	// 전국 지도 화면
@@ -28,7 +28,7 @@ public class HomeController {
 	// 마이 페이지 [미구현]
 	@RequestMapping(value = "/user/mypage", method = RequestMethod.GET)
 	public String goMypage() {
-		return "homeVer1";
+		return "home";
 	}
 	
 	// 자유 게시판 [미구현]

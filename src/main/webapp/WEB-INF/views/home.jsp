@@ -11,7 +11,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>TeamProject</title>
-    <link rel="stylesheet" href="resources/css/homeVer1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/homeVer1.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<style>
 	.sns a,
@@ -19,7 +19,7 @@
 	.button-in-header,
 	.button-in-header a,
 	.btn-explore {
-	cursor: url(resources/images/mouse-pointer.png), auto;
+	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 }
 
 </style>
@@ -1722,7 +1722,7 @@
         <div class="items">
           <div class="item">
             <div class="photo">
-              <img src="resources/images/mountaincard.png" alt="" />
+              <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
             </div>
             <div class="detail">
               <h2>내 주변에 있는 산은?</h2>
@@ -1732,7 +1732,7 @@
           </div>
           <div class="item">
             <div class="photo">
-              <img src="resources/images/mountaincard.png" alt="" />
+              <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
             </div>
             <div class="detail">
               <h2>내게 맞는 코스는?</h2>
@@ -1742,7 +1742,7 @@
           </div>
           <div class="item">
             <div class="photo">
-              <img src="resources/images/mountaincard.png" alt="" />
+              <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
             </div>
             <div class="detail">
               <h2>모르는게 있음 물어봐!</h2>
@@ -1759,12 +1759,12 @@
 	
 	
 	
-	<script type="text/javascript" src="resources/js/homeVer1.js"></script>
-	<script type="text/javascript" src="resources/js/cursor.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/homeVer1.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
 	
 	
 	<a id="backtotop" ></a>
-	<script type="text/javascript" src="resources/js/backtotop.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
 	<script>
 		$('.btn-mode').click(function(){
