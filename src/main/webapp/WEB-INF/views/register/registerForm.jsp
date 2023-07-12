@@ -141,17 +141,8 @@ function kakaoLogout() {
         
         <div class="button-field">
           <input type="submit" value="Sing In" id="login-btn" />
-<!--           <input type="submit" value="KAKAO" id="0kakao-btn" onclick="kakaoLogin();"/>
- -->        </div>
-        <div class="add-info">
-          <label>
-            <input type="checkbox" name="" id="save-email" />
-            <em></em>
-            <span>Save your Email?</span>
-          </label>
-          <a href="#none">Forgot Password?</a>
-          <a href="#none">Sign Up</a>
-        </div>
+       </div>
+        
       </form>
     
     <script src="${contextPath}/resources/js/validCheck.js">

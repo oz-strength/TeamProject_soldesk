@@ -104,7 +104,7 @@ function kakaoLogout() {
         </div>
         <div class="button-field">
           <input type="submit" value="Sing In" id="login-btn" />
-          <input type="submit" value="KAKAO" id="kakao-btn" />
+          
         </div>
         <div class="add-info">
           <label>
@@ -113,10 +113,11 @@ function kakaoLogout() {
             <span>Save your Email?</span>
           </label>
           <a href="#none">Forgot Password?</a>
-          <a href="#none">Sign Up</a>
+          <a href="signup">Sign Up</a>
         </div>
       </form>
-    
+<!--       <input type="submit" value="KAKAO" id="kakao-btn" onclick="kakaoLogin();" />
+ -->    
     <script src="${contextPath}/resources/js/validCheck.js">
     </script>
      <%--  커서 전체화면 적용하기 --%>
