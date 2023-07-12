@@ -88,9 +88,9 @@ function kakaoLogout() {
 	<section class="login">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
       <h1>Register</h1>
-      <form action="user/register" method="post">
+      <form action="user.register" method="post">
         <div class="input-field">
-          <input type="email" name="u_name" id="u_id" autocomplete="off" required />
+          <input type="email" name="u_email" id="u_id" autocomplete="off" required />
           <span>USER EMAIL</span>
         </div>
         <div class="input-field">
@@ -141,8 +141,8 @@ function kakaoLogout() {
         
         <div class="button-field">
           <input type="submit" value="Sing In" id="login-btn" />
-          <input type="submit" value="KAKAO" id="kakao-btn" onclick="kakaoLogin();"/>
-        </div>
+<!--           <input type="submit" value="KAKAO" id="0kakao-btn" onclick="kakaoLogin();"/>
+ -->        </div>
         <div class="add-info">
           <label>
             <input type="checkbox" name="" id="save-email" />
