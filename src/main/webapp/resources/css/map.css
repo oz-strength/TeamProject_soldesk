@@ -208,7 +208,7 @@ a {
 .map{
 	display:flex;
 	justify-content: right;
-	margin-right: 150px;
+	margin-right: 50px;
 }
 
 /* 날씨현황 표 디자인 */
@@ -266,9 +266,10 @@ h6 {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
 }
-section.portfolio {
+section.weather-section {
   height: 100vh;
-  width:800px;
+  width:1200px;
+  margin-top:80px;
   display: grid;
   justify-items: left;
   align-content: center;
@@ -277,9 +278,10 @@ section.portfolio {
 } 
 .items {
 	margin-left:30px;
+	margin-bottom:20px;
   width: 800px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
 }
 
@@ -287,8 +289,6 @@ section.portfolio {
 	/* margin-bottom: 300px ; */
 }
 
-.item.thum {
-}
 .item.thum .photo {
 	
   display: grid;
@@ -299,13 +299,47 @@ section.portfolio {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.Info {
+/* 
+2 - 30px
+4 - 60px
+1 - 15px
+1.5 - 22.5px
+1.5 - 22.5px
+ */
+.weather-icon {
+	background:url(../images/rainy-day.png) no-repeat center;
 	background-color:#eee;
-  height: 60px;
-  border: 1px solid #000;
+  height: 50px;
+  width: 50px;
   border-radius: 10px;
 }
-
+.temp {
+	margin-top:10px;
+	background-color:#eee;
+  height: 40px;
+  width: 55px;
+  border-radius: 10px;
+  font-size:25px;
+}
+.local {
+	background-color:#eee;
+  height: 25px;
+  width: auto;
+  margin-top:10px;
+  border-radius: 10px;
+}
+.max-temp {
+	background-color:#eee;
+  height: 30px;
+  width: auto;
+  border-radius: 10px;
+}
+.min-temp {
+	background-color:#eee;
+  height: 30px;
+  width: auto;
+  border-radius: 10px;
+}
 
 
 /* footer 디자인*/

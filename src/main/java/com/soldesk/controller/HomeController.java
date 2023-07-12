@@ -16,7 +16,7 @@ public class HomeController {
 	// 초기화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome() {
-		return "homeVer1";
+		return "mountain/map";
 	}
 	
 	// 로그인 화면
