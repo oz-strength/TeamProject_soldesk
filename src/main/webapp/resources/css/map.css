@@ -1,136 +1,36 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6em;
+  background-color: #fff;
+  color: #222;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+h6 {
+  margin-top: 0;
 }
 
 body {
-  height: 190vh;
-  background-color: beige;
+	/* height:300vh */
+	background-color: beige;
   cursor:none !important; /*기본 마우스 없애기*/
 }
 
@@ -265,6 +165,7 @@ a {
   min-width: 1000px;
 }
 
+
 /* backtotop 버튼 */
 #backtotop {
   background-color: rgb(47, 48, 89);
@@ -302,117 +203,109 @@ a {
 }
 /*back to top button*/
 
-/*parallax 이미지*/
-#image-wrapper {
-  overflow: hidden;
-}
-
-#main-image {
-  min-width: 1000px;
-}
-
-@keyframes upAndDown{
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-10px);
-	}
-	100% {
-		transform: translateY(0);
-	}
-}
-
-#sun{
-	animation: upAndDown 1s infinite;
-}
-
 
 /* map 이미지*/
 .map{
 	display:flex;
-	justify-content: center;
+	justify-content: right;
+	margin-right: 150px;
 }
 
-/* card 디자인 */
-.card {
-	margin: 300px 0 100px 0;
+/* 날씨현황 표 디자인 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* * {
+  box-sizing: border-box;
+  outline: none;
+} */
+
+/* body {
   font-size: 15px;
-  color: #1E90FF;
-  line-height: 1.5em;
-  font-weight: 300;
-}
-.inner {
-  width: 1100px;
-  margin: auto;
-}
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6em;
+  background-color: #fff;
+  color: #222;
+  margin: 0;
+} */
 
-.heading {
+/* a {
+  text-decoration: none;
+  color: #222;
+} */
+/* 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+} */
+
+.headline-share {
+	height:65vh;
   text-align: center;
-  font-size: 40px;
-  font-weight: normal;
-  position: relative;
-  padding-bottom: 30px;
 }
-
-.heading:after {
+.headline-share h1 {
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: relative;
+  padding-bottom: 50px;
+  margin-bottom: 70px;
+}
+.headline-share h1:before {
   content: '';
   position: absolute;
-  height: 3px;
-  width: 100px;
-  background-color: greenyellow;
+  height: 5px;
+  width: 80px;
+  background: linear-gradient(to right, #1f8de6, #52d6fe);
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
 }
-
+.font-noto {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+section.portfolio {
+  height: 100vh;
+  width:800px;
+  display: grid;
+  justify-items: left;
+  align-content: center;
+/*  /*  background-position: top right;
+/*  */  background-repeat: no-repeat; */
+} 
 .items {
-	margin-top: 50px;
-  text-align: center;
-}
-.item {
-  width: 350px;
-  display: inline-block;
-  margin: 5px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-sizing: border-box;
-  vertical-align: top;
-  border-radius: 5px;
-}
-.item h2 {
-  font-weight: normal;
-}
-.item p {
-  font-size: 18px;
-  line-height: 1.5em;
-  text-align: left;
-}
-.item .detail {
-  padding: 40px 0;
+	margin-left:30px;
+  width: 800px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
 }
 
-.btn-explore {
-  background-color: dodgerblue;
-  color: #fff;
-  display: block;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 5px;
-  border-radius: 3px;
+.items:last-child{
+	/* margin-bottom: 300px ; */
 }
 
-.item:hover .photo img {
-  transform: scale(1.1);
+.item.thum {
+}
+.item.thum .photo {
+	
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.15);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Info {
+	background-color:#eee;
+  height: 60px;
+  border: 1px solid #000;
+  border-radius: 10px;
 }
 
-.photo {
-  border-radius: 5px;
-}
-
-.photo img {
-  transition: 0.5s;
-}
 
 
 /* footer 디자인*/
