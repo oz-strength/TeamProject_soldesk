@@ -129,10 +129,11 @@ table {
 }
 
 body {
-  height: 240vh;
   background-color: #00110c;
   cursor:none !important; /*기본 마우스 없애기*/
 }
+
+
 
 /*cursor 디자인하기*/
 .cursor{
@@ -556,21 +557,6 @@ a {
   padding: 7px;
   outline: none;
 }
-/* modal */
 
 
 
-@media (max-width: 768px) {
-  .modal-content {
-    flex-direction: column;
-    width: 100%;
-  }
-  .modal-content > div {
-    width: 350px;
-  }
-  .photo {
-    flex-basis: 250px;
-    /* height: 250px; */
-    /* width: 250px; */
-  }
-}
