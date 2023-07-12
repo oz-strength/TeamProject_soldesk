@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.user.UserMapper">
+
+	<!-- 회원가입 -->
+	<insert id="regUser"
+		parameterType="com.soldesk.user.User">
+		INSERT INTO soldesk_user_tb
+		VALUES(#{u_email}, #{u_pw}, #{u_name}, to_date(#{u_birth}, 'YYYY-MM-DD'), #{u_gender}, 0, 'NONE', 'NONE', 0)
+	</insert>
+
+</mapper>
+	

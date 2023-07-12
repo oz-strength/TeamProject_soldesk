@@ -19,18 +19,6 @@ public class HomeController {
 		return "homeVer1";
 	}
 	
-	// 로그인 화면
-	@RequestMapping(value = "/login/login", method = RequestMethod.GET)
-	public String goLogin() {
-		return "user/loginForm";
-	}
-	
-	// 회원가입 화면
-	@RequestMapping(value = "/login/signup", method = RequestMethod.GET)
-	public String goSignup() {
-		return "register/registerForm";
-	}
-	
 	// 전국 지도 화면
 	@RequestMapping(value = "/mountain/map", method = RequestMethod.GET)
 	public String goMountain_map() {
