@@ -26,7 +26,7 @@ public class UserController {
 	}
 
 	// 회원가입 기능
-	@RequestMapping(value = "/user.register", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/user.register", method = RequestMethod.POST)
 	public String regUser(User u, HttpServletRequest req) {
 		uDAO.regUser(u, req);
 		return "homeVer1"; // 회원가입 후 메인 이동
