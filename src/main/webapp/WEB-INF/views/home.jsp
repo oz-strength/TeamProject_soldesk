@@ -11,7 +11,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>TeamProject</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/homeVer1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/home.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<style>
 	.sns a,
@@ -1728,7 +1728,7 @@
               <h2>내 주변에 있는 산은?</h2>
               <p>아무말대잔치아무말대잔치아무말대잔치아무말대잔치</p>
             </div>
-            <a href="${contextPath}/mountain/all" class="btn-explore">explore</a>
+            <a href="${contextPath}/mountain/map" class="btn-explore">explore</a>
           </div>
           <div class="item">
             <div class="photo">

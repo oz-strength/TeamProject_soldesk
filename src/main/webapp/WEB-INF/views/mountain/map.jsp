@@ -10,8 +10,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mapResponsive.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
@@ -28,9 +30,9 @@
 cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	
 .map {
-  margin-top: -700px;
-  text-align: center;
-  align-items: center;
+  /* margin-top: -700px */;
+  /* text-align: center;
+  align-items: center; */
 }     	
 .OUTLINE {
   stroke-linejoin: round;
@@ -89,7 +91,8 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-	
+
+<div class="container">
 	<%-- 날씨현황 표  --%>
 	    <section class="weather-section">
       <div class="headline-share">
@@ -485,7 +488,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	      </svg>
 	    </div>
 	</section>
-	
+</div>	
 	
 	
 	

@@ -14,12 +14,12 @@
       	<span class="long-text">INTRO</span>
       	<span class="short-text"></span>
       </a>
-      <a class="button-in-header">
+      <a href="${contextPath}/mountain/map" class="button-in-header">
       	<span class="long-text">WEATHER</span>
       	<span class="short-text"></span>
       </a>
-      <a class="button-in-header">
-      	<span class="long-text">MAP</span>
+      <a href="${contextPath}/board/free" class="button-in-header">
+      	<span class="long-text">BOARD</span>
       	<span class="short-text"></span>
       </a>
       <a class="button-in-header">
