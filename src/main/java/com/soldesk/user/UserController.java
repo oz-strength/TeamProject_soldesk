@@ -22,7 +22,7 @@ public class UserController {
 	// 회원가입 화면
 	@RequestMapping(value = "/login/signup", method = RequestMethod.GET)
 	public String goSignup() {
-		return "register/registerForm";
+		return "register/signupForm";
 	}
 
 	// 회원가입 기능
