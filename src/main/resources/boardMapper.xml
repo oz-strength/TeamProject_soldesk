@@ -8,5 +8,10 @@
 		INSERT INTO SOLDESK_BOARD_FREE_TB(b_no, b_u_email, b_title, b_writer, b_detail, b_indate, b_photo)
 		VALUES(BOARD_FREE_SEQ.NEXTVAL, 'aa@aa.com', #{b_title}, #{b_writer}, #{b_detail}, sysdate, #{b_photo})
 	</insert>
-
+	
+	<!-- 자유게시판 전체 글 조회 -->
+	<select id="getAllFreeBoard"
+		resultType="com.soldesk.board.FreeBoard">
+		SELECT * FROM SOLDESK_BOARD_FREE_TB ORDER BY B_NO DESC
+	</select>
 </mapper>

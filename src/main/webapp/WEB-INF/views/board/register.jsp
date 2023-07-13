@@ -48,7 +48,7 @@
 					<tr class="button-area">
 						<td colspan="2">
 							<button class="regBtn"  type="submit">등록</button>
-							<a class="cancleBtn" href="free">취소</button>
+							<a class="cancleBtn" href="free">취소</a>
 						</td>
 					</tr>
 				</table>
