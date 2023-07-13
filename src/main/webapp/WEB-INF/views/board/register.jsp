@@ -19,7 +19,7 @@
 	<section class="board-write">
 
 		<div class="writeBox">
-			<form action="insert" method="post" onsubmit="return formCheck(this)">
+			<form action="regFreeBoard" method="post" onsubmit="return formCheck(this)">
 			
 				<div id="msg" class="msg">
 						<c:if test="${not empty param.msg}">
