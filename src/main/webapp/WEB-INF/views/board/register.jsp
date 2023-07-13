@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>    
 </head>
 <body>
-<div class="menu">
+<%-- <div class="menu">
 	<ul>
 	    <li class="logo">TeamProject</li>
 	    <li><a href="${contextPath}/">Home</a></li>
@@ -24,41 +24,51 @@
 	    <li><a href="">Sign in</a></li>
 	    <li><a href=""><i class="fas fa-search small"></i></a></li>
 	</ul> 
-</div>
+</div> --%>
 <div style="text-align:center">
 	<h1>This is 글쓰기 화면</h1>
 	<h1>This is 글쓰기 화면</h1>
 	<h1>This is 글쓰기 화면</h1>
 </div>
 
-<form action="insert" method="post" onsubmit="return formCheck(this)">
-
-	 <div id="msg" class="msg">
-   	    <c:if test="${not empty param.msg}">
-	        <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
-	    </c:if>
-    </div> 
-	<table>
-		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title"/></td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<td><textarea rows="7" name="content"></textarea></td>
-		</tr>
-		<tr>
-			<td>작성자</td>
-			<td><input type="text" name="writer"/></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<button type="submit">등록</button>
-				<a href="list">취소</button>
-			</td>
-		</tr>
-	</table>
-</form>
+<section style="display:flex; justify-content:center;">
+	<div>
+		<form action="insert" method="post" onsubmit="return formCheck(this)">
+		
+			 <div id="msg" class="msg">
+		   	    <c:if test="${not empty param.msg}">
+			        <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
+			    </c:if>
+		    </div> 
+			<table>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" name="title"/></td>
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td>
+						<input type="file" name="memPhoto"/>
+					</td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="7" name="content"></textarea></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><input type="text" name="writer"/></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit">등록</button>
+						<a href="free">취소</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</section>
 <script>
        function formCheck(frm) {
             let msg ='';
@@ -88,7 +98,7 @@
                 element.select();
             }
        }
-   </script>
+</script>
 
 
 
