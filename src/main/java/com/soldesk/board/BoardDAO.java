@@ -24,4 +24,9 @@ public class BoardDAO {
 			req.setAttribute("r", "글쓰기 실패");
 		}
 	}
+	
+	// 자유게시판 전체 글 조회
+	public FreeBoards getAllFreeBoard(HttpServletRequest req) {
+		return new FreeBoards(ss.getMapper(BoardMapper.class).getAllFreeBoard());
+	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/board/*")
@@ -31,6 +32,12 @@ public class BoardController {
 	public String regFreeBoard(FreeBoard f, HttpServletRequest req) {
 		bDAO.regFreeBoard(f, req);
 		return "board/list";
+	}
+	
+	// 자유게시판 전체 글 조회
+	@RequestMapping(value = "/getAllFreeBoardJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public @ResponseBody FreeBoards getAllFreeBoardJSON(HttpServletRequest req) {
+		return bDAO.getAllFreeBoard(req);
 	}
 
 }
