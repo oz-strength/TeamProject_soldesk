@@ -19,7 +19,7 @@
 	<section class="board-write">
 
 		<div class="writeBox">
-			<form action="regFreeBoard" method="post" onsubmit="return formCheck(this)">
+			<form action="regFreeBoard" method="post" >
 			
 				<div id="msg" class="msg">
 						<c:if test="${not empty param.msg}">
@@ -29,21 +29,21 @@
 				<table class="board-table">
 					<tr>
 						<td class="title">제목</td>
-						<td><input type="text" name="title"/></td>
+						<td><input type="text" name="b_title"/></td>
 					</tr>
 					<tr>
 						<td class="photo">사진</td>
 						<td>
-							<input type="file" name="memPhoto"/>
+							<input type="file" name="b_photo"/>
 						</td>
 					</tr>
 					<tr>
 						<td class="content">내용</td>
-						<td><textarea rows="7" name="content"></textarea></td>
+						<td><textarea rows="7" name="b_detail"></textarea></td>
 					</tr>
 					<tr>
 						<td class="writer">작성자</td>
-						<td><input type="text" name="writer"/></td>
+						<td><input type="text" name="b_writer"/></td>
 					</tr>	
 					<tr class="button-area">
 						<td colspan="2">

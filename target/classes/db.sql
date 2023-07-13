@@ -10,6 +10,7 @@ U_PUBLIC_KEY VARCHAR2(100 CHAR) DEFAULT 'NONE' NOT NULL,
 U_PRIVATE_KEY VARCHAR2(100 CHAR) DEFAULT 'NONE' NOT NULL,
 U_WALLET_CASH NUMBER(5) DEFAULT 0 NOT NULL
 );
+select * from SOLDESK_USER_TB;
 
 -- 자유 게시판 테이블 생성
 CREATE TABLE soldesk_board_free_tb(
@@ -24,6 +25,8 @@ CREATE TABLE soldesk_board_free_tb(
     
     constraint fk_b_u_email foreign key(b_u_email) references SOLDESK_USER_TB (u_email)
 );
+
+select * from SOLDESK_BOARD_FREE_TB;
 
 -- 자유 게시판 시퀀스
 CREATE SEQUENCE BOARD_FREE_SEQ
