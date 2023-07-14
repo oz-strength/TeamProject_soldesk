@@ -34,7 +34,7 @@ public class BoardController {
 		return "board/list";
 	}
 	
-	// 자유게시판 전체 글 조회
+	// 자유게시판 전체 글 조회.
 	@RequestMapping(value = "/getAllFreeBoardJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public @ResponseBody FreeBoards getAllFreeBoardJSON(HttpServletRequest req) {
 		return bDAO.getAllFreeBoard(req);
