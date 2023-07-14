@@ -14,4 +14,11 @@
 		resultType="com.soldesk.board.FreeBoard">
 		SELECT * FROM SOLDESK_BOARD_FREE_TB ORDER BY B_NO DESC
 	</select>
+	
+	<!-- 자유게시판 상세내용 조회 -->
+	<select id="getFreeBoardDetail"
+		parameterType="com.soldesk.board.FreeBoard"
+		resultType="com.soldesk.board.FreeBoard">
+		SELECT * FROM SOLDESK_BOARD_FREE_TB WHERE B_NO = #{b_no}
+	</select>
 </mapper>

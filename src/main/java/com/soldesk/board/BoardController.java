@@ -39,5 +39,11 @@ public class BoardController {
 	public @ResponseBody FreeBoards getAllFreeBoardJSON(HttpServletRequest req) {
 		return bDAO.getAllFreeBoard(req);
 	}
+	
+	// 자유게시판 상세보기
+	@RequestMapping(value = "/getFreeBoardDetailJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public @ResponseBody FreeBoards getFreeBoardDetailJSON(FreeBoard f, HttpServletRequest req) {
+		return bDAO.getFreeBordDetail(f, req);
+	}
 
 }
