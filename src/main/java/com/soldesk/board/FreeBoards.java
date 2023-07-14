@@ -15,9 +15,11 @@ public class FreeBoards {
 		super();
 		this.freeboard = freeboard;
 	}
+	
 	public List<FreeBoard> getFreeboard() {
 		return freeboard;
 	}
+	
 	@XmlElement
 	public void setFreeboard(List<FreeBoard> freeboard) {
 		this.freeboard = freeboard;
