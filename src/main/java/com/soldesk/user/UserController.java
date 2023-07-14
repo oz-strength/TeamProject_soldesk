@@ -1,6 +1,7 @@
 package com.soldesk.user;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,11 +32,19 @@ public class UserController {
 		uDAO.regUser(u, req);
 		return "home"; // 회원가입 후 메인 이동
 	}
-	
+
 	// 로그인 기능
 	@RequestMapping(value = "/user.login", method = RequestMethod.GET)
 	public String loginUser(User u, HttpServletRequest req) {
-		return "home"; // 로그인 후 메인화면 이동
+		String k = uDAO.getLogin(u, req);
+		if (k.equals("로그인성공")) {
+			HttpSession hs = req.getSession();
+			hs.setMaxInactiveInterval(10); // session의 유지시간 '#초'
+			hs.setAttribute("u_name", u.getU_name());
+			return "home";
+		} else {
+			return "user.login";
+		}
 	}
-	
+
 }
