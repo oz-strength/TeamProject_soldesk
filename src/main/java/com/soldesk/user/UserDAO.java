@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 public class UserDAO {
@@ -21,6 +22,16 @@ public class UserDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 			req.setAttribute("result", "회원 등록 실패");
+		}
+	}
+	
+	// 로그인
+	public String getLogin(User u, HttpServletRequest req) {
+		int result = ss.getMapper(UserMapper.class).getLogin(u);
+		if(result == 1) {
+			return "로그인성공";
+		}else {
+			return "로그인실패";
 		}
 	}
 }
