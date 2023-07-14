@@ -43,7 +43,7 @@ public class UserController {
 			hs.setAttribute("u_name", u.getU_name());
 			return "home";
 		} else {
-			return "user.login";
+			return "user/loginForm";
 		}
 	}
 
