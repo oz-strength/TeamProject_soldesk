@@ -13,6 +13,31 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/view.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+	  src="https://code.jquery.com/jquery-3.7.0.js"
+	  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+	  crossorigin="anonymous">
+	 </script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    	  const urlParams = new URLSearchParams(window.location.search);
+    	  const b_no = urlParams.get('b_no');
+
+    	  $.getJSON("getFreeBoardDetailJSON?b_no=" + b_no , function (data) {
+    	    let td1 = $('<td></td>').text(data.freeboard[0].b_title);
+    	    
+
+    	    let td2 = $('<td></td>').text(data.freeboard[0].b_writer);
+   
+    	    let td3 = $('<td></td>').text(data.freeboard[0].b_indate);
+    	    
+    	    let td4 = $('<td></td>').text(data.freeboard[0].b_detail);
+    	    let tr = $('<tr></tr>').append(td1, td2, td3, td4);
+  	      	$('#detailTBL').append(tr);
+
+    	  });
+    	});
+	</script>
     <script type="text/javascript">
 		$(document).ready(function(){
 			$("button").on("click", function(e){
@@ -32,63 +57,31 @@
 	</script>
 </head>
 <body>
-	<div class="menu">
-		<ul>
-		    <li class="logo">TeamProject</li>
-		    <li><a href="${contextPath}/">Home</a></li>
-		    <li><a href="list">Board</a></li>
-		    <li><a href="">login</a></li>    
-		    <li><a href="">Sign in</a></li>
-		    <li><a href=""><i class="fas fa-search small"></i></a></li>
-		</ul> 
-	</div>
-	<div style="text-align:center">
-		<h1>This is 상세보기</h1>
-		<h1>This is 상세보기</h1>
-		<h1>This is 상세보기</h1>
-	</div>
+
 	
-	<div>
-		<table border="1">
-			<tr>
-				<td>제목</td>
-				<td>${vo.title }</td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td>${fn:replace(vo.content, newLineChar, '<br/>')}</td>
-			</tr>
-			<tr>
-				<td>작성자</td>
-				<td>${vo.writer}</td>
-			</tr>
-			<tr>
-				<td>작성일</td>
-				<td>${fn:split(vo.indate," ")[0]}</td> <!-- "연월일 시분초" 에서 앞부분만 가져오기 -->
-			</tr>
-			<tr>
-				<td colspan="2">
-					<c:if test="${!empty id}">
-						<button data-btn="modify">수정</button> 
-						<button data-btn="delete">삭제</button>
-					</c:if>
-					<c:if test="${empty id}">
-						<button data-btn="modify" disabled="disabled">수정</button> 
-						<button data-btn="delete" disabled="disabled">삭제</button>
-					</c:if>
-					<button data-btn="list">목록</button>
-				</td>
-			</tr>
-		</table>
-		
-		<form id="frm" method="get">
-			<input type="hidden" id="idx" name="idx" value="<c:out value='${vo.idx}'/>">
-			<input type="hidden" name="page" value="<c:out value='${cri.page}'/>">
-			<input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>">
-			<input type="hidden" name="type" value="<c:out value='${cri.type}'/>"/>		
-			<input type="hidden" name="keyword" value="<c:out value='${cri.keyword}'/>"/>	
-		</form>
-	</div>
+		<section class="board-table">
+			<div class="boardTable">
+				<table id="detailTBL" class="member" style="border: 1px solid #000;">
+						<tr>
+							<th class="">제목</th>
+							<th class="">작성자</th>
+							<th>작성일</th>
+							<th>내용</th>
+						</tr>	
+				</table>
+				<div>
+					<span>
+						<button id="modifyBtn" class="modify">수정하기</button>
+					</span>
+					<span>
+						<button id="deleteBtn" class="delete">삭제하기</button>
+					</span>
+					<span>
+						<button id="deleteBtn" class="delete">목록으로</button>
+					</span>
+				</div>
+			</div>
+		</section>
 	
 
 </body>

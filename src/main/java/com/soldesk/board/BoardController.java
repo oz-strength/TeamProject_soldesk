@@ -40,10 +40,16 @@ public class BoardController {
 		return bDAO.getAllFreeBoard(req);
 	}
 	
+	// 자유게시판 상세보기 화면 이동 
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public String goBoardViewPage() {
+		return "board/view";
+	}
+	
 	// 자유게시판 상세보기
 	@RequestMapping(value = "/getFreeBoardDetailJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public @ResponseBody FreeBoards getFreeBoardDetailJSON(FreeBoard f, HttpServletRequest req) {
 		return bDAO.getFreeBordDetail(f, req);
 	}
-
+	
 }

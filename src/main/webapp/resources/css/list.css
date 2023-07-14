@@ -120,6 +120,7 @@ a{
 /*테이블 디자인*/
 .boardTable{
 	display: flex;
+	flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 15px;

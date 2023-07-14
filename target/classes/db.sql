@@ -10,7 +10,11 @@ U_PUBLIC_KEY VARCHAR2(100 CHAR) DEFAULT 'NONE' NOT NULL,
 U_PRIVATE_KEY VARCHAR2(100 CHAR) DEFAULT 'NONE' NOT NULL,
 U_WALLET_CASH NUMBER(5) DEFAULT 0 NOT NULL
 );
-select * from SOLDESK_USER_TB;
+
+INSERT INTO soldesk_user_tb(U_EMAIL, U_PW, U_NAME, U_BIRTH, U_GENDER)
+VALUES('test@test.com', '1111', 'testman', sysdate, 'male');
+
+	select * from SOLDESK_USER_TB;
 
 -- 자유 게시판 테이블 생성
 CREATE TABLE soldesk_board_free_tb(
@@ -27,6 +31,15 @@ CREATE TABLE soldesk_board_free_tb(
 );
 
 select * from SOLDESK_BOARD_FREE_TB;
+
+INSERT INTO SOLDESK_BOARD_FREE_TB(b_no, b_u_email, b_title, b_writer, b_detail, b_indate)
+VALUES(BOARD_FREE_SEQ.NEXTVAL, 'test@test.com', '제목입니다3', '작성자', '상세내용', sysdate);
+delete  from soldesk_board_free_tb;
+drop table soldesk_board_free_tb;
+INSERT INTO SOLDESK_BOARD_FREE_TB(b_no, b_u_email, b_title, b_writer, b_detail, b_indate)
+VALUES(BOARD_FREE_SEQ.NEXTVAL, 'test@test.com', '킹받네', '작성자', '상세내용', sysdate);
+SELECT * FROM SOLDESK_BOARD_FREE_TB ORDER BY B_NO DESC;
+
 
 -- 자유 게시판 시퀀스
 CREATE SEQUENCE BOARD_FREE_SEQ
