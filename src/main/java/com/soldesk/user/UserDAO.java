@@ -25,10 +25,10 @@ public class UserDAO {
 		}
 	}
 	
-	// 로그인
+	// 로그인(비밀번호 체크)
 	public String getLogin(User u, HttpServletRequest req) {
-		int result = ss.getMapper(UserMapper.class).getLogin(u);
-		if(result == 1) {
+		User user = ss.getMapper(UserMapper.class).getLogin(u);
+		if(user.getU_pw().equals(u.getU_pw())) {
 			return "로그인성공";
 		}else {
 			return "로그인실패";
