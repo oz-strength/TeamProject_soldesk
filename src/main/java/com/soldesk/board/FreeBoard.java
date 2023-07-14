@@ -33,6 +33,7 @@ public class FreeBoard {
 	public int getB_no() {
 		return b_no;
 	}
+	
 	@XmlElement
 	public void setB_no(int b_no) {
 		this.b_no = b_no;
@@ -41,6 +42,7 @@ public class FreeBoard {
 	public String getB_u_email() {
 		return b_u_email;
 	}
+	
 	@XmlElement
 	public void setB_u_email(String b_u_email) {
 		this.b_u_email = b_u_email;
@@ -49,6 +51,7 @@ public class FreeBoard {
 	public String getB_title() {
 		return b_title;
 	}
+	
 	@XmlElement
 	public void setB_title(String b_title) {
 		this.b_title = b_title;
@@ -56,13 +59,16 @@ public class FreeBoard {
 	public String getB_detail() {
 		return b_detail;
 	}
+	
 	@XmlElement
 	public void setB_detail(String b_detail) {
 		this.b_detail = b_detail;
 	}
+	
 	public String getB_writer() {
 		return b_writer;
 	}
+	
 	@XmlElement
 	public void setB_writer(String b_writer) {
 		this.b_writer = b_writer;
@@ -71,6 +77,7 @@ public class FreeBoard {
 	public String getB_indate() {
 		return b_indate;
 	}
+	
 	@XmlElement
 	public void setB_indate(String b_indate) {
 		this.b_indate = b_indate;
@@ -79,6 +86,7 @@ public class FreeBoard {
 	public int getB_count() {
 		return b_count;
 	}
+	
 	@XmlElement
 	public void setB_count(int b_count) {
 		this.b_count = b_count;
