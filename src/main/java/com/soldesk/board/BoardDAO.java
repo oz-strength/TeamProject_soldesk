@@ -29,4 +29,8 @@ public class BoardDAO {
 	public FreeBoards getAllFreeBoard(HttpServletRequest req) {
 		return new FreeBoards(ss.getMapper(BoardMapper.class).getAllFreeBoard());
 	}
+	// 자유게시판 글 상세조회
+	public FreeBoards getFreeBordDetail(FreeBoard f, HttpServletRequest req) {
+		return new FreeBoards(ss.getMapper(BoardMapper.class).getFreeBoardDetail(f));
+	}
 }
