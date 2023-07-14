@@ -11,12 +11,14 @@
 	
 	<!-- 로그인 -->
 	<select id="getLogin"
-		parameterType="com.soldesk.user.User" resultType="int">
+		parameterType="com.soldesk.user.User" resultType="com.soldesk.user.User">
 		SELECT
 		CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS result
 		FROM soldesk_user_tb
-		WHERE u_email = #{e_email} AND u_pw = #{u_pw}
+		WHERE u_email = #{e_email}
 	</select>
+	
+	
 
 </mapper>
 	
