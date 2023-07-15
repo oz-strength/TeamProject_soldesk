@@ -3,7 +3,6 @@ package com.soldesk.entity;
 import java.util.Date;
 
 public class User {
-	private int memIdx;
 	private String u_idx;
 	private String u_email;
 	private String u_pw;
@@ -13,12 +12,7 @@ public class User {
 	private String u_public_key;
 	private String u_private_key;
 	private Integer u_wallet_cash;
-	public int getMemIdx() {
-		return memIdx;
-	}
-	public void setMemIdx(int memIdx) {
-		this.memIdx = memIdx;
-	}
+
 	public String getU_idx() {
 		return u_idx;
 	}

@@ -1,95 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page import="java.net.URLDecoder"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-    <title>TeamProject</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardRegisterForm.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>    
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/register.css?a">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("button").on("click", function(e){
+		var formData=$("#frm");
+		var btn=$(this).data("btn"); // data-btn="list"
+		if(btn=='register'){
+			if($("#b_title").val()=="" ||$("#b_content").val()==""){
+				alert('전부 입력하세요');
+				return false;
+			}
+			formData.attr("action", "${contextPath}/board/register");
+		}else if(btn=='list'){   
+			formData.attr("action", "${contextPath}/board/free");    		   
+			formData.submit();   
+			return;
+		}else if(btn=='reset'){
+			formData[0].reset();
+			return;
+		}
+		formData.submit();    		
+	});    	
+});
+  </script>
 <body>
-	
-	<section class="board-write">
-
-		<div class="writeBox">
-			<form action="regFreeBoard" method="post" >
-			
-				<div id="msg" class="msg">
-						<c:if test="${not empty param.msg}">
-							<i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
-					</c:if>
-				</div> 
-				<table class="board-table">
-					<tr>
-						<td class="title">제목</td>
-						<td><input type="text" name="b_title"/></td>
-					</tr>
-					<tr>
-						<td class="photo">사진</td>
-						<td>
-							<input type="file" name="b_photo"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="content">내용</td>
-						<td><textarea rows="7" name="b_detail"></textarea></td>
-					</tr>
-					<tr>
-						<td class="writer">작성자</td>
-						<td><input type="text" name="b_writer"/></td>
-					</tr>	
-					<tr class="button-area">
-						<td colspan="2">
-							<button class="regBtn"  type="submit">등록</button>
-							<a class="cancleBtn" href="free">취소</a>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</section>
-	<script>
-	       function formCheck(frm) {
-	            let msg ='';
-	
-	            if(!frm.title.value) {
-	                setMessage('제목을 입력하세요.', frm.title);
-	                return false;
-	            }
-	
-	            if(!frm.content.value) {
-	                setMessage('내용을 입력하세요.', frm.content);
-	                return false;
-	            }           
-	
-	            if(!frm.writer.value) {
-	                setMessage('작성자를 입력하세요.', frm.writer);
-	                return false;
-	            }           
-	           
-	           return true;
-	       }
-	
-	       function setMessage(msg, element){
-	            document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}</i>`;
-	
-	            if(element) {
-	                element.select();
-	            }
-	       }
-	</script>
-
+	<div class="writeBox">
+	<form id="frm" method="post">
+		<input type="hidden" name="b_email" value="${user.u_email}">
+		<table class="member" >
+		<caption class="caption">Register</caption>
+		<tr>
+			<td>
+				<label>제목</label>
+			</td>
+			<td>
+				<input class="title" required="required" id="b_title" type="text" name="b_title">
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<label>내용</label>
+			</td>
+			<td>
+				<textarea class="content" required="required" id="b_content" rows="10" cols="" name="b_content"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>작성자</label>
+			</td>
+			<td>
+				<input class="writer" type="text" name="b_writer" readonly="readonly" value="${user.u_name}">
+			</td>
+		</tr>
+		<tr>
+			<td  colspan="2">	
+				<button class="write" type="button" data-btn="register">등록</button>
+				<button class="write" type="button" data-btn="reset" >취소</button>
+				<button class="write" type="button" data-btn="list" >목록</button>
+			</td>
+		</tr>
+		</table>
+	</form>
+	</div>
 </body>
 </html>
-
-
-
-
-

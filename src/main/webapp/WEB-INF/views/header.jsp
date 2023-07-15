@@ -25,21 +25,22 @@
       </a>
     </div>
     <div>
-	    <a class="button-in-header" href="${contextPath}/login/login">
+	    
 	    <c:if test="${empty user}">
-	        <span class="long-text">LOGIN</span>
+	    	<a class="button-in-header" href="${contextPath}/login/login">
+	       		<span class="long-text">LOGIN</span>
+	        </a>
 	    </c:if>
-		</a>
-		<a class="button-in-header" href="${contextPath}/user.logout">
 		<c:if test="${!empty user}">
-	        <span class="long-text">LOGOUT</span>
+			<a class="button-in-header" href="${contextPath}/user.logout">
+		        <span class="long-text">LOGOUT</span>
+			</a>
 	    </c:if>
-		</a>
-		<a class="button-in-header" href="${contextPath}/">
-		    <c:if test="${!empty user}">
-		        <span class="long-text">MYPAGE</span>
-		    </c:if>
-		</a>
+		<c:if test="${!empty user}">
+			<a class="button-in-header" href="${contextPath}/">
+			        <span class="long-text">MYPAGE</span>
+			</a>
+		</c:if>
 		
 	    <%-- <a class="button-in-header" href="${contextPath}/login/login">
 			<c:if test="${empty user }">

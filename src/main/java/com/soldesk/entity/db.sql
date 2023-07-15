@@ -24,7 +24,6 @@ insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
 values(test_user_seq.nextval, 'test@test2.com', '1111', 'testman', '19911011','male');
 insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
 values(test_user_seq.nextval, 'test@test3.com', '1111', 'testman', '19911011','male');
-	
 
 
 
@@ -56,7 +55,9 @@ FROM test_board;
 INSERT INTO test_board (b_no, b_email, b_title, b_writer, b_content, b_indate, b_count, boardGroup, boardSequence, boardLevel, boardAvailable)
 SELECT nvl(max(b_no)+1, 1), 'test@test3.com', '게시판연습', '강호동', '반가워', sysdate, 0, NVL(MAX(boardGroup) + 1, 0), 0, 0, 1
 FROM test_board;
-
+INSERT INTO test_board (b_no, b_email, b_title, b_writer, b_content, b_indate, b_count, boardGroup, boardSequence, boardLevel, boardAvailable)
+SELECT nvl(max(b_no)+1, 1), 'aa@aa.com', '게시판연습', '홍길동', '반가워', sysdate, 0, NVL(MAX(boardGroup) + 1, 0), 0, 0, 1
+FROM test_board;
 
 drop table test_board cascade constraints;
 

@@ -27,8 +27,8 @@
 		// 상세보기 클릭시 이동하기
 		$(".move").on("click", function(e){
 			e.preventDefault(); // a 태그의 기능을 막는 부분
-			var idx = $(this).attr("href");
-			var tag = "<input type='hidden' name='idx' value='"+idx+"'/>";
+			var b_no = $(this).attr("href");
+			var tag = "<input type='hidden' name='b_no' value='"+b_no+"'/>";
 			pageFrm.append(tag);
 			pageFrm.attr("action","${contextPath}/board/get");
 			pageFrm.attr("method","get");
@@ -44,16 +44,19 @@
 </script>
 </head>
 <body>
+									<!-- 홈 로고 -->
 	<div class="homeLogo">
-	<a href="${contextPath}/"><img src="${contextPath}/resources/images/homeplanet3.png" class="logo"></a>
+	<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" class="logo"></a>
 	</div>
+
+									<!-- 게시판 검색창 -->
 	<div class="search">
-	<form action="${contextPath}/board/list" method="post">
+	<form action="${contextPath}/board/free" method="post">
 		<div class="selectBox">
 		<select name="type" class="select">
-			<option value="writer" ${pageMaker.cri.type=='writer' ? 'selected' : '' }>이름</option>
-			<option value="title" ${pageMaker.cri.type=='title' ? 'selected' : '' }>제목</option>
-			<option value="content" ${pageMaker.cri.type=='content' ? 'selected' : '' }>내용</option>
+			<option value="b_writer" ${pageMaker.cri.type=='b_writer' ? 'selected' : '' }>이름</option>
+			<option value="b_title" ${pageMaker.cri.type=='b_title' ? 'selected' : '' }>제목</option>
+			<option value="b_content" ${pageMaker.cri.type=='b_content' ? 'selected' : '' }>내용</option>
 		</select>
 		 <span class="icoArrow"><img src="https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png" alt=""></span>
 		 </div>
@@ -66,6 +69,7 @@
 	</form>
 	</div>
 	
+									<!-- 게시판 테이블 -->
 	<div class="boardTable">
 	<table class="member">
 			<tr>
@@ -75,48 +79,53 @@
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
-		<c:forEach var="vo" items="${list}">
+		<c:forEach var="list" items="${list}">
 			<tr>
-				<td>${vo.b_no}</td>
+				<td>${list.b_no}</td>
 				<td>
-					<c:if test="${vo.boardLevel>0}">
-						<c:forEach begin="1" end="${vo.boardLevel}">
+					<c:if test="${list.boardLevel>0}">
+						<c:forEach begin="1" end="${list.boardLevel}">
 							<span style="padding-left:15px"></span>
 						</c:forEach>
 					</c:if>
-					<c:if test="${vo.boardLevel>0}">
-						<c:if test="${vo.boardAvailable==1}">
-							<a class="move" href="${vo.b_no}"><c:out value='[RE]${vo.b_title}'/></a>
+					<c:if test="${list.boardLevel>0}">
+						<c:if test="${list.boardAvailable==1}">
+							<a class="move" href="${list.b_no}"><c:out value='[RE]${list.b_title}'/></a>
 						</c:if>
-						<c:if test="${vo.boardAvailable==0}">
+						<c:if test="${list.boardAvailable==0}">
 							<a href="javascript:goMsg()">[RE]삭제된 게시물입니다.</a>
 						</c:if>
 						
 					</c:if>
-					<c:if test="${vo.boardLevel==0}">
-						<c:if test="${vo.boardAvailable==1}">
-							<a class="move" href="${vo.b_no}"><c:out value='${vo.b_title}'/></a>
+					<c:if test="${list.boardLevel==0}">
+						<c:if test="${list.boardAvailable==1}">
+							<a class="move" href="${list.b_no}"><c:out value='${list.b_title}'/></a>
 						</c:if>
-						<c:if test="${vo.boardAvailable==0}">
+						<c:if test="${list.boardAvailable==0}">
 							<a href="javascript:goMsg()">삭제된 게시물입니다.</a>
 						</c:if>
 					</c:if>
 				</td>
-				<td>${vo.b_writer}</td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.b_indate}"/> </td>
-				<td>${vo.b_count}</td>
+				
+				<td>${list.b_writer}</td>
+				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.b_indate}"/> </td>
+				<td>${list.b_count}</td>
 			</tr>
 		</c:forEach>
-		<c:if test="${!empty mvo}">
+		
+								<!-- 로그인 상태에만 글쓰기 가능 -->
+		<c:if test="${!empty user}">
 		<tr>
 			<td colspan="5">
 				<button id="regBtn" class="write">글쓰기</button>
 			</td>
 		</tr>
 		</c:if>
+		
 	</table>
 	</div>
-	<!-- 페이징 시작-->
+	
+										<!-- 페이징 시작-->
 	<div class="page">
 		<ul class="pagination modal">
 	<!-- 이전 처리 -->
@@ -138,8 +147,8 @@
 		</ul>
 	</div>
 	<!-- 페이징 끝 -->
-	<form id="pageFrm" action="${contextPath}/board/list" method="post">
-		<!-- 게시물 번호(idx)추가 -->
+	<form id="pageFrm" action="${contextPath}/board/free" method="post">
+		<!-- 게시물 번호(b_no)추가 -->
 		<input type="hidden" id="page" name="page" value="${pageMaker.cri.page}"/>		
 		<input type="hidden" name="perPageNum" value="${pageMaker.cri.perPageNum}"/>		
 		<input type="hidden" name="type" value="${pageMaker.cri.type}"/>		
