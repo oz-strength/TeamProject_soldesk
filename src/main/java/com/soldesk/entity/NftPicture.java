@@ -4,6 +4,7 @@ public class NftPicture {
 	private Integer n_idx;
 	private String n_name;
 	private String n_photo;
+	private String n_path;
 	
 	public NftPicture() {
 		// TODO Auto-generated constructor stub
@@ -38,6 +39,14 @@ public class NftPicture {
 
 	public void setN_photo(String n_photo) {
 		this.n_photo = n_photo;
+	}
+
+	public String getN_path() {
+		return n_path;
+	}
+
+	public void setN_path(String n_path) {
+		this.n_path = n_path;
 	}
 	
 	

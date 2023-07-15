@@ -14,12 +14,13 @@
 	
 </head>
 <body>
-
-	<%-- 헤더 컴포넌트 가져오기 --%>
-	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
 	<div style="padding:100px 0;">
-		 <h1>업로드 완료</h1>
+		 <h1>업로드 완료!</h1>
+		 <h1>업로드 완료!</h1>
+		 <h1>업로드 완료!</h1>
+		 <h1>업로드 완료!</h1>
+		 
   <label for="">아이디:</label>
   <input type="text" name="id" id="" value='${map.id}' readonly><br>
   <label for="">이름:</label>
@@ -33,6 +34,7 @@
   </div>
 	</div>
 	
+	<a href="${contextPath }/nft/board">게시판 적용 확인하러 가기</a>
 	
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">

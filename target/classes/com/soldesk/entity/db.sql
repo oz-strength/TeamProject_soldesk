@@ -99,13 +99,15 @@ select * from test_mountain;
 
 -- nft 파일
 create table nft_pic(
-	n_idx number not null,
-	n_photo varchar2(100 char) 
+	file_num number not null,
+	o_name varchar2(100 char),
+	saveFileName varchar2(100 char),
+	filePath varchar2(100 char)
 );
 
 create sequence nft_pic_seq;
 drop sequence nft_pic_seq;
 select * from nft_pic;
 drop table nft_pic cascade constraints;
-
+select n_photo from nft_pic where n_idx = 9; 
 
