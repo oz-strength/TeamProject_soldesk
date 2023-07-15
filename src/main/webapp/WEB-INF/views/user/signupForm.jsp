@@ -248,14 +248,12 @@ function registerCheck(){
    
 </head>
 <body>
-	${msgType }
-	${msg}
 	<section class="signup">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
       	<h1>Register</h1>
       <form action="user.register" method="post" onsubmit="return formCheck(this)">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_email" autocomplete="off" required/>
+          <input type="email" name="u_email" id="u_email" autocomplete="off" required autofocus/>
          	
           <span>USER EMAIL</span>
         </div>

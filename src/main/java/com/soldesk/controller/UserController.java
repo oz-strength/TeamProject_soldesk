@@ -15,7 +15,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -88,7 +90,7 @@ public class UserController {
 		
 		// 로그인 기능 구현
 		@RequestMapping("/user.login")
-		public String memLogin(User u, RedirectAttributes rttr, HttpSession session) {
+		public String memLogin(User u, boolean rememberEmail, RedirectAttributes rttr, HttpSession session, HttpServletResponse response) {
 			if(u.getU_email()==null || u.getU_email().equals("") ||
 				u.getU_pw()==null || u.getU_pw().equals("")) {
 				rttr.addFlashAttribute("msgType", "실패 메세지");
@@ -96,7 +98,24 @@ public class UserController {
 				return "redirect:/login/login";
 			}
 			User user = userMapper.userLogin(u);
+			
+			
+			
 			if(user!=null) { // 로그인에 성공
+				
+				/*if(rememberEmail) { // 이메일 기억하기
+						//  1. 쿠키를 생성
+						Cookie cookie = new Cookie("u_email", user.getU_email()); 
+						//	2. 응답에 저장
+						response.addCookie(cookie);
+					} else {
+						//  1. 쿠키를 삭제
+						Cookie cookie = new Cookie("u_email", user.getU_email()); 
+						cookie.setMaxAge(0); // 쿠키를 삭제
+						//	 2. 응답에 저장
+						response.addCookie(cookie);
+					}*/
+				
 				rttr.addFlashAttribute("msgType", "성공 메세지");
 				rttr.addFlashAttribute("msg", "로그인에 성공했습니다.");
 				session.setAttribute("user", user); // ${!empty user}

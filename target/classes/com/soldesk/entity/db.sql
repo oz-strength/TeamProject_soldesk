@@ -25,6 +25,9 @@ values(test_user_seq.nextval, 'test@test2.com', '1111', 'testman', '19911011','m
 insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
 values(test_user_seq.nextval, 'test@test3.com', '1111', 'testman', '19911011','male');
 
+-- 어드민 계정 생성
+insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender, u_admin)
+values(test_user_seq.nextval, 'admin@admin.com', 'aaaa1111!', '관리자', '19991111','male', 1);
 
 
 -- 자유 게시판 테이블 생성
@@ -62,4 +65,47 @@ FROM test_board;
 drop table test_board cascade constraints;
 
 select * from test_board order by b_no desc;
+
+-- 산 테이블 생성
+create table test_mountain(
+	m_name varchar2(10 char) primary key,
+    m_latitude varchar2(10 char) not null,
+    m_longitude varchar2(10 char) not null
+);
+drop table test_mountain cascade constraints;
+INSERT INTO test_mountain (m_name, m_latitude, m_longitude)
+SELECT '오대산', '37.8847', '128.2897' FROM DUAL UNION ALL
+SELECT '함백산', '37.3500', '127.4611' FROM DUAL UNION ALL
+SELECT '계방산', '36.2686', '127.0500' FROM DUAL UNION ALL
+SELECT '감악산', '37.4044', '127.1947' FROM DUAL UNION ALL
+SELECT '관악산', '37.4453', '126.9644' FROM DUAL UNION ALL
+SELECT '도봉산', '37.6675', '127.0400' FROM DUAL UNION ALL
+SELECT '북한산', '37.6642', '127.0136' FROM DUAL UNION ALL
+SELECT '대둔산', '35.7586', '128.4531' FROM DUAL UNION ALL
+SELECT '칠갑산', '36.6014', '128.0603' FROM DUAL UNION ALL
+SELECT '소백산', '36.5836', '127.7142' FROM DUAL UNION ALL
+SELECT '속리산', '36.0944', '127.4783' FROM DUAL UNION ALL
+SELECT '가야산', '35.8572', '127.4694' FROM DUAL UNION ALL
+SELECT '비슬산', '35.9433', '128.0422' FROM DUAL UNION ALL
+SELECT '주왕산', '35.4644', '128.0950' FROM DUAL UNION ALL
+SELECT '재약산', '35.1133', '127.4747' FROM DUAL UNION ALL
+SELECT '금정산', '35.3192', '129.0294' FROM DUAL UNION ALL
+SELECT '마이산', '35.8428', '126.6978' FROM DUAL UNION ALL
+SELECT '선운산', '34.9644', '127.9822' FROM DUAL UNION ALL
+SELECT '월출산', '34.8656', '128.2147' FROM DUAL UNION ALL
+SELECT '무등산', '35.1547', '126.9686' FROM DUAL;
+
+select * from test_mountain;
+
+-- nft 파일
+create table nft_pic(
+	n_idx number not null,
+	n_photo varchar2(100 char) 
+);
+
+create sequence nft_pic_seq;
+drop sequence nft_pic_seq;
+select * from nft_pic;
+drop table nft_pic cascade constraints;
+
 

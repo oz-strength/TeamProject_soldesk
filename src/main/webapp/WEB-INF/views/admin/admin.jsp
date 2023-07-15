@@ -11,14 +11,40 @@
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/temp.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
-	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+      var cnt = 1;
+      function fn_addFile() {
+        $('#d_file').append(
+          '<br>' + "<input type='file' name='file" + cnt + "'/>"
+        );
+        ctn++;
+      } 
+    </script>
 </head>
 <body>
 
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<h1 style="padding:300px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
+	<div style="padding:50px 0 130px 0 ;">
+		<h1>NFT UPLOAD</h1>
+    <form
+      method="post"
+      action="${contextPath}/upload"
+      enctype="multipart/form-data"
+    >
+      <label for="">아이디:</label>
+      <input type="text" name="id" /><br />
+      <label for="">이름</label>
+      <input type="text" name="name" /><br />
+
+      <input multiple="multiple" type="file" name="file"/>
+      <div id="d_file"></div>
+
+      <input type="submit" value="업로드" />
+    </form>
+	</div>
 	
 	
 	 <%-- 커서 전체화면 적용하기 --%>

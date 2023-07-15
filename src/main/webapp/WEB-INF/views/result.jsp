@@ -18,7 +18,20 @@
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<h1 style="padding:300px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
+	<div style="padding:100px 0;">
+		 <h1>업로드 완료</h1>
+  <label for="">아이디:</label>
+  <input type="text" name="id" id="" value='${map.id}' readonly><br>
+  <label for="">이름:</label>
+  <input type="text" name='name' value='${map.name}' readonly><br>
+
+  <div class="result-images">
+    <c:forEach var='imageFileName' items='${map.fileList}'>
+      <img src="${contextPath}/download?imageFileName=${imageFileName}">
+      <br><br>
+    </c:forEach>
+  </div>
+	</div>
 	
 	
 	 <%-- 커서 전체화면 적용하기 --%>

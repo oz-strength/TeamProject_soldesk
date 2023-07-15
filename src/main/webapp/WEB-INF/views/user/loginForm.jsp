@@ -144,7 +144,7 @@ function rtnCkPw() {
       <h1>Login</h1>
       <form action="${contextPath}/user.login" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_id" autocomplete="off" required/>
+          <input type="email" name="u_email" id="u_id" autocomplete="off" required autofocus/>
           <span>USER EMAIL</span>
         </div>
         <div id="u_email_err_div" class="err-field"></div>
@@ -165,7 +165,7 @@ function rtnCkPw() {
         </div>
         <div class="add-info">
           <label>
-            <input type="checkbox" name="" id="save-email" />
+            <input type="checkbox" name="rememberEmail" id="save-email" />
             <em></em>
             <span>Save Email</span>
           </label>

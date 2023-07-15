@@ -9,6 +9,7 @@ public class User {
 	private String u_name;
 	private String u_birth;
 	private String u_gender;
+	private Integer u_admin;
 	private String u_public_key;
 	private String u_private_key;
 	private Integer u_wallet_cash;
@@ -66,6 +67,12 @@ public class User {
 	}
 	public void setU_wallet_cash(Integer u_wallet_cash) {
 		this.u_wallet_cash = u_wallet_cash;
+	}
+	public Integer getU_admin() {
+		return u_admin;
+	}
+	public void setU_admin(Integer u_admin) {
+		this.u_admin = u_admin;
 	}
 	
 	
