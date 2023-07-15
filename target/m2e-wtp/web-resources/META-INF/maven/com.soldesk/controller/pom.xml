@@ -171,6 +171,12 @@
 			<artifactId>cos</artifactId>
 			<version>2022.2</version>
 		</dependency>
+		<!-- HIKARI CP 추가 -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.4.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

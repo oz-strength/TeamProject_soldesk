@@ -43,8 +43,6 @@
 		<beans:property name="typeAliasesPackage" value="com.soldesk" />
 		<beans:property name="mapperLocations">
 			<beans:list>
-				<beans:value>classpath:userMapper.xml</beans:value>
-				<beans:value>classpath:boardMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -53,5 +51,7 @@
 		<beans:constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<context:component-scan base-package="com.soldesk.controller" />
 
 </beans:beans>

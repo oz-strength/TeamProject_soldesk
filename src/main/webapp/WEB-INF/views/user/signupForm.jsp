@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/signupForm.css">
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
@@ -21,20 +21,20 @@
     ></script>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
     
-    <%-- 카카오 로그인용 --%>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <style>
     .login,
     .login a,
 	.input-field,
 	.input-field input,
+	.input-field label,
 	.button-field,
 	.button-field input,
 	.button-field a,
 	.add-info,
 	.add-info span,
 	.add-info a,
-	.add-info label{
+	.add-info label
+	{
 	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 	}
 	
@@ -42,6 +42,32 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
+
+
+function registerCheck(){
+		var u_email = $("#u_email").val();
+		$.ajax({
+			url: "${contextPath}/memRegisterCheck.do",
+			type: "get",
+			data : { "u_email" : u_email},
+			success : function(result){
+				// 중복유무 출력(result=1 : 사용할 수 있는 아이디, 0 : 사용할 수 없는 아이디)
+			if(result==1){
+				alert("아이디가 중복되지 않습니다.");
+				 isIdChecked = true; // 아이디 체크 완료
+			}else{
+				alert("다른 아이디를 사용하세요.");
+				isIdChecked = false; // 아이디 체크 실패
+				/* return false; */
+			}
+			checkInputNullSignUp(); // 입력 값 검사 함수 호출
+			},
+			error : function(){ alert("error");}
+		});
+	}
+
+
+
 
 	$(function() {
 		$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
@@ -71,9 +97,9 @@
 			checkName();
 		});
 		
-		$("#u_birth").keyup(function() {
+		 $("#u_birth").keyup(function() {
 			checkBirth();
-		});
+		});  
 	}
 
 	function checkInputNullSignUp() {
@@ -83,8 +109,8 @@
  		let	ckPw = rtnCkPw();
 		let ckPwCk = rtnCkPwCk();
 		let ckName = rtnCkName();
-		let ckBirth = rtnCkBirth();
-
+ 		let ckBirth = rtnCkBirth();
+ 
 	/*
 	 * checkIdDpctd(m_id, function(dpctd) { if (inputFilled && ckId && ckPw &&
 	 * ckPwCk && ckName && ckPN && !dpctd) {
@@ -92,7 +118,7 @@
 	 * $("#login-btn").css({"pointer-events": "none", "opacity": "0.3"}); } }
 	 */
 		
-		if (inputFilled && ckId && ckPw && ckPwCk && ckName && ckBirth) {
+		if (inputFilled && ckId && ckPw && ckPwCk && ckName && ckBirth && isIdChecked) {
 			$("#login-btn").css({"pointer-events": "auto", "opacity": "1"});
 		} else {
 			$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
@@ -103,7 +129,7 @@
 	
 	function checkId() {
 		let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		let m_id = $("#u_id").val();
+		let m_id = $("#u_email").val();
 		if (m_id.match(ck_id) == null) {
 			let u_email_p = $("<div id='u_email_err' class='er_p'></div>").text("이메일 형식으로 입력해주새요.");
 			$("#u_email_err_div").empty();
@@ -116,7 +142,7 @@
 
 	function rtnCkId() {
 		let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		let m_id = $("#u_id").val();
+		let m_id = $("#u_email").val();
 		if (m_id.match(ck_id) == null) {
 			return false;
 		} else {
@@ -214,7 +240,7 @@
 		} else {
 			return true;
 		}
-	}
+	} 
 
 	
 </script>
@@ -222,58 +248,20 @@
    
 </head>
 <body>
-	
-	
-<!-- 카카오 스크립트 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script>
-Kakao.init('e482edbfbe6fe2c270c178df868185c5'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-    }
-  }  
-</script>
-
-
-	<section class="login">
+	${msgType }
+	${msg}
+	<section class="signup">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
-      <h1>Register</h1>
-      <form action="user.register" method="post">
+      	<h1>Register</h1>
+      <form action="user.register" method="post" onsubmit="return formCheck(this)">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_id" autocomplete="off" required/>
+          <input type="email" name="u_email" id="u_email" autocomplete="off" required/>
+         	
           <span>USER EMAIL</span>
         </div>
+        <button type="button" class="btn btn--purple" onclick="return registerCheck();">
+					<span class="">id check</span>
+		</button>
         <div id="u_email_err_div" class="err-field"></div>
         <div class="input-field">
           <input
@@ -309,7 +297,7 @@ function kakaoLogout() {
           /><span>NAME</span>
         </div>
         <div id="u_name_err_div" class="err-field"></div>
-        <div class="input-field">
+        	<div class="input-field">
           <input
             type="text"
             name="u_birth"
@@ -321,25 +309,36 @@ function kakaoLogout() {
           /><span>BIRTH</span>
         </div>
         <div id="u_birth_err_div" class="err-field"></div>
-        <div class="input-field">
-          <input
-            type="text"
+        <div id="gender_btn" class="input-field">
+          <label><input
+            type="radio"
             name="u_gender"
             id="u_gender"
             autocomplete="off"
             required
-            maxlength="12"
-            minlength="1"
-          /><span>GENDER</span>
+            maxlength="8"
+            minlength="8"
+            value="남자"
+            checked
+          /><em></em>MALE</label>
+          <label><input
+            type="radio"
+            name="u_gender"
+            id="u_gender"
+            autocomplete="off"
+            required
+            maxlength="8"
+            minlength="8"
+            value="여자"
+          /><em></em>FEMALE</label>
         </div>
         
-        
         <div class="button-field">
-          <input type="submit" value="Sing In" id="login-btn" />
+          <input type="submit" value="Sing In" id="login-btn" onclick="return joinformCheck();"/>
        </div>
-        
       </form>
-    
+      
+      
     <script src="${contextPath}/resources/js/validCheck.js">
     </script>
      <%--  커서 전체화면 적용하기 --%>

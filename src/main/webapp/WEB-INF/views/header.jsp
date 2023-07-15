@@ -3,9 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-<c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
-<c:set var="loginOut" value="${sessionScope.id==null ? 'LOGIN' : 'LOGOUT' }"/>
-
 
 <header>
     <a href="${contextPath}/" class="button-in-header">THE MOUNTAIN</a>
@@ -28,15 +25,37 @@
       </a>
     </div>
     <div>
-	    <a class="button-in-header" href="<c:url value='${loginOutLink }'/>">
-			${loginOut }
+	    <a class="button-in-header" href="${contextPath}/login/login">
+	    <c:if test="${empty user}">
+	        <span class="long-text">LOGIN</span>
+	    </c:if>
 		</a>
-			
+		<a class="button-in-header" href="${contextPath}/user.logout">
+		<c:if test="${!empty user}">
+	        <span class="long-text">LOGOUT</span>
+	    </c:if>
+		</a>
 		<a class="button-in-header" href="${contextPath}/">
-			<c:if test="${!empty id }">
-	           <span class="long-text">MYPAGE</span>
+		    <c:if test="${!empty user}">
+		        <span class="long-text">MYPAGE</span>
+		    </c:if>
+		</a>
+		
+	    <%-- <a class="button-in-header" href="${contextPath}/login/login">
+			<c:if test="${empty user }">
+	           <span class="long-text">LOGIN</span>
             </c:if>
 		</a>
+	    <a class="button-in-header" href="">
+			<c:if test="${!empty user }">
+	           <span class="long-text">LOGOUT</span>
+            </c:if>
+		</a>
+		<a class="button-in-header" href="${contextPath}/">
+			<c:if test="${!empty user }">
+	           <span class="long-text">MYPAGE</span>
+            </c:if>
+		</a> --%>
     </div>
 </header>
 
