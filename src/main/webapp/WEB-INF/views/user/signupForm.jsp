@@ -44,7 +44,14 @@
 <script type="text/javascript">
 
 
-function registerCheck(){
+	$(function() {
+		$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
+		checkSignUp();
+		
+	});
+	
+	// 아이디 중복 체크
+	function registerCheck(){
 		var u_email = $("#u_email").val();
 		$.ajax({
 			url: "${contextPath}/memRegisterCheck.do",
@@ -64,24 +71,14 @@ function registerCheck(){
 			},
 			error : function(){ alert("error");}
 		});
-	}
-
-
-
-
-	$(function() {
-		$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
-		checkSignUp();
-		
-	});
-	
+	} 
 
 	function checkSignUp() {
 		$("input:not(#login-btn)").on("input", function() {
 			checkInputNullSignUp();
 		});
 		
-		$("#u_id").keyup(function() {
+		$("#u_email").keyup(function() {
 			checkId();
 		});
 
@@ -138,8 +135,11 @@ function registerCheck(){
 		} else {
 			$("#u_email_err").empty();
 		}
-	}
+	} 
 
+	
+
+	
 	function rtnCkId() {
 		let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		let m_id = $("#u_email").val();
@@ -257,9 +257,9 @@ function registerCheck(){
          	
           <span>USER EMAIL</span>
         </div>
-        <button type="button" class="btn btn--purple" onclick="return registerCheck();">
+         <button type="button" class="btn btn--purple" onclick="return registerCheck();">
 					<span class="">id check</span>
-		</button>
+			</button> 
         <div id="u_email_err_div" class="err-field"></div>
         <div class="input-field">
           <input
