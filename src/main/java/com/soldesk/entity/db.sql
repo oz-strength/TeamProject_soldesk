@@ -110,4 +110,4 @@ drop sequence nft_pic_seq;
 select * from nft_pic;
 drop table nft_pic cascade constraints;
 select n_photo from nft_pic where n_idx = 9; 
-
+delete * from nft_pic;
