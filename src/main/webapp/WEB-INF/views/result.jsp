@@ -34,7 +34,6 @@
   </div>
 	</div>
 	
-	<a href="${contextPath }/upload">게시판 적용 확인하러 가기</a>
 	
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">

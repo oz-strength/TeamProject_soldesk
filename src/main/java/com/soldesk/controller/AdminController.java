@@ -1,6 +1,7 @@
 package com.soldesk.controller;
 
 import java.io.File;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,14 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.soldesk.mapper.AdminMapper;
 
 @Controller
 @RequestMapping("/admin/*")
 public class AdminController {
 	
-	@Autowired
-	AdminMapper adminMapper;
+
 	
 	// 어드민 페이지로 이동
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
