@@ -14,11 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/signupForm.css">
-    <script
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+ <!--    <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
     
     <style>
@@ -232,16 +234,18 @@
 		}
 	}
 
-	function rtnCkBirth() {
-		let ck_birth = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
-		let m_birth = $("#u_birth").val();
-		if (m_birth.match(ck_birth) == null) {
-			return false;
-		} else {
-			return true;
-		}
-	} 
-
+	 function showPw() {
+		    var passwordInput = document.getElementById('u_pw');
+		    var hidePwIcon = document.getElementById('hidePw');
+		    
+		    if (passwordInput.type === 'password') {
+		      passwordInput.type = 'text';
+		      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+		    } else {
+		      passwordInput.type = 'password';
+		      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+		    }
+		  }
 	
 </script>
    
@@ -269,7 +273,10 @@
             required
             maxlength="12"
             minlength="8"
-          /><span>PASSWORD</span>
+            autocomplete="current-password"
+          /><span class="placehold-pw">PASSWORD</span>
+          <a id="hidePw" onclick="showPw()"><i class="xi-eye-off-o"></i></a>
+          
         </div>
         <div id="u_pw_err_div" class="err-field"></div>
         <div class="input-field">
@@ -280,7 +287,9 @@
             required
             maxlength="12"
             minlength="8"
+            autocomplete="current-password"
           /><span>PASSWORD CHECK</span>
+           <a id="hidePw" onclick="showPw()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_chk_err_div" class="err-field"></div>
         <div class="input-field">

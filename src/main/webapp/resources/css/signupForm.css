@@ -121,8 +121,10 @@ a {
 .input-field {
   position: relative;
   margin-bottom: 10px;
+  display:flex;
 }
 .input-field input {
+	flex:1;
   width: 100%;
   padding: 10px 0;
   background-color: transparent;
@@ -195,6 +197,19 @@ a {
   75% {
     transform: translateX(5px);
   }
+}
+
+#hidePw {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content:right;
+  display:inherit;
+}
+
+#login-btn:hover{
+	cursor :pointer;
 }
 
 
