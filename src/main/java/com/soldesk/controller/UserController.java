@@ -76,9 +76,9 @@ public class UserController {
 				
 				rttr.addFlashAttribute("msgType", "성공 메세지");
 				rttr.addFlashAttribute("msg", "회원 가입에 성공했습니다.");
-				// 회원 가입이 성공하면 => 로그인 처리
+				/*// 회원 가입이 성공하면 => 로그인 처리
 				session.setAttribute("user", u); // ${!empty user}로 확인가능
-				return "redirect:/";
+*/				return "redirect:/";
 			}else {
 				rttr.addFlashAttribute("msgType", "실패 메세지");
 				rttr.addFlashAttribute("msg", "이미 존재하는 회원입니다.");
