@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.soldesk.mapper.UserMapper">
 	<insert id="register" parameterType="com.soldesk.entity.User">
-		insert into test_user (u_idx, u_email, u_pw, u_name, u_birth, u_gender) 
-		values(test_user_seq.nextval, #{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender})
+		insert into test_user (u_email, u_pw, u_name, u_birth, u_gender) 
+		values(#{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender})
 	</insert>
 	
 	<select id="registerCheck" resultType="com.soldesk.entity.User">

@@ -32,7 +32,8 @@ public class BoardController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(boardMapper.totalCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
-		return "board/list";
+		return "board/l"
+				+ "ist";
 	}
 	
 	// 게시글 등록하기 (등록 페이지로 이동하기)

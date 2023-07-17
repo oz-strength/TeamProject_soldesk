@@ -50,14 +50,6 @@ $(function() {
 	$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
 	checkLogin();
 
-    function(){
-    	  if(${!empty msgType}){
-    	    $('.modal, .overlay').addClass('active')
-    	    $('.btn-close, .overlay').click(function(){
-    	      $('.modal, .overlay').removeClass('active')
-    	    })
-    	  }
-    	};
 });
 
 

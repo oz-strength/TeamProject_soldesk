@@ -1,6 +1,5 @@
 -- 회원 테이블 생성
 create table test_user(
-	u_idx number not null,
 	u_email varchar2(30 char) primary key,
 	u_pw varchar2(20 char) not null,
 	u_name varchar2(20 char) not null,
@@ -11,23 +10,21 @@ create table test_user(
 	u_private_key varchar2(100 char) default 'none' not null,
 	u_wallet_cash number(5) default 0 not null
 );
-create sequence test_user_seq;
-drop sequence test_user_seq;
 
 select * from test_user;
 delete from test_user ; 
 drop table test_user cascade constraints;
 
-insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
-values(test_user_seq.nextval, 'test@test.com', '1111', 'testman', '19911011','male');
-insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
-values(test_user_seq.nextval, 'test@test2.com', '1111', 'testman', '19911011','male');
-insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender)
-values(test_user_seq.nextval, 'test@test3.com', '1111', 'testman', '19911011','male');
+insert into test_user(u_email, u_pw, u_name, u_birth, u_gender)
+values('test@test.com', 'aaaa1111!', 'testman', '19911011','male');
+insert into test_user(u_email, u_pw, u_name, u_birth, u_gender)
+values('test@test2.com', 'aaaa1111!', 'testman', '19911011','male');
+insert into test_user(u_email, u_pw, u_name, u_birth, u_gender)
+values('test@test3.com', 'aaaa1111!', 'testman', '19911011','male');
 
 -- 어드민 계정 생성
-insert into test_user(u_idx, u_email, u_pw, u_name, u_birth, u_gender, u_admin)
-values(test_user_seq.nextval, 'admin@admin.com', 'aaaa1111!', '관리자', '19991111','male', 1);
+insert into test_user(u_email, u_pw, u_name, u_birth, u_gender, u_admin)
+values('admin@admin.com', 'aaaa1111!', '관리자', '19991111','male', 1);
 
 
 -- 자유 게시판 테이블 생성
@@ -73,6 +70,7 @@ create table test_mountain(
     m_longitude varchar2(10 char) not null
 );
 drop table test_mountain cascade constraints;
+
 INSERT INTO test_mountain (m_name, m_latitude, m_longitude)
 SELECT '오대산', '37.8847', '128.2897' FROM DUAL UNION ALL
 SELECT '함백산', '37.3500', '127.4611' FROM DUAL UNION ALL
