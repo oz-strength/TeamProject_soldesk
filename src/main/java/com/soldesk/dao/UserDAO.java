@@ -15,7 +15,7 @@ import com.soldesk.mapper.UserMapper;
 public class UserDAO {
 	
 	@Autowired
-	private SqlSession ss;
+	private UserMapper userMapper;
 	
 	public boolean isLoggedIn(User u, HttpServletRequest req) {
 		u = (User) req.getSession().getAttribute("user");
@@ -27,7 +27,7 @@ public class UserDAO {
 	
 	public boolean registUser(User u, HttpServletRequest req) {
 		try {
-			if (ss.getMapper(UserMapper.class).registUser(u) == 1) {
+			if (userMapper.registUser(u) == 1) {
 				System.out.println("회원가입 성공 !");
 				return true;
 			} else {
@@ -43,7 +43,7 @@ public class UserDAO {
 	
 	public User checkUser(User u, HttpServletRequest req) {
 		try {
-			User user = ss.getMapper(UserMapper.class).checkUser(u);
+			User user = userMapper.checkUser(u);
 			if (u.getU_email().equals(user.getU_email())) {
 				return user;
 			} else {
@@ -62,7 +62,7 @@ public class UserDAO {
 			String u_email = u.getU_email();
 			String u_pw = u.getU_pw();
 			
-			User user = ss.getMapper(UserMapper.class).loginUser(u);
+			User user = userMapper.loginUser(u);
 			if (user != null) {
 				String dbPw = user.getU_pw();
 				if (dbPw.equals(u_pw)) {
