@@ -1,97 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page import="java.net.URLDecoder"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-    <title>TeamProject</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/modify.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>    
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("button").on("click", function(e){
+		var b_content = document.getElementById("b_content");
+		var formData = $("#frm");
+		var btn=$(this).data("btn"); // data-btn=""
+		if(btn=='modify'){
+			if(content.value == ""){
+	    		alert('내용을 입력하세요.');
+	    		return false;
+	    	}
+			formData.attr("action", "${contextPath}/board/modify");
+		}else if (btn=='remove'){
+			formData.find("#b_title").remove();
+			formData.find("#b_content").remove();
+			formData.find("#b_writer").remove();
+			formData.attr("action", "${contextPath}/board/remove");
+			formData.attr("method", "get");
+		}else if(btn=='list'){
+			formData.find("#b_no").remove();
+			formData.find("#b_title").remove();
+			formData.find("#b_content").remove();
+			formData.find("#b_writer").remove();
+			formData.attr("action", "${contextPath}/board/free");
+			formData.attr("method", "get");
+		}
+		formData.submit();
+	});
+});
+</script>
 </head>
 <body>
-<div class="menu">
-	<ul>
-	    <li class="logo">TeamProject</li>
-	    <li><a href="${contextPath}/">Home</a></li>
-	    <li><a href="list">Board</a></li>
-	    <li><a href="">login</a></li>    
-	    <li><a href="">Sign in</a></li>
-	    <li><a href=""><i class="fas fa-search small"></i></a></li>
-	</ul> 
-</div>
-<div style="text-align:center">
-	<h1>This is 수정하기</h1>
-	<h1>This is 수정하기</h1>
-	<h1>This is 수정하기</h1>
-</div>
-
-<form action="update" method="post" onsubmit="return formCheck(this)">
-
-	<div id="msg" class="msg">
-   	    <c:if test="${not empty param.msg}">
-	        <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>            
-	    </c:if>
-    </div> 
-    
-	<input type="hidden" name="idx" value="${vo.idx }"/> <!-- 수정할 게시글 번호 안보이게 넘기기 -->
-	<table>
-		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title" value="${vo.title }"/></td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<td><textarea rows="7" name="content">${vo.content }</textarea></td>
-		</tr>
-		<tr>
-			<td>작성자</td>
-			<td><input type="text" value="${vo.writer }" readonly="readonly"/></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<button type="submit">수정</button>
-				<button type="button" onclick="location.href='board/list'">목록</button>
-			</td>
-		</tr>
-	</table>
-	<input type="hidden" name="page" value="<c:out value='${cri.page}'/>">
-	<input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>">
-	<input type="hidden" name="type" value="<c:out value='${cri.type}'/>">
-	<input type="hidden" name="keyword" value="<c:out value='${cri.keyword}'/>">
-</form>
-
-<script>
-       function formCheck(frm) {
-            let msg ='';
-
-            if(!frm.title.value) {
-                setMessage('제목을 입력하세요.', frm.title);
-                return false;
-            }
-
-            if(!frm.content.value) {
-                setMessage('내용을 입력하세요.', frm.content);
-                return false;
-            }           
-
-           return true;
-       }
-
-       function setMessage(msg, element){
-            document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}</i>`;
-
-            if(element) {
-                element.select();
-            }
-       }
-   </script>
-
-
-
-
+	<div>
+		<form id="frm" method="post" >
+		<table border="1">
+			
+			<tr>
+				<th>번호</th>
+				<td><input type="text" name="b_no" readonly="readonly" value="${board.b_no}"/></td>
+			</tr>
+			<tr>
+				<th>제목</th> 
+				<td><input type="text" name="b_title" value="<c:out value='${board.b_title}'/>"/></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea id="content" rows="10" cols="" name="b_content"><c:out value='${board.b_content}'/></textarea> </td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td><input type="text" name="b_writer" readonly="readonly"  value="${board.b_writer}"/></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<c:if test="${!empty user && user.u_email eq board.b_email}">				
+					<button type="button" data-btn="modify">수정</button>
+					<button type="button" data-btn="remove">삭제</button>
+					</c:if>
+					<c:if test="${empty user || user.u_email ne board.b_email}">				
+					<button disabled="disabled" type="button">수정</button>
+					<button disabled="disabled" type="button" >삭제</button>
+					</c:if>
+					<button type="button" data-btn="list">목록</button>
+				</td>
+			</tr>
+		</table>
+			<input type="hidden" name="page" value="<c:out value='${cri.page}'/>">
+			<input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>">
+			<input type="hidden" name="type" value="<c:out value='${cri.type}'/>">
+			<input type="hidden" name="keyword" value="<c:out value='${cri.keyword}'/>">
+		</form>
+	</div>
+</body>
+</html>

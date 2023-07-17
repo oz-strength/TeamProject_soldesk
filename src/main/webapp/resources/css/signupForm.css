@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 150vh;
 }
 
 body:before {
@@ -25,8 +25,8 @@ body:before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  height: 150vh;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -100,9 +100,9 @@ a {
 
 
 
-/* 로그인 화면 디자인 */
+/* 회원가입 폼*/
 /*출처 <a href="https://kr.freepik.com/free-vector/blue-shades-of-mountains-landscape_5378579.htm#query=%EC%82%B0&position=2&from_view=keyword&track=sph">Freepik</a>*/
-.login {
+.signup {
   position: relative;
   text-align: center;
   width: 410px;
@@ -112,17 +112,19 @@ a {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
 }
-.login img {
+.signup img {
   width: 100px;
 }
-.login h1 {
+.signup h1 {
   font-size: 2em;
 }
 .input-field {
   position: relative;
   margin-bottom: 10px;
+  display:flex;
 }
 .input-field input {
+	flex:1;
   width: 100%;
   padding: 10px 0;
   background-color: transparent;
@@ -153,6 +155,9 @@ a {
 }
 .button-field input:nth-child(2){
 	background-color: #f9e000;
+}
+.err-field{
+	font-size:15px;
 }
 .add-info {
   overflow: hidden;
@@ -194,6 +199,36 @@ a {
   }
 }
 
+#hidePw {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content:right;
+  display:inherit;
+}
+
+#login-btn:hover{
+	cursor :pointer;
+}
+
+
+#gender_btn input{
+	width: 50px;
+}
+.field.birth{
+	display:  flex;
+	justify-content: left;
+	flex-direction: column;
+}
+.field.birth div{
+	display: flex;
+	gap: 10px;
+}
+.field.birth input{
+	width: 100px;
+}
+
 #save-email {
   display: none;
 }
@@ -213,3 +248,7 @@ a {
 #save-email:checked + em + span {
   color: #5edd60;
 }
+
+
+
+

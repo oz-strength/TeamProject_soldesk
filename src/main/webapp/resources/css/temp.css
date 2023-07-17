@@ -129,7 +129,7 @@ table {
 }
 
 body {
-  height: 200vh;
+  height: 100vh;
   background-color: beige;
   cursor:none !important; /*기본 마우스 없애기*/
 }

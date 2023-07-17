@@ -32,11 +32,11 @@ public class HomeController {
 		return "home";
 	}
 
-	// 자유 게시판 [미구현]
+/*	// 자유 게시판 [미구현]
 	@RequestMapping(value = "/board/free", method = RequestMethod.GET)
 	public String goFreeboard() {
 		return "board/list";
-	}
+	}*/
 
 	/* footer 컨트롤러 - 시작 부분 */
 	// 개인정보 보호 및 약관

@@ -20,7 +20,7 @@
         </div>
         <div class="copyright">
           <div class="logo-footer">
-            <img src="${contextPath}/resources/images/mountainLogo.png" alt="">
+            <a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt=""></a>
           </div>
           <div class="policy">
             <a href="">개인정보 보호 및 약관</a>

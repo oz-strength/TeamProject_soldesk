@@ -20,9 +20,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
-    
-    <%-- 카카오 로그인용 --%>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <style>
     .login,
     .login a,
@@ -44,46 +41,7 @@
 <body>
 	
 	
-<!-- 카카오 스크립트 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script>
-Kakao.init('e482edbfbe6fe2c270c178df868185c5'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-    }
-  }  
-</script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
@@ -91,7 +49,7 @@ function kakaoLogout() {
 $(function() {
 	$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
 	checkLogin();
-	
+
 });
 
 
@@ -173,13 +131,12 @@ function rtnCkPw() {
 
 </script>
 
-
 	<section class="login">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
       <h1>Login</h1>
-      <form action="user.login">
+      <form action="${contextPath}/user.login" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_id" autocomplete="off" required/>
+          <input type="email" name="u_email" id="u_id" autocomplete="off" required autofocus/>
           <span>USER EMAIL</span>
         </div>
         <div id="u_email_err_div" class="err-field"></div>
@@ -200,16 +157,14 @@ function rtnCkPw() {
         </div>
         <div class="add-info">
           <label>
-            <input type="checkbox" name="" id="save-email" />
+            <input type="checkbox" name="rememberEmail" id="save-email" />
             <em></em>
-            <span>Save your Email?</span>
+            <span>Save Email</span>
           </label>
           <a href="#none">Forgot Password?</a>
-          <a href="signup">Sign Up</a>
+          <a href="signup"><b>Sign Up<b></b></a>
         </div>
       </form>
-<!--       <input type="submit" value="KAKAO" id="kakao-btn" onclick="kakaoLogin();" />
- -->    
     <script src="${contextPath}/resources/js/validCheck.js">
     </script>
      <%--  커서 전체화면 적용하기 --%>
@@ -222,11 +177,9 @@ function rtnCkPw() {
     		<span class="cursor__trace__inner"></span>
     	</div>
     </div>
+    
     </section>
     
     <script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script> 
     
-    
-    
-</body>
-</html>
+  

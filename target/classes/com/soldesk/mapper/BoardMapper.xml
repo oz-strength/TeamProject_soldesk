@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.mapper.BoardMapper">
+	
+								<!-- 검색창 -->
+	<sql id="search">
+		<if test="type=='b_writer'">
+			where b_writer like '%' || #{keyword} || '%'
+		</if>
+		<if test="type=='b_title'">
+			where b_title like '%' || #{keyword} || '%'
+		</if>
+		<if test="type=='b_content'">
+			where b_content like '%' || #{keyword} || '%'
+		</if>
+	</sql>
+							<!-- 자유 게시판 리스트 불러오기 -->
+	<select id="getList" resultType="com.soldesk.entity.Board" parameterType="com.soldesk.entity.Criteria">
+	SELECT *
+	FROM (
+	  SELECT t.*, ROWNUM rnn
+	  FROM (
+	    SELECT a.*, ROWNUM rn
+	    FROM test_board a
+	    <include refid="search"/> 
+	    ORDER BY boardGroup DESC, boardSequence ASC
+	  ) t
+	  WHERE ROWNUM <![CDATA[<=]]>  #{pageStart}+#{perPageNum}-1
+	)
+	WHERE rnn >= #{pageStart}
+
+	</select>
+	
+								<!-- 자유 게시판 게시글 총 개수 불러오기 -->
+	<select id="totalCount" resultType="int" parameterType="com.soldesk.entity.Criteria">
+		select count(*) from test_board
+		<include refid="search"/>
+	</select>
+	
+								<!-- 게시글 등록 -->
+	<insert id="register" parameterType="com.soldesk.entity.Board">
+		<selectKey keyProperty="b_no,boardGroup" resultType="com.soldesk.entity.Board" order="BEFORE">
+			select nvl(max(b_no)+1, 1) as b_no,
+					nvl(max(boardGroup)+1, 0) as boardGroup
+			from test_board
+		</selectKey>
+		insert into 
+		test_board(b_no, b_email, b_title, b_content, b_writer, boardGroup, boardSequence, boardLevel, boardAvailable)
+		values(#{b_no}, #{b_email}, #{b_title}, #{b_content}, #{b_writer}, #{boardGroup}, 0, 0, 1)
+	</insert>
+	
+	
+								<!-- 자유 게시판 게시글 한 개 불러오기 -->
+	<select id="get" resultType="com.soldesk.entity.Board">
+		select * from test_board where b_no=#{b_no} 
+	</select>
+	
+								<!-- 게시글 조회수 증가 -->
+	<update id="updateCount" parameterType="int">
+        update test_board
+        set b_count = b_count + 1
+        where b_no = #{b_no}
+    </update>
+    
+    							<!-- 게시글 수정 -->
+    <update id="modify"  parameterType="com.soldesk.entity.Board">
+		update test_board set b_title=#{b_title}, b_content=#{b_content} where b_no=#{b_no}
+	</update>
+	
+								<!-- 게시글 삭제 -->
+	<delete id="remove" parameterType="com.soldesk.entity.Board">
+		update test_board set boardAvailable=0 where b_no=#{b_no}
+	</delete>
+	
+								<!-- boardSequence 업데이트 -->
+	<update id="replySeqUpdate" parameterType="com.soldesk.entity.Board">
+		update test_board set boardSequence=boardSequence+1
+		where boardGroup=#{boardGroup} and boardSequence > #{boardSequence}
+	</update>
+	
+								<!-- 답글 달기 -->
+	<insert id="replyInsert" parameterType="com.soldesk.entity.Board">
+		<selectKey keyProperty="b_no" resultType="com.soldesk.entity.Board" order="BEFORE">
+			select nvl(max(b_no)+1, 1) as b_no from test_board
+		</selectKey>
+		insert into 
+		test_board(b_no, b_email, b_title, b_content, b_writer, boardGroup, boardSequence, boardLevel, boardAvailable)
+		values(#{b_no}, #{b_email}, #{b_title}, #{b_content}, #{b_writer}, #{boardGroup}, #{boardSequence}, #{boardLevel}, 1)
+	</insert>
+
+
+
+
+	
+</mapper>
+
+
+
+
+
