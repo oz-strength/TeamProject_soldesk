@@ -13,6 +13,11 @@
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var r = '<%= request.getAttribute("r") %>';
+		if (r !== "null") {
+		  alert(r);
+		}
+		
 		$("button").on("click", function(e){
 			var formData = $("#frm");
 			var btn=$(this).data("btn"); // data-btn=""

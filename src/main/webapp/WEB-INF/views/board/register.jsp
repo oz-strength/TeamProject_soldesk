@@ -14,6 +14,11 @@
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
+	var r = '<%= request.getAttribute("r") %>';
+	if (r !== "null") {
+	  alert(r);
+	}
+	
 	$("button").on("click", function(e){
 		var formData=$("#frm");
 		var btn=$(this).data("btn"); // data-btn="list"

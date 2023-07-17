@@ -23,7 +23,21 @@
 </style>
 </head>
 <body>
-	
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+		$(function() {
+			var r = '<%= request.getAttribute("r") %>';
+			if (r !== "null") {
+			  alert(r);
+			} else {
+				alert("Null");
+			}
+		});
+    </script>	
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 

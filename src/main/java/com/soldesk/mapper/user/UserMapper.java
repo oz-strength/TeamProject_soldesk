@@ -1,4 +1,4 @@
-package com.soldesk.mapper;
+package com.soldesk.mapper.user;
 
 import org.apache.ibatis.annotations.Mapper;
 

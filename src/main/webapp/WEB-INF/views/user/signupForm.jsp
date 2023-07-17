@@ -47,6 +47,11 @@
 
 
 $(function() {
+	var r = '<%= request.getAttribute("r") %>';
+	if (r !== "null") {
+	  alert(r);
+	}
+	
 	$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
 	checkSignUp();
 	

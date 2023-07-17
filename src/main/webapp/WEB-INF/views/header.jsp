@@ -4,7 +4,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
+
 <header>
+
     <a href="${contextPath}/" class="button-in-header">THE MOUNTAIN</a>
     <div id="middle-buttons">
       <a href="#" id="active-menu" class="button-in-header">
