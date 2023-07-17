@@ -1,4 +1,4 @@
-package com.soldesk.entity;
+package com.soldesk.entity.board;
 
 public class PageMaker {
 	private Criteria cri;

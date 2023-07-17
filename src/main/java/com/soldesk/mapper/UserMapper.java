@@ -1,16 +1,16 @@
 package com.soldesk.mapper;
 
-import org.mybatis.spring.annotation.MapperScan;
+import org.apache.ibatis.annotations.Mapper;
 
-import com.soldesk.entity.User;
+import com.soldesk.entity.user.User;
 
-@MapperScan
+@Mapper
 public interface UserMapper {
-	public abstract int register(User u); // 회원 등록
+	public abstract int registUser(User u); // 회원 등록
 
-	public abstract User registerCheck(String u_email); // 이메일 존재여부 체크
+	public abstract User checkUser(User u); // 이메일 존재여부 체크
 
-	public abstract User userLogin(User u);
+	public abstract User loginUser(User u);
 	
 	
 }

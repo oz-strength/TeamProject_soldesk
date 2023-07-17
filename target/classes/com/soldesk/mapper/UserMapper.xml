@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.soldesk.mapper.UserMapper">
-	<insert id="register" parameterType="com.soldesk.entity.User">
-		insert into test_user (u_email, u_pw, u_name, u_birth, u_gender) 
-		values(#{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender})
+	<insert id="registUser" parameterType="com.soldesk.entity.user.User">
+		insert into test_user *  
+		values(#{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender}, #{u_admin}, 
+		#{u_public_key}, #{u_private_key}, #{u_wallet_cash})
 	</insert>
 	
-	<select id="registerCheck" resultType="com.soldesk.entity.User">
+	<select id="checkUser" resultType="com.soldesk.entity.user.User">
 		select * from test_user where u_email = #{u_email}
 	</select>
 	
-	<select id="userLogin" parameterType="com.soldesk.entity.User" resultType="com.soldesk.entity.User">
-		select * from test_user where u_email=#{u_email} and u_pw=#{u_pw}
+	<select id="loginUser" parameterType="com.soldesk.entity.user.User" resultType="com.soldesk.entity.user.User">
+		select * from test_user where u_email = #{u_email}
 	</select>
 </mapper>

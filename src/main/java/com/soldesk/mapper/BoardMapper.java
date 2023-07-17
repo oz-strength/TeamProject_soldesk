@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
-import com.soldesk.entity.Criteria;
-import com.soldesk.entity.Board;
+import com.soldesk.entity.board.Board;
+import com.soldesk.entity.board.Criteria;
 
 @Mapper
 public interface BoardMapper {

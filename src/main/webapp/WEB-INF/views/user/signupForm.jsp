@@ -109,13 +109,6 @@ function checkInputNullSignUp() {
 	let ckPwCk = rtnCkPwCk();
 	let ckName = rtnCkName();
 	let ckBirth = rtnCkBirth();
-
-/*
- * checkIdDpctd(m_id, function(dpctd) { if (inputFilled && ckId && ckPw &&
- * ckPwCk && ckName && ckPN && !dpctd) {
- * $("#login-btn").css({"pointer-events": "auto", "opacity": "1"}); } else {
- * $("#login-btn").css({"pointer-events": "none", "opacity": "0.3"}); } }
- */
 	
 	if (inputFilled && ckId && ckPw && ckPwCk && ckName && ckBirth && isIdChecked) {
 		$("#login-btn").css({"pointer-events": "auto", "opacity": "1"});

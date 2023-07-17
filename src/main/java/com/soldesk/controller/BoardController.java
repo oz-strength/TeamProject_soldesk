@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.soldesk.entity.Board;
-import com.soldesk.entity.Criteria;
-import com.soldesk.entity.PageMaker;
+import com.soldesk.entity.board.Board;
+import com.soldesk.entity.board.Criteria;
+import com.soldesk.entity.board.PageMaker;
 import com.soldesk.mapper.BoardMapper;
 
 @Controller
@@ -32,8 +32,7 @@ public class BoardController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(boardMapper.totalCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
-		return "board/l"
-				+ "ist";
+		return "board/list";
 	}
 	
 	// 게시글 등록하기 (등록 페이지로 이동하기)
