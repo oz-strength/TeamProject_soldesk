@@ -33,8 +33,6 @@
 			var r = '<%= request.getAttribute("r") %>';
 			if (r !== "null") {
 			  alert(r);
-			} else {
-				alert("Null");
 			}
 		});
     </script>	
