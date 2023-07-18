@@ -51,9 +51,6 @@ a{
 .writer:focus{
   outline: none;
 }
-.content{
-	resize: none;
-}
 /*==========================*/
 
 .board-table tr {
@@ -126,8 +123,8 @@ a{
 }
 
 
-.board-table .replyBtn,
 .board-table .modifyBtn,
+.board-table .deleteBtn,
 .board-table .listBtn{
  		display: inline-block;
  		width: 100px;
@@ -139,8 +136,8 @@ a{
   	cursor: pointer;
   	outline: none;
 }
-.board-table tr td .replyBtn:hover, 
-.board-table .modifyBtn:hover,
+.board-table tr td .modifyBtn:hover, 
+.board-table .deleteBtn:hover,
 .board-table .listBtn:hover {
   background-color: #94f8a5;
   box-shadow: 0px 15px 20px #ddfdbd;
