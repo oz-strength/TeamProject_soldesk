@@ -37,7 +37,7 @@
 	
 								<!-- 나무 이미지 -->
 	
-<div id="image-wrapper" style="transform: translateX(100px);">
+<div id="image-wrapper" style="transform: translateX(1000px);">
 	<div id="main-image">
   <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
@@ -111,89 +111,117 @@ version="1.0" xmlns="http://www.w3.org/2000/svg"
 		  var pathElementX = document.getElementById('x');
 		  var pathElementY = document.getElementById('y');
 		  var pathElementZ = document.getElementById('z');
+		  var pathElementTree = document.getElementById('tree');
 
+		  pathElementTree.addEventListener('click', function() {
+		    pathElementA.classList.add('falling1');
+		    pathElementB.classList.add('falling2');
+		    pathElementC.classList.add('falling1');
+		    pathElementD.classList.add('falling2');
+		    pathElementE.classList.add('falling1');
+		    pathElementF.classList.add('falling3');
+		    pathElementG.classList.add('falling2');
+		    pathElementH.classList.add('falling2');
+		    pathElementI.classList.add('falling3');
+		    pathElementJ.classList.add('falling3');
+		    pathElementK.classList.add('falling2');
+		    pathElementL.classList.add('falling1');
+		    pathElementM.classList.add('falling1');
+		    pathElementN.classList.add('falling1');
+		    pathElementO.classList.add('falling2');
+		    pathElementP.classList.add('falling2');
+		    pathElementQ.classList.add('falling3');
+		    pathElementR.classList.add('falling3');
+		    pathElementS.classList.add('falling2');
+		    pathElementT.classList.add('falling1');
+		    pathElementU.classList.add('falling2');
+		    pathElementW.classList.add('falling3');
+		    pathElementX.classList.add('falling1');
+		    pathElementY.classList.add('falling2');
+		    pathElementZ.classList.add('falling1');
+		  });
 		  pathElementA.addEventListener('click', function() {
-		    pathElementA.classList.add('falling');
+		    pathElementA.classList.add('falling1');
 		  });
 
 		  pathElementB.addEventListener('click', function() {
-		    pathElementB.classList.add('falling');
+		    pathElementB.classList.add('falling2');
 		  });
 
 		  pathElementC.addEventListener('click', function() {
-		    pathElementC.classList.add('falling');
+		    pathElementC.classList.add('falling3');
 		  });
 
 		  pathElementD.addEventListener('click', function() {
-		    pathElementD.classList.add('falling');
+		    pathElementD.classList.add('falling2');
 		  });
 
 		  pathElementE.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementE.classList.add('falling2');
 		  });
 
 		  pathElementF.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementF.classList.add('falling2');
 		  });
 		  pathElementG.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementG.classList.add('falling2');
 		  });
 		  pathElementH.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementH.classList.add('falling1');
 		  });
 		  pathElementI.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementI.classList.add('falling2');
 		  });
 		  pathElementJ.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementJ.classList.add('falling2');
 		  });
 		  pathElementK.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementK.classList.add('falling3');
 		  });
 		  pathElementL.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementL.classList.add('falling3');
 		  });
 		  pathElementM.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementM.classList.add('falling2');
 		  });
 		  pathElementN.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementN.classList.add('falling1');
 		  });
 		  pathElementO.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementO.classList.add('falling1');
 		  });
 		  pathElementP.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementP.classList.add('falling2');
 		  });
 		  pathElementQ.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementQ.classList.add('falling3');
 		  });
 		  pathElementR.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementR.classList.add('falling2');
 		  });
 		  pathElementS.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementS.classList.add('falling3');
 		  });
 		  pathElementT.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementT.classList.add('falling1');
 		  });
 		  pathElementU.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementU.classList.add('falling1');
 		  });
 		  pathElementV.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementV.classList.add('falling1');
 		  });
 		  pathElementW.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementW.classList.add('falling3');
 		  });
 		  pathElementX.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementX.classList.add('falling2');
 		  });
 		  pathElementY.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementY.classList.add('falling2');
 		  });
 		  pathElementZ.addEventListener('click', function() {
-		    pathElementE.classList.add('falling');
+		    pathElementZ.classList.add('falling3');
 		  });
 		});
 
@@ -217,7 +245,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
 <path id="e" class="a" d="M6757 12450 c-87 -15 -165 -67 -213 -141 -57 -90 -70 -250 -22 -263
 64 -16 175 23 244 86 71 66 98 126 98 225 1 45 -1 84 -4 86 -11 12 -58 15
 -103 7z"/>
-<path id=""  class="b" d="M6050 12431 c-43 -9 -105 -38 -121 -57 -9 -11 -5 -24 15 -58 69 -118
+<path id="f"  class="b" d="M6050 12431 c-43 -9 -105 -38 -121 -57 -9 -11 -5 -24 15 -58 69 -118
 215 -160 337 -98 67 33 72 54 27 112 -59 76 -168 119 -258 101z"/>
 <path id="tree" class="tree" d="M6340 12377 c0 -2 16 -50 36 -108 79 -233 133 -489 155 -730 21 -234
 -3 -554 -57 -764 -24 -91 -85 -279 -94 -289 -13 -13 -295 273 -372 377 -161
@@ -300,55 +328,55 @@ l-1 118 -18 -105 c-27 -156 -42 -358 -38 -506 l3 -132 -33 38 c-43 51 -105 75
 354 475 38 86 152 386 185 488 3 11 -43 -79 -103 -200 -60 -121 -128 -251
 -152 -290 -103 -169 -223 -294 -353 -373 -58 -35 -190 -92 -212 -92 -9 0 -17
 26 -25 73 -44 272 -120 526 -242 815 -51 121 -68 156 -68 139z"/>
-<path id="" class="b" d="M7073 12334 c-15 -7 -17 -56 -3 -105 14 -50 76 -118 128 -140 24 -10
+<path id="g" class="b" d="M7073 12334 c-15 -7 -17 -56 -3 -105 14 -50 76 -118 128 -140 24 -10
 65 -19 92 -19 56 0 66 14 54 77 -14 76 -53 132 -118 165 -38 20 -130 33 -153
 22z"/>
-<path id="" class="b"  d="M4596 12279 c-91 -79 -119 -236 -63 -351 16 -32 47 -73 69 -92 l41
+<path id="h" class="b"  d="M4596 12279 c-91 -79 -119 -236 -63 -351 16 -32 47 -73 69 -92 l41
 -35 27 19 c38 27 86 105 101 163 22 90 -6 196 -71 270 -52 59 -63 62 -104 26z"/>
-<path id="" class="c" d="M7605 12290 c-69 -22 -166 -139 -133 -162 45 -31 78 -41 133 -41 50
+<path id="i" class="c" d="M7605 12290 c-69 -22 -166 -139 -133 -162 45 -31 78 -41 133 -41 50
 -1 71 5 109 27 48 28 106 96 106 125 0 42 -140 75 -215 51z"/>
 <path id="" class="b" d="M5642 12158 c-17 -18 -38 -50 -46 -70 -20 -46 -21 -128 -2 -172 17
 -40 73 -106 91 -106 23 0 84 78 96 122 22 83 -14 201 -73 243 -30 20 -29 20
 -66 -17z"/>
-<path id="" class="c" d="M8543 12168 c-41 -46 -63 -104 -63 -170 1 -91 36 -158 106 -204 23
+<path id="j" class="c" d="M8543 12168 c-41 -46 -63 -104 -63 -170 1 -91 36 -158 106 -204 23
 -16 26 -16 49 6 64 60 85 189 46 276 -19 42 -86 114 -106 114 -6 0 -21 -10
 -32 -22z"/>
-<path id="" class="c" d="M6080 12127 c-51 -14 -107 -46 -134 -76 -16 -17 -16 -22 -3 -48 22
+<path id="k" class="c" d="M6080 12127 c-51 -14 -107 -46 -134 -76 -16 -17 -16 -22 -3 -48 22
 -40 84 -97 137 -125 33 -16 66 -24 121 -26 67 -4 85 0 137 23 33 15 72 40 87
 55 l27 28 -30 44 c-75 109 -217 160 -342 125z"/>
-<path id="" class="c"  d="M6913 12124 c-18 -8 -16 -103 2 -148 47 -112 187 -188 294 -159 22 6
+<path id="l" class="c"  d="M6913 12124 c-18 -8 -16 -103 2 -148 47 -112 187 -188 294 -159 22 6
 23 9 18 69 -10 133 -110 231 -244 240 -32 2 -64 1 -70 -2z"/>
-<path id="" class="c" d="M7563 12059 c-54 -10 -91 -30 -131 -71 l-33 -35 21 -26 c12 -15 43
+<path id="m" class="c" d="M7563 12059 c-54 -10 -91 -30 -131 -71 l-33 -35 21 -26 c12 -15 43
 -39 68 -55 39 -23 58 -27 117 -27 47 0 81 6 102 18 38 20 103 75 103 87 0 13
 -60 69 -91 86 -42 21 -108 31 -156 23z"/>
-<path id="" class="d" d="M6693 12025 c-60 -30 -102 -86 -110 -144 -5 -37 -3 -41 21 -47 56
+<path id="n" class="d" d="M6693 12025 c-60 -30 -102 -86 -110 -144 -5 -37 -3 -41 21 -47 56
 -14 134 1 174 32 40 33 82 104 82 141 0 48 -88 57 -167 18z"/>
-<path class="e" d="M4855 11878 c-98 -36 -165 -125 -165 -221 0 -43 1 -45 37 -50 40 -7
+<path id="o" class="e" d="M4855 11878 c-98 -36 -165 -125 -165 -221 0 -43 1 -45 37 -50 40 -7
 111 6 152 27 78 42 143 161 125 232 -6 22 -11 24 -63 23 -31 0 -69 -5 -86 -11z"/>
-<path id="" class="d" d="M6127 11810 c-70 -18 -80 -27 -72 -68 18 -95 90 -188 180 -232 65
+<path id="p" class="d" d="M6127 11810 c-70 -18 -80 -27 -72 -68 18 -95 90 -188 180 -232 65
 -31 201 -35 253 -7 30 16 33 21 27 50 -22 101 -98 198 -189 238 -53 23 -146
 32 -199 19z"/>
-<path id="" class="d" d="M6853 11811 c-49 -13 -120 -58 -149 -96 -46 -61 -70 -177 -38 -189
+<path id="q" class="d" d="M6853 11811 c-49 -13 -120 -58 -149 -96 -46 -61 -70 -177 -38 -189
 24 -9 115 -7 155 4 47 13 124 81 150 132 24 47 36 132 20 142 -18 11 -104 16
 -138 7z"/>
-<path id="" class="f" d="M7419 11811 c-63 -20 -139 -81 -139 -112 0 -27 75 -85 136 -104 96
+<path id="r" class="f" d="M7419 11811 c-63 -20 -139 -81 -139 -112 0 -27 75 -85 136 -104 96
 -30 195 -3 267 73 24 24 27 34 18 49 -14 27 -77 74 -120 89 -40 14 -122 17
 -162 5z"/>
-<path id="" class="d" d="M8280 11758 c-45 -98 -14 -229 70 -301 45 -38 101 -63 124 -54 8 3
+<path id="s" class="d" d="M8280 11758 c-45 -98 -14 -229 70 -301 45 -38 101 -63 124 -54 8 3
 22 29 31 57 42 127 -19 266 -139 321 -58 26 -65 24 -86 -23z"/>
-<path class="c" d="M5340 11751 c-64 -13 -79 -26 -71 -63 17 -75 83 -153 155 -182 79
+<path id="t"class="c" d="M5340 11751 c-64 -13 -79 -26 -71 -63 17 -75 83 -153 155 -182 79
 -33 216 -11 216 34 0 59 -70 154 -140 190 -42 21 -112 30 -160 21z"/>
-<path id="" class="d" d="M5865 11746 c-91 -40 -155 -145 -138 -228 5 -26 9 -28 54 -28 102 0
+<path id="u" class="d" d="M5865 11746 c-91 -40 -155 -145 -138 -228 5 -26 9 -28 54 -28 102 0
 198 76 220 174 18 82 13 91 -51 93 -30 2 -68 -3 -85 -11z"/>
-<path id="" class="d"  d="M4265 11716 c-86 -21 -87 -24 -51 -101 47 -103 143 -165 253 -165 59
+<path id="w" class="d"  d="M4265 11716 c-86 -21 -87 -24 -51 -101 47 -103 143 -165 253 -165 59
 0 143 23 143 40 0 20 -26 79 -51 116 -35 52 -94 90 -166 109 -66 17 -62 17
 -128 1z"/>
-<path id="" class="d" d="M8787 11634 c-63 -20 -128 -84 -150 -149 -24 -68 -22 -84 11 -91 15
+<path id="x" class="d" d="M8787 11634 c-63 -20 -128 -84 -150 -149 -24 -68 -22 -84 11 -91 15
 -3 35 -8 45 -11 34 -9 127 18 169 50 45 34 83 99 93 159 7 36 6 37 -32 47 -49
 14 -77 13 -136 -5z"/>
-<path id="" class="e"  d="M4910 11589 c-92 -41 -155 -132 -166 -237 -8 -74 5 -87 76 -79 148
+<path id="y" class="e"  d="M4910 11589 c-92 -41 -155 -132 -166 -237 -8 -74 5 -87 76 -79 148
 18 260 141 260 287 l0 50 -62 0 c-42 0 -78 -7 -108 -21z"/>
-<path id="" class="e"  d="M7685 11574 c-99 -53 -150 -168 -115 -260 10 -24 14 -26 51 -21 106
+<path id="z" class="e"  d="M7685 11574 c-99 -53 -150 -168 -115 -260 10 -24 14 -26 51 -21 106
 14 188 143 162 254 -7 33 -13 38 -38 40 -17 2 -43 -5 -60 -13z"/>
 <path id="" class="e" d="M5958 11515 c-89 -33 -148 -113 -148 -203 0 -48 2 -51 29 -57 70 -15
 174 37 216 109 31 53 45 144 24 157 -20 13 -78 10 -121 -6z"/>
@@ -758,7 +786,7 @@ l9 -30 79 1 c89 0 136 19 205 81 60 54 91 123 97 212 4 55 1 75 -9 82 -20 13
 <path class="c" d="M8411 5654 c-134 -151 -180 -365 -121 -558 39 -125 143 -257 257
 -326 l56 -34 48 53 c54 61 110 160 133 240 20 69 21 227 1 301 -36 137 -154
 291 -272 353 l-51 27 -51 -56z"/>
-<path class="c" d="M9000 5628 c-93 -162 -100 -354 -19 -526 46 -96 159 -207 259 -254
+<path id="" class="c" d="M9000 5628 c-93 -162 -100 -354 -19 -526 46 -96 159 -207 259 -254
 124 -59 122 -59 164 21 126 240 71 528 -135 697 -54 44 -156 98 -206 109 -30
 6 -33 4 -63 -47z"/>
 </g>

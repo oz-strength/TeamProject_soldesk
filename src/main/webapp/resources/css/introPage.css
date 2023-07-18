@@ -328,8 +328,14 @@ a {
 }
 
 
-.falling {
+.falling1 {
     animation: fallAnimation 10s forwards;
+}
+.falling2 {
+    animation: fallAnimation 6s forwards;
+}
+.falling3 {
+    animation: fallAnimation 8s forwards;
 }
   
 @keyframes fallAnimation {
