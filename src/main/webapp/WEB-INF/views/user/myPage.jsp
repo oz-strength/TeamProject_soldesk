@@ -13,9 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/signupForm.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
  <!--    <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -219,6 +219,30 @@ function rtnCkBirth() {
 	}
 }	
 	
+function showPw1() {
+    var passwordInput = document.getElementById('u_pw');
+    var hidePwIcon = document.getElementById('hidePw');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+    } else {
+      passwordInput.type = 'password';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+    }
+  }
+function showPw2() {
+    var passwordInput = document.getElementById('u_pw_chk');
+    var hidePwIcon = document.getElementById('hidePw2');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+    } else {
+      passwordInput.type = 'password';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+    }
+  }
 </script>
    
    
@@ -229,9 +253,9 @@ function rtnCkBirth() {
 		<a id="userLogo" href="${contextPath}/"><img src="${contextPath}/resources/images/user.png" alt="" /></a>
       	<h1>MyPage</h1>
       <form action="user.changeUserInfo" method="post">
-        <div class="input-field">
-          <input value="${user.u_email}" type="email" name="u_email" id="u_email" autocomplete="off" required/>
-          <span>USER EMAIL</span>
+        <div id="userEmail" class="input-field">
+          <input value="${user.u_email}" type="email" name="u_email" id="u_email" readonly required/>
+          <span >USER EMAIL</span>
         </div>
         <div class="button-field">
 		</div>
@@ -245,6 +269,7 @@ function rtnCkBirth() {
             maxlength="12"
             minlength="8"
           /><span>PASSWORD</span>
+          <a id="hidePw" onclick="showPw1()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_err_div" class="err-field"></div>
         <div class="input-field">
@@ -256,6 +281,7 @@ function rtnCkBirth() {
             maxlength="12"
             minlength="8"
           /><span>PASSWORD CHECK</span>
+           <a id="hidePw2" onclick="showPw2()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_chk_err_div" class="err-field"></div>
         <div class="input-field">

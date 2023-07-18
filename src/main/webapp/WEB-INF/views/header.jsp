@@ -9,7 +9,7 @@
 
     <a href="${contextPath}/" class="button-in-header">THE MOUNTAIN</a>
     <div id="middle-buttons">
-      <a href="#" id="active-menu" class="button-in-header">
+      <a href="${contextPath}/introPage" id="active-menu" class="button-in-header">
       	<span class="long-text">INTRO</span>
       	<span class="short-text"></span>
       </a>

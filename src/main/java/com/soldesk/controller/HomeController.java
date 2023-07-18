@@ -31,6 +31,12 @@ public class HomeController {
 	public String goMypage() {
 		return "home";
 	}
+	
+	// 인트로 페이지로 이동하기
+	@RequestMapping("/introPage")
+	public String goIntroPage() {
+		return "IntroPage";
+	}
 
 /*	// 자유 게시판 [미구현]
 	@RequestMapping(value = "/board/free", method = RequestMethod.GET)
@@ -55,5 +61,5 @@ public class HomeController {
 		return "home";
 	}
 	/* footer 컨트롤러 - 끝 부분 */
-
+	
 }
