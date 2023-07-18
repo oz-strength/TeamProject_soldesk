@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/boardModify.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -71,14 +72,14 @@ $(document).ready(function(){
 			<tr>
 				<td colspan="2">
 					<c:if test="${!empty user && user.u_email eq board.b_email}">				
-					<button type="button" data-btn="modify">수정</button>
-					<button type="button" data-btn="remove">삭제</button>
+					<button type="button" data-btn="modify" class="modifyBtn">수정</button>
+					<button type="button" data-btn="remove" class="deleteBtn">삭제</button>
 					</c:if>
 					<c:if test="${empty user || user.u_email ne board.b_email}">				
-					<button disabled="disabled" type="button">수정</button>
-					<button disabled="disabled" type="button" >삭제</button>
+					<button disabled="disabled" type="button" class="modifyBtn">수정</button>
+					<button disabled="disabled" type="button" class="deleteBtn">삭제</button>
 					</c:if>
-					<button type="button" data-btn="list">목록</button>
+					<button type="button" data-btn="list" class="listBtn">목록</button>
 				</td>
 			</tr>
 		</table>

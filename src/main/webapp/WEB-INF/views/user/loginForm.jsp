@@ -137,7 +137,7 @@ function rtnCkPw() {
       <h1>Login</h1>
       <form action="${contextPath}/user.login" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_id" autocomplete="off" required autofocus/>
+          <input type="email" name="u_email" id="u_id" autocomplete="off" value="${cookie.lastLoginId.value }" required autofocus/>
           <span>USER EMAIL</span>
         </div>
         <div id="u_email_err_div" class="err-field"></div>
