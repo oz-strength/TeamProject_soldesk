@@ -12,5 +12,5 @@ public interface UserMapper {
 
 	public abstract User loginUser(User u);
 	
-	
+	public abstract void updateUser(User u);
 }

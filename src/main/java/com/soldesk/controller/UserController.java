@@ -78,4 +78,11 @@ public class UserController {
 	public String goMyPage() {
 		return "user/myPage";
 	}
+	
+	// 회원정보 수정
+	@RequestMapping("/user/user.changeUserInfo")
+	public String updateUser(User u) {
+		uDao.updateUser(u);
+		return "home";
+	}
 }
