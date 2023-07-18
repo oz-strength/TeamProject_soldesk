@@ -256,15 +256,6 @@ a {
   /*background-color: #013a3b;*/
 }
 
-#image-wrapper {
-	display: flex;
-  	justify-content: center;
-  	overflow: hidden;
-}
-
-#main-image {
-  min-width: 1000px;
-}
 
 /* backtotop 버튼 */
 #backtotop {
@@ -301,15 +292,16 @@ a {
   visibility: visible;
   background-color: rgb(47, 48, 49);
 }
-/*back to top button*/
 
-/*parallax 이미지*/
+/* //////////////  나무 이미지  ////////////////*/
+
+
 #image-wrapper {
   overflow: hidden;
 }
 
 #main-image {
-  min-width: 1000px;
+  min-width: 500px;
 }
 
 @keyframes upAndDown{
@@ -322,98 +314,31 @@ a {
 	100% {
 		transform: translateY(0);
 	}
-}
+} 
 
-#sun{
+
+
+.a,
+.b,
+.c,
+.d,
+.e,
+.f{
 	animation: upAndDown 1s infinite;
 }
 
 
-/* map 이미지*/
-.map{
-	display:flex;
-	justify-content: center;
+.falling {
+    animation: fallAnimation 10s forwards;
 }
+  
+@keyframes fallAnimation {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-12000px) rotate(45deg); }
+}  
 
-/* card 디자인 */
-.card {
-	margin: 300px 0 100px 0;
-  font-size: 15px;
-  color: #1E90FF;
-  line-height: 1.5em;
-  font-weight: 300;
-}
-.inner {
-  width: 1100px;
-  margin: auto;
-}
 
-.heading {
-  text-align: center;
-  font-size: 40px;
-  font-weight: normal;
-  position: relative;
-  padding-bottom: 30px;
-}
 
-.heading:after {
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 100px;
-  background-color: greenyellow;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.items {
-	margin-top: 50px;
-  text-align: center;
-}
-.item {
-  width: 350px;
-  display: inline-block;
-  margin: 5px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-sizing: border-box;
-  vertical-align: top;
-  border-radius: 5px;
-}
-.item h2 {
-  font-weight: normal;
-}
-.item p {
-  font-size: 18px;
-  line-height: 1.5em;
-  text-align: left;
-}
-.item .detail {
-  padding: 40px 0;
-}
-
-.btn-explore {
-  background-color: dodgerblue;
-  color: #fff;
-  display: block;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 5px;
-  border-radius: 3px;
-}
-
-.item:hover .photo img {
-  transform: scale(1.1);
-}
-
-.photo {
-  border-radius: 5px;
-}
-
-.photo img {
-  transition: 0.5s;
-}
 
 
 /* footer 디자인*/
