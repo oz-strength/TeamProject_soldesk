@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.mapper.WeatherMapper">
+	<insert id="addWeather" parameterType="com.soldesk.entity.weather.WeatherItem">
+		insert into soldesk_weather_tb values ( soldesk_weather_tb_seq.nextval, 
+		#{w_loc}, #{w_baseDate}, #{w_fcstDate}, #{w_tmp}, #{w_tmx}, 
+		#{w_tmn}, #{w_reh}, #{w_pop}, #{w_vec}, #{w_wsd}, #{w_sky})
+	</insert>
+	<select id="getWeatherMap" parameterType="com.soldesk.entity.weather.WeatherItem"
+		resultType="com.soldesk.entity.weather.WeatherItem">
+		select * from soldesk_weather_tb where w_fcstdate in #{w_fcstDate} order by w_no
+	</select>
+	<select id="checkWeather" parameterType="com.soldesk.entity.weather.WeatherItem"
+		resultType="java.lang.Integer">
+		select count(*) from soldesk_weather_tb where w_basedate in #{w_baseDate} order by w_no
+	</select>
+	<select id="getWeatherPage" parameterType="com.soldesk.entity.weather.WeatherItem"
+		resultType="com.soldesk.entity.weather.WeatherItem">
+		select * from soldesk_weather_tb where w_basedate in #{w_baseDate} and
+		w_loc like '%'||#{w_loc}||'%' order by w_no
+	</select>
+</mapper>

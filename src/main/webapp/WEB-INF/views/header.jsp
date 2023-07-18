@@ -4,7 +4,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
+
 <header>
+
     <a href="${contextPath}/" class="button-in-header">THE MOUNTAIN</a>
     <div id="middle-buttons">
       <a href="#" id="active-menu" class="button-in-header">
@@ -26,12 +28,14 @@
     </div>
     <div>
 	    
-	    <c:if test="${empty user}">
+<%-- 	    <c:if test="${empty user}"> --%>
+	    <c:if test="${sessionScope.user == null}">
 	    	<a class="button-in-header" href="${contextPath}/login/login">
 	       		<span class="long-text">LOGIN</span>
 	        </a>
 	    </c:if>
-		<c:if test="${!empty user}">
+	    
+		<c:if test="${sessionScope.user != null}">
 			<c:if test="${user.u_admin == '1' }">
 				<a class="button-in-header" href="${contextPath}/admin/admin">
 		        <span class="long-text">ADMIN</span>
@@ -41,7 +45,8 @@
 		        <span class="long-text">LOGOUT</span>
 			</a>
 	    </c:if>
-		<c:if test="${!empty user && user.u_admin != '1'}">
+	    
+		<c:if test="${sessionScope.user != null && user.u_admin != '1'}">
 			<a class="button-in-header" href="${contextPath}/">
 			        <span class="long-text">MYPAGE</span>
 			</a>

@@ -1,4 +1,4 @@
-package com.soldesk.entity;
+package com.soldesk.entity.mountain;
 
 public class Mountain {
 	private String m_name;

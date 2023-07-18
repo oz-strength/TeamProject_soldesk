@@ -9,11 +9,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/register.css?a">
+<link rel="stylesheet" href="${contextPath}/resources/css/boardRegister.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
+	var r = '<%= request.getAttribute("r") %>';
+	if (r !== "null") {
+	  alert(r);
+	}
+	
 	$("button").on("click", function(e){
 		var formData=$("#frm");
 		var btn=$(this).data("btn"); // data-btn="list"
@@ -36,17 +41,20 @@ $(document).ready(function(){
 });
   </script>
 <body>
+	 							<!-- 게시판 테이블 -->
+	
+<div class="board-container">
 	<div class="writeBox">
 	<form id="frm" method="post">
 		<input type="hidden" name="b_email" value="${user.u_email}">
-		<table class="member" >
+		<table class="board-table" >
 		<caption class="caption">Register</caption>
 		<tr>
 			<td>
 				<label>제목</label>
 			</td>
 			<td>
-				<input class="title" required="required" id="b_title" type="text" name="b_title">
+				<input class="title" required="required" id="b_title" type="text" name="b_title" autocomplete="off">
 			</td>
 		</tr>	
 		<tr>
@@ -67,13 +75,14 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td  colspan="2">	
-				<button class="write" type="button" data-btn="register">등록</button>
-				<button class="write" type="button" data-btn="reset" >취소</button>
-				<button class="write" type="button" data-btn="list" >목록</button>
+				<button class="regBtn" type="button" data-btn="register">등록</button>
+				<button class="cancleBtn" type="button" data-btn="reset" >취소</button>
+				<button class="listBtn" type="button" data-btn="list" >목록</button>
 			</td>
 		</tr>
 		</table>
 	</form>
+	</div>
 	</div>
 </body>
 </html>

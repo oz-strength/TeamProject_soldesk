@@ -13,6 +13,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var r = '<%= request.getAttribute("r") %>';
+		if (r !== "null") {
+		  alert(r);
+		}
+		
 		$("#regBtn").click(function(){
 			location.href="${contextPath}/board/register";
 		});

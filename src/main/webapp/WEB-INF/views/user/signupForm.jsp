@@ -46,206 +46,198 @@
 <script type="text/javascript">
 
 
-	$(function() {
-		$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
-		checkSignUp();
-		
+$(function() {
+	var r = '<%= request.getAttribute("r") %>';
+	if (r !== "null") {
+	  alert(r);
+	}
+	
+	$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
+	checkSignUp();
+	
+});
+//아이디 중복 체크
+function registerCheck(){
+	var u_email = $("#u_email").val();
+	$.ajax({
+		url: "${contextPath}/memRegisterCheck.do",
+		type: "get",
+		data : { "u_email" : u_email},
+		success : function(result){
+			// 중복유무 출력(result=1 : 사용할 수 있는 아이디, 0 : 사용할 수 없는 아이디)
+		if(result==1){
+			alert("아이디가 중복되지 않습니다.");
+			 isIdChecked = true; // 아이디 체크 완료
+		}else{
+			alert("다른 아이디를 사용하세요.");
+			isIdChecked = false; // 아이디 체크 실패
+			/* return false; */
+		}
+		checkInputNullSignUp(); // 입력 값 검사 함수 호출
+		},
+		error : function(){ alert("error");}
+	});
+} 
+
+
+function checkSignUp() {
+	$("input:not(#login-btn)").on("input", function() {
+		checkInputNullSignUp();
 	});
 	
-	// 아이디 중복 체크
-	function registerCheck(){
-		var u_email = $("#u_email").val();
-		$.ajax({
-			url: "${contextPath}/memRegisterCheck.do",
-			type: "get",
-			data : { "u_email" : u_email},
-			success : function(result){
-				// 중복유무 출력(result=1 : 사용할 수 있는 아이디, 0 : 사용할 수 없는 아이디)
-			if(result==1){
-				alert("아이디가 중복되지 않습니다.");
-				 isIdChecked = true; // 아이디 체크 완료
-			}else{
-				alert("다른 아이디를 사용하세요.");
-				isIdChecked = false; // 아이디 체크 실패
-				/* return false; */
-			}
-			checkInputNullSignUp(); // 입력 값 검사 함수 호출
-			},
-			error : function(){ alert("error");}
-		});
-	} 
+	$("#u_email").keyup(function() {
+		checkId();
+	});
 
-	function checkSignUp() {
-		$("input:not(#login-btn)").on("input", function() {
-			checkInputNullSignUp();
-		});
-		
-		$("#u_email").keyup(function() {
-			checkId();
-		});
-
-		$("#u_pw").keyup(function() {
-			checkPw();
-		});
-		
-		$("#u_pw_chk").keyup(function() {
-			checkPwCk();
-		});
-		
-		$("#u_name").keyup(function() {
-			checkName();
-		});
-		
-		 $("#u_birth").keyup(function() {
-			checkBirth();
-		});  
-	}
-
-	function checkInputNullSignUp() {
-		let m_id = $("#u_id").val();
-		let inputFilled = $("input:not(#login-btn)").filter(function() { return !this.value }).length == 0;
-		let	ckId = rtnCkId();
- 		let	ckPw = rtnCkPw();
-		let ckPwCk = rtnCkPwCk();
-		let ckName = rtnCkName();
- 		let ckBirth = rtnCkBirth();
- 
-	/*
-	 * checkIdDpctd(m_id, function(dpctd) { if (inputFilled && ckId && ckPw &&
-	 * ckPwCk && ckName && ckPN && !dpctd) {
-	 * $("#login-btn").css({"pointer-events": "auto", "opacity": "1"}); } else {
-	 * $("#login-btn").css({"pointer-events": "none", "opacity": "0.3"}); } }
-	 */
-		
-		if (inputFilled && ckId && ckPw && ckPwCk && ckName && ckBirth && isIdChecked) {
-			$("#login-btn").css({"pointer-events": "auto", "opacity": "1"});
-		} else {
-			$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
-		}
-	}
-
-	// 아이디 중복 시에 유효성 검사 추가하기
+	$("#u_pw").keyup(function() {
+		checkPw();
+	});
 	
-	function checkId() {
-		let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		let m_id = $("#u_email").val();
-		if (m_id.match(ck_id) == null) {
-			let u_email_p = $("<div id='u_email_err' class='er_p'></div>").text("이메일 형식으로 입력해주새요.");
-			$("#u_email_err_div").empty();
-			$("#u_email_err_div").append(u_email_p);
-			$("#u_email_err").css("color", "red");
-		} else {
-			$("#u_email_err").empty();
-		}
-	} 
-
+	$("#u_pw_chk").keyup(function() {
+		checkPwCk();
+	});
 	
-
+	$("#u_name").keyup(function() {
+		checkName();
+	});
 	
-	function rtnCkId() {
-		let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		let m_id = $("#u_email").val();
-		if (m_id.match(ck_id) == null) {
-			return false;
-		} else {
-			return true;
-		}
+	$("#u_birth").keyup(function() {
+		checkBirth();
+	});
+}
+
+function checkInputNullSignUp() {
+	let m_id = $("#u_email").val();
+	let inputFilled = $("input:not(#login-btn)").filter(function() { return !this.value }).length == 0;
+	let	ckId = rtnCkId();
+		let	ckPw = rtnCkPw();
+	let ckPwCk = rtnCkPwCk();
+	let ckName = rtnCkName();
+	let ckBirth = rtnCkBirth();
+	
+	if (inputFilled && ckId && ckPw && ckPwCk && ckName && ckBirth && isIdChecked) {
+		$("#login-btn").css({"pointer-events": "auto", "opacity": "1"});
+	} else {
+		$("#login-btn").css({"pointer-events": "none", "opacity": "0.3"});
 	}
+}
 
-	function checkPw() {
+// 아이디 중복 시에 유효성 검사 추가하기
+
+function checkId() {
+	let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	let m_id = $("#u_email").val();
+	if (m_id.match(ck_id) == null) {
+		let u_email_p = $("<div id='u_email_err' class='er_p'></div>").text("이메일 형식으로 입력해주새요.");
+		$("#u_email_err_div").empty();
+		$("#u_email_err_div").append(u_email_p);
+		$("#u_email_err").css("color", "red");
+	} else {
+		$("#u_email_err").empty();
+	}
+}
+
+function rtnCkId() {
+	let ck_id = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	let m_id = $("#u_email").val();
+	if (m_id.match(ck_id) == null) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function checkPw() {
+	let ck_pw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{1,50}).{8,50}$/;
+	let m_pw = $("#u_pw").val();
+	if (m_pw.match(ck_pw) == null) {
+		let u_pw_p = $("<p id='u_pw_err' class='er_p'></p>").text("영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-12자)");
+		$("#u_pw_err_div").empty();
+		$("#u_pw_err_div").append(u_pw_p);
+		$("#u_pw_err").css("color", "red");
+	} else {
+		$("#u_pw_err_div").empty();
+	}
+}
+
+function rtnCkPw() {
 		let ck_pw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{1,50}).{8,50}$/;
 		let m_pw = $("#u_pw").val();
 		if (m_pw.match(ck_pw) == null) {
-			let u_pw_p = $("<p id='u_pw_err' class='er_p'></p>").text("영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-12자)");
-			$("#u_pw_err_div").empty();
-			$("#u_pw_err_div").append(u_pw_p);
-			$("#u_pw_err").css("color", "red");
-		} else {
-			$("#u_pw_err_div").empty();
-		}
-	}
-
-	function rtnCkPw() {
-			let ck_pw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{1,50}).{8,50}$/;
-			let m_pw = $("#u_pw").val();
-			if (m_pw.match(ck_pw) == null) {
-				return false;
-			} else {
-				return true;
-			}
-	}
-
-	function checkPwCk() {
-		let m_pw = $("#u_pw").val();
-		let pw_chk = $("#u_pw_chk").val();
-		if (m_pw !== pw_chk) {
-			let u_pw_chk_p = $("<p id='u_pw_chk_err' class='er_p'></p>").text("비밀번호가 일치하지 않습니다.");
-			$("#u_pw_chk_err_div").empty();
-			$("#u_pw_chk_err_div").append(u_pw_chk_p);
-			$("#u_pw_chk_err").css("color", "red");
-		} else {
-			$("#u_pw_chk_err_div").empty();
-		}
-	}
-
-	function rtnCkPwCk() {
-		let m_pw = $("#u_pw").val();
-		let pw_ck = $("#u_pw_chk").val();
-		if (m_pw !== pw_ck) {
 			return false;
 		} else {
 			return true;
 		}
+}
+
+function checkPwCk() {
+	let m_pw = $("#u_pw").val();
+	let pw_chk = $("#u_pw_chk").val();
+	if (m_pw !== pw_chk) {
+		let u_pw_chk_p = $("<p id='u_pw_chk_err' class='er_p'></p>").text("비밀번호가 일치하지 않습니다.");
+		$("#u_pw_chk_err_div").empty();
+		$("#u_pw_chk_err_div").append(u_pw_chk_p);
+		$("#u_pw_chk_err").css("color", "red");
+	} else {
+		$("#u_pw_chk_err_div").empty();
 	}
+}
 
-	function checkName() {
-		let ck_name = /^[가-힣a-zA-Z]{2,10}$/;
-		let m_name = $("#u_name").val();
-		if (m_name.match(ck_name) == null) {
-			let u_name_p = $("<p id='u_name_err' class='er_p'></p>").text("이름을 입력해주세요. (2-10자)");
-			$("#u_name_err_div").empty();
-			$("#u_name_err_div").append(u_name_p);
-			$("#u_name_err").css("color", "red");
-		} else {
-			$("#u_name_err_div").empty();
-		}
-	}	
-
-	function rtnCkName() {
-		let ck_name = /^[가-힣a-zA-Z]{2,10}$/;
-		let m_name = $("#u_name").val();
-		if (m_name.match(ck_name) == null) {
-			return false;
-		} else {
-			return true;
-		}
+function rtnCkPwCk() {
+	let m_pw = $("#u_pw").val();
+	let pw_ck = $("#u_pw_chk").val();
+	if (m_pw !== pw_ck) {
+		return false;
+	} else {
+		return true;
 	}
+}
 
-	function checkBirth() {
-		let ck_birth = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
-		let m_birth = $("#u_birth").val();
-		if (m_birth.match(ck_birth) == null) {
-			let u_birth_p = $("<p id='u_birth_err' class='er_p'></p>").text("숫자만 입력하세요 ( 8자리 | ex> 19971105 )");
-			$("#u_birth_err_div").empty();
-			$("#u_birth_err_div").append(u_birth_p);
-			$("#u_birth_err").css("color", "red");
-		} else {
-			$("#u_birth_err_div").empty();
-		}
+function checkName() {
+	let ck_name = /^[가-힣a-zA-Z]{2,10}$/;
+	let m_name = $("#u_name").val();
+	if (m_name.match(ck_name) == null) {
+		let u_name_p = $("<p id='u_name_err' class='er_p'></p>").text("이름을 입력해주세요. (2-10자)");
+		$("#u_name_err_div").empty();
+		$("#u_name_err_div").append(u_name_p);
+		$("#u_name_err").css("color", "red");
+	} else {
+		$("#u_name_err_div").empty();
 	}
+}	
 
-	 function showPw() {
-		    var passwordInput = document.getElementById('u_pw');
-		    var hidePwIcon = document.getElementById('hidePw');
-		    
-		    if (passwordInput.type === 'password') {
-		      passwordInput.type = 'text';
-		      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
-		    } else {
-		      passwordInput.type = 'password';
-		      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
-		    }
-		  }
+function rtnCkName() {
+	let ck_name = /^[가-힣a-zA-Z]{2,10}$/;
+	let m_name = $("#u_name").val();
+	if (m_name.match(ck_name) == null) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function checkBirth() {
+	let ck_birth = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+	let m_birth = $("#u_birth").val();
+	if (m_birth.match(ck_birth) == null) {
+		let u_birth_p = $("<p id='u_birth_err' class='er_p'></p>").text("숫자만 입력하세요 ( 8자리 | ex> 19971105 )");
+		$("#u_birth_err_div").empty();
+		$("#u_birth_err_div").append(u_birth_p);
+		$("#u_birth_err").css("color", "red");
+	} else {
+		$("#u_birth_err_div").empty();
+	}
+}
+
+function rtnCkBirth() {
+	let ck_birth = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+	let m_birth = $("#u_birth").val();
+	if (m_birth.match(ck_birth) == null) {
+		return false;
+	} else {
+		return true;
+	}
+}	
 	
 </script>
    
@@ -255,15 +247,14 @@
 	<section class="signup">
 		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
       	<h1>Register</h1>
-      <form action="user.register" method="post" onsubmit="return formCheck(this)">
+      <form action="user.register" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_email" autocomplete="off" required autofocus/>
-         	
+          <input type="email" name="u_email" id="u_email" autocomplete="off" required/>
           <span>USER EMAIL</span>
         </div>
-         <button type="button" class="btn btn--purple" onclick="return registerCheck();">
-					<span class="">id check</span>
-			</button> 
+        <button type="button" class="" onclick="return registerCheck();">
+			<span class="">id check</span>
+		</button> 
         <div id="u_email_err_div" class="err-field"></div>
         <div class="input-field">
           <input
@@ -273,10 +264,7 @@
             required
             maxlength="12"
             minlength="8"
-            autocomplete="current-password"
-          /><span class="placehold-pw">PASSWORD</span>
-          <a id="hidePw" onclick="showPw()"><i class="xi-eye-off-o"></i></a>
-          
+          /><span>PASSWORD</span>
         </div>
         <div id="u_pw_err_div" class="err-field"></div>
         <div class="input-field">
@@ -287,9 +275,7 @@
             required
             maxlength="12"
             minlength="8"
-            autocomplete="current-password"
           /><span>PASSWORD CHECK</span>
-           <a id="hidePw" onclick="showPw()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_chk_err_div" class="err-field"></div>
         <div class="input-field">
@@ -304,7 +290,7 @@
           /><span>NAME</span>
         </div>
         <div id="u_name_err_div" class="err-field"></div>
-        	<div class="input-field">
+        <div class="input-field">
           <input
             type="text"
             name="u_birth"
@@ -316,7 +302,7 @@
           /><span>BIRTH</span>
         </div>
         <div id="u_birth_err_div" class="err-field"></div>
-        <div id="gender_btn" class="input-field">
+          <div id="gender_btn" class="input-field">
           <label><input
             type="radio"
             name="u_gender"
@@ -340,9 +326,11 @@
           /><em></em>FEMALE</label>
         </div>
         
+        
         <div class="button-field">
-          <input type="submit" value="Sing In" id="login-btn" onclick="return joinformCheck();"/>
+          <input type="submit" value="Sing In" id="login-btn" />
        </div>
+        
       </form>
       
       

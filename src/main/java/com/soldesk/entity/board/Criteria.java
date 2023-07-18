@@ -1,4 +1,4 @@
-package com.soldesk.entity;
+package com.soldesk.entity.board;
 
 public class Criteria {
 	private int page; // 현재 페이지 번호

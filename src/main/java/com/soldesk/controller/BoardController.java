@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.soldesk.entity.Board;
-import com.soldesk.entity.Criteria;
-import com.soldesk.entity.PageMaker;
+import com.soldesk.entity.board.Board;
+import com.soldesk.entity.board.Criteria;
+import com.soldesk.entity.board.PageMaker;
 import com.soldesk.mapper.BoardMapper;
 
 @Controller

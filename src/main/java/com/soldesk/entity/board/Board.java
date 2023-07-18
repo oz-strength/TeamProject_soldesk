@@ -1,4 +1,4 @@
-package com.soldesk.entity;
+package com.soldesk.entity.board;
 
 import java.util.Date;
 

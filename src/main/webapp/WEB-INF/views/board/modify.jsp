@@ -9,9 +9,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/boardModify.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var r = '<%= request.getAttribute("r") %>';
+	if (r !== "null") {
+	  alert(r);
+	}
+	
 	$("button").on("click", function(e){
 		var b_content = document.getElementById("b_content");
 		var formData = $("#frm");
@@ -42,25 +48,25 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<div>
+	<div class="board-container">
 		<form id="frm" method="post" >
-		<table border="1">
+		<table class="board-table">
 			
 			<tr>
 				<th>번호</th>
-				<td><input type="text" name="b_no" readonly="readonly" value="${board.b_no}"/></td>
+				<td><input class="idx" type="text" name="b_no" readonly="readonly" value="${board.b_no}"/></td>
 			</tr>
 			<tr>
 				<th>제목</th> 
-				<td><input type="text" name="b_title" value="<c:out value='${board.b_title}'/>"/></td>
+				<td><input class="title" type="text" name="b_title" value="<c:out value='${board.b_title}'/>"/></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea id="content" rows="10" cols="" name="b_content"><c:out value='${board.b_content}'/></textarea> </td>
+				<td><textarea class="content" id="content" rows="10" cols="" name="b_content"><c:out value='${board.b_content}'/></textarea> </td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="b_writer" readonly="readonly"  value="${board.b_writer}"/></td>
+				<td><input type="text" class="writer" name="b_writer" readonly="readonly"  value="${board.b_writer}"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
