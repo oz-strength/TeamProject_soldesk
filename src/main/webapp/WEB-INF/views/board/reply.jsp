@@ -60,7 +60,7 @@
 				<label>제목</label>
 			</td>
 			<td>
-				<input class="title" type="text" name="b_title" value="<c:out value='${board.b_title}'/>">
+				<input class="title" type="text" name="b_title" readonly="readonly" value="<c:out value='${board.b_title}'/>">
 			</td>
 		</tr>	
 		<tr>
