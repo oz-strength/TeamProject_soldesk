@@ -93,4 +93,9 @@ public class UserDAO {
 		req.setAttribute("r", "로그아웃 되었습니다.");
 		
 	}
+	
+	// 회원정보 수정
+	public void updateUser(User u) {
+		userMapper.updateUser(u);
+	}
 }
