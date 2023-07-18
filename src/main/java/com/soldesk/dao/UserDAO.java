@@ -68,7 +68,7 @@ public class UserDAO {
 					Cookie c = new Cookie("lastLoginId", u_email);
 					c.setMaxAge(60 * 60 * 24 * 5);
 					res.addCookie(c);
-					req.setAttribute("r", "비밀번호 일치 ! 로그인 진행중...");
+					req.setAttribute("r", "로그인 진행중...");
 					return true;
 				}
 				else {

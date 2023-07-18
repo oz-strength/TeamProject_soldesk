@@ -47,9 +47,9 @@ public class UserController {
 
 		// 회원을 테이블에 저장하기
 		if (uDao.registUser(u, req)) { // 회원가입 성공 메시지
-			return "redirect:/";
+			return "home";
 		} else {
-			return "redirect:/";
+			return "user/signupForm";
 		}
 	}
 
@@ -71,5 +71,11 @@ public class UserController {
 			
 		} 
 		return "home";
+	}
+	
+	// 마이페이지로 이동
+	@RequestMapping("/user/myPage")
+	public String goMyPage() {
+		return "user/myPage";
 	}
 }

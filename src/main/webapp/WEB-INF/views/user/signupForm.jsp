@@ -24,14 +24,18 @@
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
     
     <style>
+    .signup a,
+    #homeLogo img,
     .login,
     .login a,
 	.input-field,
 	.input-field input,
 	.input-field label,
+	.idCheckBtn,
 	.button-field,
 	.button-field input,
 	.button-field a,
+	.button-field button,
 	.add-info,
 	.add-info span,
 	.add-info a,
@@ -245,16 +249,19 @@ function rtnCkBirth() {
 </head>
 <body>
 	<section class="signup">
-		<a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
+	
+		<a id="homeLogo" href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt="" /></a>
       	<h1>Register</h1>
       <form action="user.register" method="post">
         <div class="input-field">
           <input type="email" name="u_email" id="u_email" autocomplete="off" required/>
           <span>USER EMAIL</span>
         </div>
+        <div class="button-field">
         <button type="button" class="" onclick="return registerCheck();">
-			<span class="">id check</span>
+			<span class="idCheckBtn">id check</span>
 		</button> 
+		</div>
         <div id="u_email_err_div" class="err-field"></div>
         <div class="input-field">
           <input

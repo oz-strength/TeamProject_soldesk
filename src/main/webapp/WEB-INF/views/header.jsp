@@ -36,6 +36,9 @@
 	    </c:if>
 	    
 		<c:if test="${sessionScope.user != null}">
+			<c:if test="${user.u_admin != '1' }">
+				${sessionScope.user.u_name } 님 환영합니다.
+			</c:if>
 			<c:if test="${user.u_admin == '1' }">
 				<a class="button-in-header" href="${contextPath}/admin/admin">
 		        <span class="long-text">ADMIN</span>
@@ -47,7 +50,7 @@
 	    </c:if>
 	    
 		<c:if test="${sessionScope.user != null && user.u_admin != '1'}">
-			<a class="button-in-header" href="${contextPath}/">
+			<a class="button-in-header" href="${contextPath}/user/myPage">
 			        <span class="long-text">MYPAGE</span>
 			</a>
 		</c:if>

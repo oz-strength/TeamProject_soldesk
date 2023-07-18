@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/reply.css?q">
+<link rel="stylesheet" href="${contextPath}/resources/css/boardReply.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -44,7 +44,7 @@
 </script>
 </head>
 <body>
-	<div class="writeBox">
+<div class="board-container">
 	<form id="frm" method="post">
 		<input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>
         <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>          
@@ -53,14 +53,14 @@
           <!--  b_no(원글,부모글) -->
 		<input type="hidden" name="b_no" value="${board.b_no}">
 		<input type="hidden" name="b_email" value="${user.u_email}">
-		<table class="member">
+		<table class="board-table">
 		<caption class="caption">Reply</caption>
 		<tr>
 			<td>
 				<label>제목</label>
 			</td>
 			<td>
-				<input type="text" name="b_title" value="<c:out value='${board.b_title}'/>">
+				<input class="title" type="text" name="b_title" value="<c:out value='${board.b_title}'/>">
 			</td>
 		</tr>	
 		<tr>
@@ -68,7 +68,7 @@
 				<label>답변</label>
 			</td>
 			<td>
-				<textarea id="b_content" rows="10" cols="" name="b_content"></textarea>
+				<textarea class="content" id="b_content" rows="10" cols="" name="b_content"></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -76,14 +76,14 @@
 				<label>작성자</label>
 			</td>
 			<td>
-				<input type="text" name="b_writer" readonly="readonly" value="${user.u_name}">
+				<input class="writer" type="text" name="b_writer" readonly="readonly" value="${user.u_name}">
 			</td>
 		</tr>	
 		<tr>
 			<td colspan="3">
-			<button class="btn" type="button" data-btn="reply" >답변</button>
-        	<button class="btn" type="button" data-btn="reset" >취소</button>
-        	<button class="btn" type="button" data-btn="list" >목록</button>
+			<button class="replyBtn" type="button" data-btn="reply" >답변</button>
+        	<button class="cancleBtn" type="button" data-btn="reset" >취소</button>
+        	<button class="listBtn" type="button" data-btn="list" >목록</button>
         	</td>
         </tr>
         </table>

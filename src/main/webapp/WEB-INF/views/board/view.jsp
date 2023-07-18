@@ -39,6 +39,7 @@
 <div class="board-container">
 	<div class="writeBox">
 		<table class="board-table" border="1">
+		<caption class="caption">View</caption>
 		
 			<tr>
 				<th>번호</th>
