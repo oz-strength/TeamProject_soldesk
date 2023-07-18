@@ -74,14 +74,7 @@ a{
 	width: 50px;
 }
 
-/* .memboard-tableber td:nth-child(2){
-	text-align: center;
-}
 
-.membboard-tableer .buttons button{
-	padding: 5px;
-	margin: 0 10px;
-} */
 
 .board-table tr:nth-child(odd){
 	background-color: #e3e8fd;

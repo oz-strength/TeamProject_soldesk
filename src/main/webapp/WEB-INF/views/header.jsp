@@ -50,7 +50,7 @@
 	    </c:if>
 	    
 		<c:if test="${sessionScope.user != null && user.u_admin != '1'}">
-			<a class="button-in-header" href="${contextPath}/">
+			<a class="button-in-header" href="${contextPath}/user/myPage">
 			        <span class="long-text">MYPAGE</span>
 			</a>
 		</c:if>
