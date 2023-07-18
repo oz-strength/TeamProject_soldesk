@@ -15,7 +15,7 @@
 		select * from test_user where u_email = #{u_email}
 	</select>
 	
-	<!-- 회원정보  수정 -->
+	<!-- 회원 정보  수정 -->
 	<update id="updateUser" parameterType="com.soldesk.entity.user.User">
 		update test_user set u_email = #{u_email}, u_pw = #{u_pw}, u_name = #{u_name}, u_birth= #{u_birth}
 		where u_email = #{u_email}
