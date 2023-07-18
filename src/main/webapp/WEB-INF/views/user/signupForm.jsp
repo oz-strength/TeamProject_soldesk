@@ -243,6 +243,30 @@ function rtnCkBirth() {
 	}
 }	
 	
+function showPw1() {
+    var passwordInput = document.getElementById('u_pw');
+    var hidePwIcon = document.getElementById('hidePw');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+    } else {
+      passwordInput.type = 'password';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+    }
+  }
+function showPw2() {
+    var passwordInput = document.getElementById('u_pw_chk');
+    var hidePwIcon = document.getElementById('hidePw2');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+    } else {
+      passwordInput.type = 'password';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+    }
+  }
 </script>
    
    
@@ -272,6 +296,7 @@ function rtnCkBirth() {
             maxlength="12"
             minlength="8"
           /><span>PASSWORD</span>
+          <a id="hidePw" onclick="showPw1()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_err_div" class="err-field"></div>
         <div class="input-field">
@@ -283,6 +308,7 @@ function rtnCkBirth() {
             maxlength="12"
             minlength="8"
           /><span>PASSWORD CHECK</span>
+           <a id="hidePw2" onclick="showPw2()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_chk_err_div" class="err-field"></div>
         <div class="input-field">
