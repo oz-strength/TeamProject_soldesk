@@ -90,7 +90,7 @@ public class UserDAO {
 	
 	public void logout(User u, HttpServletRequest req) {
 		req.getSession().setAttribute("user", null);
-		
+		req.setAttribute("r", "로그아웃 되었습니다.");
 		
 	}
 }

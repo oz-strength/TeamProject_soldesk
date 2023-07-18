@@ -57,9 +57,9 @@ public class UserController {
 	@RequestMapping("/user.login")
 	public String memLogin(User u, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse res) {
 		if (uDao.loginUser(u, req, res)) { // 로그인에 성공
-			return "redirect:/";
+			return "home";
 		} else { // 로그인에 실패
-			return "redirect:/login/login";
+			return "user/loginForm";
 		}
 	}
 
@@ -68,8 +68,8 @@ public class UserController {
 	public String userLogout(User u, HttpServletRequest req) {
 		if (uDao.isLoggedIn(u, req)) {
 			uDao.logout(u, req);
-			req.setAttribute("r", "로그아웃 되었습니다.");
+			
 		} 
-		return "redirect:/";
+		return "home";
 	}
 }
