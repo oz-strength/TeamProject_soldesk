@@ -18,9 +18,15 @@ public class MountainController {
 	private MountainDAO mDAO;
 	
 	// 모든 산 데이터 조회 페이지 이동
-	
-	// 특정 산 데이터 1개 조회 페이지 이동
-	
+	@RequestMapping(value = "/mountain/list")
+	public String goMountainList() {
+		return "mountain/mountainList";
+	}
+	// 산 데이터 상세 페이지 이동
+	@RequestMapping(value= "/mountain/detail")
+	public String goMountainDeatil() {
+		return "mountain/mountainDetail";
+	}
 	// 모든 산 데이터 조회 JSON
 	@RequestMapping(value = "/mountain.getAllMountainJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public @ResponseBody Mountains getAllMountainJSON(HttpServletRequest req) {
