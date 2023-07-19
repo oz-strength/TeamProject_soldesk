@@ -153,7 +153,6 @@ a{
 
 section.welcome{
 	font-family: 'Roboto', sans-serif;
-  	border: 1px solid #000;
  	 height: 80vh;
  	 background: #f8f9fb url(../images/mountainImg.jpg) no-repeat ;
   
@@ -176,12 +175,13 @@ section.welcome:before{
 }
 
 section.feature{
-	 padding:100px 0;
-	 margin-bottom: 40px;
+	 padding:50px 0;
+	 height:500px;
 }
 
+
+
 .inner{
-	border: 1px solid #000;
 	width: 1250px;
 	margin:auto;
 }
@@ -193,18 +193,21 @@ section.feature{
 .desc{
 	padding: 0 50px;
 	padding-top: 100px;
+	height: auto;
 }
-.desc img{}
 .desc h1{
 	font-size: 42px;
 	font-weigt: 500;
 	line-height: 1.2em;
 }
-.desc p{}
-.read-more{}
-.photo{}
+.desc p{
+	padding: 10px 0;
+}
 .photo img{
 	width: 100%;
+}
+.read-more{
+	color: purple;
 }
 
 
