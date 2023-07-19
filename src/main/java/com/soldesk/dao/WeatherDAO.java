@@ -30,7 +30,7 @@ import com.soldesk.mapper.WeatherMapper;
 public class WeatherDAO {
 	
 	@Autowired
-	private SqlSession ss;
+	private WeatherMapper wmapper;
 	
 	public boolean checkWeather() {
 		try {
@@ -39,7 +39,7 @@ public class WeatherDAO {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
 			Date w_baseDate = sdf.parse(baseDate);
 			wi.setW_baseDate(w_baseDate);
-			int count = ss.getMapper(WeatherMapper.class).checkWeather(wi);
+			int count = wmapper.checkWeather(wi);
 			System.out.println("날씨 데이터 개수 : " + count + "개");
 			if (count == 0) {
 				return true;
@@ -55,7 +55,7 @@ public class WeatherDAO {
 	
 	public void insertWeather(WeatherItem wi) {
 		try {
-			if (ss.getMapper(WeatherMapper.class).addWeather(wi) == 1) {
+			if (wmapper.addWeather(wi) == 1) {
 //				System.out.println("DataBase Insert Successful");
 			}
 		} catch (Exception e) {
@@ -189,7 +189,7 @@ public class WeatherDAO {
 		WeatherItem wi = new WeatherItem();
 		wi.setW_fcstDate(w_fcstDate);
 //		System.out.println(wi.getW_fcstDate());
-		return new Weather(ss.getMapper(WeatherMapper.class).getWeatherMap(wi));
+		return new Weather(wmapper.getWeatherMap(wi));
 	}
 
 	public Weather getWeatherPage(WeatherItem wi, HttpServletRequest req) {
@@ -201,7 +201,7 @@ public class WeatherDAO {
 			
 //			System.out.println(wi.getW_loc());
 //			System.out.println(wi.getW_baseDate());
-			return new Weather(ss.getMapper(WeatherMapper.class).getWeatherPage(wi));
+			return new Weather(wmapper.getWeatherPage(wi));
 			
 		} catch (Exception e) {
 			e.printStackTrace();

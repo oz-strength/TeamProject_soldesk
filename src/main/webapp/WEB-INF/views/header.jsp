@@ -21,7 +21,7 @@
       	<span class="long-text">BOARD</span>
       	<span class="short-text"></span>
       </a>
-      <a href="${contextPath}/board/free" class="button-in-header">
+      <a href="${contextPath}/#" class="button-in-header">
       	<span class="long-text">GALLARY</span>
       	<span class="short-text"></span>
       </a>
