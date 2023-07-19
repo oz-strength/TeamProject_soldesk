@@ -199,8 +199,8 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.8</version>
 		</dependency>
-		
-		<!-- jackson data binding 추가 -->
+	
+		<!-- jackson binding 추가 -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
