@@ -212,6 +212,13 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.4.3</version>
 		</dependency>
+		
+	    <!-- 지갑 생성 라이브러리 -->
+	    <dependency>
+	        <groupId>org.web3j</groupId>
+	        <artifactId>core</artifactId>
+	        <version>4.8.7</version>
+	    </dependency>
 	</dependencies>
 	<build>
 		<plugins>

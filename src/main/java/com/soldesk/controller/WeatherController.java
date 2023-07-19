@@ -1,7 +1,5 @@
 package com.soldesk.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ public class WeatherController {
 	private WeatherDAO wDAO;
 	
 	// 홈페이지 시작 시에 실행 또는
-	// 지도 페이지나 날씨 페이지 이동 시에 실행하도록 변경하기
+	// 지도 페이지나 날씨 페이지 이동 시에 실행하도록 변경하기 (return 값)
 	@RequestMapping(value = "/weather", method = RequestMethod.GET)
 	public String addWeatherTest(HttpServletRequest req) {
 		if (wDAO.checkWeather()) {
@@ -31,7 +29,7 @@ public class WeatherController {
 			System.out.println("이미 데이터가 있습니다.");
 		}
 		
-		return "index";
+		return "home";
 	}
 	
 	// 지도 페이지 이동 시에 json으로 반환하는 코드
