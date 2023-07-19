@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.soldesk.entity.BlockchainManager;
+import com.soldesk.entity.blockchain.Wallet;
 import com.soldesk.entity.user.User;
 import com.soldesk.mapper.user.UserMapper;
 
@@ -26,6 +28,11 @@ public class UserDAO {
 	
 	public boolean registUser(User u, HttpServletRequest req) {
 		try {
+			Wallet w = BlockchainManager.createWallet();
+			System.out.println(w.getPublicKey());
+			System.out.println(w.getPrivateKey());
+			System.out.println(w.getWalletAddress());
+			
 			if (userMapper.registUser(u) == 1) {
 				req.setAttribute("r", "회원가입 성공 !");
 				return true;
