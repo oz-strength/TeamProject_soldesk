@@ -91,7 +91,7 @@
 	
 								<!-- 나무 이미지 -->
 	
-<div id="image-wrapper" style="transform: translateX(1000px);">
+<div id="image-wrapper">
 	<div id="main-image">
   <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
