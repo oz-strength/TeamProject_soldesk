@@ -16,19 +16,87 @@
 <body>
 
 						<%-- 헤더 컴포넌트 가져오기 --%>
-				<%@ include file="/WEB-INF/views/header.jsp" %>
+			<div class="header">
+			<%@ include file="/WEB-INF/views/header.jsp" %>
+			</div>
 	
 	
 	
+	  <div class="container">
+	    <section class="welcome">
+	      <div class="heading">
+	        <div class="">Welcome to MOUNTAIN Page!</div>
+	      </div>
+	    </section>
 	
-	
-	
-	
-	<h1 style="padding:300px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
-	
-	
-	
-	
+		  <section class="feature solution">
+		     <div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/blackboard.png" alt="">
+		          <h1>자유 게시판에서 자유로운 의사소통이 가능합니다</h1>
+		          <p>
+				            산에 관련된 주제 뿐만 아니라 여러가지 주제를 놓고 대화할수 있는 공간입니다. 
+				            본인의 오늘 하루 있었던 일이나 재미있던 경험을 공유해주세요.
+		          </p>
+		          <a href="" class="read-more">구경하러 가기</a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/board.png">
+		        </div>
+	      </div>
+	    </section>
+
+	    
+	    <section class="feature smart">
+	   		<div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/blackboard.png" alt="">
+		          <h1>자유 게시판에서 자유로운 의사소통이 가능합니다</h1>
+		          <p>
+				            산에 관련된 주제 뿐만 아니라 여러가지 주제를 놓고 대화할수 있는 공간입니다. 
+				            본인의 오늘 하루 있었던 일이나 재미있던 경험을 공유해주세요.
+		          </p>
+		          <a href="" class="read-more">구경하러 가기</a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/board.png">
+		        </div>
+	      </div>
+	    </section>
+	    <section class="feature secure">
+	    	<div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/blackboard.png" alt="">
+		          <h1>자유 게시판에서 자유로운 의사소통이 가능합니다</h1>
+		          <p>
+				            산에 관련된 주제 뿐만 아니라 여러가지 주제를 놓고 대화할수 있는 공간입니다. 
+				            본인의 오늘 하루 있었던 일이나 재미있던 경험을 공유해주세요.
+		          </p>
+		          <a href="" class="read-more">구경하러 가기</a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/board.png">
+		        </div>
+	      </div>
+	    </section>
+	    <section class="feature edit">
+	    	<div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/blackboard.png" alt="">
+		          <h1>자유 게시판에서 자유로운 의사소통이 가능합니다</h1>
+		          <p>
+				            산에 관련된 주제 뿐만 아니라 여러가지 주제를 놓고 대화할수 있는 공간입니다. 
+				            본인의 오늘 하루 있었던 일이나 재미있던 경험을 공유해주세요.
+		          </p>
+		          <a href="" class="read-more">구경하러 가기</a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/board.png">
+		        </div>
+	      </div>
+	    </section>
+	    <section class="callaction"></section>
+	  </div>
 	
 	
 	
