@@ -211,6 +211,7 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
   gap: 20px; /* Gap between grid items, adjust as needed */
+  padding: 50px;
 }
 
 .grid-item {

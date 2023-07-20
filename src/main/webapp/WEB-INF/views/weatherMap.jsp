@@ -25,7 +25,7 @@
 				let w_reh = $("<h3></h3>").append("습도 : " + w.w_reh + "%");
 				let w_pop = $("<h3></h3>").append("강수확률 : " + w.w_pop + "%");
 				let w_sky = $("<h3></h3>").append("하늘상태 : " + formatSky(w.w_sky));
-				let w_sky_img = $("<img src=resources/img/" + w.w_sky + ".gif>");
+				let w_sky_img = $("<img src='resources/img/" + w.w_sky + ".gif>");
 				let hr = $("<hr>");
 				let w_sky_div = $("<div></div>").append(w_loc, w_tmp, w_reh, w_pop, w_sky, w_sky_img, hr);
 				

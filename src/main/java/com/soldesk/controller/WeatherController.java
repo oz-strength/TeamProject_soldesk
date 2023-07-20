@@ -51,6 +51,6 @@ public class WeatherController {
 	public String goWeatherPage(HttpServletRequest req) {
 		String w_loc = req.getParameter("w_loc");
 		req.setAttribute("w_loc", w_loc);
-		return "weather";
+		return "weatherPage";
 	}
 }

@@ -170,7 +170,7 @@ public class WeatherDAO {
 							wi.setW_wsd(itemNode.get("fcstValue").asDouble());
 //						System.out.println("WSD : " + wi.getW_wsd());
 						} else if (itemNode.get("category").asText().equals("SKY")) {
-							wi.setW_wsd(itemNode.get("fcstValue").asDouble());
+							wi.setW_sky(itemNode.get("fcstValue").asInt());
 						}
 					}
 				}

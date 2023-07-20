@@ -114,5 +114,6 @@
 	</div>
 	<div class="weather"></div>
 	<canvas id="weatherChart" width="400" height="200"></canvas>
+	<div><a href="weatherPage?w_loc=jeonbuk"></a></div>
 </body>
 </html>

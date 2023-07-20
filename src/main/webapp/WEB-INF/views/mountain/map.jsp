@@ -86,6 +86,86 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
   fill: #f1c40f;
 }
     </style>
+    <script type="text/javascript">
+$(document).ready(function() {
+	  // AJAX request to fetch the JSON data from the server
+	  $.ajax({
+	    url: '${contextPath}/weatherMap.getJSON', // Replace this with the actual URL of your JSON data source
+	    type: 'GET',
+	    dataType: 'json',
+	    success: function(data) {
+	      // Function to handle the success response
+	      displayWeatherData(data);
+	    },
+	    error: function() {
+	      // Function to handle the error response, if any
+	      alert('Failed to fetch weather data.');
+	    }
+	  });
+	});
+
+	function displayWeatherData(data) {
+	  // Assuming your JSON data is an array of mountain objects as provided in the example
+	  var weatherDataDiv = document.getElementById('weatherData');
+	  var html = '';
+	  
+	  // Loop through each mountain object and create list items
+	  data.weatherItem.forEach(function(weatherItem) {
+		  
+	    html += '<div class="grid-item">';
+	    html += '<ul>';
+	    html += '<li>';
+	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
+	    html += '지역: ' + weatherItem.w_loc + '<br>';
+	    let f_when = new Date(weatherItem.w_fcstDate);
+	    let f_w_fcstDate = formatDate(f_when);
+	    let fcstDate = f_w_fcstDate.substring(11, 17);
+	   	let fcstTime = fcstDate + "시 기준";
+	    html += '시간: ' + fcstTime + '<br>';
+	    html += '온도: ' + weatherItem.w_tmp + '℃<br>';
+	    html += '습도: ' + weatherItem.w_reh + '<br>';
+	    html += '강수확률: ' + weatherItem.w_pop + '<br>';
+	    html += '하늘상태: ' + formatSky(weatherItem.w_sky) + '<br>';
+	    
+	    // If you have a link to the photo, you can add it here
+	 /*    if (mountain.m_photo) {
+	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
+	    } */
+	    
+	    html += '</li>';
+	    html += '</ul>';
+	    html += '</div>';
+			    
+	  });
+	  
+	  weatherDataDiv.innerHTML = html;
+	}
+	
+	function formatDate(when) {
+	    let year = when.getFullYear();
+	    let month = ("0" + (when.getMonth() + 1)).slice(-2);
+	    let day = ("0" + when.getDate()).slice(-2);
+	    let hours = ("0" + when.getHours()).slice(-2);
+	    let minutes = ("0" + when.getMinutes()).slice(-2);
+	    
+	    return year + "/" + month + "/" + day + " " + hours + ":" + minutes;
+	}
+	
+	function formatSky(sky) {
+		switch (sky) {
+		case 1:
+			return "맑음";
+			break;
+		case 3:
+			return "흐림";
+		case 4:
+			return "비";
+		default:
+			return "알수없음";
+			break;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -95,12 +175,16 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 <div class="container">
 
 	<%-- 날씨현황 표  --%>
-	<div class="grid-container">
-		<c:forEach  var="item" items="${a}" >
-	    	<div class="grid-item">A</div>
-		</c:forEach>
-  	</div>	
+	<div class="grid-container" id="weatherData"></div>	
 	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 지도 svg -->
 	<section style="text-align:center">
 	
 	    <div class="map">

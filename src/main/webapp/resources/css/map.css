@@ -199,7 +199,7 @@ a {
 	margin-right: 20px;
 }
 
-/* 날씨현황 표 디자인 */
+/* 날씨 데이터 표 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .container{
@@ -207,22 +207,20 @@ a {
 	justify-content: space-around;
 }
 
-.grid-container{
-  padding: 10px;
-  background-color: lightgrey;
-}
-.grid-item{
-  padding: 10px;
-  border: 3px solid rgb(50, 50, 40);
-  color: white;
-  background: #ff6937;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+  gap: 20px; /* Gap between grid items, adjust as needed */
+  padding: 50px;
 }
 
-.grid-container{
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
-  height: 80vh;
+.grid-item {
+  /* Styles for individual grid items, adjust as needed */
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
 }
+
 /* 
 .headline-share {
 	height:65vh;
