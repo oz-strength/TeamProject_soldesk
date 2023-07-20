@@ -41,5 +41,10 @@ public class MountainController {
 		return mDAO.getLocalMountain(m,req);
 	}
 	
+	// 산 데이터 1개 조회 JSON
+	@RequestMapping(value = "/mountain.getMountainDetailJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public @ResponseBody Mountains getMountainDetailJSON(Mountain m, HttpServletRequest req) {
+		return mDAO.getMountainDetail(m, req);
+	}
 	
 }
