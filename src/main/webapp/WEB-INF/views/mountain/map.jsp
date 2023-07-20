@@ -3,9 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-<c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
+<%-- <c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
 <c:set var="loginOut" value="${sessionScope.id==null ? '로그인' : '로그아웃' }"/>
-
+ --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +122,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	        </defs>
 	        <g filter="url(#dropshadow)">
 	          <path
-	          	onclick={alert("서울!");}
+	          	onclick={location.href="${contextPath}/mountain/list"}
 	            id="CD11"
 	            class="OUTLINE"
 	            d=" M 178 231 l -4 2 -4 3 -1 0 0 1 -3 1 -4 -5 -4 0 -6 1 -4 3 -2 -1 -1 -1 -3 2 -3 -3 -1 -3 -2 -3 0 0 -1 -2 -3 2 -3 1 -2 -4 0 -8 -3 -1 0 0 0 0 0 0 -2 -1 -3 -2 2 -4 3 -3 0 -1 0 0 0 0 0 -1 1 0 4 2 7 1 2 -2 0 1 2 0 1 -4 2 -8 7 -1 4 2 0 -3 1 -1 2 -4 3 -4 2 0 3 2 7 2 2 8 1 4 1 1 0 0 0 2 0 2 0 1 0 0 -1 6 3 0 8 -1 0 5 -4 3 -1 5 z "
