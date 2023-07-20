@@ -1,10 +1,13 @@
 package com.soldesk.controller;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,6 +32,15 @@ public class MountainController {
 	public String goMountainDeatil() {
 		return "mountain/mountainDetail";
 	}
+	
+	// 랜덤 산 추천 페이지 이동( -> 산 상세보기 페이지)
+	@RequestMapping(value = "/mountain/daily")
+	public String goDailyMountain(Model model) {
+		int number = mDAO.getMountainRandomCount();
+		model.addAttribute("m_no", number);
+		return "mountain/mountainDetail";
+	}
+	
 	// 모든 산 데이터 조회 JSON
 	@RequestMapping(value = "/mountain.getAllMountainJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public @ResponseBody Mountains getAllMountainJSON(HttpServletRequest req) {
@@ -46,5 +58,7 @@ public class MountainController {
 	public @ResponseBody Mountains getMountainDetailJSON(Mountain m, HttpServletRequest req) {
 		return mDAO.getMountainDetail(m, req);
 	}
+	
+	
 	
 }

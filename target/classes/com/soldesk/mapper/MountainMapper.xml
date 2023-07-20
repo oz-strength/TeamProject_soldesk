@@ -15,7 +15,11 @@
 	<!-- 특정 산 데이터 1개 조회 -->
 	<select id="getMountainDetail" resultType = "com.soldesk.entity.mountain.Mountain"
 	parameterType="com.soldesk.entity.mountain.Mountain">
-		select * from soldesk_mountain_tb where m_no = 
-			(select m_no from soldesk_mountain_tb where m_name = #{m_name})
+		select * from soldesk_mountain_tb where m_no = #{m_no}
+	</select>
+	
+	<!-- 산 전체 데이터 개수 리턴 -->
+	<select id="getMountainCount" resultType="int">
+		select count(*) from soldesk_mountain_tb
 	</select>
 </mapper>
