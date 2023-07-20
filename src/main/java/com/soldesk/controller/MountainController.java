@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soldesk.dao.MountainDAO;
+import com.soldesk.entity.mountain.Mountain;
 import com.soldesk.entity.mountain.Mountains;
 
 @Controller
@@ -32,6 +33,12 @@ public class MountainController {
 	@RequestMapping(value = "/mountain.getAllMountainJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public @ResponseBody Mountains getAllMountainJSON(HttpServletRequest req) {
 		return mDAO.getAllMountain(req);
+	}
+	
+	// 특정 지역 산 데이터 조회 JSON
+	@RequestMapping(value = "/mountain.getLocalMountainJSON", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public @ResponseBody Mountains getLocalMountainJSON(Mountain m, HttpServletRequest req) {
+		return mDAO.getLocalMountain(m,req);
 	}
 	
 	

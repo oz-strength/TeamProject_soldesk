@@ -1,6 +1,9 @@
 package com.soldesk.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +34,18 @@ public class WeatherController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+    public String test2(){
+        return "IntroPage";
+    }
+	
+	 @RequestMapping(value = "/test1", method = RequestMethod.GET)
+	    public void test1(HttpServletResponse response) throws IOException, InterruptedException {
+	        response.sendRedirect("/controller");
+	        Thread.sleep(3000);
+	        test2();
+	    }
 	
 	// 지도 페이지 이동 시에 json으로 반환하는 코드
 	@RequestMapping(value = "/weatherMap.getJSON", method = RequestMethod.GET, 

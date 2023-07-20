@@ -5,4 +5,10 @@
 	<select id="getAllMountain" resultType="com.soldesk.entity.mountain.Mountain">
 		select * from soldesk_mountain_tb
 	</select>
+	
+	<!-- 특정 지역 산 데이터 조회 -->
+	<select id="getLocalMountain" resultType = "com.soldesk.entity.mountain.Mountain"
+	parameterType="com.soldesk.entity.mountain.Mountain">
+		select * from soldesk_mountain_tb where m_location = #{m_location}
+	</select>
 </mapper>
