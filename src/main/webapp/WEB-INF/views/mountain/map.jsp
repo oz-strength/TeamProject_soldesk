@@ -109,6 +109,19 @@ $(document).ready(function() {
 	  var weatherDataDiv = document.getElementById('weatherData');
 	  var html = '';
 	  
+	  // fcstTime 값을 가져옵니다.
+	  let fcstTime = ''; 
+	  if (data.weatherItem.length > 0) {
+	    let f_when = new Date(data.weatherItem[0].w_fcstDate);
+	    let f_w_fcstDate = formatDate(f_when);
+	    let fcstDate = f_w_fcstDate.substring(11, 17);
+	    fcstTime = fcstDate + "시 기준";
+	  }
+
+	  // fcstTime을 grid 상단에 배치합니다.
+	  html += '<div class="fcst-time">' + fcstTime + '</div>';
+	  
+	  
 	  // Loop through each mountain object and create list items
 	  data.weatherItem.forEach(function(weatherItem) {
 		  
@@ -117,11 +130,11 @@ $(document).ready(function() {
 	    html += '<li>';
 	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
 	    html += '지역: ' + weatherItem.w_loc + '<br>';
-	    let f_when = new Date(weatherItem.w_fcstDate);
+	   /*  let f_when = new Date(weatherItem.w_fcstDate);
 	    let f_w_fcstDate = formatDate(f_when);
 	    let fcstDate = f_w_fcstDate.substring(11, 17);
-	   	let fcstTime = fcstDate + "시 기준";
-	    html += '시간: ' + fcstTime + '<br>';
+	   	let fcstTime = fcstDate + "시 기준"; */
+	   /*  html += '시간: ' + fcstTime + '<br>'; */
 	    html += '온도: ' + weatherItem.w_tmp + '℃<br>';
 	    html += '습도: ' + weatherItem.w_reh + '<br>';
 	    html += '강수확률: ' + weatherItem.w_pop + '<br>';
@@ -176,12 +189,6 @@ $(document).ready(function() {
 
 	<%-- 날씨현황 표  --%>
 	<div class="grid-container" id="weatherData"></div>	
-	
-	
-	
-	
-	
-	
 	
 	
 	<!-- 지도 svg -->

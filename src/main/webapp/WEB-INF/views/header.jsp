@@ -14,7 +14,11 @@
       	<span class="short-text"></span>
       </a>
       <a href="${contextPath}/mountain/map" class="button-in-header">
-      	<span class="long-text">WEATHER</span>
+      	<span class="long-text">MAP</span>
+      	<span class="short-text"></span>
+      </a>
+      <a href="${contextPath}/weather/weatherPage" class="button-in-header">
+      	<span class="long-text">WAETHER</span>
       	<span class="short-text"></span>
       </a>
       <a href="${contextPath}/board/free" class="button-in-header">
