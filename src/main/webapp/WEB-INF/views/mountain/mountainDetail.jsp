@@ -16,7 +16,7 @@
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 
-
+	<h1>산 한개 디테일 페이지</h1>
 	
 	
 	<div class="grid-container" id="mountainData"></div>	
@@ -34,17 +34,17 @@
 	
 	<script>
     $(function() {
-      var m_loc = '<%= (String) request.getAttribute("m_loc") %>';
-      $.getJSON("${contextPath}/mountain.getLocalMountainJSON?m_location=" + m_loc, function(data) {
+      var m_no = '<%= (String) request.getAttribute("m_no") %>';
+      $.getJSON("${contextPath}/mountain.getMountainDetailJSON?m_no=" + m_no, function(data) {
     	  var mountainDataDiv = document.getElementById('mountainData');
     	  var html = '';
     	  
     	  data.mountain.forEach(function(mountain) {
-    		  var m_no = mountain.m_no;
+    		  
     	    html += '<div class="grid-item">';
     	    html += '<ul>';
     	    html += '<li>';
-    	    html += '<a href="${contextPath}/mountain/detail?m_no='+m_no+'">' + 'Mountain No: ' + mountain.m_no + '</a><br>';
+    	    html += 'Mountain No: ' + mountain.m_no + '<br>';
     	    html += 'Name: ' + mountain.m_name + '<br>';
     	    html += 'Height: ' + mountain.m_height + 'm<br>';
     	    html += 'Location: ' + mountain.m_location + '<br>';

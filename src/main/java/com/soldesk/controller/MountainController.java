@@ -33,7 +33,10 @@ public class MountainController {
 	}
 	// 산 데이터 상세 페이지 이동
 	@RequestMapping(value= "/mountain/detail")
-	public String goMountainDeatil() {
+	public String goMountainDeatil(HttpServletRequest req) {
+		String m_no = req.getParameter("m_no");
+		req.setAttribute("m_no", m_no);
+		System.out.println(m_no);
 		return "mountain/mountainDetail";
 	}
 	
