@@ -11,16 +11,23 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainList.css">
 <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
+		
+	var m_location = '${m_loc}'; 
+	
 	  $.ajax({
-	    url: '${contextPath}/mountain.getAllMountainJSON', // Replace this with the actual URL of your JSON data source
+	    url: '${contextPath}/mountain.getLocalMountainJSON',
 	    type: 'GET',
 	    dataType: 'json',
+	    data: m_location,
 	    success: function(data) {
+	    	console.log("Success: ", data);
+	    	console.log(m_loc);
 	      displayMountainData(data);
 	    },
-	    error: function() {
+	    error: function(xhr, status, error) {
+	    	console.log("에러: ", status, error);
 	      alert('Failed to fetch mountain data.');
 	    }
 	  });
@@ -53,7 +60,7 @@ $(document).ready(function() {
 	  
 	 mountainDataDiv.innerHTML = html;
 	}
-</script>
+</script> -->
 </head>
 <body>
 	<%-- 헤더 컴포넌트 가져오기 --%>
@@ -74,5 +81,38 @@ $(document).ready(function() {
 	
 	<%-- footer 컴포넌트 가져오기 --%> 
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
+	
+	<script>
+    $(function() {
+      var m_loc = '<%= (String) request.getAttribute("m_loc") %>';
+      $.getJSON("${contextPath}/mountain.getLocalMountainJSON?m_location=" + m_loc, function(data) {
+    	  var mountainDataDiv = document.getElementById('mountainData');
+    	  var html = '';
+    	  
+    	  data.mountain.forEach(function(mountain) {
+    		  
+    	    html += '<div class="grid-item">';
+    	    html += '<ul>';
+    	    html += '<li>';
+    	    html += 'Mountain No: ' + mountain.m_no + '<br>';
+    	    html += 'Name: ' + mountain.m_name + '<br>';
+    	    html += 'Height: ' + mountain.m_height + 'm<br>';
+    	    html += 'Location: ' + mountain.m_location + '<br>';
+    	    html += 'Address: ' + mountain.m_address + '<br>';
+    	    
+    	    if (mountain.m_photo) {
+    	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
+    	    }
+    	    
+    	    html += '</li>';
+    	    html += '</ul>';
+    	    html += '</div>';
+    			    
+    	  });
+    	  
+    	 mountainDataDiv.innerHTML = html;
+        });
+    });
+  </script>
 </body>
 </html>
