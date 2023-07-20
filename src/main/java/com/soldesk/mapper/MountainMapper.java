@@ -11,4 +11,5 @@ public interface MountainMapper {
 	public abstract List<Mountain> getAllMountain();
 	public abstract List<Mountain> getLocalMountain(Mountain m);
 	public abstract List<Mountain> getMountainDetail(Mountain m);
+	public abstract int getMountainCount();
 }
