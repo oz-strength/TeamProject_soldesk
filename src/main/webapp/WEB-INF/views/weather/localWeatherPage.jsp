@@ -37,8 +37,6 @@
 </script>
 </head>
 <body>
-	해당 파라미터에 해당하는 날씨 통계 
-	
 	 <div class="weather_title_baseDate"></div>
   <div class="weather_title_h"></div>
   <div class="weather_content_fcstDate"></div>

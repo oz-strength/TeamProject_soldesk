@@ -18,30 +18,30 @@
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<h1 style="padding:100px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
+	<h1 style="padding:100px 0;">해당 지역의 날씨를 확인하세요!</h1>
 	
-	
+	<!-- weather/weatherPage-->
 	
 	
 	<!-- 지역 그리드 -->
 	<div class="grid-container" id="Location">
 		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=seoul'">서울</div>
-		<div class="grid-item">경기</div>
-		<div class="grid-item">강원</div>
-		<div class="grid-item">충남</div>
-		<div class="grid-item">전북</div>
-		<div class="grid-item">전남</div>
-		<div class="grid-item">경북</div>
-		<div class="grid-item">경남</div>
-		<div class="grid-item">제주</div>
-		<div class="grid-item">인천</div>
-		<div class="grid-item">부산</div>
-		<div class="grid-item">울산</div>
-		<div class="grid-item">대구</div>
-		<div class="grid-item">대전</div>
-		<div class="grid-item">광주</div>
-		<div class="grid-item">세종</div>
-		<div class="grid-item">독도</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=gyeonggi'">경기</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=gangwon'">강원</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=chungnam'">충남</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=jeonbuk'">전북</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=jeonnam'">전남</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=gyeongbuk'">경북</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=gyeongnam'">경남</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=jeju'">제주</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=incheon'">인천</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=busan'">부산</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=ulsan'">울산</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=daegu'">대구</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=daejeon'">대전</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=gwangju'">광주</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=sejong'">세종</div>
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=dokdo'">독도</div>
 	</div>	
 	
 	

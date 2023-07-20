@@ -191,7 +191,7 @@ $(document).ready(function() {
 	
 	    <div class="map">
 	      <svg
-	        style="background: beige; overflow: visible"
+	        style="background:; overflow: visible"
 	        height="1107"
 	        width="800"
 	        xmlns="http://www.w3.org/2000/svg"
@@ -354,14 +354,7 @@ $(document).ready(function() {
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
-	<script>
-		$('.btn-mode').click(function(){
-		    $('.profile').toggleClass('dark');
-		})
-		$('.btn-like').click(function(){
-		    $(this).toggleClass('active')
-		})
-	</script>
+
 	
 	<%-- footer 컴포넌트 가져오기 --%> 
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
