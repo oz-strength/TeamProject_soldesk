@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soldesk.dao.MountainDAO;
@@ -21,7 +22,10 @@ public class MountainController {
 	
 	// 모든 산 데이터 조회 페이지 이동
 	@RequestMapping(value = "/mountain/list")
-	public String goMountainList() {
+	public String goMountainList(HttpServletRequest req) {
+		String m_loc = req.getParameter("m_location");
+		req.setAttribute("m_loc", m_loc);
+		//System.out.println(m_loc);
 		return "mountain/mountainList";
 	}
 	// 산 데이터 상세 페이지 이동
@@ -40,6 +44,6 @@ public class MountainController {
 	public @ResponseBody Mountains getLocalMountainJSON(Mountain m, HttpServletRequest req) {
 		return mDAO.getLocalMountain(m,req);
 	}
-	
+
 	
 }
