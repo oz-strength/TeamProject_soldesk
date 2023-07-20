@@ -11,4 +11,11 @@
 	parameterType="com.soldesk.entity.mountain.Mountain">
 		select * from soldesk_mountain_tb where m_location = #{m_location}
 	</select>
+	
+	<!-- 특정 산 데이터 1개 조회 -->
+	<select id="getMountainDetail" resultType = "com.soldesk.entity.mountain.Mountain"
+	parameterType="com.soldesk.entity.mountain.Mountain">
+		select * from soldesk_mountain_tb where m_no = 
+			(select m_no from soldesk_mountain_tb where m_name = #{m_name})
+	</select>
 </mapper>

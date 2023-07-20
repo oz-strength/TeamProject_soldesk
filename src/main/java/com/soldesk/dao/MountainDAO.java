@@ -24,4 +24,9 @@ public class MountainDAO {
 		return new Mountains(mm.getLocalMountain(m));
 	}
 	
+	// 산 상세보기 조회
+	public Mountains getMountainDetail(Mountain m, HttpServletRequest req) {
+		return new Mountains(mm.getMountainDetail(m));
+	}
+	
 }
