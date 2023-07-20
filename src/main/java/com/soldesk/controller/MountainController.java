@@ -41,6 +41,8 @@ public class MountainController {
 		return mDAO.getLocalMountain(m,req);
 	}
 	
+	// 산 데이터 1개 조회 JSON
+	
 	
 	
 }
