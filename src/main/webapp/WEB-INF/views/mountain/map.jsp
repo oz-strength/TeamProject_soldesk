@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -88,40 +88,48 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
     </style>
     <script type="text/javascript">
 $(document).ready(function() {
-	  // AJAX request to fetch the JSON data from the server
 	  $.ajax({
-	    url: '${contextPath}/weatherMap.getJSON', // Replace this with the actual URL of your JSON data source
+	    url: '${contextPath}/weatherMap.getJSON',  
 	    type: 'GET',
 	    dataType: 'json',
 	    success: function(data) {
-	      // Function to handle the success response
 	      displayWeatherData(data);
 	    },
 	    error: function() {
-	      // Function to handle the error response, if any
 	      alert('Failed to fetch weather data.');
 	    }
 	  });
 	});
 
 	function displayWeatherData(data) {
-	  // Assuming your JSON data is an array of mountain objects as provided in the example
 	  var weatherDataDiv = document.getElementById('weatherData');
 	  var html = '';
 	  
-	  // Loop through each mountain object and create list items
+	  // fcstTime 값을 가져옵니다.
+	  let fcstTime = ''; 
+	  if (data.weatherItem.length > 0) {
+	    let f_when = new Date(data.weatherItem[0].w_fcstDate);
+	    let f_w_fcstDate = formatDate(f_when);
+	    let fcstDate = f_w_fcstDate.substring(11, 17);
+	    fcstTime = fcstDate + "시 기준";
+	  }
+
+	  // fcstTime을 grid 상단에 배치합니다.
+	  html += '<div class="fcst-time">' + fcstTime + '</div>';
+	  
+	  
 	  data.weatherItem.forEach(function(weatherItem) {
 		  
 	    html += '<div class="grid-item">';
 	    html += '<ul>';
 	    html += '<li>';
 	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
-	    html += '지역: ' + weatherItem.w_loc + '<br>';
-	    let f_when = new Date(weatherItem.w_fcstDate);
+	    html += /* '지역: ' +  */weatherItem.w_loc + '<br>';
+	   /*  let f_when = new Date(weatherItem.w_fcstDate);
 	    let f_w_fcstDate = formatDate(f_when);
 	    let fcstDate = f_w_fcstDate.substring(11, 17);
-	   	let fcstTime = fcstDate + "시 기준";
-	    html += '시간: ' + fcstTime + '<br>';
+	   	let fcstTime = fcstDate + "시 기준"; */
+	   /*  html += '시간: ' + fcstTime + '<br>'; */
 	    html += '온도: ' + weatherItem.w_tmp + '℃<br>';
 	    html += '습도: ' + weatherItem.w_reh + '<br>';
 	    html += '강수확률: ' + weatherItem.w_pop + '<br>';
@@ -178,18 +186,12 @@ $(document).ready(function() {
 	<div class="grid-container" id="weatherData"></div>	
 	
 	
-	
-	
-	
-	
-	
-	
 	<!-- 지도 svg -->
 	<section style="text-align:center">
 	
 	    <div class="map">
 	      <svg
-	        style="background: beige; overflow: visible"
+	        style="background:; overflow: visible"
 	        height="1107"
 	        width="800"
 	        xmlns="http://www.w3.org/2000/svg"
@@ -352,14 +354,7 @@ $(document).ready(function() {
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
-	<script>
-		$('.btn-mode').click(function(){
-		    $('.profile').toggleClass('dark');
-		})
-		$('.btn-like').click(function(){
-		    $(this).toggleClass('active')
-		})
-	</script>
+
 	
 	<%-- footer 컴포넌트 가져오기 --%> 
 	<%@ include file="/WEB-INF/views/footer.jsp" %>

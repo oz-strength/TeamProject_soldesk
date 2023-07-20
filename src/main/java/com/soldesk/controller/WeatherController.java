@@ -57,4 +57,12 @@ public class WeatherController {
 		req.setAttribute("w_loc", w_loc);
 		return "weatherPage";
 	}
+	
+	// weather 탭에서 지역 누르면 이동하는 페이지
+	@RequestMapping(value = "/weather/location", method = RequestMethod.GET)
+	public String goLocalPage(HttpServletRequest req) {
+		String w_loc = req.getParameter("w_loc");
+		req.setAttribute("w_loc", w_loc);
+		return "weather/localWeatherPage";
+	}
 }

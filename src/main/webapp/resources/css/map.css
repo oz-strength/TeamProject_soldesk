@@ -9,7 +9,7 @@ body {
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6em;
-  background-color: #fff;
+  background-color: beige;
   color: #222;
   margin: 0;
 }
@@ -17,6 +17,10 @@ body {
 a {
   text-decoration: none;
   color: #222;
+}
+
+ul{
+	list-style: none;
 }
 
 h1,
@@ -30,7 +34,6 @@ h6 {
 
 body {
 	/* height:300vh */
-	background-color: beige;
   cursor:none !important; /*기본 마우스 없애기*/
 }
 .container{
@@ -207,6 +210,14 @@ a {
 	justify-content: space-around;
 }
 
+ /* fcstTime 스타일 설정 */
+  .fcst-time {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
@@ -220,6 +231,8 @@ a {
   padding: 10px;
   text-align: center;
 }
+
+
 
 /* 
 .headline-share {

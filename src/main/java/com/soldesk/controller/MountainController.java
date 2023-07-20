@@ -47,5 +47,4 @@ public class MountainController {
 		return mDAO.getMountainDetail(m, req);
 	}
 	
-	
 }

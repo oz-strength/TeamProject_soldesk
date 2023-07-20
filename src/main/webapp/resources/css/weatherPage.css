@@ -19,6 +19,10 @@ a {
   color: #222;
 }
 
+ul{
+	list-style: none;
+}
+
 h1,
 h2,
 h3,
@@ -28,21 +32,19 @@ h6 {
   margin-top: 0;
 }
 
-ul{
-	list-style: none;
-}
-
-
 body {
 	/* height:300vh */
 	background-color: beige;
-  /* cursor:none !important; 기본 마우스 없애기 */
+  cursor:none !important; /*기본 마우스 없애기*/
 }
 .container{
 	display: flex;
 	justify-content : center;
 	margin-top: 30px;
 }
+
+
+
 
 /*cursor 디자인하기*/
 .cursor{
@@ -198,19 +200,23 @@ a {
 /*back to top button*/
 
 
-/* map 이미지*/
-.map{
-	margin-top: 100px;
-	margin-right: 20px;
-}
 
-/* 산 데이터표 */
+
+/* 지역 그리드 표 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .container{
 	display:flex;
 	justify-content: space-around;
 }
+
+ /* fcstTime 스타일 설정 */
+  .fcst-time {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
 
 .grid-container {
   display: grid;
@@ -228,26 +234,7 @@ a {
 
 
 
-
-
-
-/* .grid-container{
-  padding: 10px;
-  background-color: lightgrey;
-}
-.grid-item{
-  padding: 10px;
-  border: 3px solid rgb(50, 50, 40);
-  color: white;
-  background: #ff6937;
-}
-
-.grid-container{
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
-  height: 80vh;
-} */
-/* /* 
+/* 
 .headline-share {
 	height:65vh;
   text-align: center;
@@ -346,7 +333,7 @@ section.weather-section {
   width: auto;
   border-radius: 10px;
 } */
- */
+
 
 /* footer 디자인*/
 .footer{
