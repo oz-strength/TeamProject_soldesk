@@ -28,6 +28,11 @@ h6 {
   margin-top: 0;
 }
 
+ul{
+	list-style: none;
+}
+
+
 body {
 	/* height:300vh */
 	background-color: beige;

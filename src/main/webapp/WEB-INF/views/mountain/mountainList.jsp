@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainList.css">
+<script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -70,14 +71,6 @@ $(document).ready(function() {
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
-	<script>
-		$('.btn-mode').click(function(){
-		    $('.profile').toggleClass('dark');
-		})
-		$('.btn-like').click(function(){
-		    $(this).toggleClass('active')
-		})
-	</script>
 	
 	<%-- footer 컴포넌트 가져오기 --%> 
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
