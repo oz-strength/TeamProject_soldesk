@@ -11,12 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.soldesk.entity.BlockchainManager;
+import com.soldesk.entity.blockchain.Wallet;
+
 @Controller
 public class HomeController {
 
 	// 초기화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goHome() {
+	public String goHome() { 
 		return "home";
 	}
 

@@ -21,8 +21,8 @@
       	<span class="long-text">BOARD</span>
       	<span class="short-text"></span>
       </a>
-      <a class="button-in-header">
-      	<span class="long-text"><i class="fas fa-search small"></i></span>
+      <a href="${contextPath}/#" class="button-in-header">
+      	<span class="long-text">GALLARY</span>
       	<span class="short-text"></span>
       </a>
     </div>

@@ -3,9 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-<c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
+<%-- <c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
 <c:set var="loginOut" value="${sessionScope.id==null ? '로그인' : '로그아웃' }"/>
-
+ --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,6 +86,86 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
   fill: #f1c40f;
 }
     </style>
+    <script type="text/javascript">
+$(document).ready(function() {
+	  // AJAX request to fetch the JSON data from the server
+	  $.ajax({
+	    url: '${contextPath}/weatherMap.getJSON', // Replace this with the actual URL of your JSON data source
+	    type: 'GET',
+	    dataType: 'json',
+	    success: function(data) {
+	      // Function to handle the success response
+	      displayWeatherData(data);
+	    },
+	    error: function() {
+	      // Function to handle the error response, if any
+	      alert('Failed to fetch weather data.');
+	    }
+	  });
+	});
+
+	function displayWeatherData(data) {
+	  // Assuming your JSON data is an array of mountain objects as provided in the example
+	  var weatherDataDiv = document.getElementById('weatherData');
+	  var html = '';
+	  
+	  // Loop through each mountain object and create list items
+	  data.weatherItem.forEach(function(weatherItem) {
+		  
+	    html += '<div class="grid-item">';
+	    html += '<ul>';
+	    html += '<li>';
+	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
+	    html += '지역: ' + weatherItem.w_loc + '<br>';
+	    let f_when = new Date(weatherItem.w_fcstDate);
+	    let f_w_fcstDate = formatDate(f_when);
+	    let fcstDate = f_w_fcstDate.substring(11, 17);
+	   	let fcstTime = fcstDate + "시 기준";
+	    html += '시간: ' + fcstTime + '<br>';
+	    html += '온도: ' + weatherItem.w_tmp + '℃<br>';
+	    html += '습도: ' + weatherItem.w_reh + '<br>';
+	    html += '강수확률: ' + weatherItem.w_pop + '<br>';
+	    html += '하늘상태: ' + formatSky(weatherItem.w_sky) + '<br>';
+	    
+	    // If you have a link to the photo, you can add it here
+	 /*    if (mountain.m_photo) {
+	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
+	    } */
+	    
+	    html += '</li>';
+	    html += '</ul>';
+	    html += '</div>';
+			    
+	  });
+	  
+	  weatherDataDiv.innerHTML = html;
+	}
+	
+	function formatDate(when) {
+	    let year = when.getFullYear();
+	    let month = ("0" + (when.getMonth() + 1)).slice(-2);
+	    let day = ("0" + when.getDate()).slice(-2);
+	    let hours = ("0" + when.getHours()).slice(-2);
+	    let minutes = ("0" + when.getMinutes()).slice(-2);
+	    
+	    return year + "/" + month + "/" + day + " " + hours + ":" + minutes;
+	}
+	
+	function formatSky(sky) {
+		switch (sky) {
+		case 1:
+			return "맑음";
+			break;
+		case 3:
+			return "흐림";
+		case 4:
+			return "비";
+		default:
+			return "알수없음";
+			break;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -93,273 +173,18 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 
 <div class="container">
-	<%-- 날씨현황 표  --%>
-	    <section class="weather-section">
-      <div class="headline-share">
-      </div>
-      <div class="items">
-        <aside class="item">
-          <b>Today's weather</b>
-          <h2>지역별 날씨 현황을 알려드립니다</h2>
-          <p>지도를 클릭하시면 원하는 지역의 정보를 확인할수 있습니다</p>
-        </aside>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-       
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">인천</div>
-            </div>
-            <div class="Info">
-              <div class="2">맑음</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <aside class="item">
-        </aside>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-       
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">인천</div>
-            </div>
-            <div class="Info">
-              <div class="2">맑음</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <aside class="item">
-        </aside>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-       
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">인천</div>
-            </div>
-            <div class="Info">
-              <div class="2">맑음</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <aside class="item">
-        </aside>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-       
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">인천</div>
-            </div>
-            <div class="Info">
-              <div class="2">맑음</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="city">
-              <div class="1">경기</div>
-            </div>
-            <div class="Info">
-              <div class="2">폭우</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <aside class="item">
-        </aside>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-        </div>
-        <div class="item thum">
-          <div class="photo">
-            <div class="weather-icon">
-            </div>
-            <div class="temp">
-            20℃
-            </div>
-            <div class="local">
-			서울
-            </div>
-            <div class="max-temp">
-			최고:27℃
-            </div>
-            <div class="min-temp">
-			최저:16℃
-            </div>
-          </div>
-        </div>
-      </div>
-      
-     
 
-      
-      
-    </section>
+	<%-- 날씨현황 표  --%>
+	<div class="grid-container" id="weatherData"></div>	
 	
 	
+	
+	
+	
+	
+	
+	
+	<!-- 지도 svg -->
 	<section style="text-align:center">
 	
 	    <div class="map">
@@ -381,7 +206,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	        </defs>
 	        <g filter="url(#dropshadow)">
 	          <path
-	          	onclick={alert("서울!");}
+	          	onclick={location.href="${contextPath}/mountain/list"}
 	            id="CD11"
 	            class="OUTLINE"
 	            d=" M 178 231 l -4 2 -4 3 -1 0 0 1 -3 1 -4 -5 -4 0 -6 1 -4 3 -2 -1 -1 -1 -3 2 -3 -3 -1 -3 -2 -3 0 0 -1 -2 -3 2 -3 1 -2 -4 0 -8 -3 -1 0 0 0 0 0 0 -2 -1 -3 -2 2 -4 3 -3 0 -1 0 0 0 0 0 -1 1 0 4 2 7 1 2 -2 0 1 2 0 1 -4 2 -8 7 -1 4 2 0 -3 1 -1 2 -4 3 -4 2 0 3 2 7 2 2 8 1 4 1 1 0 0 0 2 0 2 0 1 0 0 -1 6 3 0 8 -1 0 5 -4 3 -1 5 z "
