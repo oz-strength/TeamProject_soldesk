@@ -1,8 +1,9 @@
 package com.soldesk.controller;
 
-import java.util.Date;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class WeatherController {
 	private WeatherDAO wDAO;
 	
 	// 홈페이지 시작 시에 실행 또는
-	// 지도 페이지나 날씨 페이지 이동 시에 실행하도록 변경하기
+	// 지도 페이지나 날씨 페이지 이동 시에 실행하도록 변경하기 (return 값)
 	@RequestMapping(value = "/weather", method = RequestMethod.GET)
 	public String addWeatherTest(HttpServletRequest req) {
 		if (wDAO.checkWeather()) {
@@ -31,8 +32,20 @@ public class WeatherController {
 			System.out.println("이미 데이터가 있습니다.");
 		}
 		
-		return "index";
+		return "home";
 	}
+	
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+    public String test2(){
+        return "IntroPage";
+    }
+	
+	 @RequestMapping(value = "/test1", method = RequestMethod.GET)
+	    public void test1(HttpServletResponse response) throws IOException, InterruptedException {
+	        response.sendRedirect("/controller");
+	        Thread.sleep(3000);
+	        test2();
+	    }
 	
 	// 지도 페이지 이동 시에 json으로 반환하는 코드
 	@RequestMapping(value = "/weatherMap.getJSON", method = RequestMethod.GET, 
@@ -53,6 +66,6 @@ public class WeatherController {
 	public String goWeatherPage(HttpServletRequest req) {
 		String w_loc = req.getParameter("w_loc");
 		req.setAttribute("w_loc", w_loc);
-		return "weather";
+		return "weatherPage";
 	}
 }

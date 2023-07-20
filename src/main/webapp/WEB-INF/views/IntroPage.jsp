@@ -10,26 +10,80 @@
 	<meta charset="UTF-8">
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/introPage.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	
 </head>
 <body>
 
 						<%-- 헤더 컴포넌트 가져오기 --%>
-				<%@ include file="/WEB-INF/views/header.jsp" %>
+			<div class="header">
+			<%@ include file="/WEB-INF/views/header.jsp" %>
+			</div>
 	
 	
 	
+	  <div class="container">
+	    <section class="welcome">
+	      <div class="heading">
+	        <div class="">Welcome to MOUNTAIN Page!</div>
+	      </div>
+	    </section>
 	
-	
-	
-	
-	<h1 style="padding:300px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
-	
-	
-	
-	
-	
+		  <section class="feature solution">
+		     <div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/board.png" alt="">
+		          <h1>자유 게시판에서 다양한 의사소통이 가능합니다</h1>
+		          <p>
+				            여러가지 주제를 놓고 대화할수 있는 공간입니다. <br>
+				            본인의 오늘 하루 있었던 일이나 재밌는 경험을 공유해주세요.
+		          </p>
+		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/freeboard.png">
+		        </div>
+	      </div>
+	    </section>
+		  <section class="feature solution">
+		     <div class="inner">
+		     <div class="photo">
+		          <img src="${contextPath}/resources/images/">
+		        </div>
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/weather-forecast.png" alt="">
+		          <h1>날씨를 확인하고 여러 지역의 대표 산들을 만날 수 있습니다.</h1>
+		          <p>
+				     	오늘 등산하러 가실 계획이신가요? 
+				  		실시간 날씨예보를 확인하세요~!
+		          </p>
+		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
+		        </div>
+		        
+	      </div>
+	    </section>
+		  <section class="feature solution">
+		     <div class="inner">
+		        <div class="desc">
+		          <img src="${contextPath}/resources/images/landscape.png" alt="">
+		          <h1>NFT 갤러리를 통해 나만의 그림을 가질 수 있습니다.</h1>
+		          <p>
+				  	블록체인 기술로 다양한 NFT그림들을 만나보세요!
+		          </p>
+		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
+		        </div>
+		        <div class="photo">
+		          <img src="${contextPath}/resources/images/.png">
+		        </div>
+	      </div>
+	    </section>
+	    
+		    
+	    
+	    
+	    <section class="callaction"></section>
+	  </div>
 	
 	
 	
@@ -37,7 +91,7 @@
 	
 								<!-- 나무 이미지 -->
 	
-<div id="image-wrapper" style="transform: translateX(1000px);">
+<div id="image-wrapper">
 	<div id="main-image">
   <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"

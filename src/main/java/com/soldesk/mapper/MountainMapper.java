@@ -9,4 +9,5 @@ import com.soldesk.entity.mountain.Mountain;
 @Mapper
 public interface MountainMapper {
 	public abstract List<Mountain> getAllMountain();
+	public abstract List<Mountain> getLocalMountain(Mountain m);
 }
