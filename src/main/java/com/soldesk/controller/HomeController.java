@@ -40,7 +40,12 @@ public class HomeController {
 	public String goIntroPage() {
 		return "IntroPage";
 	}
-
+	
+	// 날씨 페이지로 이동하기 
+	@RequestMapping(value = "/weather/weatherPage", method = RequestMethod.GET)
+	public String goWeatherPage() {
+		return "weather/weatherPage";
+	}
 /*	// 자유 게시판 [미구현]
 	@RequestMapping(value = "/board/free", method = RequestMethod.GET)
 	public String goFreeboard() {

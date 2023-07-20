@@ -20,6 +20,11 @@ CREATE SEQUENCE seq_soldesk_mountain_tb
 
 -- 산 테이블 조회
 select * from SOLDESK_MOUNTAIN_TB;
+-- 산 테이블 삭제
+drop table SOLDESK_MOUNTAIN_TB cascade constraint purge;
+-- 산 시퀀스 삭제
+drop sequence seq_soldesk_mountain_tb;
+
 
 -- 산 테이블 -> 'ㄱ' 16개
 insert into SOLDESK_MOUNTAIN_TB(m_no, m_name, m_height, m_location, m_address)

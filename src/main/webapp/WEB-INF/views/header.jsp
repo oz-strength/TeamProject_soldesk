@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -14,7 +14,11 @@
       	<span class="short-text"></span>
       </a>
       <a href="${contextPath}/mountain/map" class="button-in-header">
-      	<span class="long-text">WEATHER</span>
+      	<span class="long-text">MAP</span>
+      	<span class="short-text"></span>
+      </a>
+      <a href="${contextPath}/weather/weatherPage" class="button-in-header">
+      	<span class="long-text">WAETHER</span>
       	<span class="short-text"></span>
       </a>
       <a href="${contextPath}/board/free" class="button-in-header">
