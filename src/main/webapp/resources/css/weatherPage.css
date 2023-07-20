@@ -43,6 +43,9 @@ body {
 	margin-top: 30px;
 }
 
+
+
+
 /*cursor 디자인하기*/
 .cursor{
 	position: fixed;
@@ -197,13 +200,9 @@ a {
 /*back to top button*/
 
 
-/* map 이미지*/
-.map{
-	margin-top: 100px;
-	margin-right: 20px;
-}
 
-/* 날씨 데이터 표 */
+
+/* 지역 그리드 표 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .container{

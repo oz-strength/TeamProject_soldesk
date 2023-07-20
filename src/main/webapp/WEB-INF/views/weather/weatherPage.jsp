@@ -24,7 +24,25 @@
 	
 	
 	<!-- 지역 그리드 -->
-	<div class="grid-container" id="Location"></div>	
+	<div class="grid-container" id="Location">
+		<div class="grid-item" onclick="location.href='${contextPath}/weather/location?w_loc=seoul'">서울</div>
+		<div class="grid-item">경기</div>
+		<div class="grid-item">강원</div>
+		<div class="grid-item">충남</div>
+		<div class="grid-item">전북</div>
+		<div class="grid-item">전남</div>
+		<div class="grid-item">경북</div>
+		<div class="grid-item">경남</div>
+		<div class="grid-item">제주</div>
+		<div class="grid-item">인천</div>
+		<div class="grid-item">부산</div>
+		<div class="grid-item">울산</div>
+		<div class="grid-item">대구</div>
+		<div class="grid-item">대전</div>
+		<div class="grid-item">광주</div>
+		<div class="grid-item">세종</div>
+		<div class="grid-item">독도</div>
+	</div>	
 	
 	
 	

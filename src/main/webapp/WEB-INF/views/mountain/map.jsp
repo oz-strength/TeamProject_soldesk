@@ -88,24 +88,20 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
     </style>
     <script type="text/javascript">
 $(document).ready(function() {
-	  // AJAX request to fetch the JSON data from the server
 	  $.ajax({
-	    url: '${contextPath}/weatherMap.getJSON', // Replace this with the actual URL of your JSON data source
+	    url: '${contextPath}/weatherMap.getJSON',  
 	    type: 'GET',
 	    dataType: 'json',
 	    success: function(data) {
-	      // Function to handle the success response
 	      displayWeatherData(data);
 	    },
 	    error: function() {
-	      // Function to handle the error response, if any
 	      alert('Failed to fetch weather data.');
 	    }
 	  });
 	});
 
 	function displayWeatherData(data) {
-	  // Assuming your JSON data is an array of mountain objects as provided in the example
 	  var weatherDataDiv = document.getElementById('weatherData');
 	  var html = '';
 	  
@@ -122,7 +118,6 @@ $(document).ready(function() {
 	  html += '<div class="fcst-time">' + fcstTime + '</div>';
 	  
 	  
-	  // Loop through each mountain object and create list items
 	  data.weatherItem.forEach(function(weatherItem) {
 		  
 	    html += '<div class="grid-item">';

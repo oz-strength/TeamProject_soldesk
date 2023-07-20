@@ -12,28 +12,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	  // AJAX request to fetch the JSON data from the server
 	  $.ajax({
 	    url: '${contextPath}/mountain.getAllMountainJSON', // Replace this with the actual URL of your JSON data source
 	    type: 'GET',
 	    dataType: 'json',
 	    success: function(data) {
-	      // Function to handle the success response
 	      displayMountainData(data);
 	    },
 	    error: function() {
-	      // Function to handle the error response, if any
 	      alert('Failed to fetch mountain data.');
 	    }
 	  });
 	});
 
 	function displayMountainData(data) {
-	  // Assuming your JSON data is an array of mountain objects as provided in the example
 	  var mountainDataDiv = document.getElementById('mountainData');
 	  var html = '';
 	  
-	  // Loop through each mountain object and create list items
 	  data.mountain.forEach(function(mountain) {
 		  
 	    html += '<div class="grid-item">';
@@ -45,7 +40,6 @@ $(document).ready(function() {
 	    html += 'Location: ' + mountain.m_location + '<br>';
 	    html += 'Address: ' + mountain.m_address + '<br>';
 	    
-	    // If you have a link to the photo, you can add it here
 	    if (mountain.m_photo) {
 	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
 	    }
