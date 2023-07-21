@@ -45,4 +45,15 @@ public class WeatherManager {
 		
 		return baseDate;
 	}
+	
+	public static String get2DaysLater(String baseDate) {
+		DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        LocalDateTime bd = LocalDateTime.parse(baseDate, formatDateTime);
+        
+        LocalDateTime bd2dlDT = bd.plusDays(2);
+        
+        String baseDate2DL = bd2dlDT.format(formatDateTime);
+        
+        return baseDate2DL;
+	}
 }
