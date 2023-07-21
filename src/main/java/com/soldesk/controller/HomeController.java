@@ -6,20 +6,27 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.soldesk.dao.MountainDAO;
 import com.soldesk.entity.BlockchainManager;
 import com.soldesk.entity.blockchain.Wallet;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private MountainDAO mDAO;
 
 	// 초기화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goHome() { 
+	public String goHome(Model model) {
+		int number = mDAO.getMountainRandomCount();
+		model.addAttribute("m_no", number);
 		return "home";
 	}
 
