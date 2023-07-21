@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -69,11 +70,12 @@ public class AdminController {
 	}
 	
 	// 사용자 삭제 기능
-	@RequestMapping(value = "/admin.DeleteUser")
+	@RequestMapping(value = "/admin.deleteUser", method = RequestMethod.GET)
 	public String deleteUser(User u) {
 		uDAO.deleteUser(u);
-		return "admin";
+		return "admin/admin";
 	}
+	
 	
 	@ResponseBody
 	@RequestMapping(value = { "uploadPath" }, method = RequestMethod.POST, produces = "json/plain;charset=UTF-8")

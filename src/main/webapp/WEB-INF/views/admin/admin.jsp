@@ -63,7 +63,7 @@
     <div class="sidebar">
         <!-- 각 메뉴를 클릭하면 해당 섹션을 보이도록 onclick 이벤트 추가 -->
         <a href="#" onclick="toggleSection('nft')">nft사진 업로드</a>
-        <a href="#" onclick="toggleSection('users')">사용자 관리</a>
+        <a href="#" onclick="toggleSection('users','${contextPath}/user/getAllUserJSON')">사용자 관리</a>
         <a href="#" onclick="toggleSection('mountainList')">산 리스트 관리</a>
         <a href="#" onclick="toggleSection('board')">게시판 관리</a>
     </div>
@@ -76,6 +76,19 @@
         <section id="users">
             <h2>사용자 관리</h2>
             <p>사용자 관리 내용을 여기에 표시합니다.</p>
+
+            <table id="userList">
+            	<tr>
+            		<th>Email</th>
+            		<th>Password</th>
+            		<th>Name</th>
+            		<th>Birth</th>
+            		<th>Gender</th>
+            		<th>Delete</th>
+            	</tr>
+            </table>
+            
+           <!--  <div class="grid-container" id="userList"></div> -->
         </section>
         <section id="mountainList">
             <h2>산 리스트 관리</h2>
@@ -103,34 +116,27 @@
 	
 	
    <script>
-   function toggleSection(sectionId, url) {
-       var section = document.getElementById(sectionId);
-       if (section.style.display === "none") {
-           // AJAX 요청을 보내서 데이터를 받아옵니다.
-           if (sectionId === 'board') {
-               $.ajax({
-                   url: url, // 서버 요청 URL
-                   type: "GET",
-                   dataType: "html",
-                   success: function(data) {
-                       // 서버로부터 받은 데이터를 섹션에 적용합니다.
-                       section.innerHTML = data;
-                       section.style.display = "block"; // 섹션을 보이도록 설정합니다.
-                   },
-                   error: function(xhr, status, error) {
-                       console.error(error);
-                   }
-               });
-           } else {
-               section.style.display = "block"; // 섹션을 보이도록 설정합니다.
-           }
-       } else {
-           section.style.display = "none"; // 섹션을 숨기도록 설정합니다.
-       }
-   }
-    </script>
-	<script type="text/javascript">
-	 // 초기 로딩 시 대시보드 섹션만 보이도록 설정
+  
+   
+    $(function() {
+       $.getJSON("${contextPath}/user/getAllUserJSON?", function(data) {
+           var userDataTable = document.getElementById('userList');
+
+           data.user.forEach(function(user) {
+               var row = document.createElement('tr');
+
+               row.innerHTML += '<td>' + user.u_email + '</td>';
+               row.innerHTML += '<td>' + user.u_pw + '</td>';
+               row.innerHTML += '<td>' + user.u_name + '</td>';
+               row.innerHTML += '<td>' + user.u_birth.split(' ')[0] + '</td>';
+               row.innerHTML += '<td>' + user.u_gender + '</td>';
+               row.innerHTML += '<td><a href="${contextPath}/admin/admin.deleteUser?u_email=' + user.u_email + '">삭제하기</a></td>'; 
+
+               userDataTable.appendChild(row);
+           });
+       });
+   }); 
+	 // 초기 로딩 시 nft 섹션만 보이도록 설정
     document.getElementById('nft').style.display = 'block';
     
     // 섹션을 토글하는 함수
