@@ -1,5 +1,7 @@
 package com.soldesk.mapper.user;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.soldesk.entity.user.User;
@@ -13,4 +15,8 @@ public interface UserMapper {
 	public abstract User loginUser(User u);
 	
 	public abstract void updateUser(User u);
+	
+	public abstract List<User> getAllUser();
+	
+	public abstract int deleteUser(User u);
 }
