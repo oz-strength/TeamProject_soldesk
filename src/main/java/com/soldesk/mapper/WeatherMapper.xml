@@ -8,7 +8,8 @@
 	</insert>
 	<select id="getWeatherMap" parameterType="com.soldesk.entity.weather.WeatherItem"
 		resultType="com.soldesk.entity.weather.WeatherItem">
-		select * from soldesk_weather_tb where w_fcstdate in #{w_fcstDate} order by w_no
+		select * from soldesk_weather_tb where w_basedate in #{w_baseDate} and
+		w_fcstdate in #{w_fcstDate} order by w_no
 	</select>
 	<select id="checkWeather" parameterType="com.soldesk.entity.weather.WeatherItem"
 		resultType="java.lang.Integer">
