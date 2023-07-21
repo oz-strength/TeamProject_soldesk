@@ -1736,7 +1736,7 @@
             </div>
             <div class="detail">
               <h2>내 주변에 있는 산은?</h2>
-              <p>아무말대잔치아무말대잔치아무말대잔치아무말대잔치</p>
+              <p>우리나라 대표 명산들과 오늘의 지역별 날씨를 확인할 수 있습니다.</p>
             </div>
             <a href="${contextPath}/mountain/map" class="btn-explore">explore</a>
           </div>
@@ -1745,10 +1745,10 @@
               <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
             </div>
             <div class="detail">
-              <h2>내게 맞는 코스는?</h2>
-              <p>아무말대잔치아무말대잔치아무말대잔치아무말대잔치</p>
+              <h2>랜덤 산 뽑기!</h2>
+              <p>100개 명산 중 랜덤으로 산을 추천해줍니다.</p>
             </div>
-            <a href="" class="btn-explore">explore</a>
+            <a href="${contextPath}/mountain/detail?m_no=${m_no}" class="btn-explore">explore</a>
           </div>
           <div class="item">
             <div class="photo">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.soldesk.entity.BlockchainManager;
 import com.soldesk.entity.blockchain.Wallet;
 import com.soldesk.entity.user.User;
+import com.soldesk.entity.user.Users;
 import com.soldesk.mapper.user.UserMapper;
 
 @Service
@@ -104,5 +105,15 @@ public class UserDAO {
 	// 회원정보 수정
 	public void updateUser(User u) {
 		userMapper.updateUser(u);
+	}
+	
+	// 모든 유저 db 조회
+	public Users getAllUser() {
+		return new Users(userMapper.getAllUser());
+	}
+	
+	// 회원 삭제(1개)
+	public void deleteUser(User u) {
+		userMapper.deleteUser(u);
 	}
 }

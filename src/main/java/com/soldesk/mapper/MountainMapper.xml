@@ -22,4 +22,21 @@
 	<select id="getMountainCount" resultType="int">
 		select count(*) from soldesk_mountain_tb
 	</select>
+	
+	<!-- 산 데이터 수정 -->
+	<update id = "modifyMountain" parameterType="com.soldesk.entity.mountain.Mountain">
+		update soldesk_mountain_tb 
+		set 
+		m_name = #{m_name},
+		m_height = #{m_height},
+		m_location = #{m_location},
+		m_address = #{m_address} 
+		where m_no = #{m_no}
+	</update>
+	
+	<!-- 산 데이터 추가 -->
+	<insert id="registerMountain" parameterType = "com.soldesk.entity.mountain.Mountain">
+		insert into soldesk_mountain_tb(m_no, m_name, m_height, m_location, m_address)
+		values(seq_soldesk_mountain_tb.nextval, #{m_name}, #{m_height}, #{m_location}, #{m_address})
+	</insert>
 </mapper>
