@@ -39,7 +39,7 @@
 				            여러가지 주제를 놓고 대화할수 있는 공간입니다. <br>
 				            본인의 오늘 하루 있었던 일이나 재밌는 경험을 공유해주세요.
 		          </p>
-		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a>
+		          <a href="${contextPath}/board/free" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a>
 		        </div>
 		        <div class="photo">
 		          <img src="${contextPath}/resources/images/freeboard.png">
@@ -49,7 +49,7 @@
 		  <section class="feature solution">
 		     <div class="inner">
 		     <div class="photo">
-		          <img src="${contextPath}/resources/images/">
+		          <img src="${contextPath}/resources/images/mapView.png">
 		        </div>
 		        <div class="desc">
 		          <img src="${contextPath}/resources/images/weather-forecast.png" alt="">
@@ -58,7 +58,7 @@
 				     	오늘 등산하러 가실 계획이신가요? 
 				  		실시간 날씨예보를 확인하세요~!
 		          </p>
-		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
+		          <a href="${contextPath}/mountain/map" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
 		        </div>
 		        
 	      </div>

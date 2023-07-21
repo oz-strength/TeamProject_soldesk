@@ -35,7 +35,9 @@
 	
 	<!-- nft 그리드 -->
 	
-	<div class="grid-container" id="nftData"></div>
+	<div class="grid-container" id="nftData">
+		<div class="grid-item"></div>
+	</div>
 	
 	
 	
