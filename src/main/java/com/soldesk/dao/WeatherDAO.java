@@ -70,6 +70,10 @@ public class WeatherDAO {
 		DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
 		String bd = baseDate.substring(0, 8);
 		String bt = baseDate.substring(8, 12);
+		
+		String baseDate2DL = WeatherManager.get2DaysLater(baseDate);
+		String bd2dl = baseDate2DL.substring(0, 8);
+		String bt2dl = baseDate2DL.substring(8, 12);
 
 		List<Location> locList = LocationList.getList();
 		for (Location loc : locList) {
@@ -114,7 +118,7 @@ public class WeatherDAO {
 					boolean skip = true;
 					WeatherItem wi = null;
 					
-					for (JsonNode itemNode : itemNodes) {
+					a : for (JsonNode itemNode : itemNodes) {
 						if (!itemNode.get("fcstDate").asText().equals(inc_bd) || 
 								!itemNode.get("fcstTime").asText().equals(inc_bt)) {
 							inc_bt = String.format("%04d", Integer.parseInt(inc_bt) + 100);
@@ -139,6 +143,10 @@ public class WeatherDAO {
 							}
 							if (itemNode.get("fcstDate").asText().equals(inc_bd) && 
 									itemNode.get("fcstTime").asText().equals(inc_bt)) {
+								if (itemNode.get("fcstDate").asText().equals(bd2dl) && 
+										itemNode.get("fcstTime").asText().equals(bt2dl)) {
+									break a;
+								}
 								sqlFcstDate = inc_bd + inc_bt;
 								w_fcstDate = sdf.parse(sqlFcstDate);
 								wi.setW_fcstDate(w_fcstDate);
@@ -186,10 +194,22 @@ public class WeatherDAO {
 	}
 	
 	public Weather getWeatherMap(HttpServletRequest req) {
-		Date w_fcstDate = WeatherManager.getFcstDate();
-		WeatherItem wi = new WeatherItem();
-		wi.setW_fcstDate(w_fcstDate);
-//		System.out.println(wi.getW_fcstDate());
+		WeatherItem wi = null;
+		try {
+			wi = new WeatherItem();
+			String baseDate = WeatherManager.getBaseDate();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+			Date w_baseDate = sdf.parse(baseDate);
+			wi.setW_baseDate(w_baseDate);
+			
+			Date w_fcstDate = WeatherManager.getFcstDate();
+			wi.setW_fcstDate(w_fcstDate);
+//			System.out.println(wi.getW_fcstDate());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return new Weather(wm.getWeatherMap(wi));
 	}
 
