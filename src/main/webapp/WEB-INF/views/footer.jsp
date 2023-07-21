@@ -6,7 +6,7 @@
 <c:set var="loginOutLink" value="${sessionScope.id==null ? '/login/login' : '/login/logout' }"/>
 <c:set var="loginOut" value="${sessionScope.id==null ? '로그인' : '로그아웃' }"/>
 
-	<footer>
+	<footer class="footer">
       <div class="footer-inner">
         <div class="sns-outer">
           <div class="sns">

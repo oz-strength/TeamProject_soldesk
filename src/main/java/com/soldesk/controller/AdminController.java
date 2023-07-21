@@ -53,7 +53,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin.modifyMountain", method = RequestMethod.POST)
 	public String modifyMountain(Mountain m) {
 		mDAO.modifyMountain(m);
-		return "admin";
+		return "admin/admin";
 	}
 	
 	// 산 등록 페이지 이동
@@ -66,7 +66,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin.registerMountain", method = RequestMethod.POST)
 	public String registerMountain(Mountain m) {
 		mDAO.registerMountain(m);
-		return "admin";
+		return "admin/admin";
 	}
 	
 	// 사용자 삭제 기능

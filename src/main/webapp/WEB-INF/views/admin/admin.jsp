@@ -13,11 +13,24 @@
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<style>
-   		
+   	/* 그리드 */
 	.container {
+	
 	  display: grid;
 	  grid-template-columns: 200px 1fr; /* 좌측 사이드바의 너비와 우측 콘텐트의 너비를 지정 */
 	}
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+	  gap: 20px; 
+	  padding: 50px;
+	}
+	.grid-item {
+	  border: 1px solid #ccc;
+	  padding: 10px;
+	  text-align: center;
+	}
+	
         /* 좌측 메뉴 스타일 */
         .sidebar {
             width: 200px;
@@ -88,12 +101,15 @@
             	</tr>
             </table>
             
-           <!--  <div class="grid-container" id="userList"></div> -->
         </section>
+        
         <section id="mountainList">
             <h2>산 리스트 관리</h2>
             <p>산 리스트 관리 내용을 여기에 표시합니다.</p>
+            
+			<div class="grid-container" id="mountainData"></div>
         </section>
+        
         <section id="board">
             <h2>게시판 관리</h2>
             <p>게시판 관리 내용을 여기에 표시합니다.</p>
@@ -114,7 +130,7 @@
 	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
 	
 	
-	
+							<!-- 유저정보 불러오기 -->
    <script>
   
    
@@ -136,6 +152,38 @@
            });
        });
    }); 
+    
+    $(function() {
+        $.getJSON("${contextPath}/mountain.getAllMountainJSON?", function(data) {
+      	  var mountainDataDiv = document.getElementById('mountainData');
+      	  var html = '';
+      	  
+      	  data.mountain.forEach(function(mountain) {
+      		  var m_no = mountain.m_no;
+      	    html += '<div class="grid-item">';
+      	    html += '<ul>';
+      	    html += '<li>';
+      	    html += '<a href="${contextPath}/mountain/detail?m_no='+m_no+'">' + 'Mountain No: ' + mountain.m_no + '</a><br>';
+      	    html += 'Name: ' + mountain.m_name + '<br>';
+      	    html += 'Height: ' + mountain.m_height + 'm<br>';
+      	    html += 'Location: ' + mountain.m_location + '<br>';
+      	    html += 'Address: ' + mountain.m_address + '<br>';
+      	    
+      	    if (mountain.m_photo) {
+      	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
+      	    }
+      	    
+      	    html += '</li>';
+      	    html += '</ul>';
+      	    html += '</div>';
+      			    
+      	  });
+      	  
+      	 mountainDataDiv.innerHTML = html;
+          });
+      });
+    
+    
 	 // 초기 로딩 시 nft 섹션만 보이도록 설정
     document.getElementById('nft').style.display = 'block';
     
@@ -151,7 +199,10 @@
         document.getElementById(sectionId).style.display = 'block';
     }
 	</script>
-		
+							<!-- 산 정보 불러오기 -->
+	<script>
+    
+  </script>
 	
 	
 	<a id="backtotop" ></a>
