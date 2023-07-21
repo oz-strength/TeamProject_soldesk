@@ -23,7 +23,15 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @RequestMapping("/admin/*")
 public class AdminController {
 	
-
+	/*@RequestMapping("/data")
+    @ResponseBody
+    public MyObject getData() {
+        MyObject data = new MyObject();
+        data.setId(1);
+        data.setName("John Doe");
+        // MyObject의 다른 속성 설정
+        return data;
+    }*/
 	
 	// 어드민 페이지로 이동
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)

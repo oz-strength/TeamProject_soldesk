@@ -53,6 +53,13 @@ public class HomeController {
 	public String goWeatherPage() {
 		return "weather/weatherPage";
 	}
+	
+	// nft 갤러리 페이지로 이동하기 
+	@RequestMapping(value = "/nft/gallery", method = RequestMethod.GET)
+	public String goGalleryPage() {
+		return "nft/gallery";
+	}
+	
 /*	// 자유 게시판 [미구현]
 	@RequestMapping(value = "/board/free", method = RequestMethod.GET)
 	public String goFreeboard() {
