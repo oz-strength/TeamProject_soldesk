@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>TeamProject</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/temp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
@@ -27,7 +27,8 @@
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<div style="padding:50px 0 130px 0 ;">
+	<!-- nft 업로드 -->
+	<%-- <div style="padding:50px 0 130px 0 ;">
 		<h1>NFT UPLOAD</h1>
     <form
       method="post"
@@ -44,8 +45,95 @@
 
       <input type="submit" value="업로드" />
     </form>
-	</div>
+	</div> --%>
 	
+	<div class="page">
+
+		<!-- <div class="content-container"> -->
+		<!-- primary -->
+		<section class="primary">
+			<ul class="card-list">
+				<li class="card-item">
+					<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+						<img src="" alt="">
+					</figure>
+					<div class="card-desc">
+						A
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						B
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						C
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						D
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						E
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						F
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						G
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						H
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<!-- secondary-a -->
+		<aside class="secondary secondary-a">
+			
+
+			<ul class="user-list friend-list">
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/.png);"></figure>
+					<p class="user-name">
+						nft 이미지 생성
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/.png);"></figure>
+					<p class="user-name">
+						게시판 관리
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/.png);"></figure>
+					<p class="user-name">
+						산 리스트 관리
+					</p>
+				</li>
+			</ul>
+		</aside>
+
+		</div>
+
+
 	
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">
