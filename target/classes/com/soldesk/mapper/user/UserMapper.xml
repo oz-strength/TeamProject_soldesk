@@ -20,4 +20,14 @@
 		update test_user set u_email = #{u_email}, u_pw = #{u_pw}, u_name = #{u_name}, u_birth= #{u_birth}
 		where u_email = #{u_email}
 	</update>
+	
+	<!-- 모든 회원 조회 -->
+	<select id="getAllUser" resultType="com.soldesk.entity.user.User">
+		select * from test_user
+	</select>
+	
+	<!-- 회원 정보 1개 삭제 -->
+	<delete id="deleteUser" parameterType="com.soldesk.entity.user.User">
+		delete * from test_user where u_email = #{u_email}
+	</delete>
 </mapper>

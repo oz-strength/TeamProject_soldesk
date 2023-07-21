@@ -28,7 +28,6 @@ public class MountainController {
 	public String goMountainList(HttpServletRequest req) {
 		String m_loc = req.getParameter("m_location");
 		req.setAttribute("m_loc", m_loc);
-		//System.out.println(m_loc);
 		return "mountain/mountainList";
 	}
 	// 산 데이터 상세 페이지 이동

@@ -35,12 +35,6 @@ public class HomeController {
 	public String goMountain_map() {
 		return "mountain/map";
 	}
-
-	// 마이 페이지 [미구현]
-	@RequestMapping(value = "/user/mypage", method = RequestMethod.GET)
-	public String goMypage() {
-		return "home";
-	}
 	
 	// 인트로 페이지로 이동하기
 	@RequestMapping("/introPage")
@@ -53,6 +47,7 @@ public class HomeController {
 	public String goWeatherPage() {
 		return "weather/weatherPage";
 	}
+
 	
 	// nft 갤러리 페이지로 이동하기 
 	@RequestMapping(value = "/nft/gallery", method = RequestMethod.GET)
@@ -60,12 +55,6 @@ public class HomeController {
 		return "nft/gallery";
 	}
 	
-/*	// 자유 게시판 [미구현]
-	@RequestMapping(value = "/board/free", method = RequestMethod.GET)
-	public String goFreeboard() {
-		return "board/list";
-	}*/
-
 	/* footer 컨트롤러 - 시작 부분 */
 	// 개인정보 보호 및 약관
 	@RequestMapping(value = "/footer/privacy", method = RequestMethod.GET)
