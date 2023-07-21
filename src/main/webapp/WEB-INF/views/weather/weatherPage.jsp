@@ -11,7 +11,18 @@
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/weatherPage.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
-	
+	<style>
+	header,
+	.grid-container,
+	.sns,
+	.sns a,
+.policy a,
+.button-in-header,
+.button-in-header a,
+.btn-explore,
+.logo-footer img {
+cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
+	</style>
 </head>
 <body>
 
