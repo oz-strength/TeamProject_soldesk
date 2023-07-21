@@ -44,4 +44,22 @@ public class MountainDAO {
 		return result;
 	}
 	
+	// 산 정보 수정
+	public void modifyMountain(Mountain m) {
+		if(mm.modifyMountain(m) ==1) {
+			System.out.println("산 수정 성공");
+		}else {
+			System.out.println("산 수정 실패");
+		}
+	}
+	
+	// 산 DB 등록
+	public void registerMountain(Mountain m) {
+		if(mm.registerMountain(m)==1) {
+			System.out.println("산 등록 성공");
+		}else {
+			System.out.println("산 등록 실패");
+		}
+	}
+	
 }
