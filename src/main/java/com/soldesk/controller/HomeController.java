@@ -48,6 +48,13 @@ public class HomeController {
 		return "weather/weatherPage";
 	}
 
+	
+	// nft 갤러리 페이지로 이동하기 
+	@RequestMapping(value = "/nft/gallery", method = RequestMethod.GET)
+	public String goGalleryPage() {
+		return "nft/gallery";
+	}
+	
 	/* footer 컨트롤러 - 시작 부분 */
 	// 개인정보 보호 및 약관
 	@RequestMapping(value = "/footer/privacy", method = RequestMethod.GET)

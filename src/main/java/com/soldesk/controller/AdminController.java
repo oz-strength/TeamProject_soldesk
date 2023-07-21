@@ -28,10 +28,12 @@ import com.soldesk.entity.user.User;
 @RequestMapping("/admin/*")
 public class AdminController {
 	
+
 	@Autowired
 	private MountainDAO mDAO;
 	@Autowired
 	private UserDAO uDAO;
+
 
 	
 	// 어드민 페이지로 이동

@@ -25,7 +25,7 @@
       	<span class="long-text">BOARD</span>
       	<span class="short-text"></span>
       </a>
-      <a href="${contextPath}/#" class="button-in-header">
+      <a href="${contextPath}/nft/gallery" class="button-in-header">
       	<span class="long-text">GALLERY</span>
       	<span class="short-text"></span>
       </a>
