@@ -26,7 +26,7 @@
       	<span class="short-text"></span>
       </a>
       <a href="${contextPath}/#" class="button-in-header">
-      	<span class="long-text">GALLARY</span>
+      	<span class="long-text">GALLERY</span>
       	<span class="short-text"></span>
       </a>
     </div>
