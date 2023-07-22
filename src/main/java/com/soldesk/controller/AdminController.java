@@ -70,7 +70,7 @@ public class AdminController {
 	}
 	
 	// 사용자 삭제 기능
-	@RequestMapping(value = "/admin.deleteUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.deleteUser", method = RequestMethod.POST)
 	public String deleteUser(User u) {
 		uDAO.deleteUser(u);
 		return "admin/admin";

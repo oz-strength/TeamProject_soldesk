@@ -12,112 +12,58 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/admin.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<style>
-   	/* 그리드 */
-	.container {
 	
-	  display: grid;
-	  grid-template-columns: 200px 1fr; /* 좌측 사이드바의 너비와 우측 콘텐트의 너비를 지정 */
-	}
-	.grid-container {
-	  display: grid;
-	  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-	  gap: 20px; 
-	  padding: 50px;
-	}
-	.grid-item {
-	  border: 1px solid #ccc;
-	  padding: 10px;
-	  text-align: center;
-	}
-	
-        /* 좌측 메뉴 스타일 */
-        .sidebar {
-            width: 200px;
-            background-color: #333;
-            color: #fff;
-            padding-top: 20px;
-        }
-
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #555;
-        }
-
-        .sidebar a:hover {
-            background-color: #444;
-        }
-        #nft,
-        #users,
-        #mountainList,
-        #board{
-        	display:none;
-        }
-
-        /* 우측 콘텐츠 스타일 */
-        .content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
+
+<div class="main-container">
 
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	<div class="container">
-    <div class="sidebar">
-        <!-- 각 메뉴를 클릭하면 해당 섹션을 보이도록 onclick 이벤트 추가 -->
-        <a href="#" onclick="toggleSection('nft')">nft사진 업로드</a>
-        <a href="#" onclick="toggleSection('users','${contextPath}/user/getAllUserJSON')">사용자 관리</a>
-        <a href="#" onclick="toggleSection('mountainList')">산 리스트 관리</a>
-        <a href="#" onclick="toggleSection('board')">게시판 관리</a>
-    </div>
-    <div class="content">
-        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
-        <section id="nft">
-            <h2>nft</h2>
-            <p>nft 내용을 여기에 표시합니다.</p>
-        </section>
-        <section id="users">
-            <h2>사용자 관리</h2>
-            <p>사용자 관리 내용을 여기에 표시합니다.</p>
+	    <div class="sidebar">
+	        <!-- 각 메뉴를 클릭하면 해당 섹션을 보이도록 onclick 이벤트 추가 -->
+	        <a href="#" onclick="toggleSection('nft')">nft사진 업로드</a>
+	        <a href="#" onclick="toggleSection('users','${contextPath}/user/getAllUserJSON')">사용자 관리</a>
+	        <a href="#" onclick="toggleSection('mountainList')">산 리스트 관리</a>
+	        <a href="#" onclick="toggleSection('board')">게시판 관리</a>
+	    </div>
+	    <div class="content">
+	        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
+	        <section id="nft">
+	            <h2>nft</h2>
+	            <p>nft 내용을 여기에 표시합니다.</p>
+	        </section>
+	        <section id="users">
+	            <h2>사용자 관리</h2>
+	            <p>사용자 관리 내용을 여기에 표시합니다.</p>
+		            <table id="userList">
+		            	<tr>
+		            		<th>Email</th>
+		            		<th>Password</th>
+		            		<th>Name</th>
+		            		<th>Birth</th>
+		            		<th>Gender</th>
+		            		<th>Delete</th>
+		            	</tr>
+		            </table>
+	        </section>
+	        
+	        <section id="mountainList">
+	            <h2>산 리스트 관리</h2>
+	            <p>산 리스트 관리 내용을 여기에 표시합니다.</p>
+	            
+				<div class="grid-container" id="mountainData"></div>
+	        </section>
+	        
+	        <section id="board">
+	            <h2>게시판 관리</h2>
+	            <p>게시판 관리 내용을 여기에 표시합니다.</p>
+	        </section>
+	    </div>
+	</div>
 
-            <table id="userList">
-            	<tr>
-            		<th>Email</th>
-            		<th>Password</th>
-            		<th>Name</th>
-            		<th>Birth</th>
-            		<th>Gender</th>
-            		<th>Delete</th>
-            	</tr>
-            </table>
-            
-        </section>
-        
-        <section id="mountainList">
-            <h2>산 리스트 관리</h2>
-            <p>산 리스트 관리 내용을 여기에 표시합니다.</p>
-            
-			<div class="grid-container" id="mountainData"></div>
-        </section>
-        
-        <section id="board">
-            <h2>게시판 관리</h2>
-            <p>게시판 관리 내용을 여기에 표시합니다.</p>
-        </section>
-    </div>
 </div>
-
-	
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">
     	<div class="cursor__default">
@@ -130,10 +76,9 @@
 	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
 	
 	
-							<!-- 유저정보 불러오기 -->
+	
    <script>
-  
-   
+  	/* 유저정보 가져오기  */
     $(function() {
        $.getJSON("${contextPath}/user/getAllUserJSON?", function(data) {
            var userDataTable = document.getElementById('userList');
@@ -146,13 +91,41 @@
                row.innerHTML += '<td>' + user.u_name + '</td>';
                row.innerHTML += '<td>' + user.u_birth.split(' ')[0] + '</td>';
                row.innerHTML += '<td>' + user.u_gender + '</td>';
-               row.innerHTML += '<td><a href="${contextPath}/admin/admin.deleteUser?u_email=' + user.u_email + '">삭제하기</a></td>'; 
+               row.innerHTML += '<td><button onclick="deleteUser(\'' + user.u_email + '\')">삭제하기</button></td>';
 
                userDataTable.appendChild(row);
            });
        });
    }); 
-    
+  	
+  	/* 유저정보 삭제하기  */
+    function deleteUser(u_email) {
+  		console.log(u_email);
+        $.ajax({
+            type: "POST",
+            url: "${contextPath}/admin/admin.deleteUser",
+            data: { u_email: u_email },
+            success: function() {
+            	
+
+                 // 사용자 삭제 후 페이지를 다시 로드합니다.
+                 location.reload();
+            },
+            error: function(xhr, textStatus, errorThrown) {
+            	 console.log("Error:", xhr, textStatus, errorThrown); // 에러 정보 확인
+            	 // 삭제 요청이 실패한 경우 에러 처리를 합니다.
+                if (xhr.status === 404) {
+                    alert('서버에 요청한 페이지를 찾을 수 없습니다. 관리자에게 문의하세요.');
+                } else if (xhr.status === 500) {
+                    alert('서버에 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                } else {
+                    alert('삭제 요청이 실패했습니다. 다시 시도해주세요.');
+                }
+            }
+        });
+    }
+	
+  	/* 산 정보 가져오기 */
     $(function() {
         $.getJSON("${contextPath}/mountain.getAllMountainJSON?", function(data) {
       	  var mountainDataDiv = document.getElementById('mountainData');
@@ -175,6 +148,11 @@
       	    
       	    html += '</li>';
       	    html += '</ul>';
+      	    html += '<div style="border-top:1px solid #eee; padding-top:10px;">';
+      	    
+      	    html += '<a href="#">수정하기</a>';
+      	    
+      	    html += '</div>';
       	    html += '</div>';
       			    
       	  });
@@ -199,10 +177,8 @@
         document.getElementById(sectionId).style.display = 'block';
     }
 	</script>
-							<!-- 산 정보 불러오기 -->
-	<script>
-    
-  </script>
+							
+	
 	
 	
 	<a id="backtotop" ></a>
