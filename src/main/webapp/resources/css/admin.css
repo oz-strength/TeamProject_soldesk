@@ -307,7 +307,119 @@ a {
 h1 {
     margin-bottom: 20px;
 }
-/************************************************ 그리드  */
+/******************************************** 사진 업로드 */
+.upload-container{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 50vh;
+}
+.board-table.userTbl{
+	width: 500px;
+}
+/******************************************** 사용자 테이블 */
+
+.user-container{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 80vh;
+}
+
+
+.board-table{
+	width: 1000px;
+	background-color: #fff;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	border-radius: 5px;
+	overflow: hidden;
+}
+.title:focus,
+.content:focus,
+.writer:focus{
+  outline: none;
+}
+.content{
+	resize: none;
+}
+
+.board-table tr {
+	border-bottom: 1px solid #eee;
+	transition: 0.3s;
+}
+.board-table td {
+	border-right: 1px solid #eee;
+}
+.board-table tr:last-child{
+	border: none;
+}
+.board-table td:last-child{
+	border: none;
+}
+
+.board-table td:nth-child(1){
+	width: 50px;
+}
+
+.board-table tr:nth-child(odd){
+	background-color: #e3e8fd;
+}
+
+.board-table tr:hover{
+	background-color: #f8effe;
+}
+
+.board-table td,
+.board-table th{
+	padding: 12px;
+	text-align: center;
+}
+
+.board-table .title{
+  	height: auto;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+.board-table .content{
+    height: auto;
+    align-items: center;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+.board-table .writer {
+  	height: auto;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+
+.board-table .deleteBtn,
+.board-table .uploadBtn{
+ 		display: inline-block;
+ 		width: 100px;
+  	height: 35px;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background-color: #fff;
+  	transition: all 0.3s ease 0s;
+  	cursor: pointer;
+  	outline: none;
+}
+.board-table tr td .deleteBtn:hover,
+.board-table tr td .uploadBtn:hover{
+  background-color: #94f8a5;
+  box-shadow: 0px 15px 20px #ddfdbd;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/************************************************ 산 그리드  */
 .main-container {
   flex: 1;
 }
@@ -318,7 +430,7 @@ h1 {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
   gap: 20px; /* Gap between grid items, adjust as needed */
   padding: 50px;
 }

@@ -12,7 +12,18 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/admin.css">
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	
+	<style>
+  /* 테이블 보더 스타일 설정 */
+  table.grid-item {
+    border-collapse: collapse; /* 인접한 셀의 보더를 합칩니다. */
+    width: 100%;
+  }
+
+  table.grid-item th, table.grid-item td {
+    border: 1px solid #000; /* 보더 두께와 스타일 설정 */
+    padding: 8px; /* 셀의 내용과 보더 사이의 여백 설정 */
+  }
+</style>
 </head>
 <body>
 
@@ -33,11 +44,36 @@
 	        <section id="nft">
 	            <h2>nft</h2>
 	            <p>nft 내용을 여기에 표시합니다.</p>
+	            <h1>File Upload Form</h1>
+	            <div class="upload-container">
+				  <form id="uploadForm" action="${contextPath}/admin/uploadPath" method="post" enctype="multipart/form-data">
+				    <table  class="board-table userTbl">
+				    <tr>
+				    	<td name="title" id="title" class="title">제목</td>
+				    	<td><input type="text" required></input></td>
+				    </tr>
+				    <tr>
+				    	<td name="contents" id="contents" class="content">내용</td>
+				    	<td><input type="text" required></input></td>
+				    </tr>
+				    <tr>
+				    	
+				    	<td colspan="2"><input type="file" name="fileList" id="fileList" multiple required></td>				    
+				    </tr>
+				    <tr>
+					    <td colspan="3">
+					   		<button type="submit" class="uploadBtn">UPLOAD</button>
+					    </td>
+				  	</tr>
+				  	</table>
+				  </form>
+				</div>
 	        </section>
 	        <section id="users">
 	            <h2>사용자 관리</h2>
 	            <p>사용자 관리 내용을 여기에 표시합니다.</p>
-		            <table id="userList">
+	            <div class="user-container">
+		            <table id="userList" class="board-table">
 		            	<tr>
 		            		<th>Email</th>
 		            		<th>Password</th>
@@ -47,6 +83,7 @@
 		            		<th>Delete</th>
 		            	</tr>
 		            </table>
+		        </div>
 	        </section>
 	        
 	        <section id="mountainList">
@@ -59,6 +96,7 @@
 	        <section id="board">
 	            <h2>게시판 관리</h2>
 	            <p>게시판 관리 내용을 여기에 표시합니다.</p>
+	            
 	        </section>
 	    </div>
 	</div>
@@ -91,7 +129,7 @@
                row.innerHTML += '<td>' + user.u_name + '</td>';
                row.innerHTML += '<td>' + user.u_birth.split(' ')[0] + '</td>';
                row.innerHTML += '<td>' + user.u_gender + '</td>';
-               row.innerHTML += '<td><button onclick="deleteUser(\'' + user.u_email + '\')">삭제하기</button></td>';
+               row.innerHTML += '<td><button class="deleteBtn" onclick="deleteUser(\'' + user.u_email + '\')">삭제하기</button></td>';
 
                userDataTable.appendChild(row);
            });
@@ -132,28 +170,26 @@
       	  var html = '';
       	  
       	  data.mountain.forEach(function(mountain) {
-      		  var m_no = mountain.m_no;
-      	    html += '<div class="grid-item">';
-      	    html += '<ul>';
-      	    html += '<li>';
-      	    html += '<a href="${contextPath}/mountain/detail?m_no='+m_no+'">' + 'Mountain No: ' + mountain.m_no + '</a><br>';
-      	    html += 'Name: ' + mountain.m_name + '<br>';
-      	    html += 'Height: ' + mountain.m_height + 'm<br>';
-      	    html += 'Location: ' + mountain.m_location + '<br>';
-      	    html += 'Address: ' + mountain.m_address + '<br>';
-      	    
-      	    if (mountain.m_photo) {
-      	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
-      	    }
-      	    
-      	    html += '</li>';
-      	    html += '</ul>';
-      	    html += '<div style="border-top:1px solid #eee; padding-top:10px;">';
-      	    
-      	    html += '<a href="#">수정하기</a>';
-      	    
-      	    html += '</div>';
-      	    html += '</div>';
+      		  var m_no = mountain.m_no;  
+      		  html += '<table class="grid-item">';
+      	      html += '<tr>';
+        	  html += '<th> Mountain No </th>';
+        	  html += '<th> Mountain Name </th>';
+        	  html += '<th> Mountain Height </th>';
+        	  html += '<th> Mountain Location </th>';
+        	  html += '<th> Mountain Address </th>';
+        	  html += '</tr>';
+      	      html += '<tr>';
+      	      html += '<td> <a href="${contextPath}/mountain/detail?m_no='+m_no+'">' + mountain.m_no + '</td>';
+      	      html += '<td>' + mountain.m_name + '</td>';     	    
+    	      html += '<td>' + mountain.m_height + 'm</td>';
+    	      html += '<td>' + mountain.m_location + '</td>';
+    	      html += '<td>' + mountain.m_address + '</td>';  	 
+    	  	html += '</tr>';
+      	    html += '<tr>';
+      	  	html += '<td colspan="5"><a href="#">수정하기</a></td>';
+      	    html += '</tr>';
+      	    html += '</table>';
       			    
       	  });
       	  

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainList.css">
 <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e482edbfbe6fe2c270c178df868185c5"></script>
 </head>
 <body>
 	<%-- 헤더 컴포넌트 가져오기 --%>
@@ -18,10 +19,11 @@
 
 	<h1>산 한개 디테일 페이지</h1>
 	
-	
-	<div class="grid-container" id="mountainData"></div>	
-	
-	
+	<div class="detailMountain-container">
+		<div class="grid-container" id="mountainData"></div>	
+		<!-- 지도를 표시할 div 입니다 -->
+		<div id="map" style="width:100%;height:350px;"></div>
+	</div>
 	
 	
 		
