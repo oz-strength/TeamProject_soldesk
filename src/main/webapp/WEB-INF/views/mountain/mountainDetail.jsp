@@ -59,7 +59,7 @@ function mapView(data){
 	
 	
 	// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	var iwContent = '<div style="padding:5px;">Hello World!</div>',  // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	var iwContent = '<div style="padding:5px;">이미지 맵 클릭!</div>',  // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 	    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
 	// 인포윈도우를 생성합니다
@@ -73,7 +73,24 @@ function mapView(data){
 	      // 마커 위에 인포윈도우를 표시합니다
 	      infowindow.open(map, marker);  
 	});
+	
+	
+	// 정적 이미지 지도
+	
+	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+	staticMapOption = { 
+	    center: new kakao.maps.LatLng(y, x), // 이미지 지도의 중심좌표
+	    level: 3 // 이미지 지도의 확대 레벨
+	};
+
+	//이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
+	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+	
+	// id가 click인 div를 보이게 처리
+    $("#click").show();
 }
+
+
 
 </script>
 </head>
@@ -81,21 +98,30 @@ function mapView(data){
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 
-	<h1>산 한개 디테일 페이지</h1>
-	
-	<div class="detailMountain-container">
-		<div class="grid-container" id="mountainData"></div>	
-		
-		<div>
-			<input type="text" placeholder="Search" id="address"/>
-			<button id="mapBtn">FIND</button>
+	<div>
+		<div class="detailMountain-container">
+			<div class="grid-container" id="mountainData"></div>	
+			
+			
 		</div>
-		<!-- 지도를 표시할 div 입니다 -->
-		<div id="map" style="width:100%;height:350px;"></div>
-	</div>
-	
-	
+			
+		<div class="map-container" style="text-align:center;">
+			<div>
+				<input type="text" placeholder="Search" id="address"/>
+				<button id="mapBtn">FIND</button>
+			</div>
+			<!-- 지도를 표시할 div 입니다 -->
+			<div id="map" style="width:100%;height:350px;"></div>
 		
+			
+			<div  class="map-image" style="padding-top:10px; display:flex; justify-content:center;">
+			
+				<!-- 이미지 지도를 표시할 div 입니다 -->
+				<div id="click" style="display:none; padding-rigth:30px;">Click ▶</div>
+				<div id="staticMap" style="width:600px;height:350px;"></div>
+			</div>	
+		</div>
+	</div>
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
