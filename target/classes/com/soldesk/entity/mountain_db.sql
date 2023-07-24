@@ -255,3 +255,326 @@ insert into SOLDESK_MOUNTAIN_TB(m_no, m_name, m_height, m_location, m_address)
 values(seq_soldesk_mountain_tb.nextval, '황장산', 1077, '경북', '경북 문경시 동로면 생달리 산 8-1');
 insert into SOLDESK_MOUNTAIN_TB(m_no, m_name, m_height, m_location, m_address)
 values(seq_soldesk_mountain_tb.nextval, '희양산', 998, '경북', '경북 문경시 가은읍 원북리 산 1-1');
+
+-- 사진 주소 길이 확장
+ALTER TABLE soldesk_mountain_tb MODIFY m_photo VARCHAR2(500 char);
+
+-- 산 사진 추가 1 ~ 10
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/201902/12491_52343_410.jpg'
+    WHERE m_name = '가리산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/Vn1I-FRV4_I0yLeM7CU8lGJBPOehEHnv8axPsw9ZN8T4_n_7C-ARY9wYXCttpPrIVx6mQA3OTl01c3moyu7uGvORbCXsTVKmv7krj1_w6m9gGY83JGbAZ4kF_bZvi6CQXF294KtlomKJqRgXN6tGVQ.webp'
+    WHERE m_name = '가리왕산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img3.yna.co.kr/etc/inner/KR/2021/08/12/AKR20210812048400063_03_i_P4.jpg'
+    WHERE m_name = '가야산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/yTf0paNPgHS9GJonZT5G4g1Gj0Ovn_Y8EUHTdWZ9U1cTgWKixo3NSQ2mMmNL3tds5q7UGt9w5YCXkQt_4nemnXw2v8aM7JPYIz-VqATXUuH8OY7WGRxpdIqW3oPvnbt3Q7bhhik1C-PmbSwqs_Zj9g.webp'
+    WHERE m_name = '가지산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/DqVMxqN8e0LT4mfw1QptSGWnWfmzAQOoCnT5juylu5JG1CYNX1zoaBqHfuMXwg-diVBbTr6AQW6yHNDBp8fYT7sxN1G3xyibKzX2LFnw_EvQfFcmnxlBipm-t4JXBN0X-GyonQgi1vZASFsTlRuTyA.webp'
+    WHERE m_name = '감악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/202010/14299_60046_2819.jpg'
+    WHERE m_name = '강천산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/KmLmnHgLwIPE6afrlDR4pofkhNGOadgN9JF0dajyK2fZ0O755iNnWV1QWQs1BR0k8GIewetCTfkBWdBEkv1ZGF9v2lrmfuWRWMsCqLBdLDoUm4vEEkjdLBrJIDK3jDgygqbk3I2O8MfTa6fQOK4-lQ.webp'
+    WHERE m_name = '계룡산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/0sYAblHjvB5ng3ucJqQ_wx74y_6qlU4e47XfDJ5x9CovZTVAV1Ri4n57-9zdEqqTOaiPHVBXU-pNeC5zkolkF199hSUbDnYoukRj69Gw67SzrLuyehc8Ke7r9l1v8Wh8yQvZn8zNqnRqrnZFwL6Oew.webp'
+    WHERE m_name = '계방산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.hongcheon.go.kr/DATA/tour/2033/thumb/p_20210109023401215rQetP8.jpg'
+    WHERE m_name = '공작산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/202207/20076_77794_5432.jpg'
+    WHERE m_name = '관악산';
+
+-- 산 사진 추가 11 ~ 20
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2009/04/14/20090415.01100121000001.01L.webp'
+    WHERE m_name = '구병산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.sisajournal.com/news/photo/201911/193269_98152_597.jpg'
+    WHERE m_name = '금산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.kbmaeil.com/news/photo/201507/357290_772040_1315.jpg'
+    WHERE m_name = '금수산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/JQo8Us4qsYj6YuOQPBgCk44VMeDy9EYoxhrvWJEk__7bL_jxQru2tSHoUnh0tNJkb_Bj5SVAcCxhNzdoo7_0nNy_09Shd8NExvqSGr9Jc56Om3GbdqrHkTyyDLaBE-5ZVKv7_6PSgtVF_N_2low_qQ.jpg'
+    WHERE m_name = '금오산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/cOMZSccvTdVNotAp3ssUAzJXc_gDmGbIu3guvSWd0ReTSuk3NJL7fpJR9LavtgD-1euEM2WdAViqKrzyQx70R7bgQor6qb9r69RzlBq0g_XeZxAwY4Xtlvpnca6mJarOarvAgDjDqOM-4yjZzb0ZjA.webp'
+    WHERE m_name = '금정산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_170%2F1593074701128W9qv6_JPEG%2FnA6beBTS_EOKZ3hEQiWIYFT5.jpg'
+    WHERE m_name = '깃대봉';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/KNW3qff5zlk5ZhrsTCBcayc3d81i0n0zmx1vweiO3VOd6l0AoOppuG0jrcx9ABfTzR9ZZLS3oP_f8TLDfNh2Sc5XNgMVhTe4AsUtiUqd7s-FxkPS5EFXbGseNQ7XllNXcqXwj_vzX3T4EpCSMKSU2g.webp'
+    WHERE m_name = '남산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/IVctTQBoEQMgxt1KBgKNoYIST_WszjQhzzvcDT9D83xlW7Ggnu-wBY-gCjjljY1UskGCDJHOyn2N5r0VwzWJ4_-U4si1cPrTkbCtd0Sqwh7fjL6cN5RxDTe0K0NjyLRQB6Dx0Z_nHCQueidt5CJCrQ.webp'
+    WHERE m_name = '내연산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/O_osdoFVtZT6d-nsFFOeOOZvkizZ9mwuMi108Lzy270eCLkyh56RLTl3hV-p3JVk5ixRKw9uWRA1K4rQRs5YBz80uTZe_FACQRICWi-_RNHHtVbEnuiTynDep-Tw3vo4bmMTqhEdlw8zWG8N89-Odg.jpg'
+    WHERE m_name = '내장산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/dWv8Qwj-OE-YXsni9dX9empb-l9KQ5miM_3g3ZbUoc57ci6gJavZZ-G-hGcl9MohpRi4MOwEbDsz3XTsWhmDt3utiKK2bJw9-SL_SHcSSNF8fiHEROjyBazdJXMu0nTAbHkT3LFT4HA4QqBU3k6Rzw.webp'
+    WHERE m_name = '대둔산';
+
+-- 산 사진 추가 21 ~ 30
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/201908/12944_54531_1050.jpg'
+    WHERE m_name = '대암산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/oRL-GA9LM7gn0H5wxY_JJRSrkK-6quNF2_TDUx_ZPIMKhlGlTg6Pk5VRloYU2AyIkvOhDaTxRxQglBk7XzmPKTSojkygPjh4gPKGrGmb0kFfMxmqCnZypAnO_rmZ24aQfI6rG3lQ_5TOBltd4p6sxA.webp'
+    WHERE m_name = '대야산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.yesan.go.kr/images/tour/sub02/img_020601_01.jpg'
+    WHERE m_name = '덕숭산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/uqZuFzKgeDb706woR2FmSbvYqKacBXdbK_2oMthIUrwI-Ao-_gAJlLSXydQl9L4-Hku59f0P6oHHWn1dETU1UsQlTBL_R2olh0DpPlqlPUYT2O6HH5t710kG7n6nXH8p65DE9pOdJhOxWq1yPMpXhw.webp'
+    WHERE m_name = '덕유산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.kado.net/news/photo/201008/476772_155096_3459.jpg'
+    WHERE m_name = '덕항산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2008/11/27/20081128.01100125000001.01L.webp'
+    WHERE m_name = '도락산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/7_SpialswBQFCwZwQXMvdRxF6tTm69gfoPenBW-v4vzN0vkYsTS5ukNH9YfcozgpZMywS_4xhrlv8RX0vLhib0znAQNIVX4UzQ6Z71IfhUxR22q-n4xPw89AZQfgmZ0lZHUT8IsEISESPQZDqCLBdw.webp'
+    WHERE m_name = '도봉산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/pJp_LVfGaSP4gNsjXzUVM8n0gouHMtc5lH1eOokaElMjPtt2U3u1J5-JKgMbSsQ2E6ZnCkQ0nC5kc1b9FVukkRV7LEUk_s66xOfu2YMdWujwoNdcJJLmgn2qE-HejOWhVQZIYKb6wYBnhe6JvqlKLw.webp'
+    WHERE m_name = '두륜산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/xF7VFnEXJlxIH_ZndevWYI2qZrfKtNMWLALPI7M68wOyNjJRzP8rGcP9eNk1Xgc1cAk9-5VYTTZkV0edZwE_indhDAYAzz5LyN6W6d8HOpayCUJWohBAeeiF80wK33BSWeJdezgPqMcV8OLfach_Ww.webp'
+    WHERE m_name = '두타산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2007/08/23/7h23k13a.webp'
+    WHERE m_name = '마니산';
+
+-- 산 사진 추가 31 ~ 40
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/nY5Dtry-lE_je3moA9TP_Yqll0HUJ0Pvaw23SKZZcXESQIEVsp6fgWV1bLEWQ5elvW5fu8SEHNUa4lcY86fAzeyRDeqVc8pU37G80-hMwxFfOHzEglOhm6pNer5WEbmJgmYIR54ibLvdT1rU6pq7dQ.webp'
+    WHERE m_name = '마이산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202106/23/96d7a497-5ce2-4154-86c2-9d8879ae36a8.jpg'
+    WHERE m_name = '명성산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/f04cQrHMClAM2cQj0iBa3bh-4KCD7MmIo5QDsaBmKm2420n6_C1ZFHvdSqsRkbiEyn9tLfi2FQBc3tcDFxlyKXXw8I-fAtDdBT6oknhdoEN8BkqMTMP_pUlNLDRBhtw9VOfeoP9VbsNYiiaTcUfk7Q.webp'
+    WHERE m_name = '명지산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/GBCJ8mcuemjRKJ_8Vc4p024UHaHd0kiQam6D7z3Bk1nsLHFLlegt2qyJWZyWjC8xhm4GrZYlhD5eiNYFCyCFO8EiUHOTeqDTm9ZJfVzx1pVt-l-xBhVrXtECaA1L8-8dPctl-QX5p_-NRPmFGDjoWQ.webp'
+    WHERE m_name = '모악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/8iwShm-OG6PID1oby63WhJGKuBz60VOjtDabof4OpxWEVW-dHGEtduNAYITsWEkbIBDp6W_xtKNDIiuTuO_OZ35n_vWOQHi_qQ3ynRowrEI3l8nyQt4PmuvbMqAgt4Sqqt5WlTtdrSa9TinroPzXZA.webp'
+    WHERE m_name = '무등산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.busan.com/nas/wcms/wcms_data/photos/2020/07/29/2020072919232889385_l.jpg'
+    WHERE m_name = '무학산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2008/05/22/20080523.01100125000001.03L.webp'
+    WHERE m_name = '미륵산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/YiNK3weagpCXJ1HocrlMpQz7Mn266x9EPBK9sMgfZu3a0l_UWMiA-ihbuWW9HgR1sSpuBjHzxAWfL9nLf0II2kn-mPYojnfTGz5mCz2KtMY5ipkARm_3C1zKkplZnURkkHASl0G9osSUbkV6lLJVXg.webp'
+    WHERE m_name = '민주지산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://blogfiles.pstatic.net/MjAyMDA2MDFfNDAg/MDAxNTkwOTg5MjE2MzM3.yGZ4FobMBEOTyJEDGwFCKj73rJRv2Kqo1AU4GPaswTgg.ufcqVSfm8b12zm28cvtmDbHh33wpVY3JXxLFt0FW12Ag.JPEG.mko0506/1590989217789.jpg'
+    WHERE m_name = '방장산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.kado.net/news/photo/200804/358951_93308_4851.jpg'
+    WHERE m_name = '방태산';
+
+-- 산 사진 추가 41 ~ 50
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/tSX4k8SYRHAwHgbJeviL0S60O3--H6PgO6DIejdRO96Zm7F-ATZQWa2uPMR_QUKUJeCmQP_aKUe6YL66QXTE76t3d3KKqiZPVqBgVXhKQ0KOIz7qcqL0OuPgEanJ5gJ1czI9bnX1xo0d5Z6q56zHdQ.webp'
+    WHERE m_name = '백덕산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://minio.nculture.org/amsweb-opt/multimedia_assets/245/85175/84670/c/152_%EC%9E%A5%EC%84%B1-%EB%B0%B1%EC%95%94%EC%82%B0_%EA%B0%80%EC%9D%84_1_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EC%A0%9C4%EC%9C%A0%ED%98%95-full-size.jpg'
+    WHERE m_name = '백암산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2007/08/16/7h16k09a.webp'
+    WHERE m_name = '백운산(광양)';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2008/04/24/20080425.01100125000005.03L.webp'
+    WHERE m_name = '백운산(정선)';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://mblogthumb-phinf.pstatic.net/20131224_296/bee1478_1387872247278bkDV3_JPEG/DSCF7645.JPG?type=w800'
+    WHERE m_name = '백운산(포천)';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'http://www.shnews.net/news/photo/201912/32362_13521_3717.jpg'
+    WHERE m_name = '변산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/MHLg4PpkvQDGI-unwKwCRRMMpN-ly-8fGRTVHjl6gFVWWZzqPn3pv4cme8G3UWITA4EZZB1T0hk5tLlDitYS4o4JPQ3MKyKMHU7wgxODjwEGHf2j-J0S3TL1JT8wa8dsgzEdIepkdZiGI-UxS4_AEQ.webp'
+    WHERE m_name = '북한산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/DBdM2MYcp0SynGTcjb0p-tovdIbir7nKpQgayC7y5-XoNsnLkQ2zE-Zilu5pHZGYP9sUchQUA27YNJEgTMmwY43asasOyYwKv9LYSsnrZVQv6ltofHlerqIQgcD_n33PlRyITnnFbdp9IuoO37JB2Q.webp'
+    WHERE m_name = '비슬산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.heritage.go.kr/unisearch/images/monument/1647744.jpg'
+    WHERE m_name = '삼악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/202203/15660_65773_20.jpg'
+    WHERE m_name = '서대산';
+
+-- 산 사진 추가 51 ~ 60
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MjJfNjEg%2FMDAxNjg0Njg2NzYxMDA5.JijpMCo3nfF6rRqhJkGZtdiP8CbmWMEkecNh2-nJKXgg.ykUqGyovvH6pEVaGBFGmK7fINJbHioBb9RERM86N8_og.JPEG.sanghun10045%2F20230514_121852.jpg'
+    WHERE m_name = '선운산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/CZJ1jKFJjZSX01HQIgfOzrtwI8SrVuWuzDMaJjluvdDrnJ5JWTOGVC7hKQIZUrPTViepNoH3ujHyubbxbm2XWaowMBt0NohHbyGd3ponglMbVOkJNkviVIg4HIH_vGZTeEJb4mYHV4PQzHCwG7jwaQ.webp'
+    WHERE m_name = '설악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/2sM_KqX5aauXZ8qrtuMEqsX4NxejYY1LSqivSdyHpUDaZ1lwTouteyo2ZMtf6mWh6LTmrv3HC8-Kvx7sS_jG6--zpeqfnfijR9Ha3-4iI4X6YKE7eSUTrbYAid99XsaS4Fg-2e9lTrc_SVvfLVoAPw.webp'
+    WHERE m_name = '성인봉';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/NZbF4JHBM3y_1QyuiA253WfN4BjYdLx3km4SIhLoTYV6f-rJ4XCXkvU3wek-3iCokcN8AIPJOAxrSGcRBEkWrlQawWeL718XRQvjArn6gIj43f1C9nCIGvmxwbhaPAS2xzxk_UoC7x3bO-RFksCj8A.webp'
+    WHERE m_name = '소백산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/lTxjwTMTBzNtm3TlZWvNWcCD97_UfGjziDw53kVmk54O7tOEUAgtK_IDw6i3b53Zb1bx9NulpGpB0BGkJOpCuIM5XlTdUtv_xgQVrssKevdCdCY9jITA7XVazNSdFSxFJdAxPYRAEiaXTDbVFmEXbw.webp'
+    WHERE m_name = '소요산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/VHuXeFCgZorgsYD0OPBebmYPHiZzbfUX7T-yKyX4jU2M8VoMgmdbUNJeN4LrchkfTtaeyvIEyA_NeSpqzEQmtBbSp6byVL3S_hswvlcqn545ufOT4vDLUNxGvn7LPpUnDwuJ04-jCKOMZEmY2_fqcA.webp'
+    WHERE m_name = '속리산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/JQOzwL8tO1Ijm_VlPqQe7355smBIKp0bvzYRLRqG__8eMsrUZmmmhgyAlHb_YqDwsHz4O7P6rWQUIsdKjRaPixmt1CbMLtU20NBD5xRZdxZqBADKH7cxbFW4n7aUXcBTrpkN4Kmphm5zYJ3t2k41jw.webp'
+    WHERE m_name = '신불산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'http://db.kookje.co.kr/news2000/photo/2022/0630/l20220630.22012006143i1.jpg'
+    WHERE m_name = '연화산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/u5Ze6LH4MVs7WGvEwp-zUDCDkXgXTQOIDMI72PeM_4td_ZZfocz4QPZvlb5kCm_5wyOZCPjQD19JvwK3uF_R1vRtbQGoSy4y1opJyw1Zwl_y6BxfGzgxNSaLZiE2RScTqTkuA5XLTToftBXqpolVqw.webp'
+    WHERE m_name = '오대산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://mblogthumb-phinf.pstatic.net/20160710_213/1009king_1468157419082YFqUt_JPEG/20160710_110141.jpg?type=w2'
+    WHERE m_name = '오봉산';
+
+-- 산 사진 추가 61 ~ 70
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/AE5uCx8gWYg2g8OmeoHaALtji4OJE5V3UkYazxx-08xexEzI_czNn2GIV_0uNLPgMTMMA62Cszf29wx5d__7dH2w65VB3AYpa51ouClZ3hbma3_skuNUCmjc5cnxqscGGIUkWfVV9xtGW1Xtvnsgeg.webp'
+    WHERE m_name = '용문산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/n82gLqirnjahoOInOmUnhKGk1XTL_B4tS3OejtOZ7j-_5aNOwxSeI9CHtZkUD97PmjVXEHz1u3TVPm0tnlv4C9HbfBlt890_kawS_i7wYxMZX8xQYNQ9KqKCmNs3hrwaU3KzYnKymLPTD-VDkQfW1g.webp'
+    WHERE m_name = '용화산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.ulsanpress.net/news/photo/202107/381475_165131_4823.jpg'
+    WHERE m_name = '운문산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://t1.daumcdn.net/cfile/tistory/260C654955F4DC0F34'
+    WHERE m_name = '운악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://jinan.go.kr/tour//upload/images/main_contents_1478670597.jpg'
+    WHERE m_name = '운장산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/7np1H5Qa8maiQ6v7L1pBgByzOuUMqwPHX9ffXyqn95oOeqDud3ZSEdGz9LSGbj2bSWh9FmSxOcujmdNZE8EYhk2dfLjyTVeHws--oX7ACwE3gS12OITaGA2-kh4dmeFR3i3sMWlGCCacgP1JMKki5Q.webp'
+    WHERE m_name = '월악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/13jlQqjBed99Pp5L5jJTLgA046nSzpPO_ugfTCNwWXMP1YDv4nQ7Ejk-mEUorrUS7rZiJmFgZKNYWsYtOzYmzd5FBIP8K7lit73dvCw4lkhWLw6q5Vhus-ih_jiOMQEzYVlxEHG3Vz6eJvlfqLWdVQ.webp'
+    WHERE m_name = '월출산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/IrX8zTzupHTsqIdNW8KJRmAJdLnTWtKSZI1Gm6j1RVS8xPhn36MUtBDeJ6KBrj8a0QUMs0Zw6KRxGe2TNuQHp43kuwU2rJ_1oHYtq9rIbbTLghiKhZcJv4opZfTyXHSH1kF602IStSPuk5dnSWnCfw.webp'
+    WHERE m_name = '유명산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/201712/11425_47447_5335.jpg'
+    WHERE m_name = '응봉산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_277%2F1441045630437IsYan_JPEG%2F13491468_0.jpg'
+    WHERE m_name = '장안산';
+
+-- 산 사진 추가 71 ~ 80
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.idomin.com/news/photo/202110/774584_456142_1021.jpg'
+    WHERE m_name = '재약산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.ttlnews.com/upload/editor_content_images/1632730421332_editor_image.wm.jpg'
+    WHERE m_name = '적상산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.foresttrip.go.kr/portal/images/content/route/jumbongsan-img2.jpg'
+    WHERE m_name = '점봉산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://mblogthumb-phinf.pstatic.net/MjAyMDA4MjJfMjc2/MDAxNTk4MDc0Njg1OTA4.oeeX6AvAbnhZ_BQacNdjO2jGD08VPG5YOy3v_TDTPWsg.b_zCqEi38TXFM3fddsXl3PL7vWRoHUqlh5dfnmP5km4g.JPEG.ihappy4080/1598074681103.jpg?type=w800'
+    WHERE m_name = '조계산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/TnAXWbiFEXzeuJ1_G0u-fc5yxXqkBHeEdPDBXpTQnxZcJjWCi_BOREcQsx73hRNML8SrqH3AJlSn0LlY86QvlBgaRST1z59aUmcMldRmAtunvqO9PZ5OAQkMOYPDzJu72AH-bmDVk-7eSi3PhpEb3Q.webp'
+    WHERE m_name = '주왕산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/7nkSNU51ezhuj1iBDtayF8Z2Rc-RxW8tc6N8QZ8aLJxA3OkqwPuM6s-Gx-HSBH80RleK2z_E_K1BJC7GNhng4z4nr2OG35xwbOYKDmnP5kuObv5q-qwDC5CRfE2ZfP2L8z4CyNSIDIh-31fUAtUGSw.webp'
+    WHERE m_name = '주흘산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/8Bvagl1seJqmkxVeZhkdxo1-CxXu_9XpzNL4vHmX-4K407wLb5GsiBUzqjyyNmLobbC-TT1R91j2_lZXj5wlkVemGX9SIjtIiX78E04LNQqzQ8Nih21kCNXZPxXcPdEo2nB8DI8T49JsEogQmIimkg.webp'
+    WHERE m_name = '지리산(통영)';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/IeU1rNr8sLF9WWFUJ2gYIO4EzBSCc9gRtUpIca02GHlqAI7FhkPmn_3dz64rGpkAMe5OWfb6J1Y3q-Ynt7i1ZXC45kggssU2vlIV7L4TdwPZU6QcMPlleSG5LQYnt5BRm9ddW2962WJGjm3JWA9sVA.webp'
+    WHERE m_name = '지리산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.jangheung.go.kr/contents/14500/hiking.jpg?build_20230722001'
+    WHERE m_name = '천관산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.gokseong.go.kr/tour/build/images/1550/15501348/1550134848.jpg/500x334x85/500x334_1550134848.jpg'
+    WHERE m_name = '천마산';
+
+-- 산 사진 추가 81 ~ 90
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/XF4duV7bo_mTM6qQzLsCNOl-ic3Y2nd6owXX63PTMNccCjerNKc9HDgZ05JPnuLX9h02BFtPCALPT0Dg6llfDSbf1aNzCjvk9rS3JIVSOHa0yZmwBplVmDXsVCNCkhC-iHg78tLK3D5lU5aS6dDr8Q.webp'
+    WHERE m_name = '천성산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://image.newsis.com/2022/07/26/NISI20220726_0001050329_web.jpg?rnd=20220726161312'
+    WHERE m_name = '천태산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/mH2XAA6jsuS2-L-rU6UIj_z3e6wZvypEKJiFNkAlm1DgLPZTQVixZbxmDCF7K7a_9am-Wbd6fxrqHorc7C0ZNjJqCpVMqIOJOcFPd_3QaPx9-Chdvk_rMFykv8gyZazrg82n7qLqoZPxQ7I3rm0Hlw.webp'
+    WHERE m_name = '청량산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.heritage.go.kr/unisearch/images/monument/1653940.jpg'
+    WHERE m_name = '추월산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://t1.daumcdn.net/cfile/blog/99476E3B5D6DD7D123'
+    WHERE m_name = '축령산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/iuYl2yxPkuLfbxU6ggd6gZ8qKFb4Fg14jWiepAWTitTtiZzmEJKWb1ghzunw_ZbuwHr3EOnVGO-gWAHgjte8Iq8CYuf4NCOKfFYTwHlD0Z6zpdGAY07F6ffnDTvjJ6IGfuJBec788gJAzlNle__r1Q.webp'
+    WHERE m_name = '치악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'http://청양펜션회룡대별장.com/files/attach/images/906/027/001/482e921fdee22d108986452c9fc29a0f.jpg'
+    WHERE m_name = '칠갑산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/P_NF7YEUNdxX7gFgUqkPivDS2ZHsp1R0Ezf5yTMsPGzJac6mSK_hQoBxFxlObrmxtoducuAZdnDOOVdkYH-sTxMgN4J7BoezDKpKpDgvxXAlIlec59McD00kCcozSG8Fy_XTwwswsGvw5kdF5plOKg.webp'
+    WHERE m_name = '태백산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.sansan.co.kr/news/photo/202107/20047_20009_237.jpg'
+    WHERE m_name = '태화산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'http://photo.sentv.co.kr/photo/2021/10/28/20211028095404.jpg'
+    WHERE m_name = '팔공산';
+
+-- 산 사진 추가 91 ~ 100
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://www.hongcheon.go.kr/site/tour/images/contents/cts1816_img2-1.png'
+    WHERE m_name = '팔봉산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://soso-k.com/wp-content/uploads/kboard_attached/2/201904/5caed54f9f1711505833.jpg'
+    WHERE m_name = '팔영산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/g9ycAQH9-gpykjbQoFRt0bCVbImbBKPQ4lBRXZg8vXU48L2ikCmEYrksFKMWIdYGOBmk7jpZDEJmC2d-pJoWnhn5jbchPQG7-24gj_Jyzmt4Lz_Oc6AVRqBmyMUQXRpHUBfcoARIljngCdXZR-5dZA.webp'
+    WHERE m_name = '한라산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/FrjXnNawU1Bh8m0aJnAgmSf51RUBr8rw5DQPmZ0-TPWKORTMlY8M2Y9sBfbNzmVp7P0qW92h6HfA074Wf9wHb3o_Fyr1tQvG9n2fXKGGylRVcyYEZelJ01CIfg2_flyjx_ejXcg_I0n_hE81eZjTww.webp'
+    WHERE m_name = '화악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://i.namu.wiki/i/kFK5JSX_W9HXaSQsVfRVRGODoPGh6e4HykFIkuDFu6-4WR_q2RZmrmocqtPdSdEL9RB0Sbie8qJgSZ-bmuCmZckugIcEzaXJxK1ZdQRNxwpbBcuyJXQ3OvD5T-ELbMOJzytUNCfjNeX7dflQ40CDfA.webp'
+    WHERE m_name = '화왕산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'http://www.ktsketch.co.kr/news/photo/202304/7503_38205_4518.jpg'
+    WHERE m_name = '황매산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://mblogthumb-phinf.pstatic.net/MjAxNzA1MjJfODQg/MDAxNDk1NDUzNjgwNzcw.XtwkH1HnQMFoyIljTpG5iu8PSFOt-63JO57xToRatlYg.HqMDfRe8_uVczZWF5N9gyckOkPPloiyznuysSm_zh1Mg.JPEG.kh4563/DSC06990.JPG?type=w800'
+    WHERE m_name = '황석산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.kbmaeil.com/news/photo/201501/342291_762706_2421.jpg'
+    WHERE m_name = '황악산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://img.khan.co.kr/news/2009/03/24/20090325.01100121000003.01L.webp'
+    WHERE m_name = '황장산';
+UPDATE soldesk_mountain_tb
+    SET m_photo = 'https://cdn.ibulgyo.com/news/photo/202106/212395_226170_459.jpg'
+    WHERE m_name = '희양산';
