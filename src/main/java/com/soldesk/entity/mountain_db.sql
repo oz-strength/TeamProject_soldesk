@@ -308,7 +308,7 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/cOMZSccvTdVNotAp3ssUAzJXc_gDmGbIu3guvSWd0ReTSuk3NJL7fpJR9LavtgD-1euEM2WdAViqKrzyQx70R7bgQor6qb9r69RzlBq0g_XeZxAwY4Xtlvpnca6mJarOarvAgDjDqOM-4yjZzb0ZjA.webp'
     WHERE m_name = '금정산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcjodbn%2FbtqHJjKxxy3%2FsXsQvdlt6GMgKmuCoerZiK%2Fimg.jpg'
+    SET m_photo = 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_170%2F1593074701128W9qv6_JPEG%2FnA6beBTS_EOKZ3hEQiWIYFT5.jpg'
     WHERE m_name = '깃대봉';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/KNW3qff5zlk5ZhrsTCBcayc3d81i0n0zmx1vweiO3VOd6l0AoOppuG0jrcx9ABfTzR9ZZLS3oP_f8TLDfNh2Sc5XNgMVhTe4AsUtiUqd7s-FxkPS5EFXbGseNQ7XllNXcqXwj_vzX3T4EpCSMKSU2g.webp'
@@ -337,7 +337,7 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/uqZuFzKgeDb706woR2FmSbvYqKacBXdbK_2oMthIUrwI-Ao-_gAJlLSXydQl9L4-Hku59f0P6oHHWn1dETU1UsQlTBL_R2olh0DpPlqlPUYT2O6HH5t710kG7n6nXH8p65DE9pOdJhOxWq1yPMpXhw.webp'
     WHERE m_name = '덕유산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdLHLdR%2FbtqEoU8d7nF%2FDkuI09OcFWqoapUmMr2Kpk%2Fimg.jpg'
+    SET m_photo = 'https://cdn.kado.net/news/photo/201008/476772_155096_3459.jpg'
     WHERE m_name = '덕항산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://img.khan.co.kr/news/2008/11/27/20081128.01100125000001.01L.webp'
@@ -372,7 +372,7 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/8iwShm-OG6PID1oby63WhJGKuBz60VOjtDabof4OpxWEVW-dHGEtduNAYITsWEkbIBDp6W_xtKNDIiuTuO_OZ35n_vWOQHi_qQ3ynRowrEI3l8nyQt4PmuvbMqAgt4Sqqt5WlTtdrSa9TinroPzXZA.webp'
     WHERE m_name = '무등산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F256D3A4C570C42EB35'
+    SET m_photo = 'https://www.busan.com/nas/wcms/wcms_data/photos/2020/07/29/2020072919232889385_l.jpg'
     WHERE m_name = '무학산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://img.khan.co.kr/news/2008/05/22/20080523.01100125000001.03L.webp'
@@ -421,7 +421,7 @@ UPDATE soldesk_mountain_tb
 
 -- 산 사진 추가 51 ~ 60
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F257B24475799B1490E'
+    SET m_photo = 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MjJfNjEg%2FMDAxNjg0Njg2NzYxMDA5.JijpMCo3nfF6rRqhJkGZtdiP8CbmWMEkecNh2-nJKXgg.ykUqGyovvH6pEVaGBFGmK7fINJbHioBb9RERM86N8_og.JPEG.sanghun10045%2F20230514_121852.jpg'
     WHERE m_name = '선운산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/CZJ1jKFJjZSX01HQIgfOzrtwI8SrVuWuzDMaJjluvdDrnJ5JWTOGVC7hKQIZUrPTViepNoH3ujHyubbxbm2XWaowMBt0NohHbyGd3ponglMbVOkJNkviVIg4HIH_vGZTeEJb4mYHV4PQzHCwG7jwaQ.webp'
@@ -477,15 +477,15 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/IrX8zTzupHTsqIdNW8KJRmAJdLnTWtKSZI1Gm6j1RVS8xPhn36MUtBDeJ6KBrj8a0QUMs0Zw6KRxGe2TNuQHp43kuwU2rJ_1oHYtq9rIbbTLghiKhZcJv4opZfTyXHSH1kF602IStSPuk5dnSWnCfw.webp'
     WHERE m_name = '유명산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://www.samcheok.go.kr/CmsMultiFile/view.do?multifileId=TT00000034&idx=125&'
+    SET m_photo = 'https://cdn.san.chosun.com/news/photo/201712/11425_47447_5335.jpg'
     WHERE m_name = '응봉산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99EE6D4F5B8E8CC512'
+    SET m_photo = 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_277%2F1441045630437IsYan_JPEG%2F13491468_0.jpg'
     WHERE m_name = '장안산';
 
 -- 산 사진 추가 71 ~ 80
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://www.miryang.go.kr/cmm/fms/getImage.do;jsessionid=92E5F0D1026DC2AEB71F13C8ECB47915.was1?atchFileId=FILE_000000000001662&fileSn=6'
+    SET m_photo = 'https://www.idomin.com/news/photo/202110/774584_456142_1021.jpg'
     WHERE m_name = '재약산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://www.ttlnews.com/upload/editor_content_images/1632730421332_editor_image.wm.jpg'
@@ -494,7 +494,7 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://www.foresttrip.go.kr/portal/images/content/route/jumbongsan-img2.jpg'
     WHERE m_name = '점봉산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F250CFE4B53AB5C0A2B'
+    SET m_photo = 'https://mblogthumb-phinf.pstatic.net/MjAyMDA4MjJfMjc2/MDAxNTk4MDc0Njg1OTA4.oeeX6AvAbnhZ_BQacNdjO2jGD08VPG5YOy3v_TDTPWsg.b_zCqEi38TXFM3fddsXl3PL7vWRoHUqlh5dfnmP5km4g.JPEG.ihappy4080/1598074681103.jpg?type=w800'
     WHERE m_name = '조계산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/TnAXWbiFEXzeuJ1_G0u-fc5yxXqkBHeEdPDBXpTQnxZcJjWCi_BOREcQsx73hRNML8SrqH3AJlSn0LlY86QvlBgaRST1z59aUmcMldRmAtunvqO9PZ5OAQkMOYPDzJu72AH-bmDVk-7eSi3PhpEb3Q.webp'
@@ -520,7 +520,7 @@ UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/XF4duV7bo_mTM6qQzLsCNOl-ic3Y2nd6owXX63PTMNccCjerNKc9HDgZ05JPnuLX9h02BFtPCALPT0Dg6llfDSbf1aNzCjvk9rS3JIVSOHa0yZmwBplVmDXsVCNCkhC-iHg78tLK3D5lU5aS6dDr8Q.webp'
     WHERE m_name = '천성산';
 UPDATE soldesk_mountain_tb
-    SET m_photo = 'https://tour.yd21.go.kr/_prog/download/index.php?func_gbn_cd=tourist&site_dvs_cd=tour&atch=atch_img&mng_no=22'
+    SET m_photo = 'https://image.newsis.com/2022/07/26/NISI20220726_0001050329_web.jpg?rnd=20220726161312'
     WHERE m_name = '천태산';
 UPDATE soldesk_mountain_tb
     SET m_photo = 'https://i.namu.wiki/i/mH2XAA6jsuS2-L-rU6UIj_z3e6wZvypEKJiFNkAlm1DgLPZTQVixZbxmDCF7K7a_9am-Wbd6fxrqHorc7C0ZNjJqCpVMqIOJOcFPd_3QaPx9-Chdvk_rMFykv8gyZazrg82n7qLqoZPxQ7I3rm0Hlw.webp'
