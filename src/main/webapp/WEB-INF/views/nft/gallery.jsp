@@ -15,10 +15,35 @@
 </head>
 <body>
 
+
+	<div class="main-container">
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<h1 style="padding:300px 0;">컨텐츠 들어갈 자리!@!@!@!</h1>
+	
+	<section>
+	<!-- nft 그리드 -->
+	
+	<div class="grid-container" id="nftData">
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item">앞으로 들어올 예정</div>
+	</div>
+	
+	<div class="auction">
+		<a href="http://localhost:8010">Auction!</a>
+	</div>
+	
+	</section>
+	</div>
+	
+	<%-- footer 컴포넌트 가져오기 --%> 
+	<%@ include file="/WEB-INF/views/footer.jsp" %>
 	
 	
 	 <%-- 커서 전체화면 적용하기 --%>
@@ -33,11 +58,6 @@
 	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
 	
 	
-	<!-- nft 그리드 -->
-	
-	<div class="grid-container" id="nftData">
-		<div class="grid-item"></div>
-	</div>
 	
 	
 	
@@ -54,8 +74,7 @@
 		})
 	</script>
 	
-	<%-- footer 컴포넌트 가져오기 --%> 
-	<%@ include file="/WEB-INF/views/footer.jsp" %>
+	
 	
 </body>
 </html>
