@@ -2,32 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.soldesk.mapper.user.UserMapper">
 	<insert id="registUser" parameterType="com.soldesk.entity.user.User">
-		insert into test_user 
+		insert into SOLDESK_USER_TB 
 		values(#{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender}, #{u_admin}, 
 		#{u_public_key}, #{u_private_key}, #{u_wallet_cash})
 	</insert>
 	
 	<select id="checkUser" resultType="com.soldesk.entity.user.User">
-		select * from test_user where u_email = #{u_email}
+		select * from SOLDESK_USER_TB where u_email = #{u_email}
 	</select>
 	
 	<select id="loginUser" parameterType="com.soldesk.entity.user.User" resultType="com.soldesk.entity.user.User">
-		select * from test_user where u_email = #{u_email}
+		select * from SOLDESK_USER_TB where u_email = #{u_email}
 	</select>
 	
 	<!-- 회원정보  수정 -->
 	<update id="updateUser" parameterType="com.soldesk.entity.user.User">
-		update test_user set u_email = #{u_email}, u_pw = #{u_pw}, u_name = #{u_name}, u_birth= #{u_birth}
+		update SOLDESK_USER_TB set u_email = #{u_email}, u_pw = #{u_pw}, u_name = #{u_name}, u_birth= #{u_birth}
 		where u_email = #{u_email}
 	</update>
 	
 	<!-- 모든 회원 조회 -->
 	<select id="getAllUser" resultType="com.soldesk.entity.user.User">
-		select * from test_user
+		select * from SOLDESK_USER_TB
 	</select>
 	
 	<!-- 회원 정보 1개 삭제 -->
 	<delete id="deleteUser" parameterType="com.soldesk.entity.user.User">
-		 DELETE FROM test_user WHERE u_email = #{u_email}
+		 DELETE FROM SOLDESK_USER_TB WHERE u_email = #{u_email}
 	</delete>
 </mapper>

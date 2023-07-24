@@ -127,15 +127,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/* ************************************************************************************ */
 
 body {
-  height: 100vh;
   background-color: beige;
   cursor:none !important; /*기본 마우스 없애기*/
-  display:flex;
+   margin: 0;
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
 }
 
 /*cursor 디자인하기*/
@@ -203,7 +203,7 @@ body {
 }
 
 
-/* 네비게이션 메뉴 */
+/****************************************** 네비게이션 메뉴 */
 header {
   display: flex;
   align-items: center;
@@ -270,55 +270,185 @@ a {
   min-width: 1000px;
 }
 
-								/* 가운데 컨텐츠 영역 */
-.container{
-	flex: 1;
-  display: grid;
-  grid-template-columns: 200px 1fr;
+/************************************************ 콘텐츠 */
+.content{
+	margin-bottom: 200px;
+}
+ /* 좌측 메뉴 스타일 */
+.sidebar {
+    width: 200px;
+   /*  background-color: #333; */
+    padding-top: 20px;
 }
 
-										/* backtotop 버튼 */
-#backtotop {
-  background-color: rgb(47, 48, 89);
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  border-radius: 20px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition-property: background-color, opacity, visibility;
-  transition-duration: 0.3s, 0.5s, 0.5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 999;
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
 }
 
-#backtotop::after {
-  content: '\f077';
-  font-family: FontAwesome;
-  font-size: 1.5rem;
-  line-height: 40px;
+.sidebar a:hover {
+    background-color: #73D4FF;
+}
+#nft,
+#users,
+#mountainList,
+#board{
+	display:none;
+}
+
+/* 우측 콘텐츠 스타일 */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+/******************************************** nft사진 업로드 */
+.upload-container{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 50vh;
+}
+.board-table.userTbl{
+	width: 500px;
+}
+/******************************************** 유저조회 테이블 */
+
+.user-container{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 80vh;
+}
+
+
+.board-table{
+	width: 1000px;
+	background-color: #fff;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	border-radius: 5px;
+	overflow: hidden;
+}
+.title:focus,
+.content:focus,
+.writer:focus{
+  outline: none;
+}
+.content{
+	resize: none;
+}
+
+.board-table tr {
+	border-bottom: 1px solid #eee;
+	transition: 0.3s;
+}
+.board-table td {
+	border-right: 1px solid #eee;
+}
+.board-table tr:last-child{
+	border: none;
+}
+.board-table td:last-child{
+	border: none;
+}
+
+.board-table td:nth-child(1){
+	width: 50px;
+}
+
+.board-table tr:nth-child(odd){
+	background-color: #e3e8fd;
+}
+
+.board-table tr:hover{
+	background-color: #f8effe;
+}
+
+.board-table td,
+.board-table th{
+	padding: 12px;
+	text-align: center;
+}
+
+.board-table .title{
+  	height: auto;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+.board-table .content{
+    height: auto;
+    align-items: center;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+.board-table .writer {
+  	height: auto;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background: transparent;
+}
+
+
+.board-table .deleteBtn,
+.board-table .uploadBtn{
+ 		display: inline-block;
+ 		width: 100px;
+  	height: 35px;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background-color: #fff;
+  	transition: all 0.3s ease 0s;
+  	cursor: pointer;
+  	outline: none;
+}
+.board-table tr td .deleteBtn:hover,
+.board-table tr td .uploadBtn:hover{
+  background-color: #94f8a5;
+  box-shadow: 0px 15px 20px #ddfdbd;
   color: #fff;
+  transform: translateY(-7px);
 }
 
-#backtotop.show:hover {
-  cursor: url(../images/mouse-pointer.png), auto;
-  background-color: #74c0f0;
+/************************************************ 산 그리드  */
+.main-container {
+  flex: 1;
 }
 
-#backtotop.show {
-  opacity: 1;
-  visibility: visible;
-  background-color: rgb(47, 48, 49);
+.container {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* 좌측 사이드바의 너비와 우측 콘텐트의 너비를 지정 */
 }
-/*back to top button*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+  gap: 20px; /* Gap between grid items, adjust as needed */
+  padding: 50px;
+}
 
+.grid-item {
+  /* Styles for individual grid items, adjust as needed */
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
 
-/* footer 디자인*/
+/********************************************* footer 디자인*/
 .footer{
-	position: relative;
-	transform: translateY(-100%);
+/* 	position: relative;
+	  left: 0;
+ 	bottom: 0;
+ 	width: 100%;
+ 	padding: 20px; */
 	
 }
 
@@ -366,6 +496,44 @@ a {
 .policy a:nth-child(1) {
   margin-left: 50px;
 }
+
+/******************************************************** backtotop 버튼 */
+#backtotop {
+  background-color: rgb(47, 48, 89);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition-property: background-color, opacity, visibility;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+#backtotop::after {
+  content: '\f077';
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 40px;
+  color: #fff;
+}
+
+#backtotop.show:hover {
+  cursor: url(../images/mouse-pointer.png), auto;
+  background-color: #74c0f0;
+}
+
+#backtotop.show {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgb(47, 48, 49);
+}
+
+
 
 
 

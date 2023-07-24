@@ -36,10 +36,10 @@
 			}
 		});
     </script>	
-	<%-- 헤더 컴포넌트 가져오기 --%>
-	<%@ include file="/WEB-INF/views/header.jsp" %>
-
-	<section>
+	
+	<section class="main-container">
+		<%-- 헤더 컴포넌트 가져오기 --%>
+		<%@ include file="/WEB-INF/views/header.jsp" %>
 	
 	        
 	    <div id="image-wrapper">
@@ -1756,9 +1756,9 @@
             </div>
             <div class="detail">
               <h2>모르는게 있음 물어봐!</h2>
-              <p>아무말대잔치아무말대잔치아무말대잔치아무말대잔치</p>
+              <p>실시간으로 여러 사람과 소통할수 있습니다.</p>
             </div>
-            <a href="" class="btn-explore">explore</a>
+            <a href="http://localhost:8005" class="btn-explore">explore</a>
           </div>
         </div>
       </div>
