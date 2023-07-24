@@ -5,7 +5,8 @@ import java.nio.charset.StandardCharsets;
 
 import java.security.MessageDigest;
 
-//import org.web3j.crypto.Credentials;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.Keys;
 
 //import org.web3j.crypto.ECKeyPair;
 //import org.web3j.crypto.Keys;
@@ -32,12 +33,12 @@ public class BlockchainManager {
 	public static Wallet createWallet() {
 		Wallet w = null;
 		try {
-//			Credentials ct = Credentials.create(Keys.createEcKeyPair()); 
-//			
-//			w = new Wallet();
-//			w.setPublicKey(ct.getEcKeyPair().getPublicKey().toString(16));
-//			w.setPrivateKey(ct.getEcKeyPair().getPrivateKey().toString(16));
-//			w.setWalletAddress(ct.getAddress());
+			Credentials ct = Credentials.create(Keys.createEcKeyPair()); 
+			
+			w = new Wallet();
+			w.setPublicKey(ct.getEcKeyPair().getPublicKey().toString(16));
+			w.setPrivateKey(ct.getEcKeyPair().getPrivateKey().toString(16));
+			w.setWalletAddress(ct.getAddress());
 			
 			return w;
 		} catch (Exception e) {
