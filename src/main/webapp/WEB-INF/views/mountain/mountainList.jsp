@@ -50,9 +50,9 @@
     	    html += 'Location: ' + mountain.m_location + '<br>';
     	    html += 'Address: ' + mountain.m_address + '<br>';
     	    
-    	    if (mountain.m_photo) {
+    	   /*  if (mountain.m_photo) {
     	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
-    	    }
+    	    } */
     	    
     	    html += '</li>';
     	    html += '</ul>';
