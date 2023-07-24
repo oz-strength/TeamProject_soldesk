@@ -283,7 +283,7 @@ function showPw2() {
         </div>
         <div class="button-field">
         <button type="button" class="customBtn" onclick="return registerCheck();">
-			<span>Click!</span><span class="idCheckBtn">ID Check</span>
+			ID Check
 		</button> 
 		</div>
         <div id="u_email_err_div" class="err-field"></div>
