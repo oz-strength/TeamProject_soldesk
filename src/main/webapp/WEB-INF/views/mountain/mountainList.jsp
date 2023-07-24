@@ -28,7 +28,7 @@
 
 
 	<section class="main-container"> 
-		<h1>지역명 넣기</h1>
+		<div id="location">지역명 넣기</div>
 		
 		<div class="grid-container" id="mountainData"></div>	
 		
@@ -71,9 +71,9 @@
     	    html += 'Location: ' + mountain.m_location + '<br>';
     	    html += 'Address: ' + mountain.m_address + '<br>';
     	    
-    	   /*  if (mountain.m_photo) {
-    	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
-    	    } */
+    	 	// JavaScript를 이용하여 <input> 요소에 JSON에서 받은 m_address 값을 넣습니다.
+            var location = document.getElementById('location');
+            location.innerHTML = mountain.m_location;
     	    
     	    html += '</li>';
     	    html += '</ul>';
