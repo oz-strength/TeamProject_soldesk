@@ -132,7 +132,9 @@ create table SOLDESK_WEATHER_TB (
 create sequence SOLDESK_WEATHER_TB_SEQ;
 drop sequence SOLDESK_WEATHER_TB_SEQ;
 
-select * from SOLDESK_WEATHER_TB;
+select * from SOLDESK_WEATHER_TB order by w_no;
+
+select * from soldesk_weather_tb where w_basedate "202307241400" and w_fcstdate in "202307241500" order by w_no
 truncate table SOLDESK_WEATHER_TB;
 
 drop table SOLDESK_WEATHER_TB cascade constraint purge;
