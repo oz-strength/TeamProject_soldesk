@@ -169,13 +169,14 @@ a {
 }
 
 .m_photo img {
-    max-width: 500px;
-    height: auto;
+    width: 500px;
+    height: 500px;
   }
  
 .mountain_info {
 	font-family: 'Nanum Gothic', sans-serif;
 	padding: 20px;
+	font-size: 20px;
 }
 
 .mountain_info .m_name{
