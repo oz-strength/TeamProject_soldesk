@@ -278,12 +278,12 @@ function showPw2() {
       	<h1>Register</h1>
       <form action="user.register" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_email" autocomplete="off" required/>
+          <input type="text" name="u_email" id="u_email" autocomplete="off" minlength="1"/>
           <span>USER EMAIL</span>
         </div>
         <div class="button-field">
-        <button type="button" class="" onclick="return registerCheck();">
-			<span class="idCheckBtn">id check</span>
+        <button type="button" class="customBtn" onclick="return registerCheck();">
+			<span>Click!</span><span class="idCheckBtn">ID Check</span>
 		</button> 
 		</div>
         <div id="u_email_err_div" class="err-field"></div>
@@ -294,7 +294,7 @@ function showPw2() {
             id="u_pw"
             required
             maxlength="12"
-            minlength="8"
+            minlength="1"
           /><span>PASSWORD</span>
           <a id="hidePw" onclick="showPw1()"><i class="xi-eye-off-o"></i></a>
         </div>
@@ -306,7 +306,7 @@ function showPw2() {
             id="u_pw_chk"
             required
             maxlength="12"
-            minlength="8"
+            minlength="1"
           /><span>PASSWORD CHECK</span>
            <a id="hidePw2" onclick="showPw2()"><i class="xi-eye-off-o"></i></a>
         </div>
@@ -319,7 +319,7 @@ function showPw2() {
             autocomplete="off"
             required
             maxlength="10"
-            minlength="2"
+            minlength="1"
           /><span>NAME</span>
         </div>
         <div id="u_name_err_div" class="err-field"></div>
@@ -331,7 +331,7 @@ function showPw2() {
             autocomplete="off"
             required
             maxlength="8"
-            minlength="8"
+            minlength="1"
           /><span>BIRTH</span>
         </div>
         <div id="u_birth_err_div" class="err-field"></div>

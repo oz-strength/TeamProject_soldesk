@@ -194,6 +194,15 @@ a {
   }
 }
 
+#hidePw {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content:right;
+  display:inherit;
+}
+
 #save-email {
   display: none;
 }

@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/loginForm.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -129,6 +130,18 @@ function rtnCkPw() {
 			return true;
 		}
 }
+function showPw1() {
+    var passwordInput = document.getElementById('u_pw');
+    var hidePwIcon = document.getElementById('hidePw');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-o"></i>';
+    } else {
+      passwordInput.type = 'password';
+      hidePwIcon.innerHTML = '<i class="xe-icon xi-eye-off-o"></i>';
+    }
+  }
 
 </script>
 
@@ -137,7 +150,7 @@ function rtnCkPw() {
       <h1>Login</h1>
       <form action="${contextPath}/user.login" method="post">
         <div class="input-field">
-          <input type="email" name="u_email" id="u_id" autocomplete="off" value="${cookie.lastLoginId.value }" required autofocus/>
+          <input type="text" name="u_email" id="u_id" autocomplete="off" value="${cookie.lastLoginId.value }" minlength="1" autofocus/>
           <span>USER EMAIL</span>
         </div>
         <div id="u_email_err_div" class="err-field"></div>
@@ -148,8 +161,9 @@ function rtnCkPw() {
             id="u_pw"
             required
             maxlength="12"
-            minlength="8"
+            minlength="1"
           /><span>PASSWORD</span>
+          <a id="hidePw" onclick="showPw1()"><i class="xi-eye-off-o"></i></a>
         </div>
         <div id="u_pw_err_div" class="err-field"></div>
         <div class="button-field">

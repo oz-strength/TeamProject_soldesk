@@ -199,7 +199,8 @@ a {
  	border-radius: 10px;
 	box-shadow: 0 0 30px rgba(0,0,0,0.15);
 	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
- 	color: #fff;
+ 	color: beige;
+ 	font-weight: 600;
  	padding: 30px;
  	box-sizing: border-box;
  	transition: 0.35s;

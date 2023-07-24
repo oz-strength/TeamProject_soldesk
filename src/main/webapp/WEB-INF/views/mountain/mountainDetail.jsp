@@ -171,7 +171,7 @@ function mapView(data){
     	    html += '<div> 높이: ' + mountain.m_height +'m</div>';
     	    html += '<div> 지역: ' + mountain.m_location +'</div>';
     	    html += '<div> 주소: ' + mountain.m_address +'</div>';
-    	    html += '<div><a href="https://namu.wiki/w/'+ mountain.m_name +'">나무위키 보러가기◀ Click!</a></div>';
+    	    html += '<div><a target="_blank" href="https://namu.wiki/w/'+ mountain.m_name +'">나무위키 보러가기◀ Click!</a></div>';
     	   
     	 // JavaScript를 이용하여 <input> 요소에 JSON에서 받은 m_address 값을 넣습니다.
             var addressInput = document.getElementById('address');
