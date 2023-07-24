@@ -16,7 +16,8 @@
 	.policy a,
 	.button-in-header,
 	.button-in-header a,
-	.btn-explore {
+	.btn-explore,
+	.logo-footer a {
 	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 }
 

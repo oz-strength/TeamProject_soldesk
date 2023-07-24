@@ -23,9 +23,7 @@
             <a href="${contextPath}/"><img src="${contextPath}/resources/images/mountainLogo.png" alt=""></a>
           </div>
           <div class="policy">
-            <a href="">개인정보 보호 및 약관</a>
-            <a href="">정보</a>
-            <a href="">서비스</a>
+            <span><a href="#none">ⓒ Copyright MyMountain corp. all rights reserved</a></span>
           </div>
           
         </div>

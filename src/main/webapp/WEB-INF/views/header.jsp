@@ -7,7 +7,7 @@
 
 <header>
 
-    <a href="${contextPath}/" class="button-in-header">THE MOUNTAIN</a>
+    <a href="${contextPath}/" class="button-in-header">MY MOUNTAIN</a>
     <div id="middle-buttons">
       <a href="${contextPath}/introPage" id="active-menu" class="button-in-header">
       	<span class="long-text">INTRO</span>
@@ -35,7 +35,7 @@
 <%-- 	    <c:if test="${empty user}"> --%>
 	    <c:if test="${sessionScope.user == null}">
 	    	<a class="button-in-header" href="${contextPath}/login/login">
-	       		<span class="long-text">LOGIN</span>
+	       		<span class="long-text" style="padding:0 20px;">LOGIN</span>
 	        </a>
 	    </c:if>
 	    
@@ -45,11 +45,11 @@
 			</c:if>
 			<c:if test="${sessionScope.user.u_admin == 1 }">
 				<a class="button-in-header" href="${contextPath}/admin/admin">
-		        <span class="long-text">ADMIN</span>
+		        <span class="long-text" style="padding: 0 20px;">ADMIN</span>
 			</a>
 			</c:if>
 			<a class="button-in-header" href="${contextPath}/user.logout">
-		        <span class="long-text">LOGOUT</span>
+		        <span class="long-text" style="padding: 0 20px;">LOGOUT</span>
 			</a>
 	    </c:if>
 	    

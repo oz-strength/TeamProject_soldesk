@@ -10,6 +10,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/list.css?d">
+<style>
+a,
+li,
+input,
+select,
+.paginate_button,
+.btn,
+.sns a,
+.policy a,
+.button-in-header,
+.button-in-header a,
+.btn-explore {
+cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -159,5 +173,17 @@
 		<input type="hidden" name="type" value="${pageMaker.cri.type}"/>		
 		<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}"/>		
 	</form>
+	
+	 <%-- 커서 전체화면 적용하기 --%>
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
+    </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+	
 </body>
 </html>
