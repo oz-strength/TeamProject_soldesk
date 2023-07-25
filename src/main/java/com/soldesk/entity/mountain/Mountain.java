@@ -3,6 +3,10 @@ package com.soldesk.entity.mountain;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * @author USER
+ *
+ */
 @XmlRootElement
 public class Mountain {
 	private int m_no;
@@ -11,12 +15,16 @@ public class Mountain {
 	private String m_location;
 	private String m_address;
 	private String m_photo;
+	private String m_detail;
 	
 	public Mountain() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Mountain(int m_no, String m_name, int m_height, String m_location, String m_address, String m_photo) {
+	
+
+	public Mountain(int m_no, String m_name, int m_height, String m_location, String m_address, String m_photo,
+			String m_detail) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;
@@ -24,7 +32,10 @@ public class Mountain {
 		this.m_location = m_location;
 		this.m_address = m_address;
 		this.m_photo = m_photo;
+		this.m_detail = m_detail;
 	}
+
+
 
 	public int getM_no() {
 		return m_no;
@@ -78,6 +89,18 @@ public class Mountain {
 	@XmlElement
 	public void setM_photo(String m_photo) {
 		this.m_photo = m_photo;
+	}
+
+
+
+	public String getM_detail() {
+		return m_detail;
+	}
+
+
+	@XmlElement
+	public void setM_detail(String m_detail) {
+		this.m_detail = m_detail;
 	}
 	
 	
