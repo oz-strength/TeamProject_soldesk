@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainDetail.css">
 <style>
+	.mountain_info,
+	a,
 	#namoowiki,
 	.sns a,
 	.policy a,

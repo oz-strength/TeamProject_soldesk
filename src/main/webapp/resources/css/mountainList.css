@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -269,11 +271,13 @@ a {
   	letter-spacing: -1px;
 }
 #location{
+	font-family: 'Nanum Gothic', sans-serif;
 	padding:30px;
-	font-size: 30px;
+	font-size: 50px;
+	margin-left:30px;
+	font-weight:800;
 }
 /******************************* 산 그리드*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .container{
 	display:flex;
@@ -288,10 +292,7 @@ a {
 }
 
 .grid-item {
-/*   border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
- */
+	font-family: 'Nanum Gothic', sans-serif;
 	width: 300px;
 	height: 300px;
  	margin: 10px;

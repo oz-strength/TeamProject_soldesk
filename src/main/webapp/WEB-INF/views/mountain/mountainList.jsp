@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainList.css">
 <style>
+	.grid-item,
 	.sns a,
 	.policy a,
 	.button-in-header,
@@ -28,7 +29,7 @@
 
 
 	<section class="main-container"> 
-		<div id="location">지역명 넣기</div>
+		<div id="location"></div>
 		
 		<div class="grid-container" id="mountainData"></div>	
 		
