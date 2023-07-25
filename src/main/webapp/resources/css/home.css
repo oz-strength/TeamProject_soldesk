@@ -466,6 +466,9 @@ a {
   align-items: center;
 }
 
+.policy span {
+	text-align:center;
+}
 .policy a {
   padding: 0 10px;
   color: #ddd;

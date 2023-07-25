@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     ></script>
 	<style>
-	
+path,	
 .sns a,
 .policy a,
 .button-in-header,
