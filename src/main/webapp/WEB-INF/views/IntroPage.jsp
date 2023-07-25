@@ -7,10 +7,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-    <title>TeamProject</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/introPage.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<meta charset="UTF-8">
+  <title>TeamProject</title>
+  <link rel="stylesheet" href="${contextPath}/resources/css/introPage.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <style>
+  	a,
+	.sns a,
+	.policy a,
+	.button-in-header,
+	.button-in-header a,
+	.btn-explore,
+	.logo-footer a {
+	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
+	}
+  </style>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	
 </head>

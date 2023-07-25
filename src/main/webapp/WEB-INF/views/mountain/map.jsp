@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     ></script>
 	<style>
-	
+path,	
 .sns a,
 .policy a,
 .button-in-header,
@@ -124,7 +124,7 @@ $(document).ready(function() {
 	    html += '<ul>';
 	    html += '<li>';
 	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
-	    html += /* '지역: ' +  */weatherItem.w_loc + '<br>';
+	    html += /* '지역: ' +  */weatherItem.w_loc + '<br><br>';
 	   /*  let f_when = new Date(weatherItem.w_fcstDate);
 	    let f_w_fcstDate = formatDate(f_when);
 	    let fcstDate = f_w_fcstDate.substring(11, 17);

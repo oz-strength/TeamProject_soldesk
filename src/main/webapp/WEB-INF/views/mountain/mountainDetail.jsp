@@ -8,13 +8,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/mountainList.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/mountainDetail.css">
+<style>
+	.mountain_info,
+	a,
+	#namoowiki,
+	.sns a,
+	.policy a,
+	.button-in-header,
+	.button-in-header a,
+	.btn-explore,
+	.logo-footer a,
+	#mapBtn{
+	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
+</style>
 <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e482edbfbe6fe2c270c178df868185c5"></script>
 <script>
 
 $(document).ready(function() {
+	// ID를 이용하여 요소를 가져옴
+	var kakaoMapClick = document.getElementById('KakaoMapClick');
+
+	// display 속성을 'none'으로 설정하여 숨김
+	kakaoMapClick.style.display = 'none';
+	
     $("#mapBtn").click(function(){
     	var address = $("#address").val();
     	if(address==''){
@@ -87,47 +106,61 @@ function mapView(data){
 	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 	
 	// id가 click인 div를 보이게 처리
-    $("#click").show();
+    $("#KakaoMapClick").show();
 }
-
-
-
 </script>
 </head>
 <body>
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 
-	<div>
-		<div class="detailMountain-container">
-			<div class="grid-container" id="mountainData"></div>	
-			
-			
-		</div>
+	<!-- 산 디테일 컨텐츠 -->
+		<section class="main-container">
+			<div class="detailMountain-container">
+				<div class="mountain-container" id="mountainData"></div>	
+			</div>
 			
 		<div class="map-container" style="text-align:center;">
 			<div>
-				<input type="text" placeholder="Search" id="address"/>
+				<input type="text" readonly id="address"/>
 				<button id="mapBtn">FIND</button>
 			</div>
-			<!-- 지도를 표시할 div 입니다 -->
-			<div id="map" style="width:100%;height:350px;"></div>
-		
 			
-			<div  class="map-image" style="padding-top:10px; display:flex; justify-content:center;">
+			<div class="mapImg-container"> 
+				<!-- 산 지도를 표시할 div 입니다 -->
+				<div id="map" style="width: 100%; height:350px;"></div>
 			
-				<!-- 이미지 지도를 표시할 div 입니다 -->
-				<div id="click" style="display:none; padding-rigth:30px;">Click ▶</div>
-				<div id="staticMap" style="width:600px;height:350px;"></div>
-			</div>	
+				
+				<div  class="map-image" style="padding-top:10px; display:flex; justify-content:center;">
+				
+					<!-- 산 이미지 지도를 표시할 div 입니다 -->
+					<div id="KakaoMapClick">Kakao Map ▶</div>
+					<div id="staticMap" style="width:600px;height:350px;"></div>
+				</div>	
+			</div>
 		</div>
-	</div>
+	
+	
+	 <%-- 커서 전체화면 적용하기 --%>
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
+    </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+	
+	
 	<a id="backtotop" ></a>
 	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
 	
 	
 	<%-- footer 컴포넌트 가져오기 --%> 
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
+	</section>
+	
 	
 	<script>
     $(function() {
@@ -138,25 +171,26 @@ function mapView(data){
     	  
     	  data.mountain.forEach(function(mountain) {
     		  
-    	    html += '<div class="grid-item">';
-    	    html += '<ul>';
-    	    html += '<li>';
-    	    html += 'Mountain No: ' + mountain.m_no + '<br>';
-    	    html += 'Name: ' + mountain.m_name + '<br>';
-    	    html += 'Height: ' + mountain.m_height + 'm<br>';
-    	    html += 'Location: ' + mountain.m_location + '<br>';
-    	    html += 'Address: ' + mountain.m_address + '<br>';
-    	    
+    	    html += '<div class="detail-container">';
     	    if (mountain.m_photo) {
-    	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
-    	    }
+      	      html += '<div class="m_photo"><img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '"></div>';
+      	    }
+    	    html += '<div class="mountain_info">';
+    	    html += '<div class="m_name">' + mountain.m_name +'</div><br>';
+    	    html += '<div> 높이: ' + mountain.m_height +'m</div>';
+    	    html += '<div> 지역: ' + mountain.m_location +'</div>';
+    	    html += '<div> 주소: ' + mountain.m_address +'</div>';
+    	    html += '<div><a target="_blank" href="https://namu.wiki/w/'+ mountain.m_name +'"><img id="namoowiki" src="${contextPath}/resources/images/namoowiki.png"/></a></div>';
+    	   
+    	 // JavaScript를 이용하여 <input> 요소에 JSON에서 받은 m_address 값을 넣습니다.
+            var addressInput = document.getElementById('address');
+            addressInput.value = mountain.m_address;
     	    
-    	    html += '</li>';
-    	    html += '</ul>';
+    	    html += '</div>'; 
     	    html += '</div>';
     			    
     	  });
-    	  
+    	
     	 mountainDataDiv.innerHTML = html;
         });
     });

@@ -1,44 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
-* {
-  box-sizing: border-box;
-  outline: none;
-}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-body {
-  font-size: 15px;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6em;
-  background-color: #fff;
-  color: #222;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #222;
-}
-
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  margin-top: 0;
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
-ul{
-	list-style: none;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 
 body {
 	/* height:300vh */
 	background-color: beige;
-  /* cursor:none !important; 기본 마우스 없애기 */
+   cursor:none !important; /*기본 마우스 없애기 */
+  display: flex;
+  flex-direction: column;
 }
 .container{
+	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content : center;
 	margin-top: 30px;
@@ -109,7 +211,7 @@ body {
 }
 
 
-/* 네비게이션 메뉴 */
+/*************************************** 네비게이션 메뉴 */
 header {
   display: flex;
   align-items: center;
@@ -117,6 +219,7 @@ header {
   background-color: #04120c;
   color: #b8e1ee;
   justify-content: space-between;
+   overflow: hidden;
 }
 
 a {
@@ -159,8 +262,58 @@ a {
   min-width: 1000px;
 }
 
+/****************************** 메인 섹션 */
+.main-container{
+	flex: 1;
+}
+.main-container h1{
+	font-size: 3em;
+  	letter-spacing: -1px;
+}
+#location{
+	font-family: 'Nanum Gothic', sans-serif;
+	padding:30px;
+	font-size: 50px;
+	margin-left:30px;
+	font-weight:800;
+}
+/******************************* 산 그리드*/
 
-/* backtotop 버튼 */
+.container{
+	display:flex;
+	justify-content: space-around;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+  gap: 20px; /* Gap between grid items, adjust as needed */
+  padding: 50px;
+}
+
+.grid-item {
+	font-family: 'Nanum Gothic', sans-serif;
+	width: 300px;
+	height: 300px;
+ 	margin: 10px;
+ 	border-radius: 10px;
+	box-shadow: 0 0 30px rgba(0,0,0,0.15);
+	background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+ 	color: #004080;
+ 	font-weight: 600;
+ 	padding: 30px;
+ 	box-sizing: border-box;
+ 	transition: 0.35s;
+}
+
+.grid-item li{
+	line-height: 25px;
+}
+
+.grid-item:hover{
+  transform: scale(1.05);
+}
+/************************************ backtotop 버튼 */
 #backtotop {
   background-color: rgb(47, 48, 89);
   width: 40px;
@@ -204,99 +357,11 @@ a {
 	margin-right: 20px;
 }
 
-/* 산 데이터표 */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-.container{
-	display:flex;
-	justify-content: space-around;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-  gap: 20px; /* Gap between grid items, adjust as needed */
-  padding: 50px;
-}
-
-.grid-item {
-  /* Styles for individual grid items, adjust as needed */
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-
-.items {
-	margin-left:30px;
-	margin-bottom:20px;
-  width: 800px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 30px;
-}
-
-.items:last-child{
-	margin-bottom: 300px ;
-}
-
-.item.thum .photo {
-	
-  display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-  height: 200px;
-  border-radius: 15px;
-  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.15);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-2 - 30px
-4 - 60px
-1 - 15px
-1.5 - 22.5px
-1.5 - 22.5px
-
-.weather-icon {
-	background:url(../images/rainy-day.png) no-repeat center;
-	background-color:#eee;
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
-}
-.temp {
-	margin-top:10px;
-	background-color:#eee;
-  height: 40px;
-  width: 55px;
-  border-radius: 10px;
-  font-size:25px;
-}
-.local {
-	background-color:#eee;
-  height: 25px;
-  width: auto;
-  margin-top:10px;
-  border-radius: 10px;
-}
-.max-temp {
-	background-color:#eee;
-  height: 30px;
-  width: auto;
-  border-radius: 10px;
-}
-.min-temp {
-	background-color:#eee;
-  height: 30px;
-  width: auto;
-  border-radius: 10px;
-} */
- */
-
-/* footer 디자인*/
+/***************************************** footer 디자인*/
 .footer{
-	position: relative;
-	transform: translateY(-100%);
+	/* position: relative;
+	transform: translateY(-100%); */
 }
 
 .footer-inner {

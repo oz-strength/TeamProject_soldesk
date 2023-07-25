@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -130,20 +129,21 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/************************************************************/
+
+
 body {
-	background-color: beige;
 	/* height:300vh */
-  cursor:none !important; /*기본 마우스 없애기*/
+	background-color: beige;
+ 	cursor:none !important; /* 기본 마우스 없애기 */
+ 	display:flex;
+ 	flex-direction: column;
 }
-.container{
-	font-family: 'Montserrat', sans-serif;
-	display: flex;
-	justify-content : center;
-	margin-top: 30px;
+.main-container{
+	flex: 1;
+	
 }
 
-/*************************************** cursor 디자인하기*/
+/*cursor 디자인하기*/
 .cursor{
 	position: fixed;
 	top:0;
@@ -208,7 +208,7 @@ body {
 }
 
 
-/******************************************** 네비게이션 메뉴 */
+/***************************************** 네비게이션 메뉴 */
 header {
   display: flex;
   align-items: center;
@@ -258,9 +258,99 @@ a {
 #main-image {
   min-width: 1000px;
 }
+/************************************************* 콘텐츠 */
+
+.detailMountain-container{
+	padding: 30px;	
+}
+.detail-container{
+	display:flex;
+}
+
+.m_photo img {
+    width: 500px;
+    height: 500px;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  }
+ 
+.mountain_info {
+	font-family: 'Nanum Gothic', sans-serif;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.mountain_info div{
+	padding: 10px 0;
+}
+
+.mountain_info .m_name{
+	font-size: 70px;
+	margin-bottom: 30px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 800;
+}
+
+#namoowiki{
+	width:100px;
+	border-radius: 10px;
+	transition: transform 0.4s;
+}
+
+#namoowiki:hover {
+  transform: translateY(-5px); /* 마우스 호버 시, 이미지를 5px 위로 이동시킵니다. */
+}
+
+#address {
+ 	display: inline-block;
+ 	width: 250px;
+  	height: 35px;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background-color: #fff;
+  	transition: all 0.3s ease 0s;
+  	outline: none;
+  	text-align:center;
+  	cursor:none;
+}
 
 
-/*************************************** backtotop 버튼 */
+#mapBtn{
+ 	display: inline-block;
+ 	width: 100px;
+  	height: 41px;
+  	border-radius: 4px;
+  	border: 2px solid #e1fdfa;
+  	background-color: #fff;
+  	transition: all 0.3s ease 0s;
+  	cursor: pointer;
+  	outline: none;
+}
+#mapBtn:hover {
+  background-color: #94f8a5;
+  box-shadow: 0px 15px 20px #ddfdbd;
+  color: #fff;
+  transform: translateY(-7px);
+}
+.mapImg-container{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 100px 400px;
+}
+#KakaoMapClick{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: #fae100;
+  background-color: #000;
+  width: 150px;
+  height: 50px;
+  border-radius: 25px; /
+}
+/********************************************** backtotop 버튼 */
 #backtotop {
   background-color: rgb(47, 48, 89);
   width: 40px;
@@ -298,111 +388,17 @@ a {
 /*back to top button*/
 
 
-/****************************************** map 이미지*/
+/* map 이미지*/
 .map{
 	margin-top: 100px;
 	margin-right: 20px;
 }
 
-/********************************************8 날씨 데이터 표 */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
-.container{
-	display:flex;
-	justify-content: space-around;
-}
-
- /* fcstTime 스타일 설정 */
-  .fcst-time {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-  gap: 20px; /* Gap between grid items, adjust as needed */
-  padding: 50px;
-}
-
-.grid-item {
-  /* Styles for individual grid items, adjust as needed */
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-  line-height: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.15);
-  font-family: 'Nanum Gothic', sans-serif;
-  background: #f5f5dc17;
-}
-
-.items {
-	margin-left:30px;
-	margin-bottom:20px;
-  width: 800px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 30px;
-}
-
-.items:last-child{
-	margin-bottom: 300px ;
-}
-
-.item.thum .photo {
-	
-  display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-  height: 200px;
-  border-radius: 15px;
-  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.15);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.weather-icon {
-	background:url(../images/rainy-day.png) no-repeat center;
-	background-color:#eee;
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
-}
-.temp {
-	margin-top:10px;
-	background-color:#eee;
-  height: 40px;
-  width: 55px;
-  border-radius: 10px;
-  font-size:25px;
-}
-.local {
-	background-color:#eee;
-  height: 25px;
-  width: auto;
-  margin-top:10px;
-  border-radius: 10px;
-}
-.max-temp {
-	background-color:#eee;
-  height: 30px;
-  width: auto;
-  border-radius: 10px;
-}
-.min-temp {
-	background-color:#eee;
-  height: 30px;
-  width: auto;
-  border-radius: 10px;
-} */
-
 
 /* footer 디자인*/
 .footer{
-	position: relative;
-	transform: translateY(-100%);
+	/* position: relative;
+	transform: translateY(-100%); */
 }
 
 .footer-inner {
