@@ -1743,7 +1743,7 @@
           </div>
           <div class="item">
             <div class="photo">
-              <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
+              <img src="${contextPath}/resources/images/surprise-box.png" alt="" />
             </div>
             <div class="detail">
               <h2>랜덤 산 뽑기!</h2>
@@ -1753,7 +1753,7 @@
           </div>
           <div class="item">
             <div class="photo">
-              <img src="${contextPath}/resources/images/mountaincard.png" alt="" />
+              <img src="${contextPath}/resources/images/live-chat.png" alt="" />
             </div>
             <div class="detail">
               <h2>모르는게 있음 물어봐!</h2>
