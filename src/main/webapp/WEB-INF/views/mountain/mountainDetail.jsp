@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/mountainDetail.css">
 <style>
+	.mountain_info,
+	a,
+	#namoowiki,
 	.sns a,
 	.policy a,
 	.button-in-header,
@@ -25,6 +28,12 @@
 <script>
 
 $(document).ready(function() {
+	// ID를 이용하여 요소를 가져옴
+	var kakaoMapClick = document.getElementById('KakaoMapClick');
+
+	// display 속성을 'none'으로 설정하여 숨김
+	kakaoMapClick.style.display = 'none';
+	
     $("#mapBtn").click(function(){
     	var address = $("#address").val();
     	if(address==''){
@@ -97,7 +106,7 @@ function mapView(data){
 	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 	
 	// id가 click인 div를 보이게 처리
-    $("#click").show();
+    $("#KakaoMapClick").show();
 }
 </script>
 </head>
@@ -125,7 +134,7 @@ function mapView(data){
 				<div  class="map-image" style="padding-top:10px; display:flex; justify-content:center;">
 				
 					<!-- 산 이미지 지도를 표시할 div 입니다 -->
-					<div id="click" style="display:none; padding-rigth:30px;">Click ▶</div>
+					<div id="KakaoMapClick">Kakao Map ▶</div>
 					<div id="staticMap" style="width:600px;height:350px;"></div>
 				</div>	
 			</div>
@@ -171,7 +180,7 @@ function mapView(data){
     	    html += '<div> 높이: ' + mountain.m_height +'m</div>';
     	    html += '<div> 지역: ' + mountain.m_location +'</div>';
     	    html += '<div> 주소: ' + mountain.m_address +'</div>';
-    	    html += '<div><a target="_blank" href="https://namu.wiki/w/'+ mountain.m_name +'">나무위키 보러가기◀ Click!</a></div>';
+    	    html += '<div><a target="_blank" href="https://namu.wiki/w/'+ mountain.m_name +'"><img id="namoowiki" src="${contextPath}/resources/images/namoowiki.png"/></a></div>';
     	   
     	 // JavaScript를 이용하여 <input> 요소에 JSON에서 받은 m_address 값을 넣습니다.
             var addressInput = document.getElementById('address');
