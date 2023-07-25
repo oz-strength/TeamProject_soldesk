@@ -24,6 +24,17 @@
     padding: 8px; /* 셀의 내용과 보더 사이의 여백 설정 */
   }
 </style>
+<script type="text/javascript">
+	$(function() {
+		
+		$("#n_no_chk").click(function() {
+			$.getJSON("nft.Count.getJSON", function(n_no) {
+				alert(n_no + 1 + ".png 값부터 순서대로 넣어주세요 ~");
+			});
+		});
+	});
+</script>
+
 </head>
 <body>
 
@@ -42,7 +53,18 @@
 	    <div class="content">
 	        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
 	        <section id="nft">
-	            <h2>nft</h2>
+	        <h1>NFT Image 등록하기</h1>
+			<form action="nft.regist" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="n_name" value="hashValue">
+				<input type="hidden" name="n_master" value="admin">
+				<input type="file" name="n_files" multiple="multiple">
+				<input type="submit" value="등록">
+			</form>
+			<hr>
+				<button id="n_no_chk">값 확인하기</button>
+			<hr>
+	        
+	         <%--    <h2>nft</h2>
 	            <p>nft 내용을 여기에 표시합니다.</p>
 	            <h1>File Upload Form</h1>
 	            <div class="upload-container">
@@ -67,7 +89,7 @@
 				  	</tr>
 				  	</table>
 				  </form>
-				</div>
+				</div> --%>
 	        </section>
 	        <section id="users">
 	            <h2>사용자 관리</h2>

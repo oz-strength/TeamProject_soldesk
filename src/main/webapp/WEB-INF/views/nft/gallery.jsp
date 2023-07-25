@@ -20,7 +20,26 @@
 	cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 }
 </style>
-    <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+	$(function() {
+		// 이미지 경로 변수에 저장
+		var imgPath = '<c:url value="resources/img/nft/" />';
+		$.getJSON("nft.Board.getJSON", function(nft) {
+			$.each(nft.nft, function(i, n) {
+				// 이미지
+				let nft_img = $("<img src='" + imgPath + n.n_img + "' />");
+				$("#nft_div").append(nft_img);
+			
+				let title = n.n_name;
+				let nft_title = $("<h1></h1>").append(title);
+				$("#nft_div").append(nft_title);
+				$("#nft_div").append("<hr>");
+			});
+		});
+	});
+</script>
 	
 </head>
 <body>
@@ -33,6 +52,8 @@
 	
 	<section>
 	<!-- nft 그리드 -->
+	<div id="nft_div"></div>
+	
 	
 	<div class="grid-container" id="nftData">
 		<div class="grid-item">앞으로 들어올 예정</div>
