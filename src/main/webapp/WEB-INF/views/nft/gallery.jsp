@@ -39,6 +39,13 @@
 			});
 		});
 	});
+	
+	function checkMakingWallet() {
+		let check = confirm("지갑을 생성하시겠습니까?");
+		if (check) {
+			location.href = "../user/make.wallet";
+		}
+	}
 </script>
 	
 </head>
@@ -47,6 +54,13 @@
 	<div class="main-container">
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	
+	<div>
+		<c:if test="${sessionScope.user != null}">
+			<a href="" onclick="checkMakingWallet()">지갑 생성</a>
+			<hr>
+		</c:if>
+	</div>
 	
 	<section>
 	<!-- nft 그리드 -->
