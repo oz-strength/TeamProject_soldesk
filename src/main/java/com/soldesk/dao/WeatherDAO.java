@@ -201,9 +201,11 @@ public class WeatherDAO {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
 			Date w_baseDate = sdf.parse(baseDate);
 			wi.setW_baseDate(w_baseDate);
+			System.out.println(w_baseDate);
 			
 			Date w_fcstDate = WeatherManager.getFcstDate();
 			wi.setW_fcstDate(w_fcstDate);
+			System.out.println(w_fcstDate);
 //			System.out.println(wi.getW_fcstDate());
 			
 		} catch (Exception e) {

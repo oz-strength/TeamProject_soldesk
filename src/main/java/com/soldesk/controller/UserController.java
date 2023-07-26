@@ -93,4 +93,9 @@ public class UserController {
 	public @ResponseBody Users getAllUserJSON() {
 		return uDao.getAllUser();
 	}
+	
+	@RequestMapping(value = "/user/make.wallet", method = RequestMethod.GET)
+	public String makeWallet() {
+		return "user/myPage";
+	}
 }
