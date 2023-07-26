@@ -29,13 +29,13 @@
 		$.getJSON("nft.Board.getJSON", function(nft) {
 			$.each(nft.nft, function(i, n) {
 				// 이미지
-				let nft_img = $("<img src='../" + imgPath + n.n_img + "' />");
-				$("#nft_div").append(nft_img);
+				let nft_img = $("<img id='nftImg' src='../" + imgPath + n.n_img + "' />");
+				$(".grid-item").append(nft_img);
 			
 				let title = n.n_name;
 				let nft_title = $("<h1></h1>").append(title);
-				$("#nft_div").append(nft_title);
-				$("#nft_div").append("<hr>");
+				$(".grid-item").append(nft_title);
+				$(".grid-item").append("<hr>");
 			});
 		});
 	});
@@ -68,14 +68,7 @@
 	
 	
 	<div class="grid-container" id="nftData">
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
+		<div class="grid-item"></div>
 	</div>
 	
 	<div class="auction">

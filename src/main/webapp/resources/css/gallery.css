@@ -280,6 +280,10 @@ a {
 /********************************************** 갤러리 그리드 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
+#nftImg{
+	width: 100px;
+}
+
 .container{
 	display:flex;
 	justify-content: space-around;
