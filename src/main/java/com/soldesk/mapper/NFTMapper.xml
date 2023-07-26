@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.mapper.NFTMapper">
+	<insert id="insertNFT" parameterType="com.soldesk.entity.nft.NFT">
+		insert into soldesk_nft_tb values (#{n_no}, 
+		#{n_hash}, #{n_master}, #{n_img}, #{n_status}, #{n_brand}, 
+		#{n_name})
+	</insert>
+
+	<select id="getNFTList" parameterType="com.soldesk.entity.nft.NFT" 
+		resultType="com.soldesk.entity.nft.NFT">
+		select * from soldesk_nft_tb where n_status in #{n_status} order by n_no
+	</select>
+	
+	<select id="getNFTDetail" parameterType="com.soldesk.entity.nft.NFT" 
+		resultType="com.soldesk.entity.nft.NFT">
+		select * from soldesk_nft_tb where n_no = #{n_no} and n_status = #{n_status}
+	</select>
+
+	<select id="countNFT" resultType="java.lang.Integer">
+		select count(*) from soldesk_nft_tb
+	</select>
+	
+	<select id="setNFTNo" resultType="java.lang.Integer">
+		select max(n_no) + 1 from soldesk_nft_tb
+	</select>
+	
+	<select id="checkNFTHash" parameterType="com.soldesk.entity.nft.NFT" 
+		resultType="com.soldesk.entity.nft.NFT">
+		select * from soldesk_nft_tb where n_hash = #{n_hash}
+	</select>
+</mapper>
