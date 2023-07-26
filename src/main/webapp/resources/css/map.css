@@ -224,6 +224,8 @@ a {
 	text-decoration: unset;
 }
 
+
+
 .button-in-header {
   padding: 10px;
   font-weight: 700;
@@ -337,8 +339,18 @@ a {
   box-shadow: 0 0 30px rgba(0,0,0,0.15);
   font-family: 'Nanum Gothic', sans-serif;
   background: #f5f5dc17;
+  transition: 0.35s;
 }
 
+.grid-item:hover{
+	 transform: scale(1.05);
+}
+.weather_location{
+	font-weight: bold;
+}
+.weather_info{
+	text-align: center;
+}
 .items {
 	margin-left:30px;
 	margin-bottom:20px;

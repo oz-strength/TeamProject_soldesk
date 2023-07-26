@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/localWeatherPage.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
@@ -44,6 +45,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 <body>
 
 <header class="header">
+	<i id="backIcon" class="xi-long-arrow-left"></i>
 	<div class="weather_title_baseDate"></div>
   	<div class="weather_title_h"></div>
 </header>
