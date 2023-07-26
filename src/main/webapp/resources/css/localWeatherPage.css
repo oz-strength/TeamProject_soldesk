@@ -231,10 +231,9 @@ header {
 }
 
 #backIcon{
-	width:100px;
-	color:#fff;
-	position: absolute; /* 추가 */
- 	left: 50px; /* 추가 */
+	position: absolute;
+ 	left: 50px; 
+ 	top: 10px;
 }
 
 a {
