@@ -21,21 +21,6 @@ public class WeatherController {
 	@Autowired
 	private WeatherDAO wDAO;
 	
-	// 홈페이지 시작 시에 실행 또는
-	// 지도 페이지나 날씨 페이지 이동 시에 실행하도록 변경하기 (return 값)
-	@RequestMapping(value = "/weather", method = RequestMethod.GET)
-	public String addWeatherTest(HttpServletRequest req) {
-		if (wDAO.checkWeather()) {
-			System.out.println("데이터를 넣습니다.");
-			wDAO.addWeather(req);
-		} else {
-			System.out.println("이미 데이터가 있습니다.");
-		}
-		
-		return "home";
-	}
-	
-	
 	// 지도 페이지 이동 시에 json으로 반환하는 코드
 	@RequestMapping(value = "/weatherMap.getJSON", method = RequestMethod.GET, 
 			produces = "application/json; charset=UTF-8")
