@@ -25,11 +25,11 @@
 <script type="text/javascript">
 	$(function() {
 		// 이미지 경로 변수에 저장
-		// var imgPath = '<c:url value="resources/images/nft" />';
+		var imgPath = '<c:url value="resources/images/nft/" />';
 		$.getJSON("nft.Board.getJSON", function(nft) {
 			$.each(nft.nft, function(i, n) {
 				// 이미지
-				let nft_img = $("<img src='" + n.n_img + "' />");
+				let nft_img = $("<img src='../" + imgPath + n.n_img + "' />");
 				$("#nft_div").append(nft_img);
 			
 				let title = n.n_name;
