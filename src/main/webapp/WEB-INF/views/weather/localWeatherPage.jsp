@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/localWeatherPage.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
@@ -35,14 +36,37 @@
 
 
 </script>
+<style>
+	div {
+cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
+	</style>
 </head>
 <body>
-	 <div class="weather_title_baseDate"></div>
-  <div class="weather_title_h"></div>
+
+<header class="header">
+	<div class="weather_title_baseDate"></div>
+  	<div class="weather_title_h"></div>
+</header>
+<section class="weather-section">
+	
   <div class="weather_content_fcstDate"></div>
   <div class="weather"></div>
   <canvas id="weatherChart" width="400" height="200"></canvas>
 
+</section>
+
+
+	 <%-- 커서 전체화면 적용하기 --%>
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
+    </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+	
   <script>
     $(function() {
       var w_loc = '<%= (String) request.getAttribute("w_loc") %>';

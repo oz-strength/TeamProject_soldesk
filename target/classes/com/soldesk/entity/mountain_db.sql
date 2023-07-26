@@ -5,7 +5,8 @@ create table soldesk_mountain_tb(
 	m_height number(4) not null,
 	m_location varchar2(20 char) not null,
 	m_address varchar2(100 char) not null,
-	m_photo varchar2(100 char) 
+	m_photo varchar2(100 char),
+	m_detail varchar2(1000 char)
 );
 
 -- 산 테이블 시퀀스 생성
@@ -583,9 +584,7 @@ UPDATE soldesk_mountain_tb
 -- 산 상세설명 추가
 -- 산 상세설명 추가 1 ~ 10
 UPDATE soldesk_mountain_tb
-    SET m_detail = '가리산(加里山)은 강원특별자치도 춘천시와 홍천군에 걸쳐 있는 산이다.
-
-대체로 육산이고, 홍천강의 발원지 및 소양강의 수원(水源)을 이루고 있다.'
+    SET m_detail = '가리산(加里山)은 강원특별자치도 춘천시와 홍천군에 걸쳐 있는 산이다.대체로 육산이고, 홍천강의 발원지 및 소양강의 수원(水源)을 이루고 있다.'
     WHERE m_name = '가리산';
 UPDATE soldesk_mountain_tb
     SET m_detail = '가리왕산(加里王山)은 강원특별자치도 정선군과 평창군에 걸쳐 있는 산이다.오대산의 남쪽에 있으면서 높이도 비슷하여 오대산과 더불어 태백산맥의 지붕노릇을 하고 있다.
