@@ -29,7 +29,8 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<h1 style="padding:100px 0;">해당 지역의 날씨를 확인하세요!</h1>
+	<section class="main-section">
+	<h1 style="padding:100px 0; text-align:center; font-size:20px; font-weight:500;">지역별 날씨를 확인하세요!</h1>
 	
 	<!-- weather/weatherPage-->
 	
@@ -56,7 +57,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	</div>	
 	
 	
-	
+	</section>
 	
 	
 	

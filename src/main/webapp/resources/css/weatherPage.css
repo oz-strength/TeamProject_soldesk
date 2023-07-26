@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -129,7 +131,7 @@ table {
   border-spacing: 0;
 }
 
-
+/***************************************************************/
 
 body {
 	/* height:300vh */
@@ -143,10 +145,12 @@ body {
 	margin-top: 30px;
 }
 
+.main-section{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 
 
-
-/*cursor 디자인하기*/
+/*******************************************************cursor 디자인하기*/
 .cursor{
 	position: fixed;
 	top:0;
@@ -303,7 +307,7 @@ a {
 
 
 
-/* 지역 그리드 표 */
+/**********************************************************8 지역 그리드 표 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .container{
@@ -328,12 +332,19 @@ a {
 
 .grid-item {
   /* Styles for individual grid items, adjust as needed */
-  border: 1px solid #ccc;
-  padding: 10px;
+  border: none;
+  padding: 20px 10px;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  font-weight: 600;
+  transition: 0.35s;
+	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-
+.grid-item:hover{
+  transform: scale(1.05);
+}
 
 /* 
 .headline-share {

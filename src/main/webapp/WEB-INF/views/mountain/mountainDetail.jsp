@@ -173,13 +173,14 @@ function mapView(data){
     		  
     	    html += '<div class="detail-container">';
     	    if (mountain.m_photo) {
-      	      html += '<div class="m_photo"><img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '"></div>';
+      	      html += '<div class="m_photo"><img src="' + mountain.m_photo + '" alt="${contextPath}/resources/images/404error.png"></div>';
       	    }
     	    html += '<div class="mountain_info">';
     	    html += '<div class="m_name">' + mountain.m_name +'</div><br>';
     	    html += '<div> 높이: ' + mountain.m_height +'m</div>';
     	    html += '<div> 지역: ' + mountain.m_location +'</div>';
     	    html += '<div> 주소: ' + mountain.m_address +'</div>';
+    	    html += '<div class="m_detail"> 상세설명: ' + mountain.m_detail +'</div>';
     	    html += '<div><a target="_blank" href="https://namu.wiki/w/'+ mountain.m_name +'"><img id="namoowiki" src="${contextPath}/resources/images/namoowiki.png"/></a></div>';
     	   
     	 // JavaScript를 이용하여 <input> 요소에 JSON에서 받은 m_address 값을 넣습니다.
