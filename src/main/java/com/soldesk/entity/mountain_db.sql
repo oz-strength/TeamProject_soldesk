@@ -1137,3 +1137,8 @@ UPDATE soldesk_mountain_tb
 
 현재 건물 대부분은 1992년에 중창된 것이다. 평소에는 일반인 출입이 금지되어 있으나 석가탄신일에는 개방된다.'
     WHERE m_name = '희양산';
+
+-- 산 주소 db 일부 변경
+update soldesk_mountain_tb
+    set m_address = '경기 가평군 북면 화악리 산 228-4'
+    where m_name = '화악산';
