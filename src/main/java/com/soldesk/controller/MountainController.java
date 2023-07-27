@@ -57,5 +57,11 @@ public class MountainController {
 		return mDAO.getMountainDetail(m, req);
 	}
 	
+	// 산 데이터 추가
+	@RequestMapping(value = "/mountain.add", method = RequestMethod.POST)
+	public String registerMountain(Mountain m) {
+		mDAO.registerMountain(m);
+		return "admin/admin";
+	}
 	
 }
