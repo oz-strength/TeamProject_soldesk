@@ -95,7 +95,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/make.wallet", method = RequestMethod.GET)
-	public String makeWallet() {
-		return "user/myPage";
+	public String makeWallet(HttpServletRequest req) {
+		
+		req.setAttribute("r", "지갑이 생성되었습니다. 경매장 페이지에서 확인하세요.");
+		return "home";
 	}
 }

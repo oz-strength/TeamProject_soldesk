@@ -48,16 +48,52 @@
 		});
 	});
 	
+
+</script>
+
+<script type="text/javascript">
 	function checkMakingWallet() {
 		let check = confirm("지갑을 생성하시겠습니까?");
 		if (check) {
 			location.href = "../user/make.wallet";
 		}
 	}
-</script>
 	
+	async function goAuctionPage() {
+		let check = confirm("경매장 페이지로 이동하시겠습니까?");
+		if (check) {
+			const userData = {
+				u_email : "${sessionScope.user.u_email}",
+				u_name : "${sessionScope.user.u_name}",
+			};
+
+			try {
+				const response = await
+				fetch("http://localhost:3000/user.regist/", {
+					method : "POST",
+					body : JSON.stringify(userData),
+					headers : {
+						"Content-Type" : "application/json",
+					},
+				});
+
+				if (response.ok) {
+					alert("경매장 페이지로 이동합니다.");
+					window.location.href = "http://localhost:3000/wallet.go";
+				} else {
+					alert("데이터 전송 실패!");
+				}
+			} catch (error) {
+				alert("서버 통신 중 에러 발생:", error);
+			}
+		}
+	}
+</script>
+
 </head>
 <body>
+
+
 
 	<div class="main-container">
 	<%-- 헤더 컴포넌트 가져오기 --%>
@@ -65,7 +101,12 @@
 	
 	<div>
 		<c:if test="${sessionScope.user != null}">
-			<a href="" onclick="checkMakingWallet()">지갑 생성</a>
+			<!-- user_db 에 wallet 변수 추가하기 -->
+			<!-- wallet_cash 를 wallet으로 바꾸기 -->
+			<c:if test="${sessionScope.user.u_wallet_cash == 0 }">
+				<a onclick="checkMakingWallet()">지갑 생성</a>
+			</c:if>
+			<a onclick="goAuctionPage()">경매장 페이지</a>
 			<hr>
 		</c:if>
 	</div>
