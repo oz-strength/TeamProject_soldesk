@@ -26,6 +26,14 @@
 </style>
 <script type="text/javascript">
 	$(function() {
+	    // "산 추가하기" 버튼 클릭 이벤트
+	    $('.addMountainBtn').click(function(event) {
+	        event.preventDefault(); // 기본 동작 방지 (a 태그의 링크 이동 방지)
+	        $('.addMountainForm').toggleClass('show'); // show 클래스 토글
+	    });
+	});
+
+	$(function() {
 		
 		$("#n_no_chk").click(function() {
 			$.getJSON("nft.Count.getJSON", function(n_no) {
@@ -33,8 +41,39 @@
 			});
 		});
 	});
+	
+	$(function(){
+		$('#fileInput').change(function() {
+		    var fileCount = this.files.length;
+		    $('#fileCount').text('선택된 파일: ' + fileCount + '개');
+		  });
+	});
 </script>
+<style>
+	.addMountainForm {
+    display: none; /* 초기에는 폼을 숨김 */
+	}
 
+	.addMountainForm.show {
+	    display: block; /* show 클래스가 적용되면 폼을 보여줌 */
+	}
+    /* 공통 버튼 스타일 */
+    .addMountainBtn{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007BFF; /* 원하는 배경색을 지정하세요 */
+        color: #fff; /* 버튼 글자 색상 */
+        text-decoration: none;
+        border: none;
+        border-radius: 5px; /* 버튼 둥글기 조정 */
+        cursor: pointer;
+    }
+
+    /* 버튼에 호버 효과 주기 */
+    .addMountainBtn:hover {
+        background-color: #0056b3; /* 호버 시 배경색 변경 */
+    }
+</style>
 </head>
 <body>
 
@@ -53,47 +92,34 @@
 	    <div class="content">
 	        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
 	        <section id="nft">
-	        <h1>NFT Image 등록하기</h1>
-			<form action="nft.regist" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="n_name" value="hashValue">
-				<input type="hidden" name="n_master" value="admin">
-				<input type="file" name="n_files" multiple="multiple">
-				<input type="submit" value="등록">
-			</form>
-			<hr>
-				<button id="n_no_chk">값 확인하기</button>
-			<hr>
+	        <div class="nft-header">NFT Image 등록하기</div>
 	        
-	         <%--    <h2>nft</h2>
-	            <p>nft 내용을 여기에 표시합니다.</p>
-	            <h1>File Upload Form</h1>
-	            <div class="upload-container">
-				  <form id="uploadForm" action="${contextPath}/admin/uploadPath" method="post" enctype="multipart/form-data">
-				    <table  class="board-table userTbl">
-				    <tr>
-				    	<td name="title" id="title" class="title">제목</td>
-				    	<td><input type="text" required></input></td>
-				    </tr>
-				    <tr>
-				    	<td name="contents" id="contents" class="content">내용</td>
-				    	<td><input type="text" required></input></td>
-				    </tr>
-				    <tr>
-				    	
-				    	<td colspan="2"><input type="file" name="fileList" id="fileList" multiple required></td>				    
-				    </tr>
-				    <tr>
-					    <td colspan="3">
-					   		<button type="submit" class="uploadBtn">UPLOAD</button>
-					    </td>
-				  	</tr>
-				  	</table>
-				  </form>
-				</div> --%>
+	        <div class="nft-main-container">
+		        <div class="nft-reg-form">
+					<form action="nft.regist" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="n_name" value="hashValue">
+						
+						<input type="hidden" name="n_master" value="admin">
+						
+						<div class="custom-file-upload">
+							<label for="fileInput" class="file-label">파일 선택</label>
+							<input type="file" name="n_files" multiple="multiple" class="file-choice-btn">
+						</div>
+						<div id="fileCount">선택된 파일: 0개</div>
+						
+						<input type="submit" value="등록" class="file-upload-btn">
+					</form>
+				</div>
+				<div class="check-value">
+					<hr>
+						<button id="n_no_chk">값 확인하기</button>
+					<hr>
+		       </div>
+	       </div>
+	       
 	        </section>
 	        <section id="users">
 	            <h2>사용자 관리</h2>
-	            <p>사용자 관리 내용을 여기에 표시합니다.</p>
 	            <div class="user-container">
 		            <table id="userList" class="board-table">
 		            	<tr>
@@ -110,14 +136,39 @@
 	        
 	        <section id="mountainList">
 	            <h2>산 리스트 관리</h2>
-	            <p>산 리스트 관리 내용을 여기에 표시합니다.</p>
-	            
+	            <div>
+	            	<a class="addMountainBtn" >산 추가하기</a>
+	            </div>
+	            <div class="addMountainForm">
+	            	<form action="${contextPath}/mountain.add" method="post">
+	            		<table>
+	            			<tr>
+	            				<th>산 이름</th>
+	            				<th>산 높이</th>
+	            				<th>산 지역</th>
+	            				<th>산 주소</th>
+	            				<th>산 사진</th>
+	            				<th>산 상세설명</th>
+	            			</tr>
+	            			<tr>
+	            				<td><input name="m_name" type="text" placeholder="가리왕산" required/></td>
+	            				<td><input name="m_height" type="text" placeholder="1562m" required/></td>
+	            				<td><input name="m_location" type="text" placeholder="강원" required/></td>
+	            				<td><input name="m_address" type="text" placeholder="강원특별자치도..." required/></td>
+	            				<td><input name="m_photo" type="text" placeholder="사진url..." required/></td>
+	            				<td><input name="m_detail" type="text" placeholder="상세설명..." required/></td>
+	            			</tr>
+	            			<tr>
+	            				<td colspan="6"><button>추가하기</button></td>
+	            			</tr>
+	            		</table>
+	            	</form>
+	            </div>
 				<div class="grid-container" id="mountainData"></div>
 	        </section>
 	        
 	        <section id="board">
 	            <h2>게시판 관리</h2>
-	            <p>게시판 관리 내용을 여기에 표시합니다.</p>
 	            
 	        </section>
 	    </div>
@@ -208,9 +259,9 @@
     	      html += '<td>' + mountain.m_location + '</td>';
     	      html += '<td>' + mountain.m_address + '</td>';  	 
     	  	html += '</tr>';
-      	    html += '<tr>';
+      	   /*  html += '<tr>';
       	  	html += '<td colspan="5"><a href="#">수정하기</a></td>';
-      	    html += '</tr>';
+      	    html += '</tr>'; */
       	    html += '</table>';
       			    
       	  });

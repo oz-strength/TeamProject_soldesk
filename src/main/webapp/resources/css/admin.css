@@ -308,6 +308,26 @@ h1 {
     margin-bottom: 20px;
 }
 /******************************************** nft사진 업로드 */
+.nft-header{
+	display:flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+.nft-main-container{
+	display:flex;
+	justify-content: center;
+}
+.nft-reg-form{
+	width: 300px;
+	padding: 20px;
+	background-color: #eee;
+}
+
+.check-value{
+	width: 300px;
+	padding: 20px;
+	background-color: #eee;
+}
 .upload-container{
 	display: flex;
 	justify-content: center;
@@ -317,6 +337,50 @@ h1 {
 .board-table.userTbl{
 	width: 500px;
 }
+
+.file-choice-btn{
+	margin-bottom: 10px;
+}
+
+#fileCount{
+	margin-top: 30px;
+}
+
+.custom-file-upload {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* 기본 파일 선택 버튼 숨기기 */
+.custom-file-upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* 커스텀 버튼 스타일 */
+.file-label {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: 0.25s;
+}
+
+/* 호버 효과 */
+.file-label:hover {
+  background-color: #0056b3;
+  transform: scale(0.95);
+}
+
+.file-upload-btn{
+	margin-top: 10px;
+}
+
 /******************************************** 유저조회 테이블 */
 
 .user-container{
