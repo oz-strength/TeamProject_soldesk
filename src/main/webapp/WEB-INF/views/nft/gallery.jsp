@@ -27,16 +27,24 @@
 		// 이미지 경로 변수에 저장
 		var imgPath = '<c:url value="resources/images/nft/" />';
 		$.getJSON("nft.Board.getJSON", function(nft) {
+			var nftDataDiv = document.getElementById('nftData');
+			var html = '';
+
 			$.each(nft.nft, function(i, n) {
+	    		html += '<div class="grid-item">';
+				html += '<ul class="menu align-center expanded text-center SMN_effect-5">';
+				html += '<li>';
 				// 이미지
-				let nft_img = $("<img id='nftImg' src='../" + imgPath + n.n_img + "' />");
-				$(".grid-item").append(nft_img);
-			
-				let title = n.n_name;
-				let nft_title = $("<h1></h1>").append(title);
-				$(".grid-item").append(nft_title);
-				$(".grid-item").append("<hr>");
+				html += '<span><img id="nftImg" src="../' + imgPath + n.n_img + '" /></span>';
+				
+				html += '<span>'+ n.n_name +'</span>';
+				
+				html += '</li>'; 
+				html += '</ul>'; 
+				html += '</div>'; // 닫는 div 추가
+
 			});
+			nftDataDiv.innerHTML = html; 
 		});
 	});
 	
@@ -68,7 +76,7 @@
 	
 	
 	<div class="grid-container" id="nftData">
-		<div class="grid-item"></div>
+		<div id="nftData"></div>
 	</div>
 	
 	<div class="auction">
