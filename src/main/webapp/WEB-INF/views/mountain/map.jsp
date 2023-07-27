@@ -120,21 +120,24 @@ $(document).ready(function() {
 	  
 	  data.weatherItem.forEach(function(weatherItem) {
 		  
-	    html += '<div class="grid-item">';
+	    html += '<div class="grid-item" onclick="goLocalWeatherPage(\'' + weatherItem.w_loc + '\')" >';
 	    html += '<ul>';
 	    html += '<li>';
 	    html += '<img src="${contextPath}/resources/images/' + weatherItem.w_sky + '.gif"> <br>'
-	    html += /* '지역: ' +  */weatherItem.w_loc + '<br><br>';
-	   /*  let f_when = new Date(weatherItem.w_fcstDate);
+	    html += '<div class="weather_location">';
+	    html += weatherItem.w_loc.toUpperCase() + '<br><br>';
+	   	html += '</div>';
+	    /*  let f_when = new Date(weatherItem.w_fcstDate);
 	    let f_w_fcstDate = formatDate(f_when);
 	    let fcstDate = f_w_fcstDate.substring(11, 17);
 	   	let fcstTime = fcstDate + "시 기준"; */
 	   /*  html += '시간: ' + fcstTime + '<br>'; */
+	   html += '<div class="weather_info">';
 	    html += '온도: ' + weatherItem.w_tmp + '℃<br>';
 	    html += '습도: ' + weatherItem.w_reh + '<br>';
 	    html += '강수확률: ' + weatherItem.w_pop + '<br>';
 	    html += '하늘상태: ' + formatSky(weatherItem.w_sky) + '<br>';
-	    
+	    html += '</div>';
 	    // If you have a link to the photo, you can add it here
 	 /*    if (mountain.m_photo) {
 	      html += '<img src="' + mountain.m_photo + '" alt="' + mountain.m_name + '">';
@@ -147,6 +150,10 @@ $(document).ready(function() {
 	  });
 	  
 	  weatherDataDiv.innerHTML = html;
+	}
+	
+	function goLocalWeatherPage(location){
+		window.location.href = '${contextPath}/weather/location?w_loc=' + encodeURIComponent(location);
 	}
 	
 	function formatDate(when) {

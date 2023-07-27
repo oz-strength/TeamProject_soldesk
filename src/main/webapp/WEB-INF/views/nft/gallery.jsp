@@ -25,30 +25,50 @@
 <script type="text/javascript">
 	$(function() {
 		// 이미지 경로 변수에 저장
-		var imgPath = '<c:url value="resources/img/nft/" />';
+		var imgPath = '<c:url value="resources/images/nft/" />';
 		$.getJSON("nft.Board.getJSON", function(nft) {
+			var nftDataDiv = document.getElementById('nftData');
+			var html = '';
+
 			$.each(nft.nft, function(i, n) {
+	    		html += '<div class="grid-item">';
+				html += '<ul class="menu align-center expanded text-center SMN_effect-5">';
+				html += '<li>';
 				// 이미지
-				let nft_img = $("<img src='" + imgPath + n.n_img + "' />");
-				$("#nft_div").append(nft_img);
-			
-				let title = n.n_name;
-				let nft_title = $("<h1></h1>").append(title);
-				$("#nft_div").append(nft_title);
-				$("#nft_div").append("<hr>");
+				html += '<span><img id="nftImg" src="../' + imgPath + n.n_img + '" /></span>';
+				
+				html += '<span>'+ n.n_name +'</span>';
+				
+				html += '</li>'; 
+				html += '</ul>'; 
+				html += '</div>'; // 닫는 div 추가
+
 			});
+			nftDataDiv.innerHTML = html; 
 		});
 	});
+	
+	function checkMakingWallet() {
+		let check = confirm("지갑을 생성하시겠습니까?");
+		if (check) {
+			location.href = "../user/make.wallet";
+		}
+	}
 </script>
 	
 </head>
 <body>
 
-
 	<div class="main-container">
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
+	<div>
+		<c:if test="${sessionScope.user != null}">
+			<a href="" onclick="checkMakingWallet()">지갑 생성</a>
+			<hr>
+		</c:if>
+	</div>
 	
 	<section>
 	<!-- nft 그리드 -->
@@ -56,14 +76,7 @@
 	
 	
 	<div class="grid-container" id="nftData">
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
-		<div class="grid-item">앞으로 들어올 예정</div>
+		<div id="nftData"></div>
 	</div>
 	
 	<div class="auction">

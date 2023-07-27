@@ -221,12 +221,19 @@ header {
   color: #b8e1ee;
   justify-content: center;
   overflow:hidden;
+  position: relative;
 }
 
 .weather_title_h{
 	margin-left: 10px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
+}
+
+#backIcon{
+	position: absolute;
+ 	left: 50px; 
+ 	top: 10px;
 }
 
 a {

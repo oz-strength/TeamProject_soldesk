@@ -10,7 +10,7 @@ public class WeatherManager {
 		try {
 			LocalDateTime now = LocalDateTime.now();
 			DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("yyyyMMddHH");
-			String formatToString = now.format(formatDateTime);
+			String formatToString = String.valueOf(Integer.parseInt(now.format(formatDateTime)) + 1);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHH");
 			Date fcstDate = sdf.parse(formatToString);
 			

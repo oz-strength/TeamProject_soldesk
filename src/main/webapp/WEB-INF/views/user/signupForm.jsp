@@ -68,6 +68,10 @@ function registerCheck(){
 		type: "get",
 		data : { "u_email" : u_email},
 		success : function(result){
+			// 이메일 형식이 아닐 때 아이디 중복확인을 누를 시에, 이메일 형식으로 작성하게 유도
+		if(!rtnCkId()) {
+			alert("이메일 형식으로 입력해주세요.");
+		} else {
 			// 중복유무 출력(result=1 : 사용할 수 있는 아이디, 0 : 사용할 수 없는 아이디)
 		if(result==1){
 			alert("아이디가 중복되지 않습니다.");
@@ -76,6 +80,8 @@ function registerCheck(){
 			alert("다른 아이디를 사용하세요.");
 			isIdChecked = false; // 아이디 체크 실패
 			/* return false; */
+		}
+			
 		}
 		checkInputNullSignUp(); // 입력 값 검사 함수 호출
 		},
