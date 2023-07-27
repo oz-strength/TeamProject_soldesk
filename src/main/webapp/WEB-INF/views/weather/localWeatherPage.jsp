@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/localWeatherPage.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
@@ -32,18 +33,16 @@
 	  });
 	});
 } */
-
-
-
 </script>
 <style>
+#backIcon,
 	div {
 cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
 	</style>
 </head>
 <body>
-
 <header class="header">
+	<a href="${contextPath}/weather/weatherPage"><i id="backIcon" class="xi-angle-left"></i></a>
 	<div class="weather_title_baseDate"></div>
   	<div class="weather_title_h"></div>
 </header>
@@ -71,7 +70,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
     $(function() {
       var w_loc = '<%= (String) request.getAttribute("w_loc") %>';
       $.getJSON("${contextPath}/weatherPage.getJSON?w_loc=" + w_loc, function(wi) {
-        let w_loc_h = $("<h1></h1>").append(w_loc);
+        let w_loc_h = $("<h1></h1>").append(w_loc.toUpperCase());
         let b_when = new Date(wi.weatherItem[0].w_baseDate);
         let w_baseDate = formatDateEx(b_when);
         let w_baseDate_div = $("<div></div>").append(w_baseDate + " 기준");
