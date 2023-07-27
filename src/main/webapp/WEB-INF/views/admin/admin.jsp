@@ -25,6 +25,13 @@
   }
 </style>
 <script type="text/javascript">
+$(document).ready(function() {
+	  $('#fileInput').change(function() {
+	    var fileCount = this.files.length;
+	    $('#fileCount').text('선택된 파일: ' + fileCount + '개');
+	  });
+	});
+
 	$(function() {
 	    // "산 추가하기" 버튼 클릭 이벤트
 	    $('.addMountainBtn').click(function(event) {
@@ -42,12 +49,7 @@
 		});
 	});
 	
-	$(function(){
-		$('#fileInput').change(function() {
-		    var fileCount = this.files.length;
-		    $('#fileCount').text('선택된 파일: ' + fileCount + '개');
-		  });
-	});
+	
 </script>
 <style>
 	.addMountainForm {
@@ -93,7 +95,6 @@
 	        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
 	        <section id="nft">
 	        <div class="nft-header">NFT Image 등록하기</div>
-	        
 	        <div class="nft-main-container">
 		        <div class="nft-reg-form">
 					<form action="nft.regist" method="post" enctype="multipart/form-data">
@@ -102,12 +103,14 @@
 						<input type="hidden" name="n_master" value="admin">
 						
 						<div class="custom-file-upload">
-							<label for="fileInput" class="file-label">파일 선택</label>
-							<input type="file" name="n_files" multiple="multiple" class="file-choice-btn">
+							<label for="fileInput" class="button button--wapasha button--round-s">NFT UPLOAD</label>
+							<input id="fileInput"  type="file" name="n_files" multiple="multiple" >
 						</div>
-						<div id="fileCount">선택된 파일: 0개</div>
+						<div id="fileCount"></div>
 						
-						<input type="submit" value="등록" class="file-upload-btn">
+						<div>
+							<input id="customRegBtn" type="submit" value="등록" class="regBtn" >
+						</div>
 					</form>
 				</div>
 				<div class="check-value">

@@ -36,7 +36,7 @@ public class NFTDAO {
 		}
 	}
 	
-	public void makeFolder(String path) {
+	public void makeFolder(String path) {	
 		File folder = null;
 		try {
 			folder = new File(path);
