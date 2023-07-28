@@ -137,6 +137,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x:hidden;
 }
 
 
@@ -150,7 +151,7 @@ section {
 }
 
 
-/* 네비게이션 메뉴 */
+/************************************* 네비게이션 메뉴 */
 header {
   display: flex;
   align-items: center;
@@ -174,23 +175,6 @@ a {
   box-sizing: border-box;
 }
 
-.long-text{
-	display:none;
-}
-
-.short-text{
-	display:inline;
-}
-
-@media (min-width: 880px){
-	.long-text{
-		display:inline;
-	}
-	.short-text{
-		display:none;
-	}
-}
-
 .button-in-header:hover {
   background-color: #127474;
 }
@@ -203,27 +187,18 @@ a {
 	padding: 10px 50px 10px 50px;
 }
 
-#active-menu {
-  /*background-color: #013a3b;*/
-}
-
+/******************************************** 패럴렉스 이미지 */
 #image-wrapper {
 	display: flex;
   	justify-content: center;
   	overflow: hidden;
+  	/* margin:0 auto; */
 }
 
 #main-image {
-  min-width: 1000px;
-}
-
-/*parallax 이미지*/
-#image-wrapper {
-  overflow: hidden;
-}
-
-#main-image {
-  min-width: 1000px;
+	width:100%;
+	height:auto;
+	
 }
 
 @keyframes upAndDown{
@@ -484,5 +459,8 @@ a {
   margin-left: 50px;
 }
 
-
-
+@media screen and (max-width: 1270px) {
+  #main-image {
+    display:block;
+  }
+}

@@ -1142,3 +1142,179 @@ UPDATE soldesk_mountain_tb
 update soldesk_mountain_tb
     set m_address = '경기 가평군 북면 화악리 산 228-4'
     where m_name = '화악산';
+    
+    
+-- 산 사진 주소 변경 230728
+-- 230728 산 사진 수정 1~10
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.knps.or.kr/archive/files/original/49325285185da7ec8c50f37fdc177d2e7d1a7d6d.jpg'
+    where m_name = '속리산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.kado.net/news/photo/200904/410678_120812_1556.jpg'
+    where m_name = '용화산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.san.chosun.com/news/photo/201908/12945_54532_1050.jpg'
+    where m_name = '가리왕산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://minio.nculture.org/amsweb-opt/multimedia_assets/21/85206/84770/c/068_%EA%B3%84%EB%B0%A9%EC%82%B0_%EA%B2%A8%EC%9A%B81_%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90%EA%B3%B5%EB%8B%A8_%EC%A0%9C4%EC%9C%A0%ED%98%95-full-size.jpg'
+    where m_name = '계방산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://api.cdn.visitjeju.net/photomng/imgpath/201911/29/48bdb99e-20ba-4fb6-82f2-6ea79ceefb0d.jpg'
+    where m_name = '한라산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.ulsanpress.net/news/photo/202301/412599_192375_5324.jpg'
+    where m_name = '가지산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Mount_Gyeryong_from_Jang-gun_peak.jpg'
+    where m_name = '계룡산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.busan.com/nas/data/content/image/2008/12/11/20081211000127_0.jpg'
+    where m_name = '구병산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%EA%B8%88%EC%A0%95%EC%82%B0.jpg/1280px-%EA%B8%88%EC%A0%95%EC%82%B0.jpg'
+    where m_name = '금정산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://blog.kakaocdn.net/dn/bd2s8w/btrSBo76sAx/ueMOweRSSVG8AfnLgzAnfK/img.jpg'
+    where m_name = '내연산';
+
+-- 230728 산 사진 수정 11~20
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.1gan.co.kr/news/photo/201801/139905_92503_5224.jpg'
+    where m_name = '감악산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.kbmaeil.com/news/photo/201312/306027_738977_3154.jpg'
+    where m_name = '미륵산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://file.mk.co.kr/meet/neds/2016/06/image_readtop_2016_397239_14652655932494415.jpg'
+    where m_name = '백운산(정선)';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.knps.or.kr/upload/contest/21/20221108081550487.jpg'
+    where m_name = '월악산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.kbmaeil.com/news/photo/201403/313196_743586_3849.jpg'
+    where m_name = '지리산(통영)';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.san.chosun.com/news/photo/201904/12642_53046_627.jpg'
+    where m_name = '황장산';
+update soldesk_mountain_tb 
+    set m_photo = 'http://monthly.chosun.com/upload/1204/1204_b174.jpg'
+    where m_name = '남산';
+update soldesk_mountain_tb 
+    set m_photo = 'http://www.gndomin.com/news/photo/201906/211215_210502_5600.jpg'
+    where m_name = '대야산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://tour.jb.go.kr/attachfiles/ctnt/20220714/20220714170759926.jpg'
+    where m_name = '덕유산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.san.chosun.com/news/photo/202112/15365_64452_585.jpg'
+    where m_name = '마니산';
+
+-- 230728 산 사진 수정 21~30
+update soldesk_mountain_tb 
+    set m_photo = 'http://칠성무속tv.com/data/editor/2104/thumb-928a6a6696daff6fcf3729c4baa459c0_1619079305_1269_835x394.jpg'
+    where m_name = '명지산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.foresttrip.go.kr/frip/d275c3b0-355d-49ea-b6a9-2e1b619a8548.JPG'
+    where m_name = '민주지산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://san.chosun.com/news/photo/202006/13898_58456_2323.jpg'
+    where m_name = '성인봉';
+update soldesk_mountain_tb 
+    set m_photo = 'https://tour.jb.go.kr/attachfiles/ctnt/20220819/20220819180917763.jpg'
+    where m_name = '대둔산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://mytriponair.com/uploads/editor/2021/04/4a43827349b1413709527da4aeaa4b5f.jpg'
+    where m_name = '도락산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.ytn.co.kr/general/jpg/2020/0818/202008181334031884_img_03.jpg'
+    where m_name = '도봉산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://san.chosun.com/news/photo/202103/14749_61735_3335.jpg'
+    where m_name = '두륜산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cphoto.asiae.co.kr/listimglink/1/2022042009501636163_1650415817.jpg'
+    where m_name = '두타산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.ytn.co.kr/general/jpg/2020/0515/202005151523431069_t.jpg'
+    where m_name = '마이산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://upload.wikimedia.org/wikipedia/commons/c/cb/%EB%AA%A8%EC%95%85%EC%82%B0.jpg'
+    where m_name = '모악산';
+
+-- 230728 산 사진 수정 31~40
+update soldesk_mountain_tb 
+    set m_photo = 'https://pds.joongang.co.kr/news/component/joongang_sunday/201910/05/7c8c778d-fb74-4e7e-9182-f371c4583d99.jpg'
+    where m_name = '무등산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.traveli.net/data/tmp/1912/aaeaa37beed8cc379d0cc9f34de91169_gE6OFhpLNr4LhxHQN4KJaM.jpg'
+    where m_name = '백덕산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.newsis.com/2022/11/09/NISI20221109_0001125247_web.jpg'
+    where m_name = '백운산(광양)';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.coloradotimesnews.com/wp-content/uploads/2021/06/bigcheese.krweb_.jpg'
+    where m_name = '북한산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.foresttrip.go.kr/frip/920717ba-33ce-4b6b-9b0b-e3b214df7c42.jpg'
+    where m_name = '비슬산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202210/13/f883e7d5-8e0f-4f1a-9c8a-e625efc10c58.jpg'
+    where m_name = '설악산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.knps.or.kr/upload/contest/20/20211018015541396.jpg'
+    where m_name = '소백산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://ggtour.or.kr/cgi/upload_img/20196405916_editor_image.jpg'
+    where m_name ='유명산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://upload.wikimedia.org/wikipedia/commons/4/47/%EC%A3%BC%EC%99%95%EC%82%B0_%28_2_%29.jpg'
+    where m_name = '주왕산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://img.khan.co.kr/news/2007/09/20/7i20k16a.jpg'
+    where m_name = '주흘산';
+
+-- 230728 산 사진 수정 41~50
+update soldesk_mountain_tb 
+    set m_photo = 'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202111/04/480408b2-383a-4b04-92c8-6f737e8d60f4.jpg'
+    where m_name = '지리산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.yeongnam.com/mnt/file/202208/2022082201000675000026462.jpg'
+    where m_name = '천성산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://san.chosun.com/news/photo/201910/13127_55301_1310.jpg'
+    where m_name = '청량산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Chiaksan_as_seen_from_Birobong_Peak.jpg/1200px-Chiaksan_as_seen_from_Birobong_Peak.jpg'
+    where m_name = '치악산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.kmib.co.kr/online_image/2018/0713/201807130405_11130923979008_2.jpg'
+    where m_name = '신불산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://img.khan.co.kr/news/2021/02/13/l_2021020901001140900094801.jpg'
+    where m_name = '오대산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.knps.or.kr/upload/contest/21/20221108082936700.jpg'
+    where m_name = '월출산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://cdn.kado.net/news/photo/202009/1039526_468679_5922.jpg'
+    where m_name = '태백산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://san.chosun.com/news/photo/202111/15362_64432_581.jpg'
+    where m_name = '화악산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://scsgozneamae10236445.cdn.ntruss.com/data2/content/image/2012/05/13/.cache/512/201205130150093.jpg'
+    where m_name = '소요산';
+
+-- 230728 산 사진 수정 51~54
+update soldesk_mountain_tb 
+    set m_photo = 'https://image.ytn.co.kr/general/jpg/2020/0522/202005221705388814_d.jpg'
+    where m_name = '용문산';
+update soldesk_mountain_tb 
+    set m_photo = 'https://www.kukinews.com/data/kuk/image/2022/10/17/kuk202210170227.680x.0.jpg'
+    where m_name = '화왕산';
+update soldesk_mountain_tb
+    set m_photo = 'https://cdn.kbmaeil.com/news/photo/201402/311216_742290_348.jpg'
+    where m_name = '금오산';
+update soldesk_mountain_tb
+    set m_photo = 'https://image.newsis.com/2022/09/23/NISI20220923_0001091952_web.jpg'
+    where m_name = '내장산';

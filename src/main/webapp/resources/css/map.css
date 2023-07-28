@@ -135,6 +135,7 @@ body {
 	background-color: beige;
 	/* height:300vh */
   cursor:none !important; /*기본 마우스 없애기*/
+  overflow-x:hidden;
 }
 .container{
 	font-family: 'Montserrat', sans-serif;
@@ -462,9 +463,3 @@ a {
 .policy a:nth-child(1) {
   margin-left: 50px;
 }
-
-
-
-
-
-
