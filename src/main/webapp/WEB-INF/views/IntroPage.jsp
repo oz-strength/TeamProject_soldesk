@@ -82,10 +82,10 @@
 		          <p>
 				  	블록체인 기술로 다양한 NFT그림들을 만나보세요!
 		          </p>
-		          <a href="" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
+		          <a href="${contextPath}/nft/gallery" class="read-more">구경하러 가기<i class="xi-arrow-right"></i></a></a>
 		        </div>
 		        <div class="photo">
-		          <img src="${contextPath}/resources/images/.png">
+		          <img src="${contextPath}/resources/images/gallery.png">
 		        </div>
 	      </div>
 	    </section>
