@@ -6,8 +6,9 @@ create table SOLDESK_USER_TB(
 	u_birth date not null,
 	u_gender varchar2(10 char) not null,
 	u_admin number(2) default 0 not null,
-	u_public_key varchar2(100 char) default 'none' not null, 
+	u_public_key varchar2(200 char) default 'none' not null, 
 	u_private_key varchar2(100 char) default 'none' not null,
+	u_wallet_address varchar2(100 char) default 'none' not null,
 	u_wallet_cash number(5) default 0 not null
 );
  

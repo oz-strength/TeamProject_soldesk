@@ -4,7 +4,7 @@
 	<insert id="registUser" parameterType="com.soldesk.entity.user.User">
 		insert into SOLDESK_USER_TB 
 		values(#{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_gender}, #{u_admin}, 
-		#{u_public_key}, #{u_private_key}, #{u_wallet_cash})
+		#{u_public_key}, #{u_private_key}, #{u_wallet_address}, #{u_wallet_cash})
 	</insert>
 	
 	<select id="checkUser" resultType="com.soldesk.entity.user.User">
@@ -30,4 +30,9 @@
 	<delete id="deleteUser" parameterType="com.soldesk.entity.user.User">
 		 DELETE FROM SOLDESK_USER_TB WHERE u_email = #{u_email}
 	</delete>
+	
+	<update id="makeWalletUser" parameterType="com.soldesk.entity.user.User">
+		update soldesk_user_tb set u_public_key = #{u_public_key}, u_private_key = #{u_private_key}, 
+		u_wallet_address = #{u_wallet_address}, u_wallet_cash = #{u_wallet_cash} where u_email = #{u_email}
+	</update>
 </mapper>
