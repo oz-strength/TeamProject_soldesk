@@ -1,4 +1,4 @@
-package com.soldesk.entity.blockchain;
+package com.soldesk.entity.user;
 
 public class Wallet {
     private String publicKey;

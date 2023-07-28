@@ -94,10 +94,10 @@ public class UserController {
 		return uDao.getAllUser();
 	}
 	
-	@RequestMapping(value = "/user/make.wallet", method = RequestMethod.GET)
-	public String makeWallet(HttpServletRequest req) {
+	@RequestMapping(value = "/user/make.wallet", method = RequestMethod.POST)
+	public String makeWalletUser(User u, HttpServletRequest req) {
+		uDao.makeWalletUser(u, req);
 		
-		req.setAttribute("r", "지갑이 생성되었습니다. 경매장 페이지에서 확인하세요.");
 		return "home";
 	}
 }

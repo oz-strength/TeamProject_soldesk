@@ -32,7 +32,7 @@
 
 			$.each(nft.nft, function(i, n) {
 	    		html += '<div class="grid-item">';
-				html += '<ul class="menu align-center expanded text-center SMN_effect-5">';
+				html += '<ul onclick="goDetailNFT(' + n.n_no + ')" class="menu align-center expanded text-center SMN_effect-5">';
 				html += '<li>';
 				// 이미지
 				html += '<span><img id="nftImg" src="../' + imgPath + n.n_img + '" /></span>';
@@ -48,6 +48,9 @@
 		});
 	});
 	
+	function goDetailNFT(n_no) {
+		location.href = "../nft.DetailPage?n_no=" + n_no;
+	}
 
 </script>
 
@@ -55,7 +58,26 @@
 	function checkMakingWallet() {
 		let check = confirm("지갑을 생성하시겠습니까?");
 		if (check) {
-			location.href = "../user/make.wallet";
+			// 여기에 실제로 사용할 이메일 값을 가져와서 저장합니다.
+		    let u_email = "${sessionScope.user.u_email}"; 
+
+		    // AJAX 요청 보내기
+		    $.ajax({
+		      url: "../user/make.wallet", // 컨트롤러 URL 설정
+		      method: "POST", // 전송 방식 설정
+		      data: { u_email: u_email }, // 전송할 데이터 설정
+		      success: function (response) {
+		        // 서버로부터 응답이 성공적으로 돌아오면 실행될 함수
+		        // response 변수에 서버로부터 받은 데이터가 들어 있습니다.
+		        console.log("전송 성공!");
+		        alert("지갑이 생성되었습니다. 경매장 페이지에서 확인하세요.");
+		        location.href = "http://localhost:8080/controller";
+		      },
+		      error: function (xhr, status, error) {
+		        // 요청이 실패했을 때 실행될 함수
+		        console.error("전송 실패:", status, error);
+		      }
+		    });
 		}
 	}
 	
@@ -65,6 +87,10 @@
 			const userData = {
 				u_email : "${sessionScope.user.u_email}",
 				u_name : "${sessionScope.user.u_name}",
+				u_public_key : "${sessionScope.user.u_public_key}",
+				u_private_key : "${sessionScope.user.u_private_key}",
+				u_wallet_address : "${sessionScope.user.u_wallet_address}",
+				u_wallet_cash : "${sessionScope.user.u_wallet_cash}",
 			};
 
 			try {
@@ -103,7 +129,7 @@
 		<c:if test="${sessionScope.user != null}">
 			<!-- user_db 에 wallet 변수 추가하기 -->
 			<!-- wallet_cash 를 wallet으로 바꾸기 -->
-			<c:if test="${sessionScope.user.u_wallet_cash == 0 }">
+			<c:if test="${sessionScope.user.u_wallet_address == 'none' }">
 				<a onclick="checkMakingWallet()">지갑 생성</a>
 			</c:if>
 			<a onclick="goAuctionPage()">경매장 페이지</a>
