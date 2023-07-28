@@ -19,4 +19,6 @@ public interface UserMapper {
 	public abstract List<User> getAllUser();
 	
 	public abstract int deleteUser(User u);
+	
+	public abstract int makeWalletUser(User u);
 }

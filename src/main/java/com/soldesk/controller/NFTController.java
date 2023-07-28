@@ -36,10 +36,11 @@ public class NFTController {
 		return nDAO.getNFTList(nft);
 	}
 	
-	// 갤러리 버튼 눌렀을 때 페이지 이동
-	@RequestMapping(value = "/nft.Board", method = RequestMethod.GET)
-	public String goNFTBoard(HttpServletRequest req) {
-		return "";
+	@RequestMapping(value = "/nft.DetailPage", method = RequestMethod.GET)
+	public String goDetailNFT(HttpServletRequest req) {
+		int n_no = Integer.parseInt(req.getParameter("n_no"));
+		req.setAttribute("n_no", n_no);
+		return "nft/nftDetail";
 	}
 	
 	// 파라미터(n_no) 값 받아서 JSON으로 출력

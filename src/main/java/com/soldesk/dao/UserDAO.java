@@ -3,14 +3,15 @@ package com.soldesk.dao;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.soldesk.entity.BlockchainManager;
-import com.soldesk.entity.blockchain.Wallet;
 import com.soldesk.entity.user.User;
 import com.soldesk.entity.user.Users;
+import com.soldesk.entity.user.Wallet;
 import com.soldesk.mapper.user.UserMapper;
 
 @Service
@@ -29,11 +30,6 @@ public class UserDAO {
 	
 	public boolean registUser(User u, HttpServletRequest req) {
 		try {
-			Wallet w = BlockchainManager.createWallet();
-			System.out.println(w.getPublicKey());
-			System.out.println(w.getPrivateKey());
-			System.out.println(w.getWalletAddress());
-			
 			if (userMapper.registUser(u) == 1) {
 				req.setAttribute("r", "회원가입 성공 !");
 				return true;
@@ -115,5 +111,54 @@ public class UserDAO {
 	// 회원 삭제(1개)
 	public void deleteUser(User u) {
 		userMapper.deleteUser(u);
+	}
+	
+	public void makeWalletUser(User u, HttpServletRequest req) {
+		User user = userMapper.checkUser(u);
+		if (user.getU_public_key().equals("none")) {
+			System.out.println("지갑을 생성합니다.");
+			
+			Wallet w = BlockchainManager.createWallet();
+			System.out.println(w.getPublicKey());
+			System.out.println(w.getPrivateKey());
+			System.out.println(w.getWalletAddress());
+			
+			if (user.getU_admin() == 1) {
+				System.out.println("관리자입니다.");
+				u.setU_wallet_cash(10000);
+			} else {
+				u.setU_wallet_cash(5);
+			}
+			
+			u.setU_public_key(w.getPublicKey());
+			u.setU_private_key(w.getPrivateKey());
+			u.setU_wallet_address(w.getWalletAddress());
+
+			if (userMapper.makeWalletUser(u) == 1) {
+				System.out.println("지갑이 성공적으로 생성되었습니다.");
+			} else {
+				System.out.println("지갑이 생성을 실패하였습니다.");
+			}
+			
+			HttpSession ss = req.getSession(false);
+			
+			if (ss != null) {
+				System.out.println("세션 재설정을 시작합니다.");
+				
+				User userSs = (User) ss.getAttribute("user");
+				
+				userSs.setU_public_key(u.getU_public_key());
+				userSs.setU_private_key(u.getU_private_key());
+				userSs.setU_wallet_address(u.getU_wallet_address());
+				userSs.setU_wallet_cash(u.getU_wallet_cash());
+				
+				ss.setAttribute("user", userSs);
+			}
+			
+		} else {
+			System.out.println("이미 지갑이 존재합니다.");
+		}
+		
+		
 	}
 }

@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.soldesk.dao.MountainDAO;
 import com.soldesk.dao.NFTDAO;
 import com.soldesk.dao.WeatherDAO;
-import com.soldesk.entity.BlockchainManager;
-import com.soldesk.entity.blockchain.Wallet;
 
 @Controller
 public class HomeController {

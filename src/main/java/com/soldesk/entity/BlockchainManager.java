@@ -1,18 +1,12 @@
 package com.soldesk.entity;
 
 import java.nio.charset.StandardCharsets;
-
-
-
 import java.security.MessageDigest;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.Keys;
 
-//import org.web3j.crypto.ECKeyPair;
-//import org.web3j.crypto.Keys;
-
-import com.soldesk.entity.blockchain.Wallet;
+import com.soldesk.entity.user.Wallet;
 
 public class BlockchainManager {
 	public static String sha256Hash(String data) throws Exception {
