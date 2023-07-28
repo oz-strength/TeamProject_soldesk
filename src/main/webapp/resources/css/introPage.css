@@ -132,6 +132,7 @@ body {
   height: 100vh;
   background-color: beige;
   cursor:none !important; /*기본 마우스 없애기*/
+  overflow-x:hidden;
 }
 
 					/* 컨텐츠 디자인*/
