@@ -177,7 +177,7 @@ function showPw1() {
             <span>Save Email</span>
           </label>
           <a href="#none">Forgot Password?</a>
-          <a href="signup"><b>Sign Up<b></b></a>
+          <a href="login/signup"><b>Sign Up<b></b></a>
         </div>
       </form>
     <script src="${contextPath}/resources/js/validCheck.js">
