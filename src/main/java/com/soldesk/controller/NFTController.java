@@ -55,4 +55,10 @@ public class NFTController {
 	public @ResponseBody int countNFT() {
 		return nDAO.countNFT();
 	}
+	
+	@RequestMapping(value = "/nft.swap", method = RequestMethod.GET)
+	public String swapNFTStatus(HttpServletRequest req) {
+		System.out.println("NFT 상태 변경 메소드 실행");
+		return "NFT 상태가 변경되었습니다.";
+	}
 }
