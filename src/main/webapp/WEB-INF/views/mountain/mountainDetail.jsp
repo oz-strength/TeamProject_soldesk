@@ -107,6 +107,10 @@ function mapView(data){
 	
 	// id가 click인 div를 보이게 처리
     $("#KakaoMapClick").show();
+	
+    document.getElementById('m_photo').addEventListener('error', function() {
+    	  this.src = '${contextPath}/resources/404error.jpg';
+    	});
 }
 </script>
 </head>
@@ -173,7 +177,7 @@ function mapView(data){
     		  
     	    html += '<div class="detail-container">';
     	    if (mountain.m_photo) {
-      	      html += '<div class="m_photo"><img src="' + mountain.m_photo + '" alt="${contextPath}/resources/images/404error.png"></div>';
+      	      html += '<div class="m_photo"><img id="m_photo" src="' + mountain.m_photo + '" alt=""></div>';
       	    }
     	    html += '<div class="mountain_info">';
     	    html += '<div class="m_name">' + mountain.m_name +'</div><br>';
