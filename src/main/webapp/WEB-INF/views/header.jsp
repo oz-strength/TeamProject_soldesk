@@ -31,7 +31,7 @@
       </a>
       <c:if test="${sessionScope.user != null}">
 			<a class="button-in-header" href="https://mymountain-training-journal.web.app/" target="_blank">
-		        <span class="long-text" style="padding: 0 20px;">Journal</span>
+		        <span class="long-text" style="padding: 0 20px;">JOURNAL</span>
 			</a>
 	    </c:if>
     </div>
