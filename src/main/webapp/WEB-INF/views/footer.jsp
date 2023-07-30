@@ -12,9 +12,9 @@
           <div class="sns">
             <b>SNS</b>
             <span>
-              <a href="https://www.youtube.com/@forestgokr"><i class="fa-brands fa-youtube"></i></a>
-              <a href="https://www.forest.go.kr/kfsweb/kfs/idx/Index.do"><i class="fa-brands fa-blogger"></i></a>
-              <a href="https://www.instagram.com/forest_korea/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@forestgokr" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://www.forest.go.kr/kfsweb/kfs/idx/Index.do" target="_blank"><i class="fa-brands fa-blogger"></i></a>
+              <a href="https://www.instagram.com/forest_korea/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </span>
           </div>
         </div>
