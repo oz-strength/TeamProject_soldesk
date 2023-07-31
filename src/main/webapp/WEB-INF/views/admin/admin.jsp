@@ -30,8 +30,6 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
 </style>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-<<<<<<< HEAD
-=======
 	<style>
   /* 테이블 보더 스타일 설정 */
   table.grid-item {
@@ -43,10 +41,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
     border: 1px solid #000; /* 보더 두께와 스타일 설정 */
     padding: 8px; /* 셀의 내용과 보더 사이의 여백 설정 */
   }
-  
-  
 </style>
->>>>>>> refs/remotes/origin/team_upload
 <script type="text/javascript">
 $(document).ready(function() {
 	  $('#fileInput').change(function() {
