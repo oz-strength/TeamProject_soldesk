@@ -1760,7 +1760,7 @@
               <h2>모르는게 있음 물어봐!</h2>
               <p>실시간으로 여러 사람과 소통할수 있습니다.</p>
             </div>
-            <a href="http://localhost:8005" class="btn-explore">explore</a>
+            <a href="http://localhost:8000" class="btn-explore" target="_blank">explore</a>
           </div>
         </div>
       </div>
