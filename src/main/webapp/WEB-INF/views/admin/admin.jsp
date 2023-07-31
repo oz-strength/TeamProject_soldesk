@@ -23,6 +23,8 @@
     border: 1px solid #000; /* 보더 두께와 스타일 설정 */
     padding: 8px; /* 셀의 내용과 보더 사이의 여백 설정 */
   }
+  
+  
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -47,8 +49,33 @@ $(document).ready(function() {
 				alert(n_no + 1 + ".png 값부터 순서대로 넣어주세요 ~");
 			});
 		});
+		
+		var imgPath = '<c:url value="resources/images/nft/" />';
+		$.getJSON("../nft/nft.Board.getJSON?n_status=1", function(nft) {
+			var nftDataDiv = document.getElementById('nftData');
+			var html = '';
+
+			$.each(nft.nft, function(i, n) {
+	    		html += '<div class="grid-item">';
+				html += '<ul onclick="goDetailNFT(' + n.n_no + ', ' + n.n_status + ')" class="menu align-center expanded text-center SMN_effect-5">';
+				html += '<li>';
+				// 이미지
+				html += '<span><img id="nftImg" src="../' + imgPath + n.n_img + '" /></span>';
+				
+				html += '<span>'+ n.n_name +'</span>';
+				
+				html += '</li>'; 
+				html += '</ul>'; 
+				html += '</div>'; // 닫는 div 추가
+
+			});
+			nftDataDiv.innerHTML = html; 
+		});
 	});
 	
+	function goDetailNFT(n_no, n_status) {
+		location.href = "../nft.DetailPage?n_no=" + n_no + "&n_status=" + n_status;
+	}
 	
 </script>
 <style>
@@ -119,6 +146,14 @@ $(document).ready(function() {
 					<hr>
 		       </div>
 	       </div>
+	       
+	       <!-- 추가한 부분 -->
+	       <hr>
+	       <div><h1>경매 등록하기</h1></div>
+	       	<div class="grid-container" id="nftData">
+				<div id="nftData"></div>
+			</div>
+	       <!--  -->
 	       
 	        </section>
 	        <section id="users">

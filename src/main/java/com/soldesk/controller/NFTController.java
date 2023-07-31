@@ -39,7 +39,9 @@ public class NFTController {
 	@RequestMapping(value = "/nft.DetailPage", method = RequestMethod.GET)
 	public String goDetailNFT(HttpServletRequest req) {
 		int n_no = Integer.parseInt(req.getParameter("n_no"));
+		int n_status = Integer.parseInt(req.getParameter("n_status"));
 		req.setAttribute("n_no", n_no);
+		req.setAttribute("n_status", n_status);
 		return "nft/nftDetail";
 	}
 	
@@ -56,9 +58,14 @@ public class NFTController {
 		return nDAO.countNFT();
 	}
 	
-	@RequestMapping(value = "/nft.swap", method = RequestMethod.GET)
-	public String swapNFTStatus(HttpServletRequest req) {
-		System.out.println("NFT 상태 변경 메소드 실행");
-		return "NFT 상태가 변경되었습니다.";
+	@RequestMapping(value = "/nft.swap", method = RequestMethod.POST)
+	public String swapNFTStatus(NFT nft, HttpServletRequest req) {
+		nDAO.swapNFTStatus(nft, req);
+		if (nft.getN_status() == 1) {
+			req.setAttribute("r", "경매 상태로 전환되었습니다.");
+		} else if (nft.getN_status() == 2) {
+			req.setAttribute("r", "경매장에 등록되었습니다.");
+		}
+		return "home";
 	}
 }
