@@ -406,10 +406,85 @@ a {
 .grid-item:hover{
   transform: scale(1.05);
 }
-/**************************************************** 경매 버튼*/
-.auction{
-	display:flex;
+
+/*********************** 지갑생성, 경매장 페이지 컨테이너*/
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+  
+.nft-btn-container{
+	display: flex;
+	padding: 10px;
 	justify-content: center;
+	flex-direction: row;
+}
+/************************************************** 지갑 생성버튼, 경매장페이지 버튼 */
+
+.wallet-btn-frame {
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+  
+}
+
+.makeWallet-btn {
+	font-family: 'Nanum Gothic', sans-serif;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.15),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 5 */
+.btn-5 {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(50, 59, 59);
+  background: linear-gradient(
+    0deg,
+    rgba(50, 59, 59, 1) 0%,
+    rgb(92, 104, 104) 100%
+  );
+}
+.btn-5:hover {
+  color: #09c2f0;
+  background: transparent;
+  box-shadow: none;
+}
+.btn-5:before,
+.btn-5:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #09c2f0;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+.btn-5:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
 
 

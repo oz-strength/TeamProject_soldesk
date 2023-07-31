@@ -135,15 +135,18 @@
 	<%-- 헤더 컴포넌트 가져오기 --%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<div>
+	<div class="nft-btn-container">
 		<c:if test="${sessionScope.user != null}">
 			<!-- user_db 에 wallet 변수 추가하기 -->
 			<!-- wallet_cash 를 wallet으로 바꾸기 -->
 			<c:if test="${sessionScope.user.u_wallet_address == 'none' }">
-				<a onclick="checkMakingWallet()">지갑 생성</a>
+				<div class="wallet-btn-frame">
+					<a class="makeWallet-btn btn-5" onclick="checkMakingWallet()">지갑 생성</a>
+				</div>
 			</c:if>
-			<a onclick="goAuctionPage()">경매장 페이지</a>
-			<hr>
+				<div class="wallet-btn-frame">
+					<a class="makeWallet-btn btn-5" onclick="goAuctionPage()">경매장 페이지</a>
+				</div>
 		</c:if>
 	</div>
 	
@@ -154,10 +157,6 @@
 	
 	<div class="grid-container" id="nftData">
 		<div id="nftData"></div>
-	</div>
-	
-	<div class="auction">
-		<a href="http://localhost:8010">Auction!</a>
 	</div>
 	
 	</section>

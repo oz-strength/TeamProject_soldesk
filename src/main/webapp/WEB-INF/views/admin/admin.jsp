@@ -10,6 +10,24 @@
 	<meta charset="UTF-8">
     <title>TeamProject</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/admin.css">
+<style>
+#n_no_chk,
+#fileInput,
+.custom-file-upload,
+.nft-reg-form,
+.nft-reg-form label,
+.nft-reg-form #customRegBtn,
+.sidebar a,
+.sns a,
+.policy a,
+.button-in-header,
+.button-in-header a,
+.btn-explore,
+.logo-footer a {
+cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;
+}
+
+</style>
     <script src="https://kit.fontawesome.com/53303b24c1.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<style>
@@ -23,8 +41,6 @@
     border: 1px solid #000; /* 보더 두께와 스타일 설정 */
     padding: 8px; /* 셀의 내용과 보더 사이의 여백 설정 */
   }
-  
-  
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -78,31 +94,33 @@ $(document).ready(function() {
 	}
 	
 </script>
-<style>
-	.addMountainForm {
-    display: none; /* 초기에는 폼을 숨김 */
-	}
 
-	.addMountainForm.show {
-	    display: block; /* show 클래스가 적용되면 폼을 보여줌 */
-	}
-    /* 공통 버튼 스타일 */
-    .addMountainBtn{
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007BFF; /* 원하는 배경색을 지정하세요 */
-        color: #fff; /* 버튼 글자 색상 */
-        text-decoration: none;
-        border: none;
-        border-radius: 5px; /* 버튼 둥글기 조정 */
-        cursor: pointer;
+ <style>
+    /* 파일 업로드 버튼 숨기기 */
+    .custom-file-upload input[type="file"] {
+      display: none;
     }
 
-    /* 버튼에 호버 효과 주기 */
-    .addMountainBtn:hover {
-        background-color: #0056b3; /* 호버 시 배경색 변경 */
+    /* 이미지 미리보기 컨테이너 스타일 */
+    .image-preview-container {
+      display: flex;
+      flex-wrap: wrap;
     }
-</style>
+
+    .image-preview {
+      max-width: 150px;
+      max-height: 150px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .image-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -113,7 +131,7 @@ $(document).ready(function() {
 	<div class="container">
 	    <div class="sidebar">
 	        <!-- 각 메뉴를 클릭하면 해당 섹션을 보이도록 onclick 이벤트 추가 -->
-	        <a href="#" onclick="toggleSection('nft')">nft사진 업로드</a>
+	        <a href="#" onclick="toggleSection('nft')">NFT 사진 업로드</a>
 	        <a href="#" onclick="toggleSection('users','${contextPath}/user/getAllUserJSON')">사용자 관리</a>
 	        <a href="#" onclick="toggleSection('mountainList')">산 리스트 관리</a>
 	        <a href="#" onclick="toggleSection('board')">게시판 관리</a>
@@ -121,7 +139,7 @@ $(document).ready(function() {
 	    <div class="content">
 	        <!-- 기본적으로 보여질 섹션 (예: 대시보드) -->
 	        <section id="nft">
-	        <div class="nft-header">NFT Image 등록하기</div>
+	        <div class="nft-upload-header">NFT Image Upload</div>
 	        <div class="nft-main-container">
 		        <div class="nft-reg-form">
 					<form action="nft.regist" method="post" enctype="multipart/form-data">
@@ -131,9 +149,12 @@ $(document).ready(function() {
 						
 						<div class="custom-file-upload">
 							<label for="fileInput" class="button button--wapasha button--round-s">NFT UPLOAD</label>
-							<input id="fileInput"  type="file" name="n_files" multiple="multiple" >
+							<input id="fileInput"  type="file" name="n_files" multiple="multiple">
 						</div>
 						<div id="fileCount"></div>
+						
+						<!-- 업로드 사진 미리보기 -->
+						<div class="image-preview-container" id="imagePreviewContainer"></div>
 						
 						<div>
 							<input id="customRegBtn" type="submit" value="등록" class="regBtn" >
@@ -157,7 +178,7 @@ $(document).ready(function() {
 	       
 	        </section>
 	        <section id="users">
-	            <h2>사용자 관리</h2>
+	            <div class="user-management-header">User Management</div>
 	            <div class="user-container">
 		            <table id="userList" class="board-table">
 		            	<tr>
@@ -173,31 +194,40 @@ $(document).ready(function() {
 	        </section>
 	        
 	        <section id="mountainList">
-	            <h2>산 리스트 관리</h2>
-	            <div>
-	            	<a class="addMountainBtn" >산 추가하기</a>
+                <div class="mountain-management-header">Mountain Management</div>
+	            <div class="button_container">
+	            	<a class="addMountainBtn" ><span>산 추가하기</span></a>
+	            	<div class="dot"></div>
 	            </div>
 	            <div class="addMountainForm">
 	            	<form action="${contextPath}/mountain.add" method="post">
-	            		<table>
+	            		<table class="addMountainTbl">
+	            			<thead>
+		            			<tr>
+		            				<th>산 이름</th>
+		            				<th>산 높이</th>
+		            				<th>산 지역</th>
+		            				<th>산 주소</th>
+		            				<th>산 사진</th>
+		            				<th>산 상세설명</th>
+		            			</tr>
+	            			</thead>
+	            			<tbody>
+		            			<tr>
+		            				<td><input name="m_name" type="text" placeholder="가리왕산" required/></td>
+		            				<td><input name="m_height" type="text" placeholder="1562m" required/></td>
+		            				<td><input name="m_location" type="text" placeholder="강원" required/></td>
+		            				<td><input name="m_address" type="text" placeholder="강원특별자치도..." required/></td>
+		            				<td><input name="m_photo" type="text" placeholder="사진url..." required/></td>
+		            				<td><input name="m_detail" type="text" placeholder="상세설명..." required/></td>
+		            			</tr>
+	            			</tbody>
 	            			<tr>
-	            				<th>산 이름</th>
-	            				<th>산 높이</th>
-	            				<th>산 지역</th>
-	            				<th>산 주소</th>
-	            				<th>산 사진</th>
-	            				<th>산 상세설명</th>
-	            			</tr>
-	            			<tr>
-	            				<td><input name="m_name" type="text" placeholder="가리왕산" required/></td>
-	            				<td><input name="m_height" type="text" placeholder="1562m" required/></td>
-	            				<td><input name="m_location" type="text" placeholder="강원" required/></td>
-	            				<td><input name="m_address" type="text" placeholder="강원특별자치도..." required/></td>
-	            				<td><input name="m_photo" type="text" placeholder="사진url..." required/></td>
-	            				<td><input name="m_detail" type="text" placeholder="상세설명..." required/></td>
-	            			</tr>
-	            			<tr>
-	            				<td colspan="6"><button>추가하기</button></td>
+	            				<td colspan="6">
+	            					<div class="addBox bg-2">
+	            						<button class="addBtn button--ujarak button--border-medium button--round-s button--text-thick">추가하기</button>
+	            					</div>
+	            				</td>
 	            			</tr>
 	            		</table>
 	            	</form>
@@ -213,6 +243,7 @@ $(document).ready(function() {
 	</div>
 
 </div>
+	 
 	 <%-- 커서 전체화면 적용하기 --%>
     <div class="cursor">
     	<div class="cursor__default">
@@ -246,6 +277,38 @@ $(document).ready(function() {
            });
        });
    }); 
+  	
+  	
+  	/* 업로드 사진 미리보기 */
+  	 // 파일 업로드 input 태그 이벤트 리스너 등록
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', handleFileSelect);
+
+    function handleFileSelect(event) {
+      const files = event.target.files;
+
+      const previewContainer = document.getElementById('imagePreviewContainer');
+      previewContainer.innerHTML = '';
+
+      // 선택한 파일들을 미리보기로 생성하여 추가
+      for (const file of files) {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+          const imagePreview = document.createElement('div');
+          imagePreview.className = 'image-preview';
+
+          const image = document.createElement('img');
+          image.src = event.target.result;
+          image.alt = file.name;
+
+          imagePreview.appendChild(image);
+          previewContainer.appendChild(imagePreview);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
   	
   	/* 유저정보 삭제하기  */
     function deleteUser(u_email) {
@@ -283,20 +346,24 @@ $(document).ready(function() {
       	  data.mountain.forEach(function(mountain) {
       		  var m_no = mountain.m_no;  
       		  html += '<table class="grid-item">';
+      		  html += '<thead>'; 
       	      html += '<tr>';
-        	  html += '<th> Mountain No </th>';
-        	  html += '<th> Mountain Name </th>';
-        	  html += '<th> Mountain Height </th>';
-        	  html += '<th> Mountain Location </th>';
-        	  html += '<th> Mountain Address </th>';
+        	  html += '<th> 번호 </th>';
+        	  html += '<th> 이름 </th>';
+        	  html += '<th> 높이 </th>';
+        	  html += '<th> 지역 </th>';
+        	  html += '<th> 주소 </th>';
         	  html += '</tr>';
-      	      html += '<tr>';
+        	  html += '</thead>';
+        	  html += '<tbody>';
+        	  html += '<tr>';
       	      html += '<td> <a href="${contextPath}/mountain/detail?m_no='+m_no+'">' + mountain.m_no + '</td>';
       	      html += '<td>' + mountain.m_name + '</td>';     	    
     	      html += '<td>' + mountain.m_height + 'm</td>';
     	      html += '<td>' + mountain.m_location + '</td>';
     	      html += '<td>' + mountain.m_address + '</td>';  	 
-    	  	html += '</tr>';
+    	  	  html += '</tr>';
+    	  	  html += '</tbody>';
       	   /*  html += '<tr>';
       	  	html += '<td colspan="5"><a href="#">수정하기</a></td>';
       	    html += '</tr>'; */
