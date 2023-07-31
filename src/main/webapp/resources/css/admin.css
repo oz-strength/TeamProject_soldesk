@@ -222,7 +222,6 @@ a {
 .button-in-header {
   padding: 10px;
   font-weight: 700;
-  cursor: pointer;
   height: 34px;
   box-sizing: border-box;
 }
@@ -308,7 +307,7 @@ h1 {
     margin-bottom: 20px;
 }
 /******************************************** nft사진 업로드 */
-.nft-header{
+.nft-upload-header{
 	display:flex;
 	justify-content: center;
 	margin-bottom: 100px;
@@ -339,6 +338,26 @@ h1 {
 	width: 500px;
 }
 
+/* 미리보기 이미지 사이즈 조절 */
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+  .image-preview {
+  width: 150px; /* 원하는 가로 크기로 변경 */
+  height: 150px; /* 원하는 세로 크기로 변경 */
+  margin: 10px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /******************************* 커스텀 버튼 */
 #fileCount{
@@ -359,7 +378,7 @@ h1 {
   left: 0;
   top: 0;
   opacity: 0;
-  cursor: pointer;
+  display: none;
 }
 
 /* 커스텀 버튼 스타일 */
@@ -475,13 +494,16 @@ h1 {
 	transform:scale(0.9);
 }
 
-/******************************************** 유저조회 테이블 */
-
+/******************************************** 사용자 관리 */
+.user-management-header{
+	display:flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
 .user-container{
 	display: flex;
 	justify-content: center;
 	align-items:center;
-	height: 80vh;
 }
 
 
@@ -566,7 +588,6 @@ h1 {
   	border: 2px solid #e1fdfa;
   	background-color: #fff;
   	transition: all 0.3s ease 0s;
-  	cursor: pointer;
   	outline: none;
 }
 .board-table tr td .deleteBtn:hover,
@@ -577,7 +598,14 @@ h1 {
   transform: translateY(-7px);
 }
 
-/************************************************ 산 그리드  */
+/************************************************ 산 리스트 관리  */
+.mountain-management-header{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	margin-bottom:30px;
+}
+
 .main-container {
   flex: 1;
 }
@@ -595,10 +623,321 @@ h1 {
 
 .grid-item {
   /* Styles for individual grid items, adjust as needed */
-  border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+border-collapse: separate;
+border-spacing: 0;
+  width: 100%;
 }
+.grid-item th,
+.grid-item td{
+  padding : 6px 15px;
+}
+.grid-item th {
+  background: #42444e;
+  color: #fff;
+  text-align: left;
+}
+.grid-item tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+.grid-item tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+.grid-item td {
+  border-right: 1px solid #c6c9cc;
+  border-bottom: 1px solid #c6c9cc;
+}
+.grid-item td:first-child {
+  border-left: 1px solid #c6c9cc;
+}
+.grid-item tr:nth-child(even) td {
+  background: #eaeaed;
+}
+.grid-item tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+.grid-item tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+/************************************* 산 추가 버튼*/
+.addMountainForm {
+   display: none; /* 초기에는 폼을 숨김 */
+}
+
+.addMountainForm.show {
+    display: block; /* show 클래스가 적용되면 폼을 보여줌 */
+}
+
+:root {
+  --bg: #3c465c;
+  --primary: #78ffcd;
+  --solid: #fff;
+  --btn-w: 10em;
+  --dot-w: calc(var(--btn-w) * 0.2);
+  --tr-X: calc(var(--btn-w) - var(--dot-w));
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.button_container {
+  background: var(--bg);
+  position: relative;
+  margin: 0 auto;
+  width: var(--btn-w);
+  color: var(--primary);
+  border: 0.15em solid var(--primary);
+  border-radius: 5em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 2em;
+}
+.dot {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: var(--dot-w);
+  height: 100%;
+  border-radius: 100%;
+  transition: all 300ms ease;
+  display: none;
+}
+.dot:after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 0.4em);
+  top: -0.4em;
+  height: 0.8em;
+  width: 0.8em;
+  background: var(--primary);
+  border-radius: 1em;
+  border: 0.25em solid var(--solid);
+  box-shadow: 0 0 0.7em var(--solid), 0 0 2em var(--primary);
+}
+.button_container:hover .dot,
+.button_container:focus .dot {
+  animation: atom 2s infinite linear;
+  display: block;
+}
+@keyframes atom {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  30% {
+    transform: translateX(var(--tr-X)) rotate(0);
+  }
+  50% {
+    transform: translateX(var(--tr-X)) rotate(180deg);
+  }
+  80% {
+    transform: translateX(0) rotate(180deg);
+  }
+  100% {
+    transform: translateX(0) rotate(360deg);
+  }
+}
+
+/*********************************************** 산 추가 테이블 디자인*/
+.addMountainTbl {
+  border: 1px #a39485 solid;
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.addMountainTbl th {
+  text-align: left;
+}
+
+.addMountainTbl thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+}
+
+.addMountainTbl td,
+.addMountainTbl th {
+  padding: 1em 0.5em;
+  vertical-align: middle;
+}
+
+.addMountainTbl td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.addMountainTbl a {
+  color: #73685d;
+}
+
+@media all and (max-width: 768px) {
+  .addMountainTbl,
+  .addMountainTbl thead,
+  .addMountainTbl tbody,
+  .addMountainTbl th,
+  .addMountainTbl td,
+  .addMountainTbl tr {
+    display: block;
+  }
+
+  .addMountainTbl th {
+    text-align: right;
+  }
+
+  .addMountainTbl table {
+    position: relative;
+    padding-bottom: 0;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .addMountainTbl thead {
+    float: left;
+    white-space: nowrap;
+  }
+
+  .addMountainTbl tbody {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .addMountainTbl tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .addMountainTbl th {
+    border-bottom: 1px solid #a39485;
+  }
+
+  .addMountainTbl td {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+/****************************************** 클릭하면 나오는 산 추가하기 버튼 */
+.addbox {
+  color: #37474f;
+  padding: 2em 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* Box colors */
+/* .bg-2 {
+  background: #7986cb;
+  color: #eceff1;
+} */
+
+/* Common button styles */
+.addBtn {
+  float: left;
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  margin: 1em;
+  padding: 1em 2em;
+  border: none;
+  background: none;
+  color: inherit;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow:hidden;
+}
+.addBtn:focus {
+  outline: none;
+}
+.addBtn > span {
+  vertical-align: middle;
+}
+
+/* Text color adjustments (we could stick to the "inherit" but that does not work well in Safari) */
+.bg-2 .addBtn {
+  color: #3296d9;
+  border-color: #3296d9;
+}
+
+/* Typography and Roundedness */
+.button--text-thick {
+  font-weight: 600;
+}
+.button--round-s {
+  border-radius: 5px;
+}
+
+/* Borders */
+.button--border-medium {
+  border: 2px solid;
+}
+
+/* Ujarak */
+.button--ujarak {
+  -webkit-transition: border-color 0.4s, color 0.4s;
+  transition: border-color 0.4s, color 0.4s;
+}
+.button--ujarak::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 158px;
+  height: 100%;
+  background: #37474f;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transform: scale3d(0.7, 1, 1);
+  transform: scale3d(0.7, 1, 1);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak.button--round-s::before {
+  border-radius: 2px;
+}
+.button--ujarak.button--inverted::before {
+  background: #7986cb;
+}
+.button--ujarak,
+.button--ujarak::before {
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak:hover {
+  color: #fff;
+  border-color: #37474f;
+}
+.button--ujarak.button--inverted:hover {
+  color: #37474f;
+  border-color: #fff;
+}
+.button--ujarak:hover::before {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
 
 /********************************************* footer 디자인*/
 .footer{
