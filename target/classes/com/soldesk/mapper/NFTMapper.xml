@@ -29,4 +29,8 @@
 		resultType="com.soldesk.entity.nft.NFT">
 		select * from soldesk_nft_tb where n_hash = #{n_hash}
 	</select>
+	
+	<update id="swapNFTStatus" parameterType="com.soldesk.entity.nft.NFT">
+		update soldesk_nft_tb set n_status = #{n_status} where n_no = #{n_no}
+	</update>
 </mapper>

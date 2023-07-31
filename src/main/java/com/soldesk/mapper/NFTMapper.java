@@ -14,4 +14,5 @@ public interface NFTMapper {
 	public abstract int countNFT();
 	public abstract int setNFTNo();
 	public abstract NFT checkNFTHash(NFT nft);
+	public abstract int swapNFTStatus(NFT nft);
 }

@@ -32,7 +32,7 @@
 
 			$.each(nft.nft, function(i, n) {
 	    		html += '<div class="grid-item">';
-				html += '<ul onclick="goDetailNFT(' + n.n_no + ')" class="menu align-center expanded text-center SMN_effect-5">';
+				html += '<ul onclick="goDetailNFT(' + n.n_no + ', ' + n.n_status + ')" class="menu align-center expanded text-center SMN_effect-5">';
 				html += '<li>';
 				// 이미지
 				html += '<span><img id="nftImg" src="../' + imgPath + n.n_img + '" /></span>';
@@ -48,8 +48,8 @@
 		});
 	});
 	
-	function goDetailNFT(n_no) {
-		location.href = "../nft.DetailPage?n_no=" + n_no;
+	function goDetailNFT(n_no, n_status) {
+		location.href = "../nft.DetailPage?n_no=" + n_no + "&n_status=" + n_status;
 	}
 
 </script>
@@ -82,38 +82,48 @@
 	}
 	
 	async function goAuctionPage() {
-		let check = confirm("경매장 페이지로 이동하시겠습니까?");
-		if (check) {
-			const userData = {
-				u_email : "${sessionScope.user.u_email}",
-				u_name : "${sessionScope.user.u_name}",
-				u_public_key : "${sessionScope.user.u_public_key}",
-				u_private_key : "${sessionScope.user.u_private_key}",
-				u_wallet_address : "${sessionScope.user.u_wallet_address}",
-				u_wallet_cash : "${sessionScope.user.u_wallet_cash}",
-			};
+		  let check = confirm("경매장 페이지로 이동하시겠습니까?");
+		  if (check) {
+		    const userData = {
+		      u_email : "${sessionScope.user.u_email}",
+		      u_pw : "${sessionScope.user.u_pw}",
+		      u_name : "${sessionScope.user.u_name}",
+		      u_public_key : "${sessionScope.user.u_public_key}",
+		      u_private_key : "${sessionScope.user.u_private_key}",
+		      u_wallet_address : "${sessionScope.user.u_wallet_address}",
+		      u_wallet_cash : "${sessionScope.user.u_wallet_cash}",
+		    };
 
-			try {
-				const response = await
-				fetch("http://localhost:3000/user.regist/", {
-					method : "POST",
-					body : JSON.stringify(userData),
-					headers : {
-						"Content-Type" : "application/json",
-					},
-				});
+		    try {
+		      const response = await fetch("http://localhost:3000/user.regist/", {
+		        method: "POST",
+		        body: JSON.stringify(userData),
+		        headers: {
+		          "Content-Type": "application/json",
+		        },
+		      });
 
-				if (response.ok) {
-					alert("경매장 페이지로 이동합니다.");
-					window.location.href = "http://localhost:3000/wallet.go";
-				} else {
-					alert("데이터 전송 실패!");
-				}
-			} catch (error) {
-				alert("서버 통신 중 에러 발생:", error);
-			}
+		      if (response.ok) {
+		        // 회원 등록이 성공하면 서버로부터 받은 JSON 응답을 처리합니다.
+		        const data = await response.json();
+
+		        if (data.message == "success") {
+		          alert("지갑 정보를 먼저 확인합니다.");
+ 		          const public_key = userData.u_public_key;
+		          window.location.href = "http://localhost:3000/auction.go?key=" + public_key;
+		        } else {
+		          alert("메세지 전송 실패!");
+		        }
+		      } else {
+		        alert("데이터 전송 실패!");
+		      }
+		    } catch (error) {
+		      alert("서버 통신 중 에러 발생:", error);
+		    }
+		  }
 		}
-	}
+
+
 </script>
 
 </head>

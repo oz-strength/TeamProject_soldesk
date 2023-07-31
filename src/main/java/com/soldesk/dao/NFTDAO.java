@@ -162,5 +162,13 @@ public class NFTDAO {
 			return 1;
 		}
 	}
+	
+	public void swapNFTStatus(NFT nft, HttpServletRequest req) {
+		if (nm.swapNFTStatus(nft) == 1) {
+			System.out.println("NFT 상태 변경 완료.");
+		} else {
+			System.out.println("NFT 상태 변경 실패 !");
+		}
+	}
 }
 
