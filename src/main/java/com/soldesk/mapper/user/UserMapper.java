@@ -21,4 +21,6 @@ public interface UserMapper {
 	public abstract int deleteUser(User u);
 	
 	public abstract int makeWalletUser(User u);
+	
+	public abstract int provideCashUser(User u);
 }

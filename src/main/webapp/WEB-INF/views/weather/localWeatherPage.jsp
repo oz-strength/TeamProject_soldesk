@@ -97,8 +97,8 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
           let f_w_fcstDate = formatDateEx(f_when);
           let w_fcstDate = $("<div></div>").append(f_w_fcstDate);
 
-          let w_tmp = $("<div></div>").text("Temperature: " + w.w_tmp + "°C");
-          let w_reh = $("<div></div>").text("Humidity: " + w.w_reh + "%");
+          let w_tmp = $("<div></div>").text("온도 : " + w.w_tmp + "°C");
+          let w_reh = $("<div></div>").text("습도 : " + w.w_reh + "%");
 
           // Adding data to the arrays for the chart
           forecastDates.push(f_w_fcstDate);
@@ -113,14 +113,14 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
             labels: forecastDates,
             datasets: [
               {
-                label: 'Temperature (°C)',
+                label: '온도 (°C)',
                 data: temperatures,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
               },
               {
-                label: 'Humidity',
+                label: '습도 (%)',
                 data: humidities,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
@@ -148,7 +148,7 @@ cursor: url(${contextPath}/resources/images/mouse-pointer.png), auto;}
         let hours = ("0" + when.getHours()).slice(-2);
         let minutes = ("0" + when.getMinutes()).slice(-2);
 
-        return year + "/" + month + "/" + day + " " + hours + ":" + minutes;
+        return year + "-" + month + "-" + day + " " + hours + ":" + minutes;
       }
     });
   </script>

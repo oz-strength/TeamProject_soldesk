@@ -42,10 +42,10 @@
 					let w_fcstDate = $("<div></div>").append(f_w_fcstDate);
 					// $(".weather_content_fcstDate").append(w_fcstDate);
 					
-					let w_tmp = $("<div></div>").text("Temperature: " + w.w_tmp + "°C");
+					let w_tmp = $("<div></div>").text("온도 : " + w.w_tmp + "°C");
 					// $(".weather").append(w_tmp);
 					
-					let w_reh = $("<div></div>").text("Humidity: " + w.w_reh + "%");
+					let w_reh = $("<div></div>").text("습도 : " + w.w_reh + "%");
 					// $(".weather").append(w_reh);
 					
 					// Adding data to the arrays for the chart
@@ -61,14 +61,14 @@
 		          data: {
 		            labels: forecastDates,
 		            datasets: [{
-		              label: 'Temperature (°C)',
+		              label: '온도 (°C)',
 		              data: temperatures,
 		              backgroundColor: 'rgba(75, 192, 192, 0.2)',
 		              borderColor: 'rgba(75, 192, 192, 1)',
 		              borderWidth: 1
 		            },
 		            {
-		              label: 'Humidity',
+		              label: '습도 (%)',
 		              data: humidities,
 		              backgroundColor: 'rgba(255, 99, 132, 0.2)',
 		              borderColor: 'rgba(255, 99, 132, 1)',

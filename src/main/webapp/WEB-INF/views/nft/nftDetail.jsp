@@ -1,3 +1,4 @@
+<%@page import="com.soldesk.entity.user.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -24,6 +25,18 @@
 			$("#nft_div").append(nft_title);
 			$("#nft_div").append(nft_master);
 			
+			// Java 객체를 JSON 형식으로 변환하여 JavaScript 변수에 할당 (Jackson 사용)
+			var user_session = JSON.parse('<%= (new com.fasterxml.jackson.databind.ObjectMapper()).writeValueAsString(session.getAttribute("user")) %>');
+			
+			if (user_session !== null && user_session !== undefined) {
+			    // JavaScript에서 해당 객체의 프로퍼티에 접근하여 이메일 주소를 가져옴
+				var u_email = user_session.u_email;
+				
+				if (u_email === n.n_master) {
+					$("#auction_div").removeAttr("hidden");
+				}
+			} 
+			
 			if (n_status == 0) {
 				$("#auction_controller_btn").removeAttr("hidden");
 				$("#n_no").attr("value", n.n_no);
@@ -39,12 +52,13 @@
 						      n_no : n.n_no,
 						      n_hash : n.n_hash,
 						      n_master : n.n_master,
+						      n_img : n.n_img,
 						      n_status : n.n_status,
 						      n_name : n.n_name,
 						    };
 
 				    try {
-					      const response = await fetch("http://localhost:3000/nft.regist/", {
+					      const response = await fetch("http://localhost:3000/nft.regist", {
 					        method: "POST",
 					        body: JSON.stringify(nftData),
 					        headers: {
@@ -59,13 +73,13 @@
 					          alert("경매장에 등록하였습니다.");
 					          document.getElementById("change_status_Controller").submit();
 					        } else {
-					          alert("경매장 등록 실패하였습니다 !");
+					        	console.log("경매장 등록 실패하였습니다 !");
 					        }
 					      } else {
-					        alert("데이터 전송 실패!");
+					    	  console.log("데이터 전송 실패!");
 					      }
 					    } catch (error) {
-					      alert("서버 통신 중 에러 발생:", error);
+					      console.log("서버 통신 중 에러 발생:", error);
 					    } 
 				}
 			});
@@ -76,8 +90,8 @@
 </head>
 <body>
 	<h1>NFT Detail Page !!</h1>
-	<div id="nft_div"></div>
-	<c:if test="${sessionScope.user.u_admin == 1 }">
+	<div id="nft_div"></div> 
+	<div id="auction_div" hidden="true">
 		<form action="nft.swap" method="post">
 			<input id="n_no" name="n_no" hidden="true" readonly="readonly">
 			<input id="n_status" name="n_status" hidden="true" value=1 readonly="readonly">
@@ -88,6 +102,6 @@
 			<input id="c_n_status" name="n_status" hidden="true" value=2 readonly="readonly">
 			<button id="auction_nodejs_btn" hidden="true">경매 등록</button>
 		</form>
-	</c:if>
+	</div>
 </body>
 </html>

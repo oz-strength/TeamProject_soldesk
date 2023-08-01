@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class NFT {
 	private int n_no;
 	private String n_hash;
-	private String n_master = "admin";
+	private String n_master = "admin@admin.com";
 	private String n_img;
 	private int n_status = 0;
 	private String n_brand = "MyMountain";
