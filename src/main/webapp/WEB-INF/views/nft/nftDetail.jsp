@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/nftDetail.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
 	$(function() {
@@ -17,7 +18,7 @@
 		var imgPath = '<c:url value="resources/images/nft/" />';
 		$.getJSON("nft.Detail.getJSON?n_no=" + n_no + "&n_status=" + n_status, function(n) {
 			let nft_title = $("<h1></h1>").append(n.n_name);
-			let nft_img = $("<img id='nftImg' src='" + imgPath + n.n_img + "' />");
+			let nft_img = $("<img class='nftImg' id='nftImg' src='" + imgPath + n.n_img + "' />");
 			let nft_master = $("<h1></h1>").append("Master : " + n.n_master);
 			
 			$("#nft_div").append(nft_img);
@@ -76,7 +77,9 @@
 </head>
 <body>
 	<h1>NFT Detail Page !!</h1>
+	
 	<div id="nft_div"></div>
+
 	<c:if test="${sessionScope.user.u_admin == 1 }">
 		<form action="nft.swap" method="post">
 			<input id="n_no" name="n_no" hidden="true" readonly="readonly">
@@ -89,5 +92,26 @@
 			<button id="auction_nodejs_btn" hidden="true">경매 등록</button>
 		</form>
 	</c:if>
+	
+	
+	
+	 <%-- 커서 전체화면 적용하기 --%>
+    <div class="cursor">
+    	<div class="cursor__default">
+    		<span class="cursor__default__inner"></span>
+    	</div>
+    	<div class="cursor__trace">
+    		<span class="cursor__trace__inner"></span>
+    	</div>
+    </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/cursor.js"></script>
+	
+	
+	
+	
+	<!-- 위로 올라가는 버튼 -->
+	<a id="backtotop" ></a>
+	<script type="text/javascript" src="${contextPath}/resources/js/backtotop.js"></script>
+	
 </body>
 </html>
