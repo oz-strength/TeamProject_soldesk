@@ -83,8 +83,8 @@ public class UserController {
 	
 	// 회원정보 수정
 	@RequestMapping("/user/user.changeUserInfo")
-	public String updateUser(User u) {
-		uDao.updateUser(u);
+	public String updateUser(User u, HttpServletRequest req) {
+		uDao.updateUser(u, req);
 		return "home";
 	}
 	
