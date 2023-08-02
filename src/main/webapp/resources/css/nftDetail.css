@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}  
+************************************************************************************
+
+body,html {
+  margin: 0;
+   padding: 0;
+  display: flex;
+  overflow:hidden;
+  heigth: 100%;
+}
+
+
+
+/***************************************** CANVAS*/
+#goBack{
+	color: #004356;
+}
+
+#nftImg{
+	width: 800px;
+	border-radius: 10px;
+}
+/******************************************** MAIN Container*/
+.backBtnDiv{
+	margin: 30px 0px 100px 0px;
+}
+
+.main-container{
+	font-family: 'Montserrat', sans-serif;
+	flex:1;
+	display:flex;
+	/* justify-content:center; */
+	align-items: center;
+	flex-direction: column;
+}
+
+
+/**************************************************** cursor 디자인하기
+
+/* .cursor{
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   z-index:9999;
+   pointer-events: none !important;
+}
+
+.cursor__default__inner{
+   position: absolute;
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background-color:rgba(10, 27, 16, 2.5);
+   border: 2px solid #d5a54e;
+   border-radius: 50%;
+   transform: translate(-50%, -50%); 커서 정중앙에 맞추기
+}
+
+.cursor__trace__inner{
+   position: absolute;
+   display:inline-block;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background-color: rgba(0, 0, 0, 0.25);
+   transform: translate(-50%, -50%); 커서 정중앙에 맞추기
+   transition: all .04s ease;
+}
+
+.cursor--active .cursor__trace__inner{
+   transform: scale(0.5) translate(-100%, -100%);;
+   transition: transform .3s ease;
+}
+
+@keyframes ripple{
+   0% {
+      transform: scale(0);
+      opacity: 1;
+   }
+   20% {
+      transform: scale(5);
+      opacity: 1;
+   }
+   100% {
+      transform: scale(10);
+      opacity: 0;
+   }
+}
+
+.ripple{
+   position: absolute;
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: #d5a54e;
+   animation: ripple .5s ease-out;
+   z-index: -1;
+} */ 
+
+
+/********************** backtotop 버튼 */
+/* #backtotop {
+  background-color: rgb(47, 48, 89);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition-property: background-color, opacity, visibility;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+#backtotop::after {
+  content: '\f077';
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 40px;
+  color: #fff;
+}
+
+#backtotop.show:hover {
+  cursor: url(../images/mouse-pointer.png), auto;
+  background-color: #74c0f0;
+}
+
+#backtotop.show {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgb(47, 48, 49);
+} */
+/*back to top button*/
