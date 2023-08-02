@@ -122,8 +122,12 @@ public class UserDAO {
 	}
 	
 	// 회원정보 수정
-	public void updateUser(User u) {
+	public void updateUser(User u, HttpServletRequest req) {
 		userMapper.updateUser(u);
+	    
+		User currentUser = (User) req.getSession().getAttribute("user");
+	    currentUser.setU_name(u.getU_name()); 
+	    req.getSession().setAttribute("user", currentUser);
 	}
 	
 	// 모든 유저 db 조회
