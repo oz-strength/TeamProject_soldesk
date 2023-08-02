@@ -31,8 +31,14 @@
 		 DELETE FROM SOLDESK_USER_TB WHERE u_email = #{u_email}
 	</delete>
 	
+	<!-- 유저 지갑 생성 -->
 	<update id="makeWalletUser" parameterType="com.soldesk.entity.user.User">
 		update soldesk_user_tb set u_public_key = #{u_public_key}, u_private_key = #{u_private_key}, 
 		u_wallet_address = #{u_wallet_address}, u_wallet_cash = #{u_wallet_cash} where u_email = #{u_email}
+	</update>
+	
+	<!-- 유저 캐쉬 증정 -->
+	<update id="provideCashUser" parameterType="com.soldesk.entity.user.User">
+		update soldesk_user_tb set u_wallet_cash = #{u_wallet_cash} where u_email = #{u_email}
 	</update>
 </mapper>

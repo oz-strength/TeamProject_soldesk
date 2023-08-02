@@ -58,6 +58,13 @@ public class UserDAO {
 		
 	}
 	
+	// 현재 시간 기준으로 하루가 지났는지 확인하는 메서드
+	private boolean isOneDayPassed(Long lastLoginTime) {
+	    long currentTime = System.currentTimeMillis();
+	    long oneDayMillis = 24 * 60 * 60 * 1000;
+	    return (currentTime - lastLoginTime) >= oneDayMillis;
+	}
+	
 	public boolean loginUser(User u, HttpServletRequest req, HttpServletResponse res) {
 		try {
 			String u_email = u.getU_email();
@@ -67,6 +74,22 @@ public class UserDAO {
 			if (user != null) {
 				String dbPw = user.getU_pw();
 				if (dbPw.equals(u_pw)) {
+					// 지갑이 존재한다면,
+					// 이전에 로그인한 시간을 세션에 저장하고, 로그인 시간이 지난 경우에만 포인트를 주도록 변경
+					if (!user.getU_public_key().equals("none")) {
+						HttpSession session = req.getSession();
+						Long lastLoginTime = (Long) session.getAttribute("lastLoginTime");
+						if (lastLoginTime == null || isOneDayPassed(lastLoginTime)) {
+							// 지갑에 캐쉬 증정 -> 1 cash
+							user.setU_wallet_cash(user.getU_wallet_cash() + 1);
+							userMapper.provideCashUser(user);
+							System.out.println("캐쉬가 1 증정되었습니다.");
+							
+							// 현재 시간을 세션에 저장
+							session.setAttribute("lastLoginTime", System.currentTimeMillis());
+						}
+					}
+					
 					req.getSession().setAttribute("user", user);
 					req.getSession().setMaxInactiveInterval(3000);
 					Cookie c = new Cookie("lastLoginId", u_email);
@@ -127,7 +150,7 @@ public class UserDAO {
 				System.out.println("관리자입니다.");
 				u.setU_wallet_cash(10000);
 			} else {
-				u.setU_wallet_cash(5);
+				u.setU_wallet_cash(50);
 			}
 			
 			u.setU_public_key(w.getPublicKey());

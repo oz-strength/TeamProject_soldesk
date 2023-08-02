@@ -145,7 +145,7 @@ $(document).ready(function() {
 					<form action="nft.regist" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="n_name" value="hashValue">
 						
-						<input type="hidden" name="n_master" value="admin">
+						<input type="hidden" name="n_master" value="admin@admin.com">
 						
 						<div class="custom-file-upload">
 							<label for="fileInput" class="button button--wapasha button--round-s">NFT UPLOAD</label>
