@@ -121,11 +121,13 @@ $(function() {
 	   </div>
 	   <div id="nft_div"></div>
 	</div>
-	<div id="auction_div" hidden="true">
+	<div class="reg-auction-form" id="auction_div" hidden="true">
 		<form action="nft.swap" method="post">
 			<input id="n_no" name="n_no" hidden="true" readonly="readonly">
 			<input id="n_status" name="n_status" hidden="true" value=1 readonly="readonly">
-			<button id="auction_controller_btn" hidden="true">경매 전환</button>
+			<span class="wallet-btn-frame">
+				<button class="makeWallet-btn btn-5" id="auction_controller_btn" hidden="true">경매 전환</button>
+			</span>
 		</form>
 		<form id="change_status_Controller" action="nft.swap" method="post">
 			<input id="c_n_no" name="n_no" hidden="true" readonly="readonly">
