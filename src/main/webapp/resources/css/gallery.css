@@ -453,8 +453,8 @@ a {
   background: rgb(50, 59, 59);
   background: linear-gradient(
     0deg,
-    rgba(50, 59, 59, 1) 0%,
-    rgb(92, 104, 104) 100%
+     #74c0f0 0%, 
+    rgb(84 219 219) 100% );
   );
 }
 .btn-5:hover {

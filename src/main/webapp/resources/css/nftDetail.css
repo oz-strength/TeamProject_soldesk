@@ -146,7 +146,7 @@ body,html {
 }
 
 #nftImg{
-	width: 800px;
+	width: 500px;
 	border-radius: 10px;
 }
 /******************************************** MAIN Container*/
@@ -163,7 +163,80 @@ body,html {
 	flex-direction: column;
 }
 
+/****************************************** 경매 전환 버튼 */
+.reg-auction-form{
+	display:flex;
+	justify-content:center;
+}
+.wallet-btn-frame {
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+  
+}
 
+.makeWallet-btn {
+	font-family: 'Nanum Gothic', sans-serif;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.15),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 5 */
+.btn-5 {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(50, 59, 59);
+  background: linear-gradient(
+    0deg,
+    #74c0f0 0%, 
+    rgb(84 219 219) 100% );
+  );
+}
+.btn-5:hover {
+  color: #4fb1c9;
+  background: transparent;
+  box-shadow: none;
+  background-color: #c8fcff; 
+}
+.btn-5:before,
+.btn-5:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #09c2f0;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+.btn-5:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
 /**************************************************** cursor 디자인하기
 
 /* .cursor{
