@@ -71,7 +71,7 @@
 		        // response 변수에 서버로부터 받은 데이터가 들어 있습니다.
 		        console.log("전송 성공!");
 		        alert("지갑이 생성되었습니다. 경매장 페이지에서 확인하세요.");
-		        location.href = "http://localhost:8080/controller";
+		        location.href = "http://localhost:8081/controller";
 		      },
 		      error: function (xhr, status, error) {
 		        // 요청이 실패했을 때 실행될 함수

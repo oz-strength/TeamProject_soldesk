@@ -164,6 +164,14 @@ body,html {
 }
 
 /****************************************** 경매 전환 버튼 */
+#auction_div {
+    display: none; /* 해당 div 요소를 숨깁니다 */
+}
+
+#auction_controller_btn,
+#auction_nodejs_btn {
+    display: none; /* 버튼들도 숨깁니다 */
+}
 .reg-auction-form{
 	display:flex;
 	justify-content:center;

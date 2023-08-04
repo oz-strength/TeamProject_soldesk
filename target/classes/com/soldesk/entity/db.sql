@@ -66,6 +66,7 @@ FROM SOLDESK_BOARD_TB;
 drop table SOLDESK_BOARD_TB cascade constraints;
 
 select * from SOLDESK_BOARD_TB order by b_no desc;
+DELETE FROM SOLDESK_BOARD_TB;
 
 -- 산 테이블 생성
 create table test_mountain(
