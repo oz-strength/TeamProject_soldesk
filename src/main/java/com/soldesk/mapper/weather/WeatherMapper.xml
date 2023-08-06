@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.soldesk.mapper.WeatherMapper">
+<mapper namespace="com.soldesk.mapper.weather.WeatherMapper">
 	<insert id="addWeather" parameterType="com.soldesk.entity.weather.WeatherItem">
 		insert into soldesk_weather_tb values ( soldesk_weather_tb_seq.nextval, 
 		#{w_loc}, #{w_baseDate}, #{w_fcstDate}, #{w_tmp}, #{w_tmx}, 

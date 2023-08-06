@@ -1,4 +1,4 @@
-package com.soldesk.mapper;
+package com.soldesk.mapper.board;
 
 import java.util.List;
 

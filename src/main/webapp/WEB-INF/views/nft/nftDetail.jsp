@@ -58,16 +58,17 @@ $(function() {
 			
 			if (u_email === n.n_master) {
 				$("#auction_div").removeAttr("hidden");
+
+				if (n_status == 0) {
+					$("#auction_controller_btn_frame").removeAttr("hidden");
+					$("#n_no").attr("value", n.n_no);
+				} else {
+					$("#auction_nodejs_btn_frame").removeAttr("hidden");
+					$("#c_n_no").attr("value", n.n_no);
+				}
 			}
 		} 
 		
-		if (n_status == 0) {
-			$("#auction_controller_btn").removeAttr("hidden");
-			$("#n_no").attr("value", n.n_no);
-		} else {
-			$("#auction_nodejs_btn").removeAttr("hidden");
-			$("#c_n_no").attr("value", n.n_no);
-		}
 		
 		$("#auction_nodejs_btn").click(async function() {
 			let check = confirm("경매장에 등록하시겠습니까?");
@@ -125,14 +126,16 @@ $(function() {
 		<form action="nft.swap" method="post">
 			<input id="n_no" name="n_no" hidden="true" readonly="readonly">
 			<input id="n_status" name="n_status" hidden="true" value=1 readonly="readonly">
-			<span class="wallet-btn-frame">
-				<button class="makeWallet-btn btn-5" id="auction_controller_btn" hidden="true">경매 전환</button>
+			<span class="wallet-btn-frame" id="auction_controller_btn_frame" hidden="true">
+				<button class="makeWallet-btn btn-5" id="auction_controller_btn">경매 전환</button>
 			</span>
 		</form>
 		<form id="change_status_Controller" action="nft.swap" method="post">
 			<input id="c_n_no" name="n_no" hidden="true" readonly="readonly">
 			<input id="c_n_status" name="n_status" hidden="true" value=2 readonly="readonly">
-			<button id="auction_nodejs_btn" hidden="true">경매 등록</button>
+			<span class="wallet-btn-frame" id="auction_nodejs_btn_frame" hidden="true">
+				<button class="makeWallet-btn btn-5" id="auction_nodejs_btn">경매 등록</button>
+			</span>
 		</form>
 	</div>
    

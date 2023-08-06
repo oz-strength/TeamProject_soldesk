@@ -6,14 +6,13 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.soldesk.entity.BlockchainManager;
 import com.soldesk.entity.nft.NFT;
 import com.soldesk.entity.nft.NFTList;
-import com.soldesk.mapper.NFTMapper;
+import com.soldesk.mapper.nft.NFTMapper;
 
 
 @Service

@@ -150,7 +150,7 @@ function showPw1() {
       <h1>Login</h1>
       <form action="${contextPath}/user.login" method="post">
         <div class="input-field">
-          <input type="text" name="u_email" id="u_id" autocomplete="off" value="${cookie.lastLoginId.value }" minlength="1" autofocus/>
+          <input type="text" name="u_email" id="u_id" autocomplete="off" value="" minlength="1" autofocus/>
           <span>USER EMAIL</span>
         </div>
         <div id="u_email_err_div" class="err-field"></div>

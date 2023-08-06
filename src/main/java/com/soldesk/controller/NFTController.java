@@ -19,11 +19,6 @@ public class NFTController {
 	@Autowired
 	private NFTDAO nDAO;
 	
-//	@RequestMapping(value = "/nft", method = RequestMethod.GET)
-//	public String goNFTPage(HttpServletRequest req) {
-//		return "nft";
-//	}
-	
 	@RequestMapping(value = "/admin/nft.regist", method = RequestMethod.POST)
 	public String registNFT(@ModelAttribute NFT nft, HttpServletRequest req) {
 		nDAO.processNFTFiles(nft, req);

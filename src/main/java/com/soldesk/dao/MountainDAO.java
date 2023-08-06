@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.soldesk.entity.mountain.Mountain;
 import com.soldesk.entity.mountain.Mountains;
-import com.soldesk.mapper.MountainMapper;
+import com.soldesk.mapper.mountain.MountainMapper;
 
 @Service
 public class MountainDAO {

@@ -1,4 +1,4 @@
-package com.soldesk.mapper;
+package com.soldesk.mapper.weather;
 
 import java.util.List;
 

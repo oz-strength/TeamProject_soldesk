@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.soldesk.mapper.MountainMapper">
+<mapper namespace="com.soldesk.mapper.mountain.MountainMapper">
 	<!-- 모든 산 데이터 조회 -->
 	<select id="getAllMountain" resultType="com.soldesk.entity.mountain.Mountain">
 		select * from soldesk_mountain_tb

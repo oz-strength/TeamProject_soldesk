@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.soldesk.mapper.NFTMapper">
+<mapper namespace="com.soldesk.mapper.nft.NFTMapper">
 	<insert id="insertNFT" parameterType="com.soldesk.entity.nft.NFT">
 		insert into soldesk_nft_tb values (#{n_no}, 
 		#{n_hash}, #{n_master}, #{n_img}, #{n_status}, #{n_brand}, 

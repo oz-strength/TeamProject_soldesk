@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.soldesk.entity.board.Board;
 import com.soldesk.entity.board.Criteria;
 import com.soldesk.entity.board.PageMaker;
-import com.soldesk.mapper.BoardMapper;
+import com.soldesk.mapper.board.BoardMapper;
 
 @Service
 public class BoardDAO {

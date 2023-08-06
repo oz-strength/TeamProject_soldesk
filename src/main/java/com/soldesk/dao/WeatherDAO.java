@@ -12,7 +12,6 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import com.soldesk.entity.location.Location;
 import com.soldesk.entity.location.LocationList;
 import com.soldesk.entity.weather.Weather;
 import com.soldesk.entity.weather.WeatherItem;
-import com.soldesk.mapper.WeatherMapper;
+import com.soldesk.mapper.weather.WeatherMapper;
 
 
 @Service
